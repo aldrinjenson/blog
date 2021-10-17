@@ -2,20 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://aldrinjenson.github.io/blog/docs/about/</loc>
+    <loc>https://aldrinjenson.github.io/blog/about/</loc>
     <lastmod>2021-10-17T19:19:16+05:30</lastmod>
   </url><url>
-    <loc>https://aldrinjenson.github.io/blog/docs/</loc>
+    <loc>https://aldrinjenson.github.io/blog/</loc>
     <lastmod>2021-10-17T19:02:34+05:30</lastmod>
   </url><url>
-    <loc>https://aldrinjenson.github.io/blog/docs/posts/first-post/</loc>
+    <loc>https://aldrinjenson.github.io/blog/posts/first-post/</loc>
     <lastmod>2021-10-17T19:02:34+05:30</lastmod>
   </url><url>
-    <loc>https://aldrinjenson.github.io/blog/docs/posts/</loc>
+    <loc>https://aldrinjenson.github.io/blog/posts/</loc>
     <lastmod>2021-10-17T19:02:34+05:30</lastmod>
   </url><url>
-    <loc>https://aldrinjenson.github.io/blog/docs/categories/</loc>
+    <loc>https://aldrinjenson.github.io/blog/categories/</loc>
   </url><url>
-    <loc>https://aldrinjenson.github.io/blog/docs/tags/</loc>
+    <loc>https://aldrinjenson.github.io/blog/tags/</loc>
   </url>
 </urlset>
