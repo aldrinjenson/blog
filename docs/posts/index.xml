@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Aldrin&#39;s Blog</title>
+    <link>/posts/</link>
+    <description>Aldrin&#39;s Blog (Posts)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 17 Oct 2021 19:02:34 +0530</lastBuildDate>
+    
+    <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>First Post</title>
+      <link>/posts/first-post/</link>
+      <pubDate>Sun, 17 Oct 2021 19:02:34 +0530</pubDate>
+      
+      <guid>/posts/first-post/</guid>
+      <description>&lt;h2 id=&#34;hello&#34;&gt;Hello&lt;/h2&gt;
+&lt;p&gt;Good morning starshine, the earth says &lt;strong&gt;&amp;ldquo;Hellooo..&amp;quot;&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;h3-header&#34;&gt;H3 header&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet.&lt;/p&gt;
+&lt;h4 id=&#34;h4-header&#34;&gt;H4 Header&lt;/h4&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ex iusto, praesentium corrupti, facere nobis in, nam maxime labore tempore possimus? Perferendis in officia qui magnam deleniti, cumque explicabo sequi nesciunt. Quis omnis voluptatibus, consequuntur repudiandae animi, numquam totam vero aspernatur tempore, consequatur quos ut magni praesentium veniam quod odit!&lt;/p&gt;
+&lt;h4 id=&#34;code-example&#34;&gt;Code example&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;console&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;(window);
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; &lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;; &lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;) {
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;console&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;🙂&amp;#34;&lt;/span&gt;);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr/&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ex iusto, praesentium corrupti, facere nobis in, nam maxime labore tempore possimus? Perferendis in officia qui magnam deleniti, cumque explicabo sequi nesciunt. Quis omnis voluptatibus, consequuntur repudiandae animi, numquam totam vero aspernatur tempore, consequatur quos ut magni praesentium veniam quod odit! ✨&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
