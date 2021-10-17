@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Aldrin&#39;s Blog</title>
-    <link>/</link>
+    <link>https://aldrinjenson.github.io/blog/docs/</link>
     <description>Aldrin&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 17 Oct 2021 19:02:34 +0530</lastBuildDate>
     
-    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://aldrinjenson.github.io/blog/docs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About</title>
-      <link>/about/</link>
+      <link>https://aldrinjenson.github.io/blog/docs/about/</link>
       <pubDate>Sun, 17 Oct 2021 19:19:16 +0530</pubDate>
       
-      <guid>/about/</guid>
-      <description>&lt;img src=&#34;/images/me.jpg&#34; width=400 alt=&#34;Aldrin Jenon&#34;&gt;
+      <guid>https://aldrinjenson.github.io/blog/docs/about/</guid>
+      <description>&lt;img src=&#34;https://aldrinjenson.github.io/blog/docs/images/me.jpg&#34; width=400 alt=&#34;Aldrin Jenon&#34;&gt;
 &lt;br/&gt;
 &lt;p&gt;This blog is an archive of various expereinces and learnings from the life of Aldrin Jenson - A Computer Science undergard, pursuing his B.Tech from Govt.Model Engineering College, Kochi, Kerala.&lt;/p&gt;
 </description>
@@ -25,10 +25,10 @@
     
     <item>
       <title>First Post</title>
-      <link>/posts/first-post/</link>
+      <link>https://aldrinjenson.github.io/blog/docs/posts/first-post/</link>
       <pubDate>Sun, 17 Oct 2021 19:02:34 +0530</pubDate>
       
-      <guid>/posts/first-post/</guid>
+      <guid>https://aldrinjenson.github.io/blog/docs/posts/first-post/</guid>
       <description>&lt;h2 id=&#34;hello&#34;&gt;Hello&lt;/h2&gt;
 &lt;p&gt;Good morning starshine, the earth says &lt;strong&gt;&amp;ldquo;Hellooo..&amp;quot;&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;h3-header&#34;&gt;H3 header&lt;/h3&gt;
