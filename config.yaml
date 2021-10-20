@@ -1,4 +1,4 @@
-baseUrl: "https://github.com/aldrinjenson/aldrinjenson.github.io/tree/main/public"
+baseUrl: "https://github.com/aldrinjenson/aldrinjenson.github.io/tree/gh-pages/"
 languageCode: "en-us"
 title: "Aldrin's Blog"
 theme: "anubis"
