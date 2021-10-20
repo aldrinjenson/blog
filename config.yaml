@@ -65,4 +65,4 @@ markup:
       unsafe: true # enable raw HTML in Markdown
 
 canonifyURLs: true
-publishDir: docs
+# publishDir: docs
