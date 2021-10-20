@@ -1,10 +1,10 @@
-baseUrl: "https://aldrinjenson.github.io/blog/docs"
+baseUrl: "https://aldrinjenson.github.io"
 languageCode: "en-us"
 title: "Aldrin's Blog"
 theme: "anubis"
 paginate: 10
-disqusShortname: "yourdiscussshortname"
-googleAnalytics: "G-12345"
+# disqusShortname: "yourdiscussshortname"
+# googleAnalytics: "G-12345"
 enableRobotsTXT: true
 
 menu:
@@ -32,7 +32,7 @@ params:
   #   - css/my.css # relative path to "assets" directory (don't use main.css filename)
   # customJS:
   #   - js/main.js # relative path to "assets" directory
-  dateFormat: "2006-01-02"
+  dateFormat: "02-01-2006"
   paginationSinglePost: true
   style: auto
   readMore: false
