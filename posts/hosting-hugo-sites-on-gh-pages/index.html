@@ -4,20 +4,24 @@
 <meta name=HandheldFriendly content="True">
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=referrer content="no-referrer-when-downgrade">
-<title>About - Aldrin's Blog</title>
+<title>Hosting Hugo Sites on Gh Pages - Aldrin's Blog</title>
 <meta name=description content="CS undergrad from Kerala, India">
 <link rel=icon type=image/x-icon href=https://github.com/aldrinjenson/aldrinjenson.github.io/tree/main/public/favicon.ico>
 <link rel=apple-touch-icon-precomposed href=https://github.com/aldrinjenson/aldrinjenson.github.io/tree/main/public/favicon.png>
 <link rel=stylesheet href=https://github.com/aldrinjenson/aldrinjenson.github.io/tree/main/public/css/style.min.f4eb13e56aed35bf3e86401b634a04a16d7839a2d3981f5a9529ec32f65da88a.css integrity="sha256-9OsT5WrtNb8+hkAbY0oEoW14OaLTmB9alSnsMvZdqIo=">
-<meta property="og:title" content="About">
-<meta property="og:description" content="This blog is an archive of various expereinces and learnings from the life of Aldrin Jenson - A Computer Science undergard, pursuing his B.Tech from Govt.Model Engineering College, Kochi, Kerala.">
+<meta property="og:title" content="Hosting Hugo Sites on Gh Pages">
+<meta property="og:description" content="It took me a day to fix a bug related to hosting a Hugo blog on github pages. Here are the three main points to note which was not properly mentioned in the official Documentation:
+  The baseUrl in your config file should point to wherer your files are located, not the url of your home page
+  If images are not being displayed on your site, enter canonifyURLs: true in your config file">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://github.com/aldrinjenson/aldrinjenson.github.io/tree/main/public/about/"><meta property="article:section" content>
-<meta property="article:published_time" content="2021-10-17T19:19:16+05:30">
-<meta property="article:modified_time" content="2021-10-17T19:19:16+05:30">
+<meta property="og:url" content="https://github.com/aldrinjenson/aldrinjenson.github.io/tree/main/public/posts/hosting-hugo-sites-on-gh-pages/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-10-21T00:20:33+05:30">
+<meta property="article:modified_time" content="2021-10-21T00:20:33+05:30">
 <meta name=twitter:card content="summary">
-<meta name=twitter:title content="About">
-<meta name=twitter:description content="This blog is an archive of various expereinces and learnings from the life of Aldrin Jenson - A Computer Science undergard, pursuing his B.Tech from Govt.Model Engineering College, Kochi, Kerala.">
+<meta name=twitter:title content="Hosting Hugo Sites on Gh Pages">
+<meta name=twitter:description content="It took me a day to fix a bug related to hosting a Hugo blog on github pages. Here are the three main points to note which was not properly mentioned in the official Documentation:
+  The baseUrl in your config file should point to wherer your files are located, not the url of your home page
+  If images are not being displayed on your site, enter canonifyURLs: true in your config file">
 <link rel=webmention href=https://webmention.io/hugo-theme-anubis/webmention>
 <link rel=pingback href=https://webmention.io/hugo-theme-anubis/xmlrpc>
 <link rel=webmention href=https://yourdomain.com/webemntions/receive>
@@ -58,32 +62,42 @@
 </ul>
 </div>
 <nav>
-<a class=active href=https://github.com/about/ title=About>About</a>
+<a href=https://github.com/about/ title=About>About</a>
 <a href=https://github.com/ title=Home>Home</a>
 <a href=https://github.com/posts/ title=Posts>Posts</a>
 </nav>
 </header>
 <main id=main tabindex=-1>
-<nav class=post-navigation>
-<a href=https://github.com/about/ title=About>About</a>
-</nav>
 <article class="post h-entry">
 <header class=post-header>
-<h1 class="p-name post-title">About</h1>
+<h1 class="p-name post-title">Hosting Hugo Sites on Gh Pages</h1>
 </header>
 <div class="content e-content">
-<img src=https://github.com/aldrinjenson/aldrinjenson.github.io/tree/main/public/images/me.jpg width=400 alt="Aldrin Jenon">
-<br>
-<p>This blog is an archive of various expereinces and learnings from the life of Aldrin Jenson - A Computer Science undergard, pursuing his B.Tech from Govt.Model Engineering College, Kochi, Kerala.</p>
+<p>It took me a day to fix a bug related to hosting a Hugo blog on github pages. Here are the three main points to note which was not properly mentioned in the official Documentation:</p>
+<ol>
+<li>
+<p>The baseUrl in your config file should point to wherer your files are located, not the url of your home page</p>
+</li>
+<li>
+<p>If images are not being displayed on your site, enter <code>canonifyURLs: true</code> in your config file</p>
+</li>
+</ol>
 </div>
 <div class=post-info>
-<div class="post-date dt-published">17-10-2021</div>
-<a class="post-hidden-url u-url" href=https://github.com/aldrinjenson/aldrinjenson.github.io/tree/main/public/about/>https://github.com/aldrinjenson/aldrinjenson.github.io/tree/main/public/about/</a>
+<div class="post-date dt-published">21-10-2021</div>
+<a class="post-hidden-url u-url" href=https://github.com/aldrinjenson/aldrinjenson.github.io/tree/main/public/posts/hosting-hugo-sites-on-gh-pages/>https://github.com/aldrinjenson/aldrinjenson.github.io/tree/main/public/posts/hosting-hugo-sites-on-gh-pages/</a>
 <a href=https://github.com/aldrinjenson/aldrinjenson.github.io/tree/main/public class="p-name p-author post-hidden-author h-card" rel=me>Aldrin Jenson</a>
 <div class=post-taxonomies>
 </div>
 </div>
 </article>
+<div class="pagination post-pagination">
+<div class="left pagination-item disabled">
+</div>
+<div class="right pagination-item">
+<a href=https://github.com/aldrinjenson/aldrinjenson.github.io/tree/main/public/posts/first-post/>First Post</a>
+</div>
+</div>
 </main>
 <footer class=common-footer>
 <div class=common-footer-bottom>
