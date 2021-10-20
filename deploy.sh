@@ -1,0 +1,1 @@
+hugo -D && git add -A && git commit -m "Add files" && git push origin main || echo "Error in push"
