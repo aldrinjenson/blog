@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Aldrin&#39;s Blog</title>
-    <link>/categories/</link>
+    <link>https://aldrinjenson.github.io/categories/</link>
     <description>Aldrin&#39;s Blog (Categories)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://aldrinjenson.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

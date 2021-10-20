@@ -55,9 +55,6 @@ params:
       name: aldrinjenson
     - id: medium
       name: aldrinjenson
-#  - id: hugo
-#    url: "https://gohugo.io/"
-#    icon: "hugo"
 
 markup:
   goldmark:
@@ -65,4 +62,3 @@ markup:
       unsafe: true # enable raw HTML in Markdown
 
 canonifyURLs: true
-# publishDir: docs
