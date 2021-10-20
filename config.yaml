@@ -1,4 +1,4 @@
-baseUrl: "https://github.com/aldrinjenson/aldrinjenson.github.io/tree/gh-pages/"
+baseUrl: "https://github.com/aldrinjenson/aldrinjenson.github.io/tree/main/public"
 languageCode: "en-us"
 title: "Aldrin's Blog"
 theme: "anubis"
@@ -62,4 +62,3 @@ markup:
       unsafe: true # enable raw HTML in Markdown
 
 canonifyURLs: true
-publishdir: docs
