@@ -1,13 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Aldrin's Blog</title><link>https://aldrinjenson.github.io/</link><description>Aldrin's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 21 Oct 2021 00:20:33 +0530</lastBuildDate><atom:link href="https://aldrinjenson.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Hosting Hugo Sites on Gh Pages</title><link>https://aldrinjenson.github.io/posts/hosting-hugo-sites-on-gh-pages/</link><pubDate>Thu, 21 Oct 2021 00:20:33 +0530</pubDate><guid>https://aldrinjenson.github.io/posts/hosting-hugo-sites-on-gh-pages/</guid><description>&lt;p>It took me a day to fix a bug related to hosting a Hugo blog on github pages. Here are the three main points to note which was not properly mentioned in the official Documentation:&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Aldrin's Blog</title><link>https://aldrinjenson.github.io/</link><description>Aldrin's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 21 Oct 2021 00:20:33 +0530</lastBuildDate><atom:link href="https://aldrinjenson.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>How to host a Hugo static site using Github pages</title><link>https://aldrinjenson.github.io/posts/hosting-hugo-sites-on-gh-pages/</link><pubDate>Thu, 21 Oct 2021 00:20:33 +0530</pubDate><guid>https://aldrinjenson.github.io/posts/hosting-hugo-sites-on-gh-pages/</guid><description>&lt;p>It took me a day to fix a bug related to hosting a Hugo blog on github pages. Thought I&amp;rsquo;d compile down the learnings here.&lt;/p>
+&lt;p>To get started with the local installation and setting up of the development environment, it&amp;rsquo;s quite easy. Just check out these two links:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://opensource.com/article/18/3/start-blog-30-minutes-hugo?utm_source=nomedium&amp;amp;utm_medium=web&amp;amp;utm_campaign=nomedium">Start a blog in 30 minutes with Hugo&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gohugo.io/getting-started/quick-start/">Official Hugo Quick Start&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>By now you should be having a blog with atleast one post which can be previewed locally using &lt;code>hugo server -D&lt;/code> command.&lt;/p>
+&lt;p>Now the part which I found difficult is to host this site and make it available for the internet. Whie there are guides available on the official docs for a log of hosting options, the one for hosting in github pages isn&amp;rsquo;t very helpful (as I could understand from a lot of Youtube comments in a tutorial video)&lt;/p>
+&lt;p>Anyways, here are the simple gotchas you need to take note of for easy hosting after following the official guide [here](to be kept in mind).&lt;/p>
 &lt;ol>
 &lt;li>
-&lt;p>The baseUrl in your config file should point to wherer your files are located, not the url of your home page&lt;/p>
+&lt;p>The baseUrl in your config file should point to the url where which your site will be deployed. (Usually, &lt;code>yourusername.github.io/{repoName}&lt;/code>). No need to change it to rawgithubUserContent link if images or css doesn&amp;rsquo;t load initially.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>If images are not being displayed on your site, enter &lt;code>canonifyURLs: true&lt;/code> in your config file&lt;/p>
+&lt;p>If images are not being displayed on your site, add on &lt;code>canonifyURLs: true&lt;/code> in your config file&lt;/p>
 &lt;/li>
-&lt;/ol>
-&lt;!-- 3. **** --></description></item><item><title>About</title><link>https://aldrinjenson.github.io/about/</link><pubDate>Sun, 17 Oct 2021 19:19:16 +0530</pubDate><guid>https://aldrinjenson.github.io/about/</guid><description>&lt;img src="https://aldrinjenson.github.io/images/me.jpg" width=400 alt="Aldrin Jenon">
+&lt;li>
+&lt;p>When using the &lt;a href="https://github.com/peaceiris/actions-gh-pages">gh-action&lt;/a> as mentioned in the docs, it&amp;rsquo;s basically creating a new branch called gh-pages and then putting in the build files (from the public folder) in this branch and this is the one that is getting deployed in github pages. Basically, your source code is in the main branch, and the build output is in the gh-pages.&lt;/p>
+&lt;/li>
+&lt;/ol></description></item><item><title>About</title><link>https://aldrinjenson.github.io/about/</link><pubDate>Sun, 17 Oct 2021 19:19:16 +0530</pubDate><guid>https://aldrinjenson.github.io/about/</guid><description>&lt;img src="https://aldrinjenson.github.io/images/me.jpg" width=400 alt="Aldrin Jenon">
 &lt;br/>
 &lt;p>This blog is an archive of various expereinces and learnings from the life of Aldrin Jenson - A Computer Science undergard, pursuing his B.Tech from Govt.Model Engineering College, Kochi, Kerala.&lt;/p></description></item><item><title>First Post</title><link>https://aldrinjenson.github.io/posts/first-post/</link><pubDate>Sun, 17 Oct 2021 19:02:34 +0530</pubDate><guid>https://aldrinjenson.github.io/posts/first-post/</guid><description>&lt;h2 id="hello">Hello&lt;/h2>
 &lt;p>Good morning starshine, the earth says &lt;strong>&amp;ldquo;Hellooo..&amp;quot;&lt;/strong>&lt;/p>
