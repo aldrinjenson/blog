@@ -1,7 +1,7 @@
 ---
 title: "How to Speed up your programming workflow by adding auto-correct in git"
 date: 2020-11-01T17:07:10+05:30
-draft: true
+draft: false
 tags: ["tech"]
 ---
 
