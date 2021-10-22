@@ -24,3 +24,5 @@ Anyways, here are the simple gotchas you need to take note of for easy hosting a
 2. If images are not being displayed on your site, add on `canonifyURLs: true` in your config file
 
 3. When using the [gh-action](https://github.com/peaceiris/actions-gh-pages) as mentioned in the docs, it's basically creating a new branch called gh-pages and then putting in the build files (from the public folder) in this branch and this is the one that is getting deployed in github pages. Basically, your source code is in the main branch, and the build output is in the gh-pages.
+
+So there you go, these are the three simple points which you need to take note of so as to make the whole deployment process with hugo a bit easier.
