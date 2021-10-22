@@ -17,7 +17,8 @@
 &lt;li>
 &lt;p>When using the &lt;a href="https://github.com/peaceiris/actions-gh-pages">gh-action&lt;/a> as mentioned in the docs, it&amp;rsquo;s basically creating a new branch called gh-pages and then putting in the build files (from the public folder) in this branch and this is the one that is getting deployed in github pages. Basically, your source code is in the main branch, and the build output is in the gh-pages.&lt;/p>
 &lt;/li>
-&lt;/ol></description></item><item><title>First Post</title><link>https://aldrinjenson.github.io/posts/first-post/</link><pubDate>Sun, 17 Oct 2021 19:02:34 +0530</pubDate><guid>https://aldrinjenson.github.io/posts/first-post/</guid><description>&lt;h2 id="hello">Hello&lt;/h2>
+&lt;/ol>
+&lt;p>So there you go, these are the three simple points which you need to take note of so as to make the whole deployment process with hugo a bit easier.&lt;/p></description></item><item><title>First Post</title><link>https://aldrinjenson.github.io/posts/first-post/</link><pubDate>Sun, 17 Oct 2021 19:02:34 +0530</pubDate><guid>https://aldrinjenson.github.io/posts/first-post/</guid><description>&lt;h2 id="hello">Hello&lt;/h2>
 &lt;p>Good morning starshine, the earth says &lt;strong>&amp;ldquo;Hellooo..&amp;quot;&lt;/strong>&lt;/p>
 &lt;h3 id="h3-header">H3 header&lt;/h3>
 &lt;p>Lorem ipsum dolor sit amet.&lt;/p>
