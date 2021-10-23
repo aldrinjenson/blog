@@ -2,6 +2,7 @@
 title: "How to Speed up your programming workflow by adding auto-correct in git"
 date: 2020-11-01T17:07:10+05:30
 draft: false
+description: "Neat trick to add auto-correct to git-commands"
 tags: ["tech"]
 ---
 
