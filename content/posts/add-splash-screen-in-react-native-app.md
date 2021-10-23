@@ -2,6 +2,7 @@
 title: "Easiest way to add a splash screen in a React Native App"
 date: 2020-06-24T00:58:27+05:30
 draft: false
+description: "An easy way I discovered to make the process of adding splash screens in React Native much easier and efficient."
 tags: ["tech"]
 ---
 
