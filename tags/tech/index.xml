@@ -69,4 +69,83 @@ Just like how it was before
 &lt;p>&lt;a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration">Here&lt;/a> is the official git docs in case you have further doubts.&lt;/p>
 &lt;p>P.S. Other than the auto-correct, git has got some other cool features as well. Be sure to check them out too!&lt;/p>
 &lt;p>&lt;img src="https://aldrinjenson.github.io/images/bg/bg1.jpg" alt="background image">&lt;/p>
-&lt;p>Have a good day!&lt;/p></description></item></channel></rss>
+&lt;p>Have a good day!&lt;/p></description></item><item><title>Easiest way to add a splash screen in a React Native App</title><link>https://aldrinjenson.github.io/posts/add-splash-screen-in-react-native-app/</link><pubDate>Wed, 24 Jun 2020 00:58:27 +0530</pubDate><guid>https://aldrinjenson.github.io/posts/add-splash-screen-in-react-native-app/</guid><description>&lt;blockquote>
+&lt;p>Note: This article was initially written in &lt;a href="https://medium.com/swlh/the-easiest-way-to-add-a-splash-screen-to-your-react-native-app-2d36bee3117b">Medium&lt;/a>, but then on I&amp;rsquo;ve realized that&lt;/p>
+&lt;/blockquote>
+&lt;p>Hi, this article is a result of me spending a hell lot of time to figure out the best and easiest way to solve the above problem of adding a splash screen to a React-native app. Almost all the tutorials available as of when this post is being written (2020 June) have at least some part of the code outdated and so if you are someone like me who is real lazy and tries to copy-paste all the code mentioned in them, your gradle config will break some way or the other and its total frustration.&lt;/p>
+&lt;blockquote>
+&lt;p>Note: If you are building your app using the awesome expo-cli, then you don’t need to go through the below tutorial, adding a splash screen to an expo app is as simple as replacing the default splash image in assets folder with your own custom image and then renaming it as ‘splash.png’.&lt;/p>
+&lt;/blockquote>
+&lt;p>Now, for those of us who have built the app with the good-old react-native init, adding a splash screen consists of the following 4 steps:&lt;/p>
+&lt;h2 id="step-1-get-the-splash-image-ready">Step 1: Get the splash image ready!&lt;/h2>
+&lt;p>I know, this is a no-brainier. But hey, do you exactly have the splash image in 6 different dimensions? Yes? Then please carry on to the next step. No? Well guess what, you actually do need the same image in 6 dimensions! So how will you manage to make-do with just one image if that’s all what you got?&lt;/p>
+&lt;p>Don’t bother going to Photoshop and resizing, here’s an awesome tool I found to make the process of splash image generation a piece of cake.&lt;/p>
+&lt;p>Just go to &lt;a href="https://apetools.webprofusion.com/#/tools/imagegorilla">this&lt;/a> site, add your one splash image(preferably with the highest quality you could manage), choose the required platform(andoid and/or ios) and punch the Kapow button). The tool will generate a zip file of the splash screen in various different pixel dimensions.&lt;/p>
+&lt;p>Extract it and copy all the contents in the android/or ios folder from the bundle to your android/app/src/main/res folder.
+Step 1: Install the super cool npm package: react-native-splash-screen&lt;/p>
+&lt;p>This will make the whole process dead simple&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">npm i react-native-splash-screen
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>or using yarn,&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">yarn add react-native-splash-screen
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>Note: if your react-native cli version is below 0.6, don’t forget to link the above package using: &lt;code>react-native link react-native-splash-screen&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="step-2-configuration">Step 2: Configuration&lt;/h2>
+&lt;h3 id="android">Android:&lt;/h3>
+&lt;p>You have got to update the MainActivity.java file (located at &lt;code>android/app/src/main/java/com/your_project_name&lt;/code> folder) in order to use react-native-splash-screen in your project. Just make changes to the file like given below:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-java" data-lang="java">&lt;span style="color:#f92672">import&lt;/span> android.os.Bundle&lt;span style="color:#f92672">;&lt;/span>&lt;span style="color:#f92672">import&lt;/span> com.facebook.react.ReactActivity&lt;span style="color:#f92672">;&lt;/span>
+&lt;span style="color:#f92672">import&lt;/span> org.devio.rn.splashscreen.SplashScreen&lt;span style="color:#f92672">;&lt;/span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">MainActivity&lt;/span> &lt;span style="color:#66d9ef">extends&lt;/span> ReactActivity &lt;span style="color:#f92672">{&lt;/span>
+&lt;span style="color:#a6e22e">@Override&lt;/span> &lt;span style="color:#66d9ef">protected&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">onCreate&lt;/span>&lt;span style="color:#f92672">(&lt;/span>Bundle savedInstanceState&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">{&lt;/span>
+SplashScreen&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#a6e22e">show&lt;/span>&lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#66d9ef">this&lt;/span>&lt;span style="color:#f92672">);&lt;/span>
+&lt;span style="color:#66d9ef">super&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#a6e22e">onCreate&lt;/span>&lt;span style="color:#f92672">(&lt;/span>savedInstanceState&lt;span style="color:#f92672">);&lt;/span>
+&lt;span style="color:#f92672">}&lt;/span>
+&lt;span style="color:#75715e">// ...other code
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#f92672">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now, create a file called launch_screen.xml in app/src/main/res/layout (create the layout folder if it doesn&amp;rsquo;t exist). The contents of the file should be the following:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-xml" data-lang="xml">
+&lt;span style="color:#75715e">&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;RelativeLayout&lt;/span> &lt;span style="color:#a6e22e">xmlns:android=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;http://schemas.android.com/apk/res/android&amp;#34;&lt;/span>&lt;span style="color:#a6e22e">android:orientation=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;vertical&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">android:layout_width=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;match_parent&amp;#34;&lt;/span>
+&lt;span style="color:#a6e22e">android:layout_height=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;match_parent&amp;#34;&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;ImageView&lt;/span>
+&lt;span style="color:#a6e22e">android:layout_width=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;match_parent&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">android:layout_height=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;match_parent&amp;#34;&lt;/span>
+&lt;span style="color:#a6e22e">android:src=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;@drawable/screen&amp;#34;&lt;/span>
+&lt;span style="color:#a6e22e">android:scaleType=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;centerCrop&amp;#34;&lt;/span> &lt;span style="color:#f92672">/&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;/RelativeLayout&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now we have got to add a color called primary_dark in app/src/main/res/values/colors.xml(create if it doesn&amp;rsquo;t exist already)by pasting in the following code:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-xml" data-lang="xml">&lt;span style="color:#75715e">&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;resources&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;color&lt;/span> &lt;span style="color:#a6e22e">name=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;primary_dark&amp;#34;&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>#000000&lt;span style="color:#f92672">&amp;lt;/color&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;/resources&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="ios">iOS:&lt;/h3>
+&lt;p>Update AppDelegate.m (located at ios/splashapp) with the following additions:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-swift" data-lang="swift">#&lt;span style="color:#66d9ef">import&lt;/span> &lt;span style="color:#e6db74">&amp;#34;AppDelegate.h&amp;#34;&lt;/span>
+#&lt;span style="color:#66d9ef">import&lt;/span> &amp;lt;&lt;span style="color:#a6e22e">React&lt;/span>&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">RCTBundleURLProvider&lt;/span>.&lt;span style="color:#a6e22e">h&lt;/span>&amp;gt;
+#&lt;span style="color:#66d9ef">import&lt;/span> &amp;lt;&lt;span style="color:#a6e22e">React&lt;/span>&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">RCTRootView&lt;/span>.&lt;span style="color:#a6e22e">h&lt;/span>&amp;gt;
+#&lt;span style="color:#66d9ef">import&lt;/span> &lt;span style="color:#e6db74">&amp;#34;RNSplashScreen.h&amp;#34;&lt;/span>
+@implementation AppDelegate&lt;span style="color:#f92672">-&lt;/span> (BOOL)application:(UIApplication &lt;span style="color:#66d9ef">_&lt;/span>)application didFinishLaunchingWithOptions:(NSDictionary &lt;span style="color:#66d9ef">_&lt;/span>)launchOptions{
+&lt;span style="color:#75715e">// ...other code&lt;/span>
+[RNSplashScreen show]; &lt;span style="color:#75715e">// or//[RNSplashScreen showSplash:@&amp;#34;LaunchScreen&amp;#34; inRootView:rootView];&lt;/span>
+&lt;span style="color:#66d9ef">return&lt;/span> YES;
+}@end
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="step-3-hiding-the-splash-and-loading-your-main-screen">Step 3: Hiding the splash and loading your main-screen&lt;/h2>
+&lt;p>By now, if you run your app, you would be able to see the splash image cover the entire screen(like it should) and showing forever(like it shouldn’t). Basically it would never close, and there is even a chance of your app crashing after a few seconds of the image showing like this.&lt;/p>
+&lt;p>Now, when should the splash screen be closed? Maybe when the main entry file of your app is executed? Yes! So let’s just modify App.js so that exactly when the project files would finish loading and is ready to be executed, the splash screen would give way to your main/primary screen.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#75715e">// make following changes to App.js
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">import&lt;/span> &lt;span style="color:#a6e22e">SplashScreen&lt;/span> &lt;span style="color:#a6e22e">from&lt;/span> &lt;span style="color:#e6db74">&amp;#34;react-native-splash-screen&amp;#34;&lt;/span>;
+&lt;span style="color:#66d9ef">export&lt;/span> &lt;span style="color:#66d9ef">default&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">App&lt;/span> &lt;span style="color:#66d9ef">extends&lt;/span> &lt;span style="color:#a6e22e">Component&lt;/span> {
+&lt;span style="color:#a6e22e">componentDidMount&lt;/span>() {
+&lt;span style="color:#75715e">// do stuff while splash screen is shown
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">// After having done stuff (such as async tasks) hide the splash
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">// screen
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">SplashScreen&lt;/span>.&lt;span style="color:#a6e22e">hide&lt;/span>();
+}
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>In case you are using functional components, just call SplashScreen.hide() inside a useEffect hook with an empty dependency array.&lt;/p>
+&lt;hr>
+&lt;p>And, there you go my friends, that’s all there is to it.&lt;/p>
+&lt;p>If the above solution for some reason didn’t work for you, or if you want to add some advanced effects in your splash screen like customizing the color of the status bar when loading etc, here are the references I used. However, do keep in mind that all software related guides(including this one) tend to get outdated as new features get added to the various packages used and some breaking change occurs. That being said, all the best to your project. Cheers ✨&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://medium.com/handlebar-labs/how-to-add-a-splash-screen-to-a-react-native-app-ios-and-android-30a3cec835ae">https://medium.com/handlebar-labs/how-to-add-a-splash-screen-to-a-react-native-app-ios-and-android-30a3cec835ae&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.npmjs.com/package/react-native-splash-screen">https://www.npmjs.com/package/react-native-splash-screen&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.netguru.com/blog/react-native-splash-screen">https://www.netguru.com/blog/react-native-splash-screen&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
