@@ -72,17 +72,17 @@
 <blockquote>
 <p>Note: This article was initially written in <a href=https://medium.com/swlh/the-easiest-way-to-add-a-splash-screen-to-your-react-native-app-2d36bee3117b>Medium</a></p>
 </blockquote>
-<p>Hi, this article is a result of me spending a hell lot of time to figure out the best and easiest way to solve the above problem of adding a splash screen to a React-native app. Almost all the tutorials available as of when this post is being written (2020 June) have at least some part of the code outdated and so if you are someone like me who is real lazy and tries to copy-paste all the code mentioned in them, your gradle config will break some way or the other and its total frustration.</p>
+<p>Hi, this article is a result of me spending a hell lot of time to figure out the best and easiest way to solve the above problem of adding a splash screen to a React-native app. Almost all the tutorials available as of when this post is being written (2020 June) have at least some part of the code outdated and so if you are lazy and tries to copy-paste all the code mentioned in them, your gradle config will break some way or the other and its total frustration.</p>
 <blockquote>
 <p>Note: If you are building your app using the awesome expo-cli, then you don’t need to go through the below tutorial, adding a splash screen to an expo app is as simple as replacing the default splash image in assets folder with your own custom image and then renaming it as ‘splash.png’.</p>
 </blockquote>
 <p>Now, for those of us who have built the app with the good-old react-native init, adding a splash screen consists of the following 4 steps:</p>
-<h2 id=step-1-get-the-splash-image-ready>Step 1: Get the splash image ready!</h2>
-<p>I know, this is a no-brainier. But hey, do you exactly have the splash image in 6 different dimensions? Yes? Then please carry on to the next step. No? Well guess what, you actually do need the same image in 6 dimensions! So how will you manage to make-do with just one image if that’s all what you got?</p>
+<h2 id=step-0-get-the-splash-image-ready>Step 0: Get the splash image ready!</h2>
+<p>I know, this is a no-brainier. But hey, do you exactly have the splash image in 6 different dimensions? No? Well guess what, you actually do need the same image in 6 dimensions! So how will you manage to make-do with just one image if that’s all what you got?</p>
 <p>Don’t bother going to Photoshop and resizing, here’s an awesome tool I found to make the process of splash image generation a piece of cake.</p>
-<p>Just go to <a href=https://apetools.webprofusion.com/#/tools/imagegorilla>this</a> site, add your one splash image(preferably with the highest quality you could manage), choose the required platform(andoid and/or ios) and punch the Kapow button). The tool will generate a zip file of the splash screen in various different pixel dimensions.</p>
-<p>Extract it and copy all the contents in the android/or ios folder from the bundle to your android/app/src/main/res folder.
-Step 1: Install the super cool npm package: react-native-splash-screen</p>
+<p>Just go to <a href=https://apetools.webprofusion.com/#/tools/imagegorilla>this</a> site, add your one splash image(preferably with the highest quality), choose the required platform(andoid and/or ios) and punch the Kapow button). The tool will generate a zip file of the splash screen in various different pixel dimensions.</p>
+<p>Extract it and copy all the contents in the android and/or ios folder from the bundle to your android/app/src/main/res folder.</p>
+<h2 id=step-1-install-the-super-cool-npm-package-react-native-splash-screen>Step 1: Install the super cool npm package: react-native-splash-screen</h2>
 <p>This will make the whole process dead simple</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>npm i react-native-splash-screen
 </code></pre></div><p>or using yarn,</p>
@@ -101,14 +101,15 @@ Step 1: Install the super cool npm package: react-native-splash-screen</p>
   <span style=color:#f92672>}</span>
 <span style=color:#75715e>// ...other code
 </span><span style=color:#75715e></span><span style=color:#f92672>}</span>
-</code></pre></div><p>Now, create a file called launch_screen.xml in app/src/main/res/layout (create the layout folder if it doesn&rsquo;t exist). The contents of the file should be the following:</p>
+</code></pre></div><p>Now, create a file called <code>launch_screen.xml</code> in <code>app/src/main/res/layout</code> (create the layout folder if it doesn&rsquo;t exist). The contents of the file should be the following:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml>
 <span style=color:#75715e>&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
 
 <span style=color:#f92672>&lt;RelativeLayout</span> <span style=color:#a6e22e>xmlns:android=</span><span style=color:#e6db74>&#34;http://schemas.android.com/apk/res/android&#34;</span><span style=color:#a6e22e>android:orientation=</span><span style=color:#e6db74>&#34;vertical&#34;</span> <span style=color:#a6e22e>android:layout_width=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
 <span style=color:#a6e22e>android:layout_height=</span><span style=color:#e6db74>&#34;match_parent&#34;</span><span style=color:#f92672>&gt;</span>
   <span style=color:#f92672>&lt;ImageView</span>
-  <span style=color:#a6e22e>android:layout_width=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>                      <span style=color:#a6e22e>android:layout_height=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+  <span style=color:#a6e22e>android:layout_width=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+  <span style=color:#a6e22e>android:layout_height=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
   <span style=color:#a6e22e>android:src=</span><span style=color:#e6db74>&#34;@drawable/screen&#34;</span>
   <span style=color:#a6e22e>android:scaleType=</span><span style=color:#e6db74>&#34;centerCrop&#34;</span> <span style=color:#f92672>/&gt;</span>
 <span style=color:#f92672>&lt;/RelativeLayout&gt;</span>
@@ -136,15 +137,14 @@ Step 1: Install the super cool npm package: react-native-splash-screen</p>
 <span style=color:#66d9ef>export</span> <span style=color:#66d9ef>default</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>App</span> <span style=color:#66d9ef>extends</span> <span style=color:#a6e22e>Component</span> {
   <span style=color:#a6e22e>componentDidMount</span>() {
     <span style=color:#75715e>// do stuff while splash screen is shown
-</span><span style=color:#75715e></span>    <span style=color:#75715e>// After having done stuff (such as async tasks) hide the splash
-</span><span style=color:#75715e></span>    <span style=color:#75715e>// screen
+</span><span style=color:#75715e></span>    <span style=color:#75715e>// After having done stuff (such as async tasks) hide the splash screen
 </span><span style=color:#75715e></span>    <span style=color:#a6e22e>SplashScreen</span>.<span style=color:#a6e22e>hide</span>();
   }
 }
-</code></pre></div><p>In case you are using functional components, just call SplashScreen.hide() inside a useEffect hook with an empty dependency array.</p>
+</code></pre></div><p>In case you are using functional components, just call SplashScreen.hide() inside a <code>useEffect</code> hook with an empty dependency array.</p>
 <hr>
 <p>And, there you go my friends, that’s all there is to it.</p>
-<p>If the above solution for some reason didn’t work for you, or if you want to add some advanced effects in your splash screen like customizing the color of the status bar when loading etc, here are the references I used. However, do keep in mind that all software related guides(including this one) tend to get outdated as new features get added to the various packages used and some breaking change occurs. That being said, all the best to your project. Cheers ✨</p>
+<p>I have tested the above in android and it works perfectly. Inability of having Apple device have prevented me from verifying it on iOS, but hopefully this should all work fine. If the above solution for some reason didn’t work for you, or if you want to add some advanced effects in your splash screen like customizing the color of the status bar when loading etc, here are the references I used. However, do keep in mind that all software related guides(including this one) tend to get outdated as new features get added to the various packages used and some breaking change occurs. That being said, all the best to your project. Cheers ✨</p>
 <ul>
 <li><a href=https://medium.com/handlebar-labs/how-to-add-a-splash-screen-to-a-react-native-app-ios-and-android-30a3cec835ae>https://medium.com/handlebar-labs/how-to-add-a-splash-screen-to-a-react-native-app-ios-and-android-30a3cec835ae</a></li>
 <li><a href=https://www.npmjs.com/package/react-native-splash-screen>https://www.npmjs.com/package/react-native-splash-screen</a></li>
