@@ -20,7 +20,7 @@
 &lt;/ol>
 &lt;p>So there you go, these are the three simple points which you need to take note of so as to make the whole deployment process with hugo a bit easier.&lt;/p></description></item><item><title>About</title><link>https://aldrinjenson.github.io/about/</link><pubDate>Sun, 17 Oct 2021 19:19:16 +0530</pubDate><guid>https://aldrinjenson.github.io/about/</guid><description>&lt;img src="https://aldrinjenson.github.io/images/me.jpg" width=400 alt="Aldrin Jenson">
 &lt;br/>
-&lt;p>This blog is an archive of various expereinces and learnings from the life of Aldrin Jenson - A Computer Science undergard, pursuing his B.Tech from Govt.Model Engineering College, Kochi, Kerala.&lt;/p></description></item><item><title>First Post</title><link>https://aldrinjenson.github.io/posts/first-post/</link><pubDate>Sun, 17 Oct 2021 19:02:34 +0530</pubDate><guid>https://aldrinjenson.github.io/posts/first-post/</guid><description>&lt;h2 id="hello">Hello&lt;/h2>
+&lt;p>This blog is an archive of various experiences and learnings from the life of Aldrin Jenson - A Computer Science undergard, pursuing his B.Tech from Govt.Model Engineering College, Kochi, Kerala.&lt;/p></description></item><item><title>First Post</title><link>https://aldrinjenson.github.io/posts/first-post/</link><pubDate>Sun, 17 Oct 2021 19:02:34 +0530</pubDate><guid>https://aldrinjenson.github.io/posts/first-post/</guid><description>&lt;h2 id="hello">Hello&lt;/h2>
 &lt;p>Good morning starshine, the earth says &lt;strong>&amp;ldquo;Hellooo..&amp;quot;&lt;/strong>&lt;/p>
 &lt;h3 id="h3-header">H3 header&lt;/h3>
 &lt;p>Lorem ipsum dolor sit amet.&lt;/p>
@@ -84,7 +84,7 @@ Just like how it was before
 &lt;p>P.S. Other than the auto-correct, git has got some other cool features as well. Be sure to check them out too!&lt;/p>
 &lt;p>&lt;img src="https://aldrinjenson.github.io/images/bg/bg1.jpg" alt="background image">&lt;/p>
 &lt;p>Have a good day!&lt;/p></description></item><item><title>Easiest way to add a splash screen in a React Native App</title><link>https://aldrinjenson.github.io/posts/add-splash-screen-in-react-native-app/</link><pubDate>Wed, 24 Jun 2020 00:58:27 +0530</pubDate><guid>https://aldrinjenson.github.io/posts/add-splash-screen-in-react-native-app/</guid><description>&lt;blockquote>
-&lt;p>Note: This article was initially written in &lt;a href="https://medium.com/swlh/the-easiest-way-to-add-a-splash-screen-to-your-react-native-app-2d36bee3117b">Medium&lt;/a>, but then on I&amp;rsquo;ve realized that&lt;/p>
+&lt;p>Note: This article was initially written in &lt;a href="https://medium.com/swlh/the-easiest-way-to-add-a-splash-screen-to-your-react-native-app-2d36bee3117b">Medium&lt;/a>&lt;/p>
 &lt;/blockquote>
 &lt;p>Hi, this article is a result of me spending a hell lot of time to figure out the best and easiest way to solve the above problem of adding a splash screen to a React-native app. Almost all the tutorials available as of when this post is being written (2020 June) have at least some part of the code outdated and so if you are someone like me who is real lazy and tries to copy-paste all the code mentioned in them, your gradle config will break some way or the other and its total frustration.&lt;/p>
 &lt;blockquote>
