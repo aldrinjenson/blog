@@ -8,22 +8,23 @@ tags: ["tech"]
 
 > Note: This article was initially written in [Medium](https://medium.com/swlh/the-easiest-way-to-add-a-splash-screen-to-your-react-native-app-2d36bee3117b)
 
-Hi, this article is a result of me spending a hell lot of time to figure out the best and easiest way to solve the above problem of adding a splash screen to a React-native app. Almost all the tutorials available as of when this post is being written (2020 June) have at least some part of the code outdated and so if you are someone like me who is real lazy and tries to copy-paste all the code mentioned in them, your gradle config will break some way or the other and its total frustration.
+Hi, this article is a result of me spending a hell lot of time to figure out the best and easiest way to solve the above problem of adding a splash screen to a React-native app. Almost all the tutorials available as of when this post is being written (2020 June) have at least some part of the code outdated and so if you are lazy and tries to copy-paste all the code mentioned in them, your gradle config will break some way or the other and its total frustration.
 
 > Note: If you are building your app using the awesome expo-cli, then you don’t need to go through the below tutorial, adding a splash screen to an expo app is as simple as replacing the default splash image in assets folder with your own custom image and then renaming it as ‘splash.png’.
 
 Now, for those of us who have built the app with the good-old react-native init, adding a splash screen consists of the following 4 steps:
 
-## Step 1: Get the splash image ready!
+## Step 0: Get the splash image ready!
 
-I know, this is a no-brainier. But hey, do you exactly have the splash image in 6 different dimensions? Yes? Then please carry on to the next step. No? Well guess what, you actually do need the same image in 6 dimensions! So how will you manage to make-do with just one image if that’s all what you got?
+I know, this is a no-brainier. But hey, do you exactly have the splash image in 6 different dimensions? No? Well guess what, you actually do need the same image in 6 dimensions! So how will you manage to make-do with just one image if that’s all what you got?
 
 Don’t bother going to Photoshop and resizing, here’s an awesome tool I found to make the process of splash image generation a piece of cake.
 
-Just go to [this](https://apetools.webprofusion.com/#/tools/imagegorilla) site, add your one splash image(preferably with the highest quality you could manage), choose the required platform(andoid and/or ios) and punch the Kapow button). The tool will generate a zip file of the splash screen in various different pixel dimensions.
+Just go to [this](https://apetools.webprofusion.com/#/tools/imagegorilla) site, add your one splash image(preferably with the highest quality), choose the required platform(andoid and/or ios) and punch the Kapow button). The tool will generate a zip file of the splash screen in various different pixel dimensions.
 
-Extract it and copy all the contents in the android/or ios folder from the bundle to your android/app/src/main/res folder.
-Step 1: Install the super cool npm package: react-native-splash-screen
+Extract it and copy all the contents in the android and/or ios folder from the bundle to your android/app/src/main/res folder.
+
+## Step 1: Install the super cool npm package: react-native-splash-screen
 
 This will make the whole process dead simple
 
@@ -56,7 +57,7 @@ import org.devio.rn.splashscreen.SplashScreen;public class MainActivity extends 
 }
 ```
 
-Now, create a file called launch_screen.xml in app/src/main/res/layout (create the layout folder if it doesn't exist). The contents of the file should be the following:
+Now, create a file called `launch_screen.xml` in `app/src/main/res/layout` (create the layout folder if it doesn't exist). The contents of the file should be the following:
 
 ```xml
 
@@ -65,7 +66,8 @@ Now, create a file called launch_screen.xml in app/src/main/res/layout (create t
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"android:orientation="vertical" android:layout_width="match_parent"
 android:layout_height="match_parent">
   <ImageView
-  android:layout_width="match_parent"                      android:layout_height="match_parent"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
   android:src="@drawable/screen"
   android:scaleType="centerCrop" />
 </RelativeLayout>
@@ -108,20 +110,19 @@ import SplashScreen from "react-native-splash-screen";
 export default class App extends Component {
   componentDidMount() {
     // do stuff while splash screen is shown
-    // After having done stuff (such as async tasks) hide the splash
-    // screen
+    // After having done stuff (such as async tasks) hide the splash screen
     SplashScreen.hide();
   }
 }
 ```
 
-In case you are using functional components, just call SplashScreen.hide() inside a useEffect hook with an empty dependency array.
+In case you are using functional components, just call SplashScreen.hide() inside a `useEffect` hook with an empty dependency array.
 
 ---
 
 And, there you go my friends, that’s all there is to it.
 
-If the above solution for some reason didn’t work for you, or if you want to add some advanced effects in your splash screen like customizing the color of the status bar when loading etc, here are the references I used. However, do keep in mind that all software related guides(including this one) tend to get outdated as new features get added to the various packages used and some breaking change occurs. That being said, all the best to your project. Cheers ✨
+I have tested the above in android and it works perfectly. Inability of having Apple device have prevented me from verifying it on iOS, but hopefully this should all work fine. If the above solution for some reason didn’t work for you, or if you want to add some advanced effects in your splash screen like customizing the color of the status bar when loading etc, here are the references I used. However, do keep in mind that all software related guides(including this one) tend to get outdated as new features get added to the various packages used and some breaking change occurs. That being said, all the best to your project. Cheers ✨
 
 - https://medium.com/handlebar-labs/how-to-add-a-splash-screen-to-a-react-native-app-ios-and-android-30a3cec835ae
 - https://www.npmjs.com/package/react-native-splash-screen

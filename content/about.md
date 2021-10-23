@@ -8,4 +8,4 @@ menu: main
 <img src="/images/me.jpg" width=400 alt="Aldrin Jenson">
 <br/>
 
-This blog is an archive of various experiences and learnings from the life of Aldrin Jenson - A Computer Science undergard, pursuing his B.Tech from Govt.Model Engineering College, Kochi, Kerala.
+This blog is an archive of some thoughts, experiences and learnings from the life of Aldrin Jenson - A Computer Science undergard, pursuing his B.Tech from Govt.Model Engineering College, Kochi, Kerala.

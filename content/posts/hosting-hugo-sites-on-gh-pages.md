@@ -15,14 +15,14 @@ To get started with the local installation and setting up of the development env
 
 By now you should be having a blog with atleast one post which can be previewed locally using `hugo server -D` command.
 
-Now the part which I found difficult is to host this site and make it available for the internet. Whie there are guides available on the official docs for a log of hosting options, the one for hosting in github pages isn't very helpful (as I could understand from a lot of Youtube comments in a tutorial video)
+Now, the part which I found difficult is to host this site and make it available for the internet. While there are guides available on the official docs for a lot of hosting options, the one for hosting with github pages isn't very helpful (general opinion of a lot of developers).
 
 Anyways, here are the simple gotchas you need to take note of for easy hosting after following the official guide [here](to be kept in mind).
 
-1. The baseUrl in your config file should point to the url where which your site will be deployed. (Usually, `yourusername.github.io/{repoName}`). No need to change it to rawgithubUserContent link if images or css doesn't load initially.
+1. The baseUrl in your config file should point to the url where which your site will be deployed. (Usually, `yourusername.github.io/`). No need to change it to rawgithubUserContent link if images or css doesn't load initially.
 
-2. If images are not being displayed on your site, add on `canonifyURLs: true` in your config file
+2. If images are not being displayed on your site, add on `canonifyURLs: true` in your `config.yaml` file or the toml version in your `config.toml` file if you are using toml.
 
-3. When using the [gh-action](https://github.com/peaceiris/actions-gh-pages) as mentioned in the docs, it's basically creating a new branch called gh-pages and then putting in the build files (from the public folder) in this branch and this is the one that is getting deployed in github pages. Basically, your source code is in the main branch, and the build output is in the gh-pages.
+3. When using the [gh-action](https://github.com/peaceiris/actions-gh-pages) as mentioned in the docs, it's basically creating a new branch called gh-pages and then putting in the build files (from the public folder) in this branch and this is the one that is getting deployed in github pages. Basically, your source code is in the main branch, and the build output is in the gh-pages. (Not knowing this can confuse you in understanding how the magic happens ).
 
 So there you go, these are the three simple points which you need to take note of so as to make the whole deployment process with hugo a bit easier.
