@@ -3,8 +3,6 @@ languageCode: "en-us"
 title: "Aldrin's Blog"
 theme: "anubis"
 paginate: 10
-# disqusShortname: "yourdiscussshortname"
-# googleAnalytics: "G-12345"
 enableRobotsTXT: true
 
 menu:
@@ -38,14 +36,14 @@ params:
   readMore: false
   disableSummary: false
   # utteranc.es support
-  utterancesRepo: "" # mandatory
-  utterancesTheme: "" # optional
-  utterancesIssue: "" # optional
-  utterancesLabel: "" # optional
-  webmentions:
-    url: https://yourdomain.com/webemntions/receive
-    login: hugo-theme-anubis
-    pingback: true
+  utterancesRepo: "https://github.com/aldrinjenson/aldrinjenson.github."
+  utterancesTheme: "github-dark" 
+  # utterancesIssue: "" 
+  # utterancesLabel: "" 
+  # webmentions:
+    # url: https://yourdomain.com/webemntions/receive
+    # login: hugo-theme-anubis
+    # pingback: true
   social:
     - id: github
       name: aldrinjenson
