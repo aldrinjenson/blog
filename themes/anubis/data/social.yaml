@@ -15,3 +15,5 @@ social_icons:
   twitter: https://twitter.com/%s
   vk: https://vk.com/%s
   youtube: https://www.youtube.com/c/%s
+  rss: https://aldrinjenson.github.io/%s
+  # rss: http://localhost:1313/%s

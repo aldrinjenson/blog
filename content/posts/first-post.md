@@ -1,7 +1,7 @@
 ---
 title: "First Post"
 date: 2021-10-17T19:02:34+05:30
-draft: false
+draft: true
 description: "Sample Post to test out a Hugo Blog. Not deleting it for nostalgia reasons🙂"
 ---
 

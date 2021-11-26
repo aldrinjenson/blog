@@ -6,20 +6,38 @@
     <description>Aldrin&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Oct 2021 21:19:38 +0530</lastBuildDate>
+    <lastBuildDate>Thu, 21 Oct 2021 00:20:33 +0530</lastBuildDate>
     
     <atom:link href="https://aldrinjenson.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Second</title>
-      <link>https://aldrinjenson.github.io/posts/second/</link>
-      <pubDate>Sun, 17 Oct 2021 21:19:38 +0530</pubDate>
+      <title>How to host a Hugo static site using Github pages</title>
+      <link>https://aldrinjenson.github.io/posts/hosting-hugo-sites-on-gh-pages/</link>
+      <pubDate>Thu, 21 Oct 2021 00:20:33 +0530</pubDate>
       
-      <guid>https://aldrinjenson.github.io/posts/second/</guid>
-      <description>&lt;p&gt;This is a draft post which I prolly would delete soon.&lt;/p&gt;
-&lt;p&gt;Did you know that cows give more milk when listening to music!😮&lt;/p&gt;
-&lt;p&gt;Be sure to play some Elton John songs next time you are going to milk a cow :)&lt;/p&gt;
+      <guid>https://aldrinjenson.github.io/posts/hosting-hugo-sites-on-gh-pages/</guid>
+      <description>&lt;p&gt;It took me a day to fix a bug related to hosting a Hugo blog on github pages. Thought I&amp;rsquo;d compile down the learnings here.&lt;/p&gt;
+&lt;p&gt;To get started with the local installation and setting up of the development environment, it&amp;rsquo;s quite easy. Just check out these two links:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://opensource.com/article/18/3/start-blog-30-minutes-hugo?utm_source=nomedium&amp;amp;utm_medium=web&amp;amp;utm_campaign=nomedium&#34;&gt;Start a blog in 30 minutes with Hugo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/getting-started/quick-start/&#34;&gt;Official Hugo Quick Start&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;By now you should be having a blog with atleast one post which can be previewed locally using &lt;code&gt;hugo server -D&lt;/code&gt; command.&lt;/p&gt;
+&lt;p&gt;Now, the part which I found difficult is to host this site and make it available for the internet. While there are guides available on the official docs for a lot of hosting options, the one for hosting with github pages isn&amp;rsquo;t very helpful (general opinion of a lot of developers).&lt;/p&gt;
+&lt;p&gt;Anyways, here are the simple gotchas you need to take note of for easy hosting after following the official guide [here](to be kept in mind).&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;The baseUrl in your config file should point to the url where which your site will be deployed. (Usually, &lt;code&gt;yourusername.github.io/&lt;/code&gt;). No need to change it to rawgithubUserContent link if images or css doesn&amp;rsquo;t load initially.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If images are not being displayed on your site, add on &lt;code&gt;canonifyURLs: true&lt;/code&gt; in your &lt;code&gt;config.yaml&lt;/code&gt; file or the toml version in your &lt;code&gt;config.toml&lt;/code&gt; file if you are using toml.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When using the &lt;a href=&#34;https://github.com/peaceiris/actions-gh-pages&#34;&gt;gh-action&lt;/a&gt; as mentioned in the docs, it&amp;rsquo;s basically creating a new branch called gh-pages and then putting in the build files (from the public folder) in this branch and this is the one that is getting deployed in github pages. Basically, your source code is in the main branch, and the build output is in the gh-pages. (Not knowing this can confuse you in understanding how the magic happens ).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So there you go, these are the three simple points which you need to take note of so as to make the whole deployment process with hugo a bit easier.&lt;/p&gt;
 </description>
     </item>
     
@@ -29,9 +47,9 @@
       <pubDate>Sun, 17 Oct 2021 19:19:16 +0530</pubDate>
       
       <guid>https://aldrinjenson.github.io/about/</guid>
-      <description>&lt;img src=&#34;https://aldrinjenson.github.io/images/me.jpg&#34; width=400 alt=&#34;Aldrin Jenon&#34;&gt;
+      <description>&lt;img src=&#34;https://aldrinjenson.github.io/images/me.jpg&#34; width=400 alt=&#34;Aldrin Jenson&#34;&gt;
 &lt;br/&gt;
-&lt;p&gt;This blog is an archive of various expereinces and learnings from the life of Aldrin Jenson - A Computer Science undergard, pursuing his B.Tech from Govt.Model Engineering College, Kochi, Kerala.&lt;/p&gt;
+&lt;p&gt;This blog is an archive of some thoughts, experiences and learnings from the life of Aldrin Jenson - A Computer Science undergard, pursuing his B.Tech from Govt.Model Engineering College, Kochi, Kerala.&lt;/p&gt;
 </description>
     </item>
     
@@ -55,6 +73,158 @@
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr/&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ex iusto, praesentium corrupti, facere nobis in, nam maxime labore tempore possimus? Perferendis in officia qui magnam deleniti, cumque explicabo sequi nesciunt. Quis omnis voluptatibus, consequuntur repudiandae animi, numquam totam vero aspernatur tempore, consequatur quos ut magni praesentium veniam quod odit! ✨&lt;/p&gt;
+&lt;p&gt;Yuss. Markdown FTW.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to Speed up your programming workflow by adding auto-correct in git</title>
+      <link>https://aldrinjenson.github.io/posts/git-autocorrect/</link>
+      <pubDate>Sun, 01 Nov 2020 17:07:10 +0530</pubDate>
+      
+      <guid>https://aldrinjenson.github.io/posts/git-autocorrect/</guid>
+      <description>&lt;p&gt;In this short post I would like to share a neat trick I learned which you can use to speed up your development workflow - adding auto-correct to git.&lt;/p&gt;
+&lt;h2 id=&#34;current-scenario&#34;&gt;Current Scenario&lt;/h2&gt;
+&lt;p&gt;Currently, if you have a typo or some small error in your git command, git will automatically suggest the most plausible command corresponding to your keyboard input.
+Majority of the time this suggested command is bound to be the one you were trying to use. However, just suggesting the command is not that helpful since the programmer still has to navigate around and change the typo.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;img src=&#34;https://aldrinjenson.github.io/images/git-autocorrect/image1.png&#34; alt=&#34;image1&#34;&gt;&lt;/p&gt;
+&lt;p align = &#34;center&#34;&gt;
+Before setting up auto-correct
+&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;According to the official git &lt;a href=&#34;https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_code_help_autocorrect_code&#34;&gt;docs&lt;/a&gt;,&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Git helpfully tries to figure out what you meant, but it still refuses to do it. If you set help.autocorrect to 1, Git will actually run this command for you&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;solution&#34;&gt;Solution:&lt;/h2&gt;
+&lt;p&gt;Just open your terminal and add the following line&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git config --global help.autocorrect &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Adding the above command in your terminal results in the following :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://aldrinjenson.github.io/images/git-autocorrect/image2.png&#34; alt=&#34;image2&#34;&gt;&lt;/p&gt;
+&lt;p align = &#34;center&#34;&gt;
+With auto-correct turned on
+&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;See, git gave us a warning saying that there is a typo in our command and then executed the most matching/similar command.&lt;/p&gt;
+&lt;p&gt;Now, here the value which we assigned at the end has to be an integer which represents the tenths of a second after which your command will be executed.&lt;/p&gt;
+&lt;h2 id=&#34;preventing-accidental-commands&#34;&gt;Preventing accidental commands&lt;/h2&gt;
+&lt;p&gt;If you are worried about git accidentally executing a command which is similar to your input but is not what you actually wanted to run, then you can add a few seconds of extra time before which the command will be executed, so that you can cancel out the execution if needed.&lt;/p&gt;
+&lt;p&gt;This can be achieved by changing the final integer value at the end to a multiple of 10 (say 20 or 30 which corresponds to 2 or 3 seconds respectively).&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git config --global help.autocorrect &lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Adding the above code in your terminal gives the following output when you have another typo in your code.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://aldrinjenson.github.io/images/git-autocorrect/image3.png&#34; alt=&#34;image3&#34;&gt;&lt;/p&gt;
+&lt;p align = &#34;center&#34;&gt;
+Executing a git command after 3 seconds
+&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;The actual command will be executed only after 3 seconds; which means that you can cancel the execution anytime within three seconds by just pressing &lt;strong&gt;ctrl-c&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;disabling-auto-correct&#34;&gt;Disabling auto-correct:&lt;/h2&gt;
+&lt;p&gt;If for some reason, you want to disable autocorrect feature (though I can’t really imagine why), all you need is to set the final integer to 0.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git config --global help.autocorrect &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will revert back the config settings to the default stage – to how it was before we modified it.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://aldrinjenson.github.io/images/git-autocorrect/image4.png&#34; alt=&#34;image4&#34;&gt;&lt;/p&gt;
+&lt;p align = &#34;center&#34;&gt;
+Just like how it was before
+&lt;/p&gt;
+&lt;br/&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I have been using this cool autocorrect feature of git for some years now and it&amp;rsquo;s really a cool time saver. The small few micro seconds it saves by preventing us from not pressing the up arrow and then navigating around to fix typos in our command, can get compounded and become a huge time saver in the long run.&lt;/p&gt;
+&lt;h3 id=&#34;references&#34;&gt;References:&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration&#34;&gt;Here&lt;/a&gt; is the official git docs in case you have further doubts.&lt;/p&gt;
+&lt;p&gt;P.S. Other than the auto-correct, git has got some other cool features as well. Be sure to check them out too while you are at it :).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://aldrinjenson.github.io/images/bg/bg1.jpg&#34; alt=&#34;background image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Have a good day!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Easiest way to add a splash screen in a React Native App</title>
+      <link>https://aldrinjenson.github.io/posts/add-splash-screen-in-react-native-app/</link>
+      <pubDate>Wed, 24 Jun 2020 00:58:27 +0530</pubDate>
+      
+      <guid>https://aldrinjenson.github.io/posts/add-splash-screen-in-react-native-app/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Note: This article was initially written in &lt;a href=&#34;https://medium.com/swlh/the-easiest-way-to-add-a-splash-screen-to-your-react-native-app-2d36bee3117b&#34;&gt;Medium&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Hi, this article is a result of me spending a hell lot of time to figure out the best and easiest way to solve the above problem of adding a splash screen to a React-native app. Almost all the tutorials available as of when this post is being written (2020 June) have at least some part of the code outdated and so if you are lazy and tries to copy-paste all the code mentioned in them, your gradle config will break some way or the other and its total frustration.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: If you are building your app using the awesome expo-cli, then you don’t need to go through the below tutorial, adding a splash screen to an expo app is as simple as replacing the default splash image in assets folder with your own custom image and then renaming it as ‘splash.png’.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Now, for those of us who have built the app with the good-old react-native init, adding a splash screen consists of the following 4 steps:&lt;/p&gt;
+&lt;h2 id=&#34;step-0-get-the-splash-image-ready&#34;&gt;Step 0: Get the splash image ready!&lt;/h2&gt;
+&lt;p&gt;I know, this is a no-brainier. But hey, do you exactly have the splash image in 6 different dimensions? No? Well guess what, you actually do need the same image in 6 dimensions! So how will you manage to make-do with just one image if that’s all what you got?&lt;/p&gt;
+&lt;p&gt;Don’t bother going to Photoshop and resizing, here’s an awesome tool I found to make the process of splash image generation a piece of cake.&lt;/p&gt;
+&lt;p&gt;Just go to &lt;a href=&#34;https://apetools.webprofusion.com/#/tools/imagegorilla&#34;&gt;this&lt;/a&gt; site, add your one splash image(preferably with the highest quality), choose the required platform(andoid and/or ios) and punch the Kapow button). The tool will generate a zip file of the splash screen in various different pixel dimensions.&lt;/p&gt;
+&lt;p&gt;Extract it and copy all the contents in the android and/or ios folder from the bundle to your android/app/src/main/res folder.&lt;/p&gt;
+&lt;h2 id=&#34;step-1-install-the-super-cool-npm-package-react-native-splash-screen&#34;&gt;Step 1: Install the super cool npm package: react-native-splash-screen&lt;/h2&gt;
+&lt;p&gt;This will make the whole process dead simple&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;npm i react-native-splash-screen
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or using yarn,&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;yarn add react-native-splash-screen
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Note: if your react-native cli version is below 0.6, don’t forget to link the above package using: &lt;code&gt;react-native link react-native-splash-screen&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;step-2-configuration&#34;&gt;Step 2: Configuration&lt;/h2&gt;
+&lt;h3 id=&#34;android&#34;&gt;Android:&lt;/h3&gt;
+&lt;p&gt;You have got to update the MainActivity.java file (located at &lt;code&gt;android/app/src/main/java/com/your_project_name&lt;/code&gt; folder) in order to use react-native-splash-screen in your project. Just make changes to the file like given below:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; android.os.Bundle&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; com.facebook.react.ReactActivity&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; org.devio.rn.splashscreen.SplashScreen&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;MainActivity&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;extends&lt;/span&gt; ReactActivity &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;@Override&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;protected&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;onCreate&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Bundle savedInstanceState&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+    SplashScreen&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;show&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;super&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;onCreate&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;savedInstanceState&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;// ...other code
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, create a file called &lt;code&gt;launch_screen.xml&lt;/code&gt; in &lt;code&gt;app/src/main/res/layout&lt;/code&gt; (create the layout folder if it doesn&amp;rsquo;t exist). The contents of the file should be the following:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt;&lt;/span&gt;
+
+&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;RelativeLayout&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;xmlns:android=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http://schemas.android.com/apk/res/android&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;android:orientation=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;vertical&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;android:layout_width=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;match_parent&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;android:layout_height=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;match_parent&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;ImageView&lt;/span&gt;
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;android:layout_width=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;match_parent&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;android:layout_height=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;match_parent&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;android:src=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;@drawable/screen&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;android:scaleType=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;centerCrop&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/RelativeLayout&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now we have got to add a color called primary_dark in app/src/main/res/values/colors.xml(create if it doesn&amp;rsquo;t exist already)by pasting in the following code:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;resources&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;color&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;primary_dark&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;#000000&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/color&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/resources&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;ios&#34;&gt;iOS:&lt;/h3&gt;
+&lt;p&gt;Update AppDelegate.m (located at ios/splashapp) with the following additions:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;#&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AppDelegate.h&amp;#34;&lt;/span&gt;
+#&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &amp;lt;&lt;span style=&#34;color:#a6e22e&#34;&gt;React&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;RCTBundleURLProvider&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;h&lt;/span&gt;&amp;gt;
+#&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &amp;lt;&lt;span style=&#34;color:#a6e22e&#34;&gt;React&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;RCTRootView&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;h&lt;/span&gt;&amp;gt;
+#&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;RNSplashScreen.h&amp;#34;&lt;/span&gt;
+@implementation AppDelegate&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; (BOOL)application:(UIApplication &lt;span style=&#34;color:#66d9ef&#34;&gt;_&lt;/span&gt;)application didFinishLaunchingWithOptions:(NSDictionary &lt;span style=&#34;color:#66d9ef&#34;&gt;_&lt;/span&gt;)launchOptions{
+  &lt;span style=&#34;color:#75715e&#34;&gt;// ...other code&lt;/span&gt;
+  [RNSplashScreen show]; &lt;span style=&#34;color:#75715e&#34;&gt;// or//[RNSplashScreen showSplash:@&amp;#34;LaunchScreen&amp;#34; inRootView:rootView];&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; YES;
+  }@end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;step-3-hiding-the-splash-and-loading-your-main-screen&#34;&gt;Step 3: Hiding the splash and loading your main-screen&lt;/h2&gt;
+&lt;p&gt;By now, if you run your app, you would be able to see the splash image cover the entire screen(like it should) and showing forever(like it shouldn’t). Basically it would never close, and there is even a chance of your app crashing after a few seconds of the image showing like this.&lt;/p&gt;
+&lt;p&gt;Now, when should the splash screen be closed? Maybe when the main entry file of your app is executed? Yes! So let’s just modify App.js so that exactly when the project files would finish loading and is ready to be executed, the splash screen would give way to your main/primary screen.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// make following changes to App.js
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;SplashScreen&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;react-native-splash-screen&amp;#34;&lt;/span&gt;;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;default&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;App&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;extends&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Component&lt;/span&gt; {
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;componentDidMount&lt;/span&gt;() {
+    &lt;span style=&#34;color:#75715e&#34;&gt;// do stuff while splash screen is shown
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// After having done stuff (such as async tasks) hide the splash screen
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;SplashScreen&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;hide&lt;/span&gt;();
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In case you are using functional components, just call SplashScreen.hide() inside a &lt;code&gt;useEffect&lt;/code&gt; hook with an empty dependency array.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;And, there you go my friends, that’s all there is to it.&lt;/p&gt;
+&lt;p&gt;I have tested the above in android and it works perfectly. Inability of having Apple device have prevented me from verifying it on iOS, but hopefully this should all work fine. If the above solution for some reason didn’t work for you, or if you want to add some advanced effects in your splash screen like customizing the color of the status bar when loading etc, here are the references I used. However, do keep in mind that all software related guides(including this one) tend to get outdated as new features get added to the various packages used and some breaking change occurs. That being said, all the best to your project. Cheers ✨&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/handlebar-labs/how-to-add-a-splash-screen-to-a-react-native-app-ios-and-android-30a3cec835ae&#34;&gt;https://medium.com/handlebar-labs/how-to-add-a-splash-screen-to-a-react-native-app-ios-and-android-30a3cec835ae&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.npmjs.com/package/react-native-splash-screen&#34;&gt;https://www.npmjs.com/package/react-native-splash-screen&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.netguru.com/blog/react-native-splash-screen&#34;&gt;https://www.netguru.com/blog/react-native-splash-screen&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

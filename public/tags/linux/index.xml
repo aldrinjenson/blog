@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on Aldrin&#39;s Blog</title>
+    <link>https://aldrinjenson.github.io/tags/linux/</link>
+    <description>Aldrin&#39;s Blog (linux)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Nov 2020 17:07:10 +0530</lastBuildDate>
+    
+    <atom:link href="https://aldrinjenson.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to Speed up your programming workflow by adding auto-correct in git</title>
+      <link>https://aldrinjenson.github.io/posts/git-autocorrect/</link>
+      <pubDate>Sun, 01 Nov 2020 17:07:10 +0530</pubDate>
+      
+      <guid>https://aldrinjenson.github.io/posts/git-autocorrect/</guid>
+      <description>&lt;p&gt;In this short post I would like to share a neat trick I learned which you can use to speed up your development workflow - adding auto-correct to git.&lt;/p&gt;
+&lt;h2 id=&#34;current-scenario&#34;&gt;Current Scenario&lt;/h2&gt;
+&lt;p&gt;Currently, if you have a typo or some small error in your git command, git will automatically suggest the most plausible command corresponding to your keyboard input.
+Majority of the time this suggested command is bound to be the one you were trying to use. However, just suggesting the command is not that helpful since the programmer still has to navigate around and change the typo.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;img src=&#34;https://aldrinjenson.github.io/images/git-autocorrect/image1.png&#34; alt=&#34;image1&#34;&gt;&lt;/p&gt;
+&lt;p align = &#34;center&#34;&gt;
+Before setting up auto-correct
+&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;According to the official git &lt;a href=&#34;https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_code_help_autocorrect_code&#34;&gt;docs&lt;/a&gt;,&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Git helpfully tries to figure out what you meant, but it still refuses to do it. If you set help.autocorrect to 1, Git will actually run this command for you&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;solution&#34;&gt;Solution:&lt;/h2&gt;
+&lt;p&gt;Just open your terminal and add the following line&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git config --global help.autocorrect &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Adding the above command in your terminal results in the following :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://aldrinjenson.github.io/images/git-autocorrect/image2.png&#34; alt=&#34;image2&#34;&gt;&lt;/p&gt;
+&lt;p align = &#34;center&#34;&gt;
+With auto-correct turned on
+&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;See, git gave us a warning saying that there is a typo in our command and then executed the most matching/similar command.&lt;/p&gt;
+&lt;p&gt;Now, here the value which we assigned at the end has to be an integer which represents the tenths of a second after which your command will be executed.&lt;/p&gt;
+&lt;h2 id=&#34;preventing-accidental-commands&#34;&gt;Preventing accidental commands&lt;/h2&gt;
+&lt;p&gt;If you are worried about git accidentally executing a command which is similar to your input but is not what you actually wanted to run, then you can add a few seconds of extra time before which the command will be executed, so that you can cancel out the execution if needed.&lt;/p&gt;
+&lt;p&gt;This can be achieved by changing the final integer value at the end to a multiple of 10 (say 20 or 30 which corresponds to 2 or 3 seconds respectively).&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git config --global help.autocorrect &lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Adding the above code in your terminal gives the following output when you have another typo in your code.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://aldrinjenson.github.io/images/git-autocorrect/image3.png&#34; alt=&#34;image3&#34;&gt;&lt;/p&gt;
+&lt;p align = &#34;center&#34;&gt;
+Executing a git command after 3 seconds
+&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;The actual command will be executed only after 3 seconds; which means that you can cancel the execution anytime within three seconds by just pressing &lt;strong&gt;ctrl-c&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;disabling-auto-correct&#34;&gt;Disabling auto-correct:&lt;/h2&gt;
+&lt;p&gt;If for some reason, you want to disable autocorrect feature (though I can’t really imagine why), all you need is to set the final integer to 0.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git config --global help.autocorrect &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will revert back the config settings to the default stage – to how it was before we modified it.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://aldrinjenson.github.io/images/git-autocorrect/image4.png&#34; alt=&#34;image4&#34;&gt;&lt;/p&gt;
+&lt;p align = &#34;center&#34;&gt;
+Just like how it was before
+&lt;/p&gt;
+&lt;br/&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I have been using this cool autocorrect feature of git for some years now and it&amp;rsquo;s really a cool time saver. The small few micro seconds it saves by preventing us from not pressing the up arrow and then navigating around to fix typos in our command, can get compounded and become a huge time saver in the long run.&lt;/p&gt;
+&lt;h3 id=&#34;references&#34;&gt;References:&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration&#34;&gt;Here&lt;/a&gt; is the official git docs in case you have further doubts.&lt;/p&gt;
+&lt;p&gt;P.S. Other than the auto-correct, git has got some other cool features as well. Be sure to check them out too while you are at it :).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://aldrinjenson.github.io/images/bg/bg1.jpg&#34; alt=&#34;background image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Have a good day!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
