@@ -2,8 +2,10 @@
 {{ define "main" }}
 {{ $dateFormat := "2006-01-02" }}
 {{ if .Site.Params.dateFormat }}
-    {{ $dateFormat = .Site.Params.dateFormat }}
+{{ $dateFormat = .Site.Params.dateFormat }}
 {{ end }}
+
+<!-- custom list page for projects section -->
 <div class="index-content">{{ .Content }}</div>
 
 <div class="articles h-feed">
