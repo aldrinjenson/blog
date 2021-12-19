@@ -12,10 +12,20 @@ menu:
       title: Home
       url: /
       weight: 0
-    - identifier: posts
-      name: Posts
-      title: Posts
-      url: /posts/
+    # - identifier: posts
+    #   name: Posts
+    #   title: Posts
+    #   url: /posts/
+    #   weight: 0
+    - identifier: projects
+      name: Projects
+      title: Projects
+      url: /projects/
+      weight: 0
+    - identifier: about
+      name: About
+      title: About
+      url: /about/
       weight: 0
 
 params:

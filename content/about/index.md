@@ -1,8 +1,7 @@
 ---
-title: "About"
+title: ""
 date: 2021-10-17T19:19:16+05:30
 draft: false
-menu: main
 ---
 
 <img src="/images/me.jpg" width=400 alt="Aldrin Jenson">
