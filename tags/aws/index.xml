@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AWS on Aldrin's Blog</title><link>https://aldrinjenson.github.io/tags/aws/</link><description>Aldrin's Blog (AWS)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 24 Oct 2021 19:25:18 +0530</lastBuildDate><atom:link href="https://aldrinjenson.github.io/tags/aws/index.xml" rel="self" type="application/rss+xml"/><item><title>Query Search Bot</title><link>https://aldrinjenson.github.io/projects/query-search-bot/</link><pubDate>Sun, 24 Oct 2021 19:25:18 +0530</pubDate><guid>https://aldrinjenson.github.io/projects/query-search-bot/</guid><description>&lt;p>I started my experiments with Telegram Bots in the November of 2020 when I wanted an easy way to receive notifications.
+Discord was the first option, but it was just too cumbersome for the simple purpose of receiving notifications. Telegram was much more convenient and easy to use. I used and built various Telegram bots of different complexities during my tenure at TGH Tech. I also used it for my &lt;a href="https://aldrinjenson.github.io/projects/moodle-automation">Moodle Automation&lt;/a> program as well.&lt;/p>
+&lt;h2 id="motivation">Motivation&lt;/h2>
+&lt;p>This is one of my first major Telegram bot and was first made to get myself familiar with the functions offered by the &lt;a href="https://github.com/yagop/node-telegram-bot-api">node-telegram-bot-api&lt;/a> library. The idea is simple - make Internet queries without leaving telegram.&lt;/p>
+&lt;h2 id="the-flow">The flow&lt;/h2>
+&lt;p>The steps involved are as follows:&lt;/p>
+&lt;ul>
+&lt;li>The user adds the bot to a group&lt;/li>
+&lt;li>He uses a command to trigger the bot&lt;/li>
+&lt;li>He sends the bot a query to search&lt;/li>
+&lt;li>The bot sends the top search results of that particular query.&lt;/li>
+&lt;li>END&lt;/li>
+&lt;/ul>
+&lt;h2 id="implementation">Implementation&lt;/h2>
+&lt;p>Searching part is basically web-scraping. While google doesn&amp;rsquo;t provide a free api to search, there are some alternative implementation like &lt;a href="https://github.com/jarun/googler">googlr&lt;/a>. I tried to use these alternatives, but they either works only in the cli or were just too cumbersome to use.
+&lt;br/>
+With Google unavailable, I started looking for alternatives, which lead me to my answer -&amp;gt; Bing api. Initially I was a bit skeptical about using bing search engine, but turns out it&amp;rsquo;s the second most popular search engine after Google even though there&amp;rsquo;s a large market share gap.
+I found that the results for search queries were quite reasonable as well.
+&lt;br/>
+So with bing fixed, I used the &lt;a href="https://www.npmjs.com/package/bing-scraper">bing-scraper&lt;/a> npm package for my query searching.&lt;/p>
+&lt;hr/>
+&lt;p>The logic was quite simple actually. Whenever the user sends a search query to the bot, in the backend, the bot uses the above library to scrape bing and find the top results which are then sent as response messages back to the user.&lt;/p>
+&lt;p>Since this was a small project, I didn&amp;rsquo;t want to host it on a server as usual. Heroku was the first option I thought about. However, due to Heroku&amp;rsquo;s free tier limitations, once the server entered a sleep state, it needs an external HTTP request to wake it up. The telegram bot I set up was using constant polling mechanism to listen for requests, which meant that the telegram triggers won&amp;rsquo;t wake up the Heroku server.&lt;/p>
+&lt;p>I initially tried to create a simple API endpoint from the server, and then constantly pinging it at regular intervals to prevent the server from going to sleep. However even this wasn&amp;rsquo;t sustainable as Heroku free tier has this limitation that your server cannot be active for more than 500 hours per month. Bummer.&lt;/p>
+&lt;p>So as usual, I started looking for other options to get free hosting. I had an AWS account. I didn&amp;rsquo;t want to use and ec2 for this small project. But there were &lt;a href="https://aws.amazon.com/lambda">Lambdas&lt;/a> available. I didn&amp;rsquo;t have much experiences with serverless computing before, but this seemed like a good opportunity to try them out. AWS Lambda offers 1 million free requests per month, which seemed more than plenty for my use case😇.&lt;/p>
+&lt;h2 id="implementing-lambda-functions">Implementing Lambda functions&lt;/h2>
+&lt;p>Implementing lambda functions can be made very easy using the &lt;a href="https://www.serverless.com/">serverless framework&lt;/a>.
+It was very confusing for me initially on the product&amp;rsquo;s name - Serverless, the same name as the serverless architecture. 🤷 I&amp;rsquo;ll refer to the Serverless platform with a capital S.
+The process involved the following steps:&lt;/p>
+&lt;ul>
+&lt;li>You install Serverless cli and generates the serverless boilerplate for nodeJs(other languages also available)&lt;/li>
+&lt;li>You create a Serverless account and login to your dashboard&lt;/li>
+&lt;li>You connect your cloud provider(AWS Lambda in my case) to Serverless&lt;/li>
+&lt;li>You push your code to a github repo and connect it to the Serverless platform. (optional)&lt;/li>
+&lt;li>You enter the command &lt;code>sls deploy&lt;/code> in your code directory to deploy the code to the connected cloud provider.&lt;/li>
+&lt;li>END&lt;/li>
+&lt;/ul>
+&lt;h2 id="conclusion">Conclusion&lt;/h2>
+&lt;p>Once the serverless flow was understood, then building and deploying the bot was not that difficult. I had used this same bot as an example to explain the concept of building and deploying bots to many others. Overall even thought the project was kinda small in code or logic, it contained many learnings and people other than me were able to benefit out of this project. So Lesson learned, it&amp;rsquo;s better almost always to learn something by building rather than just by simply watching a Youtube tutorial without applying the concepts.&lt;/p>
+&lt;p>This bot was actually the base of many other complex Telegram bots I made. By the end of 2 months in TGH Tech, I was pretty well-versed in the node-telegram-bot-api library and had even written several utility functions to make a lot of tasks much, much easier. It was my wish to group them together and publish them as a library so that many other who faced similar problems could use it. Sadly though, I got busy afterwards with other projects and by the time I was free, I had lost all touch with bots and I had this feeling that even if I had published them as a library, I may not be able to fix any issues people may raise or even test PRs because I won&amp;rsquo;t be working with any Telegram bots at all. Now though, while writing about this, I&amp;rsquo;m having different thoughts.. may be I think even if I won&amp;rsquo;t be feeling any motivation to fix these, the code could be useful to many people and maybe someone could fork it and work on it to improve.. The chances of bugs are pretty low as well, because serveral bots are running in production level at TGH tech using the utility functions I wrote.. so hmm, let me see, I&amp;rsquo;ll update it here if I&amp;rsquo;m publishing the library🤞.&lt;/p>
+&lt;p>Check out the project &lt;a href="https://github.com/aldrinjenson/tg-querySearchBot">here&lt;/a>.
+&lt;br/>
+Live Demo at &lt;a href="https://t.me/querySearchBot">querySearchBot&lt;/a>.&lt;/p></description></item></channel></rss>
