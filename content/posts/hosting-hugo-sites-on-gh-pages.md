@@ -6,23 +6,33 @@ draft: false
 tags: [tech]
 ---
 
-It took me a day to fix a bug related to hosting a Hugo blog on github pages. Thought I'd compile down the learnings here.
+It took me a day to fix a bug related to hosting a Hugo blog on github pages. Thought I'd compile down my learnings here.
 
-To get started with the local installation and setting up of the development environment, it's quite easy. Just check out these two links:
+Check out these two links to get started with the local installation and setting up of the development environment. This part is quite easy.
 
 - [Start a blog in 30 minutes with Hugo](https://opensource.com/article/18/3/start-blog-30-minutes-hugo?utm_source=nomedium&utm_medium=web&utm_campaign=nomedium)
-- [Official Hugo Quick Start](https://gohugo.io/getting-started/quick-start/)
+- [Official Hugo Quick Start Guide](https://gohugo.io/getting-started/quick-start/)
 
 By now you should be having a blog with atleast one post which can be previewed locally using `hugo server -D` command.
 
-Now, the part which I found difficult is to host this site and make it available for the internet. While there are guides available on the official docs for a lot of hosting options, the one for hosting with github pages isn't very helpful (general opinion of a lot of developers).
+Now, the part which I found difficult is to host this site and make it available for the public. While there are guides available on the official docs for a lot of hosting options, the one for hosting with github pages isn't very helpful (general opinion of a lot of developers).
 
-Anyways, here are the simple gotchas you need to take note of for easy hosting after following the official guide [here](to be kept in mind).
+Anyways, here are the simple gotchas you need to take note of for easy hosting after following the official guide.
 
 1. The baseUrl in your config file should point to the url where which your site will be deployed. (Usually, `yourusername.github.io/`). No need to change it to rawgithubUserContent link if images or css doesn't load initially.
 
 2. If images are not being displayed on your site, add on `canonifyURLs: true` in your `config.yaml` file or the toml version in your `config.toml` file if you are using toml.
 
-3. When using the [gh-action](https://github.com/peaceiris/actions-gh-pages) as mentioned in the docs, it's basically creating a new branch called gh-pages and then putting in the build files (from the public folder) in this branch and this is the one that is getting deployed in github pages. Basically, your source code is in the main branch, and the build output is in the gh-pages. (Not knowing this can confuse you in understanding how the magic happens ).
+3. When using the [gh-pages](https://github.com/peaceiris/actions-gh-pages) github action as mentioned in the docs for deploying with Github, it's basically creating a new branch called gh-pages and then putting in the build files (from the public folder) in this branch and this is the one that is getting deployed in github pages. Basically, your source code is in the main branch, and the build output is in the gh-pages branch. (Not knowing this can confuse you in understanding how the magic happens ). The static HTML pages in this branch are deployed using github pages.
 
-So there you go, these are the three simple points which you need to take note of so as to make the whole deployment process with hugo a bit easier.
+So there you go, these are the three simple points which you need to take note of so as to make the whole deployment process with hugo a bit easier. Now you can write blog posts and the site gets deployed once you push to the main branch.
+
+## Pro Tip:
+
+If you want to make your life a bit easier, add the following alias script to your bash or zsh shell to start up the dev server quickly and open up your browser to the dev Server url once you enter the small command `hs ` in your terminal.
+
+```bash
+  alias hs='firefox --new-tab http://localhost:1313/ & hugo server -D'
+```
+
+The above works for most modern browsers. So you can replace firefox with the browser of your choice.
