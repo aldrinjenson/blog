@@ -4,19 +4,18 @@
 <meta name=HandheldFriendly content="True">
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=referrer content="no-referrer-when-downgrade">
-<title>Tags - Aldrin's Blog</title>
+<title>Love Match Calculator 😇 - Aldrin's Blog</title>
 <meta name=description content="CS undergrad from Kerala, India">
-<link rel=alternate type=application/rss+xml href=https://aldrinjenson.me/tags/index.xml title="Aldrin's Blog">
 <link rel=icon type=image/x-icon href=https://aldrinjenson.me/favicon.ico>
 <link rel=apple-touch-icon-precomposed href=https://aldrinjenson.me/favicon.png>
 <link rel=stylesheet href=https://aldrinjenson.me/css/style.min.f4eb13e56aed35bf3e86401b634a04a16d7839a2d3981f5a9529ec32f65da88a.css integrity="sha256-9OsT5WrtNb8+hkAbY0oEoW14OaLTmB9alSnsMvZdqIo=">
-<meta property="og:title" content="Tags">
-<meta property="og:description" content="CS undergrad from Kerala, India">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://aldrinjenson.me/tags/">
+<meta property="og:title" content="Love Match Calculator 😇">
+<meta property="og:description" content="My version of the Love Calculator. Use this to find the % love compatibility with your crush😉">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://aldrinjenson.me/projects/love-calculator/"><meta property="article:section" content="projects">
 <meta name=twitter:card content="summary">
-<meta name=twitter:title content="Tags">
-<meta name=twitter:description content="CS undergrad from Kerala, India">
+<meta name=twitter:title content="Love Match Calculator 😇">
+<meta name=twitter:description content="My version of the Love Calculator. Use this to find the % love compatibility with your crush😉">
 </head>
 <body>
 <a class=skip-main href=#main>Skip to main content</a>
@@ -66,71 +65,56 @@
 </nav>
 </header>
 <main id=main tabindex=-1>
-<div class=index-content>
+<article class="post h-entry">
+<header class=post-header>
+<h1 class="p-name post-title">Love Match Calculator 😇</h1>
+</header>
+<div class="content e-content">
+<p>Before reading any further, visit this <a href=https://aldrinjenson.github.io/Love-Calc/>link</a> and follow the instructions.</p>
+<hr>
+Seriously dude, only continue if you visited the page and followed the instructions.
+<p>This project was inspired by an article written by Subin Siby of Vidhya Institue of Sciences where he mentioned about how we once got pranked by a similar site.
+I haven&rsquo;t talked to him directly other than in an online meet when he answered a question I asked in chat, but I&rsquo;ve heard he&rsquo;s a cool dude interested in building cool software. (Wish I could talk to him directly for once🤞).</p>
+<p>Anyways, On April 1st 2020, I decided to build something since it&rsquo;s April Fool&rsquo;s and all. During those days, some of us in class had created a Whatsapp group for those interested in programming, where we shared different articles, tutorials etc for everyone to pick up and improve. In that group, began a conversation which somehow ended on the topic of compatibility between partners(I know, just the usual typical topic discussed in a programming group.😁). Anyway, I saw this message in the morning and this got me thinking. Since it was April Fool&rsquo;s day, I definitely wanted to do something fun; plus around that time, I had gotten myself pretty familiar with the awesome CSS framework <a href=https://materializecss.com/>Materialize-CSS</a> and I wanted to build something cool with it as well.
+So with all these reasons, I decided to build a Love compatibility calculator(Not an actual one ofc.)</p>
+<h2 id=the-idea>The Idea</h2>
+<p>The idea was simple - prank folks by asking them to enter the details of their crush for finding the percentage of love compatibility between them. What&rsquo;s the prank in this you ask? Well, once they details are submitted, instead of the data gets stored in a db and instead of a percentage value, the users get <a href=https://en.wikipedia.org/wiki/Rickrolling>Rick Rolled</a>😇.</p>
+<h2 id=implementation>Implementation</h2>
+<p>The project was built fairly quickly. I started working on it in the afternoon and by evening the whole project was pretty much completed.
+The site was built using just HTML, Materialize-CSS and vanilla Javascript.
+I used firebase as the database since it was super quick to set up.</p>
+<p>Basically once the user filled the form with details, a POST request is made and a new record is created in the firebase DB.
+The coding part was hence fairly easy. I added some GIFs and Mr.Been Youtube video as well.
+Sadly though, I wasn&rsquo;t able to figure out how to autoplay Youtube videos in HTML at that time.</p>
+<h2 id=aftermath>Aftermath</h2>
+<p>I hosted the site using Netlify and put the link in the above mentioned Whatsapp group.
+Well, a lot of people tried it out and quite a good number of people entered the names of their actual crush. When they found out at the end that it was a prank, well some took the joke lightly while others it seemed were quite anxious🙈.</p>
+<p>I was actually very excited about this nice joke and had sent the link to 2 seniors from my college as well without much thinking. One chechi(elder sister) who was 3 years senior to me, sent me just one message after a while: <code>"Why?"</code></p>
+<p>All the excitement and pride of having built something cool suddenly drained out of me. I didn&rsquo;t know how to reply. After a while I took down the site, cleared the database and apologized. She was cool about my innocent joke though, as she later told me that she had a hunch about this being some sort of phishing website, so it was cool and all. But I was very much shaken. At that time, I didn&rsquo;t even know about the concept of phishing. On that day, I suddenly became very much aware of powers a programmer or a tech person holds. It&rsquo;s easy to trick people with innocent looking sites and apps. as much cliché as it may sound, with great power, comes great responsibility. It is not that difficult even for a single person to create a make believe site and ask people to enter sensitive information in the promise of some great reward. The collected information could then be used to blackmail the user and collect money or whatever.</p>
+<p>This project hence, even though was a small one(only a few hours worth of work), it was an important one in my programming life. I realized that whatever you create could technically be used with a wrong intention as well which could result in major loss and sadness for people.</p>
+<p>The main site was took down, and I had removed the firebase Db connections. What you might have already seen contains just the UI. So no data is sent to anyone in case you actually entered any sensitive information when you visited the above site. But of-course, you were smart and you didn&rsquo;t enter any actual details right?🌝</p>
+<p>Check out the project code <a href=https://github.com/aldrinjenson/Love-Calc>here</a>!</p>
 </div>
-<h1>Tags</h1>
-<ul class=terms>
-<li>
-<a href=https://aldrinjenson.me/tags/aws>
-aws
-</a>
-(1)
-</li>
-<li>
-<a href=https://aldrinjenson.me/tags/ethics>
-ethics
-</a>
-(1)
-</li>
-<li>
-<a href=https://aldrinjenson.me/tags/firebase>
-firebase
-</a>
-(1)
-</li>
-<li>
-<a href=https://aldrinjenson.me/tags/fun>
-fun
-</a>
-(1)
-</li>
-<li>
-<a href=https://aldrinjenson.me/tags/linux>
-linux
-</a>
-(1)
-</li>
-<li>
-<a href=https://aldrinjenson.me/tags/nodejs>
-nodejs
-</a>
-(1)
-</li>
-<li>
-<a href=https://aldrinjenson.me/tags/react-native>
-react-native
-</a>
-(1)
-</li>
-<li>
-<a href=https://aldrinjenson.me/tags/serverless>
-serverless
-</a>
-(1)
-</li>
-<li>
-<a href=https://aldrinjenson.me/tags/tech>
-tech
-</a>
-(5)
-</li>
-<li>
-<a href=https://aldrinjenson.me/tags/telegram>
-telegram
-</a>
-(2)
-</li>
+<div class=post-info>
+<a class="post-hidden-url u-url" href=https://aldrinjenson.me/projects/love-calculator/>https://aldrinjenson.me/projects/love-calculator/</a>
+<a href=https://aldrinjenson.me class="p-name p-author post-hidden-author h-card" rel=me>Aldrin Jenson</a>
+<div class=post-taxonomies>
+<ul class=post-tags>
+<li><a href=https://aldrinjenson.me/tags/fun>#fun</a></li>
+<li><a href=https://aldrinjenson.me/tags/firebase>#firebase</a></li>
+<li><a href=https://aldrinjenson.me/tags/ethics>#ethics</a></li>
 </ul>
+</div>
+</div>
+</article>
+<div class="pagination post-pagination">
+<div class="left pagination-item">
+<a href=https://aldrinjenson.me/projects/query-search-bot/>Query Search Bot</a>
+</div>
+<div class="right pagination-item disabled">
+</div>
+</div>
+<script src=https://utteranc.es/client.js repo=aldrinjenson/aldrinjenson.github.io issue-term=pathname label=comment theme=github-dark crossorigin=anonymous async></script>
 </main>
 <footer class=common-footer>
 <div class=common-footer-bottom>
