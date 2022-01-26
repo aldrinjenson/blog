@@ -6,13 +6,13 @@
 <meta name=referrer content="no-referrer-when-downgrade">
 <title>How to Speed up your programming workflow by adding auto-correct in git - Aldrin's Blog</title>
 <meta name=description content="CS undergrad from Kerala, India">
-<link rel=icon type=image/x-icon href=https://aldrinjenson.me/favicon.ico>
-<link rel=apple-touch-icon-precomposed href=https://aldrinjenson.me/favicon.png>
-<link rel=stylesheet href=https://aldrinjenson.me/css/style.min.f4eb13e56aed35bf3e86401b634a04a16d7839a2d3981f5a9529ec32f65da88a.css integrity="sha256-9OsT5WrtNb8+hkAbY0oEoW14OaLTmB9alSnsMvZdqIo=">
+<link rel=icon type=image/x-icon href=/favicon.ico>
+<link rel=apple-touch-icon-precomposed href=/favicon.png>
+<link rel=stylesheet href=/css/style.min.f4eb13e56aed35bf3e86401b634a04a16d7839a2d3981f5a9529ec32f65da88a.css integrity="sha256-9OsT5WrtNb8+hkAbY0oEoW14OaLTmB9alSnsMvZdqIo=">
 <meta property="og:title" content="How to Speed up your programming workflow by adding auto-correct in git">
 <meta property="og:description" content="Neat trick to add auto-correct to git-commands">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://aldrinjenson.me/posts/git-autocorrect/"><meta property="article:section" content="posts">
+<meta property="og:url" content="/posts/git-autocorrect/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2020-11-01T17:07:10+05:30">
 <meta property="article:modified_time" content="2020-11-01T17:07:10+05:30">
 <meta name=twitter:card content="summary">
@@ -25,7 +25,7 @@
 <header class=common-header>
 <div class=header-top>
 <h1 class=site-title>
-<a href=https://aldrinjenson.me/>Aldrin's Blog</a>
+<a href=/>Aldrin's Blog</a>
 </h1>
 <ul class=social-icons>
 <li>
@@ -61,9 +61,9 @@
 </ul>
 </div>
 <nav>
-<a href=https://aldrinjenson.me/ title=Home>Home</a>
-<a href=https://aldrinjenson.me/about/ title=About>About</a>
-<a href=https://aldrinjenson.me/projects/ title=Projects>Projects</a>
+<a href=/ title=Home>Home</a>
+<a href=/about/ title=About>About</a>
+<a href=/projects/ title=Projects>Projects</a>
 </nav>
 </header>
 <main id=main tabindex=-1>
@@ -77,7 +77,7 @@
 <p>Currently, if you have a typo or some small error in your git command, git will automatically suggest the most plausible command corresponding to your keyboard input.
 Majority of the time this suggested command is bound to be the one you were trying to use. However, just suggesting the command is not that helpful since the programmer still has to navigate around and change the typo.</p>
 <br>
-<p><img src=https://aldrinjenson.me/images/git-autocorrect/image1.png alt=image1></p>
+<p><img src=/images/git-autocorrect/image1.png alt=image1></p>
 <p align=center>
 Before setting up auto-correct
 </p>
@@ -90,7 +90,7 @@ Before setting up auto-correct
 <p>Just open your terminal and add the following line</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git config --global help.autocorrect <span style=color:#ae81ff>1</span>
 </code></pre></div><p>Adding the above command in your terminal results in the following :</p>
-<p><img src=https://aldrinjenson.me/images/git-autocorrect/image2.png alt=image2></p>
+<p><img src=/images/git-autocorrect/image2.png alt=image2></p>
 <p align=center>
 With auto-correct turned on
 </p>
@@ -102,7 +102,7 @@ With auto-correct turned on
 <p>This can be achieved by changing the final integer value at the end to a multiple of 10 (say 20 or 30 which corresponds to 2 or 3 seconds respectively).</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git config --global help.autocorrect <span style=color:#ae81ff>30</span>
 </code></pre></div><p>Adding the above code in your terminal gives the following output when you have another typo in your code.</p>
-<p><img src=https://aldrinjenson.me/images/git-autocorrect/image3.png alt=image3></p>
+<p><img src=/images/git-autocorrect/image3.png alt=image3></p>
 <p align=center>
 Executing a git command after 3 seconds
 </p>
@@ -112,7 +112,7 @@ Executing a git command after 3 seconds
 <p>If for some reason, you want to disable autocorrect feature (though I can’t really imagine why), all you need is to set the final integer to 0.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git config --global help.autocorrect <span style=color:#ae81ff>0</span>
 </code></pre></div><p>This will revert back the config settings to the default stage – to how it was before we modified it.</p>
-<p><img src=https://aldrinjenson.me/images/git-autocorrect/image4.png alt=image4></p>
+<p><img src=/images/git-autocorrect/image4.png alt=image4></p>
 <p align=center>
 Just like how it was before
 </p>
@@ -122,27 +122,27 @@ Just like how it was before
 <h3 id=references>References:</h3>
 <p><a href=https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration>Here</a> is the official git docs in case you have further doubts.</p>
 <p>P.S. Other than the auto-correct, git has got some other cool features as well. Be sure to check them out too while you are at it :).</p>
-<p><img src=https://aldrinjenson.me/images/bg/bg1.jpg alt="background image"></p>
+<p><img src=/images/bg/bg1.jpg alt="background image"></p>
 <p>Have a good day!</p>
 </div>
 <div class=post-info>
 <div class="post-date dt-published">01-11-2020</div>
-<a class="post-hidden-url u-url" href=https://aldrinjenson.me/posts/git-autocorrect/>https://aldrinjenson.me/posts/git-autocorrect/</a>
-<a href=https://aldrinjenson.me class="p-name p-author post-hidden-author h-card" rel=me>Aldrin Jenson</a>
+<a class="post-hidden-url u-url" href=/posts/git-autocorrect/>/posts/git-autocorrect/</a>
+<a href=/ class="p-name p-author post-hidden-author h-card" rel=me>Aldrin Jenson</a>
 <div class=post-taxonomies>
 <ul class=post-tags>
-<li><a href=https://aldrinjenson.me/tags/tech>#tech</a></li>
-<li><a href=https://aldrinjenson.me/tags/linux>#linux</a></li>
+<li><a href=/tags/tech>#tech</a></li>
+<li><a href=/tags/linux>#linux</a></li>
 </ul>
 </div>
 </div>
 </article>
 <div class="pagination post-pagination">
 <div class="left pagination-item">
-<a href=https://aldrinjenson.me/posts/hosting-hugo-sites-on-gh-pages/>How to host a Hugo static site using Github pages</a>
+<a href=/posts/hosting-hugo-sites-on-gh-pages/>How to host a Hugo static site using Github pages</a>
 </div>
 <div class="right pagination-item">
-<a href=https://aldrinjenson.me/posts/add-splash-screen-in-react-native-app/>Easiest way to add a splash screen in a React Native App</a>
+<a href=/posts/add-splash-screen-in-react-native-app/>Easiest way to add a splash screen in a React Native App</a>
 </div>
 </div>
 <script src=https://utteranc.es/client.js repo=aldrinjenson/aldrinjenson.github.io issue-term=pathname label=comment theme=github-dark crossorigin=anonymous async></script>
@@ -158,10 +158,10 @@ Powered by <a target=_blank rel="noopener noreferrer" href=https://gohugo.io/>Hu
 <script>const STORAGE_KEY='user-color-scheme',defaultTheme="auto";let currentTheme,switchButton,autoDefinedScheme=window.matchMedia('(prefers-color-scheme: dark)');const autoChangeScheme=a=>{currentTheme=a.matches?'dark':'light',document.documentElement.setAttribute('data-theme',currentTheme),changeButtonText()};document.addEventListener('DOMContentLoaded',function(){switchButton=document.querySelector('.theme-switcher'),currentTheme=detectCurrentScheme(),currentTheme=='dark'&&document.documentElement.setAttribute('data-theme','dark'),currentTheme=='auto'&&(autoChangeScheme(autoDefinedScheme),autoDefinedScheme.addListener(autoChangeScheme)),changeButtonText(),switchButton.addEventListener('click',switchTheme,!1)});function detectCurrentScheme(){return localStorage.getItem(STORAGE_KEY)?localStorage.getItem(STORAGE_KEY):defaultTheme?defaultTheme:window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light':'light'}function changeButtonText(){switchButton.textContent=currentTheme=='dark'?"Light theme":"Dark theme"}function switchTheme(a){currentTheme=='dark'?(localStorage.setItem(STORAGE_KEY,'light'),document.documentElement.setAttribute('data-theme','light'),currentTheme='light'):(localStorage.setItem(STORAGE_KEY,'dark'),document.documentElement.setAttribute('data-theme','dark'),currentTheme='dark'),changeButtonText()}</script>
 </div>
 <p class="h-card vcard">
-<a href=https://aldrinjenson.me class="p-name u-url url fn" rel=me>Aldrin Jenson</a>
+<a href=/ class="p-name u-url url fn" rel=me>Aldrin Jenson</a>
 /
 <a class="p-email u-email email" rel=me href=mailto:aldrinjenson@gmail.com>aldrinjenson@gmail.com</a>
-<img class=u-photo src=https://aldrinjenson.me/images/me.jpg>
+<img class=u-photo src=/images/me.jpg>
 </p>
 </footer>
 </div>
