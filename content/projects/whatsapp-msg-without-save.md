@@ -10,7 +10,7 @@ tags: [whatsapp, flutter, global-good]
 
 An app I made to ensure that you can share links and files really easily to anyone without having to save the contact number of that person by using the already existing most famous digital medium of communication - Whatsapp.
 
-Get the code and APK from this [link](https://github.com/aldrinjenson/send-whatsapp-msg-without-save)
+Get the code and APK from this [link](https://github.com/aldrinjenson/send-whatsapp-msg-without-save).
 
 ## Introduction
 
