@@ -46,6 +46,9 @@ Anyways, I created a new nodeJs project, installed puppeteer and added my userna
 <br>
 I created a file wherein I could add the subjectLinks for which I wanted to automatically mark attendance. I also installed expressJs and created a web UI - something like a dashboard which could show me the stats for various subjects - whether they were marked, when is the next check etc.
 
+<img src="/images/moodle-bot/dashboard.png" width=400 alt="Dashboard preview">
+<br/>
+
 I tested the program a couple of times. Testing was a bit slow because there would be only one slot for me to test in one hour when there is an actual attendance open to automate.
 
 Afterwards I installed the awesome [node-telegram-bot-api](https://github.com/yagop/node-telegram-bot-api) library for getting notifications through Telegram and also added some control commands as well.
@@ -57,6 +60,11 @@ This was not acceptable.
 So I started looking for alternate solutions, and came upon this wonderful [site](https://cron-job.org/en/)🤩.My new approach didn't have the cron script in my code. I had an API endpoint which will be called by the cron-job site every 30 minutes from morning to evening. I hosted by code in Heroku and gave the api endpoint url to the cron-job site to ping. Heroku has some serious limitations for free apps which prevents them to be up more than 21 days etc. With my new approach however this was not at all a problem as now my server will be active exactly only when the cron site executes ie. it'll be active only when it is time to mark the attendance. No extra wasted awake time.
 
 I hosted the project, and I have to say by the end of semester I had more than 75% of attendance for all subjects. Mind you that I actually did attend all the online classes myself, just that I didn't have to do the boring process of opening Moodle and marking the attendance manually.
+
+<img src="/images/moodle-bot/bot.png" width=400 alt="bot preview">
+<br/>
+
+## Afterthoughts
 
 One doubt I initially had was if this was a good project from an ethical standpoint and whether my code could be used by others for getting attendance without coming to class. Since I was conflicted on this, for over one year, I didn't tell to anyone about this project and kept the code in a private Github repo. However it was only a matter of time before I saw that students were just tired of this stupid process of manually going to moodle and marking their own attendance. I saw over 4 other automation projects for marking attendance, ie students were trying to find a way to get around the broken system;
 
