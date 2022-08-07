@@ -10,7 +10,7 @@ menu:
     - identifier: home
       name: Home
       title: Home
-      url: /posts/
+      url: /
       weight: 1
     # - identifier: posts
     #   name: Posts
