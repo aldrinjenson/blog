@@ -2,7 +2,7 @@
 title: "Sending Whatsapp messages without saving contact"
 date: 2022-6-23T19:25:18+05:30
 draft: false
-description: "An app I built to make the sharing of digital assets as easy and accessible as possible"
+description: "An app I  to make the sharing of digital assets as easy and accessible as possible"
 tags: [whatsapp, flutter, global-good]
 ---
 

@@ -2,7 +2,7 @@ baseUrl: "/"
 languageCode: "en-us"
 title: "Aldrin's Blog"
 theme: "anubis"
-paginate: 10
+paginate: 25
 enableRobotsTXT: true
 
 menu:
