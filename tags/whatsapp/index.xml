@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>whatsapp on Aldrin's Blog</title><link>/tags/whatsapp/</link><description>Aldrin's Blog (whatsapp)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="/tags/whatsapp/index.xml" rel="self" type="application/rss+xml"/><item><title>Sending Whatsapp messages without saving contact</title><link>/projects/whatsapp-msg-without-save/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/projects/whatsapp-msg-without-save/</guid><description>&lt;h3 id="abstract">Abstract&lt;/h3>
 &lt;p>An app I made to ensure that you can share links and files really easily to anyone without having to save the contact number of that person by using the already existing most famous digital medium of communication - Whatsapp.&lt;/p>
-&lt;p>Get the code and APK from this &lt;a href="https://github.com/aldrinjenson/send-whatsapp-msg-without-save">link&lt;/a>&lt;/p>
+&lt;p>Get the code and APK from this &lt;a href="https://github.com/aldrinjenson/send-whatsapp-msg-without-save">link&lt;/a>.&lt;/p>
 &lt;h2 id="introduction">Introduction&lt;/h2>
 &lt;p>I had to learn flutter for a mini-project in my college. I wanted to build something to try out and this is regarding a very simple Flutter app I made which I believe solves a great problem in the lives of the common people.&lt;/p>
 &lt;h1 id="the-problem">The Problem&lt;/h1>

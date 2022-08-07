@@ -112,7 +112,7 @@ Well, a lot of people tried it out and quite a good number of people entered the
 &lt;p>The main site was took down, and I had removed the firebase Db connections. What you might have already seen contains just the UI. So no data is sent to anyone in case you actually entered any sensitive information when you visited the above site. But of-course, you were smart and you didn&amp;rsquo;t enter any actual details right?🌝&lt;/p>
 &lt;p>Check out the project code &lt;a href="https://github.com/aldrinjenson/Love-Calc">here&lt;/a>!&lt;/p></description></item><item><title>Sending Whatsapp messages without saving contact</title><link>/projects/whatsapp-msg-without-save/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/projects/whatsapp-msg-without-save/</guid><description>&lt;h3 id="abstract">Abstract&lt;/h3>
 &lt;p>An app I made to ensure that you can share links and files really easily to anyone without having to save the contact number of that person by using the already existing most famous digital medium of communication - Whatsapp.&lt;/p>
-&lt;p>Get the code and APK from this &lt;a href="https://github.com/aldrinjenson/send-whatsapp-msg-without-save">link&lt;/a>&lt;/p>
+&lt;p>Get the code and APK from this &lt;a href="https://github.com/aldrinjenson/send-whatsapp-msg-without-save">link&lt;/a>.&lt;/p>
 &lt;h2 id="introduction">Introduction&lt;/h2>
 &lt;p>I had to learn flutter for a mini-project in my college. I wanted to build something to try out and this is regarding a very simple Flutter app I made which I believe solves a great problem in the lives of the common people.&lt;/p>
 &lt;h1 id="the-problem">The Problem&lt;/h1>
