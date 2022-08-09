@@ -116,7 +116,7 @@ Well, a lot of people tried it out and quite a good number of people entered the
 &lt;h2 id="introduction">Introduction&lt;/h2>
 &lt;p>I had to learn flutter for a mini-project in my college. I wanted to build something to try out and this is regarding a very simple Flutter app I made which I believe solves a great problem in the lives of the common people.&lt;/p>
 &lt;h1 id="the-problem">The Problem&lt;/h1>
-&lt;p>For a common man, the most familiar app in their phone is Whatsapp. All the controls for texting and sending files are so familiar to them. When they see someone new and have to send something to them, what they usually do is to save the contact number and then searches whatsapp to locate their chat and send the file or link.
+&lt;p>For a common person, the most familiar app in their phone is Whatsapp. All the controls for texting and sending files are so familiar to them. When they see someone new and have to send something to them, what they usually do is to save the contact number and then searches whatsapp to locate their chat and send the file or link.
 This is cool and all, but why save someone&amp;rsquo;s contact if it&amp;rsquo; going to be a one time file sharing..&lt;/p>
 &lt;p>I&amp;rsquo;ve faced this dilemma before as well when I&amp;rsquo;m part of the organizing team for some event and often times we may have to message the participants regarding some important announcement or even Google Meet links. E-mails cannot be relied upon for short term reminders while Whatsapp messages would be an excellent way.&lt;/p>
 &lt;p>If only there was some way to send messages and files through whatsapp without having to save contact&amp;hellip;.&lt;/p>
