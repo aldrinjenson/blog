@@ -37,13 +37,13 @@ This is nice if you're a techie as this is way better than actually having to sa
 
 > wa.me/\<mobile-number>
 
-I've been using this above URL for months and it works flawlessly.
+I've been using this above URL method for months and it works flawlessly.
 
 ## Even better solution
 
 Now, what if there was one app which could automate this even further so that even very common man could use this without having to use a browser to enter a URL each time!
 
-Well, that's exactly what I made: An app which behind the scene, calls this link with a mobile number accepted as parameter.
+Well, that's exactly what I made: An app which behind the scenes, calls the above link with a mobile number accepted as parameter.
 
 Here's a demo:
 
@@ -62,10 +62,14 @@ The code can be found in this Github repo: [aldrinjenson/send-whatsapp-msg-witho
 
 ## Conclusion and afterthoughts
 
-Most of my projects so far which a lot of people have felt really awesome are those which are really simple to implement. Within just 2 months of building this app, I felt myself using this way more than I initially anticipated. An app like this is really useful if you're organizing an event and you'd want to just start a conversation with a participant but you know for sure that you won't be contacting him again after the event.
+Most of my projects so far which a lot of people have felt really useful are those which were really simple to implement. Within just 2 months of building this app, I felt myself using this way more than I initially anticipated. An app like this is really useful if you're organizing an event and you'd want to just start a conversation with a participant but you know for sure that you won't be contacting them again after this one time event.
 
 Also really useful if you started talking to someone at a conference and you want to send them a link about your project.
 
-I found this really useful and when I showed it to a few friends, even they could instantly relate with the problem. Hey, maybe you can try out and see if it's useful to you as well✨.
+I've also used the app when I've gone to churches or festivals and have someone send a copy of the notice or brochure but usually folks only know to send via Whatsapp and hence need to save contact number.
 
-Get the APK file from [here](https://github.com/aldrinjenson/send-whatsapp-msg-without-save)
+I found this really useful and when I showed it to a few friends, even they could instantly relate with the problem. I realized that opening up the app and entering a number is waay faster than opening browser, typing wa.me/+91 and then entering the 10 digit phone number. It won't seem obvious until you actually try it out yourself!
+
+Hey, maybe you can try it out now and see if it's useful to you as well✨.
+
+Get the code and APK file from [here](https://github.com/aldrinjenson/send-whatsapp-msg-without-save)
