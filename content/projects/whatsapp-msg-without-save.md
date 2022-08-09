@@ -18,7 +18,7 @@ I had to learn flutter for a mini-project in my college. I wanted to build somet
 
 # The Problem
 
-For a common man, the most familiar app in their phone is Whatsapp. All the controls for texting and sending files are so familiar to them. When they see someone new and have to send something to them, what they usually do is to save the contact number and then searches whatsapp to locate their chat and send the file or link.
+For a common person, the most familiar app in their phone is Whatsapp. All the controls for texting and sending files are so familiar to them. When they see someone new and have to send something to them, what they usually do is to save the contact number and then searches whatsapp to locate their chat and send the file or link.
 This is cool and all, but why save someone's contact if it' going to be a one time file sharing..
 
 I've faced this dilemma before as well when I'm part of the organizing team for some event and often times we may have to message the participants regarding some important announcement or even Google Meet links. E-mails cannot be relied upon for short term reminders while Whatsapp messages would be an excellent way.
