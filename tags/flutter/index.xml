@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>flutter on Aldrin's Blog</title><link>/tags/flutter/</link><description>Aldrin's Blog (flutter)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="/tags/flutter/index.xml" rel="self" type="application/rss+xml"/><item><title>Sending Whatsapp messages without saving contact</title><link>/projects/whatsapp-msg-without-save/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/projects/whatsapp-msg-without-save/</guid><description>&lt;h3 id="abstract">Abstract&lt;/h3>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>flutter on Aldrin's Blog</title><link>https://aldrinjenson.me/tags/flutter/</link><description>Aldrin's Blog (flutter)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://aldrinjenson.me/tags/flutter/index.xml" rel="self" type="application/rss+xml"/><item><title>Sending Whatsapp messages without saving contact</title><link>https://aldrinjenson.me/projects/whatsapp-msg-without-save/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://aldrinjenson.me/projects/whatsapp-msg-without-save/</guid><description>&lt;h3 id="abstract">Abstract&lt;/h3>
 &lt;p>An app I made to ensure that you can share links and files really easily to anyone without having to save the contact number of that person by using the already existing most famous digital medium of communication - Whatsapp.&lt;/p>
 &lt;p>Get the code and APK from this &lt;a href="https://github.com/aldrinjenson/send-whatsapp-msg-without-save">link&lt;/a>.&lt;/p>
 &lt;h2 id="introduction">Introduction&lt;/h2>
@@ -18,12 +18,12 @@ This is cool and all, but why save someone&amp;rsquo;s contact if it&amp;rsquo; 
 &lt;blockquote>
 &lt;p>wa.me/&amp;lt;mobile-number&amp;gt;&lt;/p>
 &lt;/blockquote>
-&lt;p>I&amp;rsquo;ve been using this above URL for months and it works flawlessly.&lt;/p>
+&lt;p>I&amp;rsquo;ve been using this above URL method for months and it works flawlessly.&lt;/p>
 &lt;h2 id="even-better-solution">Even better solution&lt;/h2>
 &lt;p>Now, what if there was one app which could automate this even further so that even very common man could use this without having to use a browser to enter a URL each time!&lt;/p>
-&lt;p>Well, that&amp;rsquo;s exactly what I made: An app which behind the scene, calls this link with a mobile number accepted as parameter.&lt;/p>
+&lt;p>Well, that&amp;rsquo;s exactly what I made: An app which behind the scenes, calls the above link with a mobile number accepted as parameter.&lt;/p>
 &lt;p>Here&amp;rsquo;s a demo:&lt;/p>
-&lt;img src="/images/wa_msg_without_save_demo.gif" width=400 alt="demo workflow gif">
+&lt;img src="https://aldrinjenson.me/images/wa_msg_without_save_demo.gif" width=400 alt="demo workflow gif">
 &lt;br/>
 &lt;h2 id="code-and-implementation">Code and implementation&lt;/h2>
 &lt;p>The code is written in Flutter because the main reason for the starting of this project was for me to try out Flutter.&lt;/p>
@@ -31,7 +31,9 @@ This is cool and all, but why save someone&amp;rsquo;s contact if it&amp;rsquo; 
 &lt;p>The implementation part is very simple with just one class and one dart file.&lt;/p>
 &lt;p>The code can be found in this Github repo: &lt;a href="https://github.com/aldrinjenson/send-whatsapp-msg-without-save">aldrinjenson/send-whatsapp-msg-without-save&lt;/a>&lt;/p>
 &lt;h2 id="conclusion-and-afterthoughts">Conclusion and afterthoughts&lt;/h2>
-&lt;p>Most of my projects so far which a lot of people have felt really awesome are those which are really simple to implement. Within just 2 months of building this app, I felt myself using this way more than I initially anticipated. An app like this is really useful if you&amp;rsquo;re organizing an event and you&amp;rsquo;d want to just start a conversation with a participant but you know for sure that you won&amp;rsquo;t be contacting him again after the event.&lt;/p>
+&lt;p>Most of my projects so far which a lot of people have felt really useful are those which were really simple to implement. Within just 2 months of building this app, I felt myself using this way more than I initially anticipated. An app like this is really useful if you&amp;rsquo;re organizing an event and you&amp;rsquo;d want to just start a conversation with a participant but you know for sure that you won&amp;rsquo;t be contacting them again after this one time event.&lt;/p>
 &lt;p>Also really useful if you started talking to someone at a conference and you want to send them a link about your project.&lt;/p>
-&lt;p>I found this really useful and when I showed it to a few friends, even they could instantly relate with the problem. Hey, maybe you can try out and see if it&amp;rsquo;s useful to you as well✨.&lt;/p>
-&lt;p>Get the APK file from &lt;a href="https://github.com/aldrinjenson/send-whatsapp-msg-without-save">here&lt;/a>&lt;/p></description></item></channel></rss>
+&lt;p>I&amp;rsquo;ve also used the app when I&amp;rsquo;ve gone to churches or festivals and have someone send a copy of the notice or brochure but usually folks only know to send via Whatsapp and hence need to save contact number.&lt;/p>
+&lt;p>I found this really useful and when I showed it to a few friends, even they could instantly relate with the problem. I realized that opening up the app and entering a number is waay faster than opening browser, typing wa.me/+91 and then entering the 10 digit phone number. It won&amp;rsquo;t seem obvious until you actually try it out yourself!&lt;/p>
+&lt;p>Hey, maybe you can try it out now and see if it&amp;rsquo;s useful to you as well✨.&lt;/p>
+&lt;p>Get the code and APK file from &lt;a href="https://github.com/aldrinjenson/send-whatsapp-msg-without-save">here&lt;/a>&lt;/p></description></item></channel></rss>
