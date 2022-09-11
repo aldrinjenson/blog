@@ -1,7 +1,7 @@
 baseUrl: "https://aldrinjenson.me/"
 languageCode: "en-us"
 title: "Aldrin's Blog"
-# theme: "anubis"
+theme: "github.com/Mitrichius/hugo-theme-anubis"
 paginate: 25
 enableRobotsTXT: true
 
