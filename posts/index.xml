@@ -23,12 +23,22 @@
 &lt;/ol>
 &lt;p>So there you go, these are the three simple points which you need to take note of so as to make the whole deployment process with hugo a bit easier. Now you can write blog posts and the site gets deployed once you push to the main branch.&lt;/p>
 &lt;p>P.S. Just so you know, this current site you are looking at has been made completely using Hugo by following the above steps. So yeah, this works. You can check out the source code for this site &lt;a href="https://github.com/aldrinjenson/aldrinjenson.github.io">here&lt;/a> if interested.&lt;/p>
-&lt;h2 id="pro-tip">Pro Tip:&lt;/h2>
-&lt;p>If you want to make your life a bit easier, add the following alias script to your bash or zsh shell to start up the dev server and open up your browser quickly to the localhost hugo dev URL.&lt;/p>
+&lt;h2 id="pro-tip" >Pro Tip:
+&lt;span>
+&lt;a href="#pro-tip">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>If you want to make your life a bit easier, add the following alias script to your bash or zsh shell to start up the dev server and open up your browser quickly to the localhost hugo dev URL.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span> alias hs&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;firefox --new-tab http://localhost:1313/ &amp;amp; hugo server -D&amp;#39;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The above works for most modern browsers and hence you can replace firefox with the browser of your choice. So next time you want to write a new blog, fire up your editor and simply enter the &lt;code>hs&lt;/code> command in your blog directory to start up hugo dev server and have your browser navigate to the hugo dev port.&lt;/p></description></item><item><title>How to Speed up your programming workflow by adding auto-correct in git</title><link>https://aldrinjenson.me/posts/git-autocorrect/</link><pubDate>Sun, 01 Nov 2020 17:07:10 +0530</pubDate><guid>https://aldrinjenson.me/posts/git-autocorrect/</guid><description>&lt;p>In this short post I would like to share a neat trick I learned which you can use to speed up your development workflow - adding auto-correct to git.&lt;/p>
-&lt;h2 id="current-scenario">Current Scenario&lt;/h2>
-&lt;p>Currently, if you have a typo or some small error in your git command, git will automatically suggest the most plausible command corresponding to your keyboard input.
+&lt;h2 id="current-scenario" >Current Scenario
+&lt;span>
+&lt;a href="#current-scenario">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>Currently, if you have a typo or some small error in your git command, git will automatically suggest the most plausible command corresponding to your keyboard input.
 Majority of the time this suggested command is bound to be the one you were trying to use. However, just suggesting the command is not that helpful since the programmer still has to navigate around and change the typo.&lt;/p>
 &lt;br/>
 &lt;p>&lt;img src="https://aldrinjenson.me/images/git-autocorrect/image1.png" alt="image1">&lt;/p>
@@ -40,8 +50,13 @@ Before setting up auto-correct
 &lt;blockquote>
 &lt;p>Git helpfully tries to figure out what you meant, but it still refuses to do it. If you set help.autocorrect to 1, Git will actually run this command for you&lt;/p>
 &lt;/blockquote>
-&lt;h2 id="solution">Solution:&lt;/h2>
-&lt;p>Just open your terminal and add the following line&lt;/p>
+&lt;h2 id="solution" >Solution:
+&lt;span>
+&lt;a href="#solution">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>Just open your terminal and add the following line&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git config --global help.autocorrect &lt;span style="color:#ae81ff">1&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Adding the above command in your terminal results in the following :&lt;/p>
 &lt;p>&lt;img src="https://aldrinjenson.me/images/git-autocorrect/image2.png" alt="image2">&lt;/p>
@@ -51,8 +66,13 @@ With auto-correct turned on
 &lt;br/>
 &lt;p>See, git gave us a warning saying that there is a typo in our command and then executed the most matching/similar command.&lt;/p>
 &lt;p>Now, here the value which we assigned at the end has to be an integer which represents the tenths of a second after which your command will be executed.&lt;/p>
-&lt;h2 id="preventing-accidental-commands">Preventing accidental commands&lt;/h2>
-&lt;p>If you are worried about git accidentally executing a command which is similar to your input but is not what you actually wanted to run, then you can add a few seconds of extra time before which the command will be executed, so that you can cancel out the execution if needed.&lt;/p>
+&lt;h2 id="preventing-accidental-commands" >Preventing accidental commands
+&lt;span>
+&lt;a href="#preventing-accidental-commands">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>If you are worried about git accidentally executing a command which is similar to your input but is not what you actually wanted to run, then you can add a few seconds of extra time before which the command will be executed, so that you can cancel out the execution if needed.&lt;/p>
 &lt;p>This can be achieved by changing the final integer value at the end to a multiple of 10 (say 20 or 30 which corresponds to 2 or 3 seconds respectively).&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git config --global help.autocorrect &lt;span style="color:#ae81ff">30&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Adding the above code in your terminal gives the following output when you have another typo in your code.&lt;/p>
@@ -62,8 +82,13 @@ Executing a git command after 3 seconds
 &lt;/p>
 &lt;br/>
 &lt;p>The actual command will be executed only after 3 seconds; which means that you can cancel the execution anytime within three seconds by just pressing &lt;strong>ctrl-c&lt;/strong>.&lt;/p>
-&lt;h2 id="disabling-auto-correct">Disabling auto-correct:&lt;/h2>
-&lt;p>If for some reason, you want to disable autocorrect feature (though I can’t really imagine why), all you need is to set the final integer to 0.&lt;/p>
+&lt;h2 id="disabling-auto-correct" >Disabling auto-correct:
+&lt;span>
+&lt;a href="#disabling-auto-correct">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>If for some reason, you want to disable autocorrect feature (though I can’t really imagine why), all you need is to set the final integer to 0.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git config --global help.autocorrect &lt;span style="color:#ae81ff">0&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This will revert back the config settings to the default stage – to how it was before we modified it.&lt;/p>
 &lt;p>&lt;img src="https://aldrinjenson.me/images/git-autocorrect/image4.png" alt="image4">&lt;/p>
@@ -71,10 +96,20 @@ Executing a git command after 3 seconds
 Just like how it was before
 &lt;/p>
 &lt;br/>
-&lt;h2 id="conclusion">Conclusion&lt;/h2>
-&lt;p>I have been using this cool autocorrect feature of git for some years now and it&amp;rsquo;s really a cool time saver. The small few micro seconds it saves by preventing us from not pressing the up arrow and then navigating around to fix typos in our command, can get compounded and become a huge time saver in the long run.&lt;/p>
-&lt;h3 id="references">References:&lt;/h3>
-&lt;p>&lt;a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration">Here&lt;/a> is the official git docs in case you have further doubts.&lt;/p>
+&lt;h2 id="conclusion" >Conclusion
+&lt;span>
+&lt;a href="#conclusion">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>I have been using this cool autocorrect feature of git for some years now and it&amp;rsquo;s really a cool time saver. The small few micro seconds it saves by preventing us from not pressing the up arrow and then navigating around to fix typos in our command, can get compounded and become a huge time saver in the long run.&lt;/p>
+&lt;h3 id="references" >References:
+&lt;span>
+&lt;a href="#references">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;p>&lt;a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration">Here&lt;/a> is the official git docs in case you have further doubts.&lt;/p>
 &lt;p>P.S. Other than the auto-correct, git has got some other cool features as well. Be sure to check them out too while you are at it :).&lt;/p>
 &lt;p>&lt;img src="https://aldrinjenson.me/images/bg/bg1.jpg" alt="background image">&lt;/p>
 &lt;p>Have a good day!&lt;/p></description></item><item><title>Easiest way to add a splash screen in a React Native App</title><link>https://aldrinjenson.me/posts/add-splash-screen-in-react-native-app/</link><pubDate>Wed, 24 Jun 2020 00:58:27 +0530</pubDate><guid>https://aldrinjenson.me/posts/add-splash-screen-in-react-native-app/</guid><description>&lt;blockquote>
@@ -85,22 +120,42 @@ Just like how it was before
 &lt;p>Note: If you are building your app using the awesome expo-cli, then you don’t need to go through the below tutorial, adding a splash screen to an expo app is as simple as replacing the default splash image in assets folder with your own custom image and then renaming it as ‘splash.png’.&lt;/p>
 &lt;/blockquote>
 &lt;p>Now, for those of us who have built the app with the good-old react-native init, adding a splash screen consists of the following 4 steps:&lt;/p>
-&lt;h2 id="step-0-get-the-splash-image-ready">Step 0: Get the splash image ready!&lt;/h2>
-&lt;p>I know, this is a no-brainier. But hey, do you exactly have the splash image in 6 different dimensions? No? Well guess what, you actually do need the same image in 6 dimensions! So how will you manage to make-do with just one image if that’s all what you got?&lt;/p>
+&lt;h2 id="step-0-get-the-splash-image-ready" >Step 0: Get the splash image ready!
+&lt;span>
+&lt;a href="#step-0-get-the-splash-image-ready">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>I know, this is a no-brainier. But hey, do you exactly have the splash image in 6 different dimensions? No? Well guess what, you actually do need the same image in 6 dimensions! So how will you manage to make-do with just one image if that’s all what you got?&lt;/p>
 &lt;p>Don’t bother going to Photoshop and resizing, here’s an awesome tool I found to make the process of splash image generation a piece of cake.&lt;/p>
 &lt;p>Just go to &lt;a href="https://apetools.webprofusion.com/#/tools/imagegorilla">this&lt;/a> site, add your one splash image(preferably with the highest quality), choose the required platform(andoid and/or ios) and punch the Kapow button). The tool will generate a zip file of the splash screen in various different pixel dimensions.&lt;/p>
 &lt;p>Extract it and copy all the contents in the android and/or ios folder from the bundle to your android/app/src/main/res folder.&lt;/p>
-&lt;h2 id="step-1-install-the-super-cool-npm-package-react-native-splash-screen">Step 1: Install the super cool npm package: react-native-splash-screen&lt;/h2>
-&lt;p>This will make the whole process dead simple&lt;/p>
+&lt;h2 id="step-1-install-the-super-cool-npm-package-react-native-splash-screen" >Step 1: Install the super cool npm package: react-native-splash-screen
+&lt;span>
+&lt;a href="#step-1-install-the-super-cool-npm-package-react-native-splash-screen">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>This will make the whole process dead simple&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>npm i react-native-splash-screen
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>or using yarn,&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>yarn add react-native-splash-screen
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
 &lt;p>Note: if your react-native cli version is below 0.6, don’t forget to link the above package using: &lt;code>react-native link react-native-splash-screen&lt;/code>&lt;/p>
 &lt;/blockquote>
-&lt;h2 id="step-2-configuration">Step 2: Configuration&lt;/h2>
-&lt;h3 id="android">Android:&lt;/h3>
-&lt;p>You have got to update the MainActivity.java file (located at &lt;code>android/app/src/main/java/com/your_project_name&lt;/code> folder) in order to use react-native-splash-screen in your project. Just make changes to the file like given below:&lt;/p>
+&lt;h2 id="step-2-configuration" >Step 2: Configuration
+&lt;span>
+&lt;a href="#step-2-configuration">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;h3 id="android" >Android:
+&lt;span>
+&lt;a href="#android">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;p>You have got to update the MainActivity.java file (located at &lt;code>android/app/src/main/java/com/your_project_name&lt;/code> folder) in order to use react-native-splash-screen in your project. Just make changes to the file like given below:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-java" data-lang="java">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> android.os.Bundle&lt;span style="color:#f92672">;&lt;/span>&lt;span style="color:#f92672">import&lt;/span> com.facebook.react.ReactActivity&lt;span style="color:#f92672">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> org.devio.rn.splashscreen.SplashScreen&lt;span style="color:#f92672">;&lt;/span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">MainActivity&lt;/span> &lt;span style="color:#66d9ef">extends&lt;/span> ReactActivity &lt;span style="color:#f92672">{&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">@Override&lt;/span> &lt;span style="color:#66d9ef">protected&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">onCreate&lt;/span>&lt;span style="color:#f92672">(&lt;/span>Bundle savedInstanceState&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">{&lt;/span>
@@ -126,8 +181,13 @@ Just like how it was before
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">&amp;lt;resources&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;lt;color&lt;/span> &lt;span style="color:#a6e22e">name=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;primary_dark&amp;#34;&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>#000000&lt;span style="color:#f92672">&amp;lt;/color&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">&amp;lt;/resources&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="ios">iOS:&lt;/h3>
-&lt;p>Update AppDelegate.m (located at ios/splashapp) with the following additions:&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="ios" >iOS:
+&lt;span>
+&lt;a href="#ios">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;p>Update AppDelegate.m (located at ios/splashapp) with the following additions:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>#&lt;span style="color:#66d9ef">import&lt;/span> &lt;span style="color:#e6db74">&amp;#34;AppDelegate.h&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>#&lt;span style="color:#66d9ef">import&lt;/span> &amp;lt;&lt;span style="color:#a6e22e">React&lt;/span>&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">RCTBundleURLProvider&lt;/span>.&lt;span style="color:#a6e22e">h&lt;/span>&amp;gt;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>#&lt;span style="color:#66d9ef">import&lt;/span> &amp;lt;&lt;span style="color:#a6e22e">React&lt;/span>&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">RCTRootView&lt;/span>.&lt;span style="color:#a6e22e">h&lt;/span>&amp;gt;
@@ -137,8 +197,13 @@ Just like how it was before
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> [RNSplashScreen show]; &lt;span style="color:#75715e">// or//[RNSplashScreen showSplash:@&amp;#34;LaunchScreen&amp;#34; inRootView:rootView];&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> YES;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }@end
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="step-3-hiding-the-splash-and-loading-your-main-screen">Step 3: Hiding the splash and loading your main-screen&lt;/h2>
-&lt;p>By now, if you run your app, you would be able to see the splash image cover the entire screen(like it should) and showing forever(like it shouldn’t). Basically it would never close, and there is even a chance of your app crashing after a few seconds of the image showing like this.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="step-3-hiding-the-splash-and-loading-your-main-screen" >Step 3: Hiding the splash and loading your main-screen
+&lt;span>
+&lt;a href="#step-3-hiding-the-splash-and-loading-your-main-screen">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>By now, if you run your app, you would be able to see the splash image cover the entire screen(like it should) and showing forever(like it shouldn’t). Basically it would never close, and there is even a chance of your app crashing after a few seconds of the image showing like this.&lt;/p>
 &lt;p>Now, when should the splash screen be closed? Maybe when the main entry file of your app is executed? Yes! So let’s just modify App.js so that exactly when the project files would finish loading and is ready to be executed, the splash screen would give way to your main/primary screen.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// make following changes to App.js
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">import&lt;/span> &lt;span style="color:#a6e22e">SplashScreen&lt;/span> &lt;span style="color:#a6e22e">from&lt;/span> &lt;span style="color:#e6db74">&amp;#34;react-native-splash-screen&amp;#34;&lt;/span>;
