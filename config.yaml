@@ -21,7 +21,7 @@ menu:
       name: Projects
       title: Projects
       url: /projects/
-      weight: 3
+      weight: 2
     - identifier: about
       name: About
       title: About
@@ -50,8 +50,7 @@ params:
   style: auto
   readMore: false
   disableSummary: false
-  # utteranc.es support
-  utterancesRepo: "https://github.com/aldrinjenson/aldrinjenson.github."
+  utterancesRepo: "https://github.com/aldrinjenson/aldrinjenson.github.io"
   utterancesTheme: "github-dark"
   # utterancesIssue: ""
   utterancesLabel: "comment"
