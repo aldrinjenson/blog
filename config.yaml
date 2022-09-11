@@ -17,6 +17,11 @@ menu:
     #   title: Posts
     #   url: /posts/
     #   weight: 0
+    - identifier: posts
+      name: Posts
+      title: Posts
+      url: /posts/
+      weight: 2
     - identifier: projects
       name: Projects
       title: Projects
@@ -26,11 +31,6 @@ menu:
       name: About
       title: About
       url: /about/
-      weight: 2
-    - identifier: posts
-      name: Posts
-      title: Posts
-      url: /posts/
       weight: 2
 
 params:
