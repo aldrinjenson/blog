@@ -1,27 +1,37 @@
 baseUrl: "https://aldrinjenson.me/"
 languageCode: "en-us"
 title: "Aldrin's Blog"
-theme: "github.com/Mitrichius/hugo-theme-anubis"
-paginate: 6
+theme: "anubis"
+paginate: 25
 enableRobotsTXT: true
 
 menu:
   main:
-    - identifier: posts
-      name: Posts
-      title: Posts
-      url: /posts/
-      weight: 1
+    # - identifier: home
+    #   name: Home
+    #   title: Home
+    #   url: /posts/
+    #   weight: 1
+    # - identifier: posts
+    #   name: Posts
+    #   title: Posts
+    #   url: /posts/
+    #   weight: 0
     - identifier: projects
       name: Projects
       title: Projects
       url: /projects/
-      weight: 2
+      weight: 3
     - identifier: about
       name: About
       title: About
       url: /about/
-      weight: 3
+      weight: 2
+    - identifier: posts
+      name: Posts
+      title: Posts
+      url: /posts/
+      weight: 2
 
 params:
   author: "Aldrin Jenson"
@@ -40,9 +50,15 @@ params:
   style: auto
   readMore: false
   disableSummary: false
-  utterancesRepo: "https://github.com/aldrinjenson/aldrinjenson.github.io"
+  # utteranc.es support
+  utterancesRepo: "https://github.com/aldrinjenson/aldrinjenson.github."
   utterancesTheme: "github-dark"
+  # utterancesIssue: ""
   utterancesLabel: "comment"
+  # webmentions:
+  #   url: https://yourdomain.com/webemntions/receive
+  #   login: hugo-theme-anubis
+  #   pingback: true
   social:
     - id: github
       name: aldrinjenson
