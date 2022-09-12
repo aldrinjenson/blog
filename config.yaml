@@ -4,6 +4,7 @@ title: "Aldrin's Blog"
 theme: "anubis"
 paginate: 25
 enableRobotsTXT: true
+googleAnalytics: "G-J94XZYNB9C"
 
 menu:
   main:
