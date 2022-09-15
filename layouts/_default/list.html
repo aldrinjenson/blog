@@ -3,6 +3,7 @@
 {{ if .Site.Params.dateFormat }}
 {{ $dateFormat = .Site.Params.dateFormat }}
 {{ end }}
+
 <main>
   <article>
     <header>
@@ -15,7 +16,7 @@
   <div class="articles h-feed">
     <ol>
       {{range .Pages}}
-      <li>
+      {{/* <li>
         <article class="post-list h-feed">
           <header class="post-header">
             <h1 class="p-name post-title">
@@ -44,24 +45,17 @@
               <ul class="post-tags">
                 {{ range .Params.tags }}
                 <li><a href="{{ " tags/" | absLangURL }}{{ . | urlize }}">#{{ . }}</a></li>
-                <!-- <li>#{{ . }}</li> -->
                 {{ end }}
               </ul>
               {{ end }}
             </div>
           </div>
         </article>
-      </li>
+      </li> */}}
+      {{.Render "summary"}}
+
       {{end}}
     </ol>
   </div>
-  <ul>
-    <!-- Ranges through content/posts/*.md -->
-    {{ range .Pages }}
-    <li>
-      <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
-    </li>
-    {{ end }}
-  </ul>
 </main>
 {{ end }}
