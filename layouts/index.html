@@ -10,10 +10,11 @@
   <div class="homepage-content">
     <br>
     {{.Content}}
+    <br>
   </div>
 
   <div>
-    <h1>Random Articles</h1>
+    <h1>Blog Posts</h1>
     <ol>
       {{ range first 5 .Site.RegularPages }}
       {{/* summary is a custom partial function i crated to which accepts a page and returns a generated card
@@ -22,18 +23,6 @@
       {{ end }}
     </ol>
 
-    {{/* <li> */}}
-      {{/* <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a> */}}
-      {{/* </li> */}}
-    {{/* {{ range .Pages }}
-    <li>
-      <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
-    </li>
-    {{ end }}
-
-    {{ range first 10 .Site.RegularPages }}
-    {{ .Render "summary"}}
-    {{ end }} */}}
   </div>
 </main>
 {{ end }}

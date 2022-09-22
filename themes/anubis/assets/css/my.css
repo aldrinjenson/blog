@@ -7,3 +7,12 @@
    margin-left: auto;
    margin-right: auto;
 }
+img{
+    margin-top: 2%;
+}
+
+.caption{
+    font-style: italic;
+    color: gray;
+    margin-bottom: 5%;
+}

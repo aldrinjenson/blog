@@ -1,60 +1,28 @@
 ---
-title: "CS Student | Passionate Developer | Curious Kid"
+title: "CS Student | Passionate Developer"
 date: 2021-10-17T19:19:16+05:30
 draft: false
 ---
 
 <center>
-  <img src="/images/me.jpg" width="60%" alt="Aldrin Jenson">
+  <img src='/images/me.jpg' width="60%" alt='my old photo'>
+  <p class='caption'>An old photo of mine before I started wearing specs</p>
 </center>
-My name is Aldrin and I'm a Final year Computer Science student from Govt.Model Engineering College Kochi, Kerala.
 
-I'm really fond of computers and love tinkering with various softwares and hacks.
-I have been using Linux as a daily driver for the last 4 years and have been loving it so far.
+My name is Aldrin Jenson. I'm currently a final year student pursuing my Bachelor's degree in Computer Science Engineering from Govt. Model Engineering College Kochi, Kerala.
 
-I used to consider myself really good at web technologies and proficient in React.Js. But now I don't like to call myself as a React/Javascript/NodeJs/Fullstack developer and instead would always prefer the title of Software developer, just because of the reason that I've come to terms that being a generalist - not being restricted to languages or tech stacks, but instead being good at fundamentals and concepts suits me much better.
+I've been fascinated by computers from a really young age and love tinkering with various softwares and hacks.
 
-<div style="display:flex;">
-  <!-- <img style="margin-right: 20px" src="/images/me.jpg" height=400 alt="Aldrin Jenson">
- -->
-</div>
+I have been using Linux as a daily driver for the last 4 years and have been loving it so far with my custom configs and automation scripts.
+
+I consider myself good at programming and I'm really passionate about developing software. Tech stack doesn't matter much to my anymore. Most of the projects I now work on is with the language or framework most easy to do the task at hand, or using a language I want to explore more.
+With the amount of information available on the internet, given enough time I believe that we can solve any problem.
+
+Other than tinkering with Computers, I also love playing guitar and going out with close friends.
+
+<center>
 <img width="100%" src="/images/group.jpg" alt="me in group photo">
+<p class="caption">Pranav, Nikita, Nayana and me in our first Bangalore trip</p>
+</center>
 
-<br/>
-I've created softwares - big and small for personal joy or for startups and companies all using various languages ans stacks like:
-
-- C/C++
-  - Implementing tcp/udp connections
-  - connecting with SQL databases
-  - Making network calls
-  - JSON parsing
-  - socket programming (Made an IRC chat applications)
-- Dart / flutter
-- GoLang ()
-- Javascript
-  - Node Js
-    - streams
-    - sockets
-    - tcp connections
-    - async/await
-    - load balancing
-  - React.Js
-  - React Native
-- Java
-  - Made GUI apps using Object Oriented Programming
-- Python
-- Bash
-- AWS
-- Linux server administration
-- Web dev
-  - Html
-  - CSS
-  - Sass
-  - Less
-  - Materialize CSS / Bootstrap
-  - Material UI
-  - Tailwind CSS
-  - Ember.Js
-  - Foundation CSS
-
-This blog is an archive of some thoughts, experiences and learnings from the life of Aldrin Jenson - A Computer Science undergrad, pursuing his B.Tech from Govt.Model Engineering College, Kochi, Kerala.
+This blog is an archive of some thoughts, experiences and learnings from my life - Writings which I can look back in a few years and feel _cringe_!
