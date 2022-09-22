@@ -2,6 +2,7 @@
 title: "CS Student | Passionate Developer"
 date: 2021-10-17T19:19:16+05:30
 draft: false
+description: "Personal blog of Aldrin Jenson, CTO of IEDCMEC"
 ---
 
 <center>
