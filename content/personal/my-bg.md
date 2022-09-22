@@ -1,5 +1,5 @@
 ---
-title: "My Bg"
+title: "My Background"
 date: 2021-12-20T00:38:05+05:30
 draft: true
 description: Stuff I have done and haven't done. What I'm proud of and my regrets.
@@ -8,6 +8,8 @@ description: Stuff I have done and haven't done. What I'm proud of and my regret
 This is a self reflective post. In my 20 years, I've had some experiences. However limited they be, I've been able to learn fro them. Hopefully as I grow older, I've also become a bit wiser. Here's my background.
 
 I suffer from Imposter Syndrome. I've always been worried about posting anything on Social Media. But here am I listing out some my bg.
+
+I am well aware that my experience is very limited, but with whatever awareness I'm having at the moment, here I am listing out stuff about me.
 
 I've created softwares - big and small for personal joy or for startups and companies all using various languages ans stacks like:
 

@@ -14,8 +14,6 @@ My name is Aldrin Jenson. I'm currently a final year student pursuing my Bachelo
 
 I've been fascinated by computers from a really young age and love tinkering with various softwares and hacks.
 
-I have been using Linux as a daily driver for the last 4 years and have been loving it so far with my custom configs and automation scripts.
-
 I consider myself good at programming and I'm really passionate about developing software. Tech stack doesn't matter much to my anymore. Most of the projects I now work on is with the language or framework most easy to do the task at hand, or using a language I want to explore more.
 With the amount of information available on the internet, given enough time I believe that we can solve any problem.
 
