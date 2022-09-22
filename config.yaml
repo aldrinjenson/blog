@@ -36,6 +36,8 @@ params:
   disableSummary: false
   utterancesRepo: "https://github.com/aldrinjenson/aldrinjenson.github."
   utterancesTheme: "github-dark"
+  customCSS:
+    - css/my.css # relative path to "assets" directory (don't use main.css filename)
   # utterancesIssue: ""
   utterancesLabel: "comment"
   # webmentions:
