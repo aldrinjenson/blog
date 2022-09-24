@@ -23,6 +23,11 @@ menu:
       title: Projects
       url: /projects/
       weight: 2
+    - identifier: Personal
+      name: Personal
+      title: Personal
+      url: /personal/
+      weight: 3
 
 params:
   author: "Aldrin Jenson"
