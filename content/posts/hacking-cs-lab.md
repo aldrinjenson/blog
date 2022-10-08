@@ -14,9 +14,9 @@ Our lab teacher - Titty sir is cool.
 
 Rick roll is cool.
 
-
-
 ## Introduction
 
-
-
+<center>
+  <video alt="demo of us rick-rolling" src="/posts/videos/hackCSLab.mp4" controls muted poster="/thumbs/hackCSLab.jpg" ></video>
+  <p class='caption'>On hindsight, should have added the --fullscreen flag to the browser as well!</p>
+</center>

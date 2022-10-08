@@ -12,6 +12,7 @@ img{
 }
 
 .caption{
+    font-size: smaller;
     font-style: italic;
     color: gray;
     margin-bottom: 5%;
