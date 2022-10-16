@@ -1,4 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Aldrin Jenson</title><link>https://aldrinjenson.me/posts/</link><description>Aldrin Jenson (Posts)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 21 Oct 2021 00:20:33 +0530</lastBuildDate><atom:link href="https://aldrinjenson.me/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>How to host a Hugo static site using Github pages</title><link>https://aldrinjenson.me/posts/hosting-hugo-sites-on-gh-pages/</link><pubDate>Thu, 21 Oct 2021 00:20:33 +0530</pubDate><guid>https://aldrinjenson.me/posts/hosting-hugo-sites-on-gh-pages/</guid><description>&lt;p>It took me a day to fix a bug related to hosting a Hugo blog on github pages. Thought I&amp;rsquo;d compile down my learnings here.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Aldrin Jenson</title><link>https://aldrinjenson.me/posts/</link><description>Aldrin Jenson (Posts)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 12 Sep 2022 19:02:56 +0530</lastBuildDate><atom:link href="https://aldrinjenson.me/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Notes</title><link>https://aldrinjenson.me/posts/notes/</link><pubDate>Mon, 12 Sep 2022 19:02:56 +0530</pubDate><guid>https://aldrinjenson.me/posts/notes/</guid><description>&lt;ol>
+&lt;li>
+&lt;p>Reverting back git history from a commit:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git revert --no-commit 0766c053..HEAD
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git commit
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://stackoverflow.com/a/21718540/11879596">source: stackoverflow&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>getting the ipaddress quickly in most linux systems including termux:&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ip a | grep inet
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;li>Downloading protected pdfs from google drive and having them be searchable:&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>&lt;a href="https://bytesbin.com/download-view-only-pdf-google-drive/">https://bytesbin.com/download-view-only-pdf-google-drive/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://askubuntu.com/a/474324">https://askubuntu.com/a/474324&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>How to host a Hugo static site using Github pages</title><link>https://aldrinjenson.me/posts/hosting-hugo-sites-on-gh-pages/</link><pubDate>Thu, 21 Oct 2021 00:20:33 +0530</pubDate><guid>https://aldrinjenson.me/posts/hosting-hugo-sites-on-gh-pages/</guid><description>&lt;p>It took me a day to fix a bug related to hosting a Hugo blog on github pages. Thought I&amp;rsquo;d compile down my learnings here.&lt;/p>
 &lt;p>Check out these two links to get started with the local installation and setting up of the development environment. This part is quite easy.&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://opensource.com/article/18/3/start-blog-30-minutes-hugo?utm_source=nomedium&amp;amp;utm_medium=web&amp;amp;utm_campaign=nomedium">Start a blog in 30 minutes with Hugo&lt;/a>&lt;/li>
