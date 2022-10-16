@@ -1,12 +1,12 @@
 ---
-title: "KochiFOSS 2022"
-date: 2022-10-17T00:42:20
+title: "Organizing KochiFOSS 2022"
+date: 2022-10-03
 draft: true
 description: "My experience as an organizer for KochiFOSS 2022"
 tags: ["foss", "leadership", "management", "awe", "learning"]
 ---
 
-KochiFOSS 2022 conference was held on 15th October 2022 and from the participant's reponses, the conference was a huge success. I was lucky to be a part of the core organizing team. Jotting down my experiences and the lessons learned.
+KochiFOSS 2022 conference was held on 15th October 2022 and from the participant's responses, the conference was a huge success. I was lucky to be a part of the core organizing team. Jotting down my experiences and the lessons learned.
 
 ## My experiences
 
@@ -27,4 +27,6 @@ KochiFOSS 2022 conference was held on 15th October 2022 and from the participant
 ## Doubts and questions I have
 
 - Why do people volunteer?
--
+- How being able to multi-task can be really useful at times
+- The skill of management - keeping people happy and getting things done without hurting anyone's ego.
+  - Adi's message
