@@ -5,6 +5,7 @@
     "autoplay",
     "canonify",
     "disqus",
+    "fullscreen",
     "goldmark",
     "IEDCMEC",
     "Jenson",
@@ -19,6 +20,6 @@
     "Pranav",
     "usecase",
     "utteranc",
-    "webmentions",
+    "webmentions"
   ]
 }

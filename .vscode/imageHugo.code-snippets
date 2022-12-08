@@ -8,10 +8,11 @@
 	// Example:
 	"video element in hugo": {
 		"scope": "markdown",
-		"prefix": "videocentered",
+		"prefix": "imagehugo",
 		"body": [
 			"<center>",
-			"\t<video src=\"$1\" controls></video>",
+			"\t<image src=\"$1\" alt=\"$2\"></image>",
+			"<p class='caption'>$3</p>",
 			"</center>",
 			"$2"
 		],
