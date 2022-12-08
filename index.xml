@@ -24,8 +24,8 @@
 &lt;h2 id="introduction">Introduction&lt;/h2>
 &lt;p>Short write up of how I wrote a script to play rick roll in all computers in our lab. 🙂&lt;/p>
 &lt;center>
-&lt;video alt="demo of us rick-rolling" src="https://aldrinjenson.me/posts/videos/hackCSLab.mp4" controls muted poster="/thumbs/hackCSLab.jpg" >&lt;/video>
-&lt;p class='caption'>On hindsight, should have added the --fullscreen flag to the browser as well!&lt;/p>
+&lt;video alt="demo of us rick-rolling" src="https://aldrinjenson.me/videos/hackCSLab.mp4" controls muted poster="/thumbs/hackCSLab.jpg" >&lt;/video>
+&lt;p class='caption'>In hindsight, should have added the --fullscreen flag to the browser as well!&lt;/p>
 &lt;/center>
 &lt;ol>
 &lt;li>find your ip address using&lt;/li>
@@ -71,7 +71,7 @@ Simple script to remotely execute a command in a single client machine in networ
 &lt;p>Now, even though we demoed using a rick roll, just know that if one could do this much, really dangerous stuff can be done once access to these many computers are granted. Stuff can range from crypto-mining to running keyloggers for accessing passwords of students.&lt;/p>
 &lt;p>This worked perfectly in our case because the passwords of all the computers were same. In little more stricter scenarios, the passwords being same are rare and hence you&amp;rsquo;d need to create separate files to map the ips to passwords before looping through.&lt;/p>
 &lt;p>Finally, we were able to pull this off only because the staff in CS Lab were kind and understanding of the student&amp;rsquo;s curiosity and interest to explore stuff.✨&lt;/p>
-&lt;p>I suppose I should also mention that this is a powerful method and you should use it only with care respecting privacy of others in the network.🙂&lt;/p></description></item><item><title>Moodle Automation</title><link>https://aldrinjenson.me/projects/moodle-automation/</link><pubDate>Wed, 19 Jan 2022 19:25:18 +0530</pubDate><guid>https://aldrinjenson.me/projects/moodle-automation/</guid><description>&lt;p>Reflections on a nodeJS program I wrote to automate marking online attendance.&lt;/p>
+&lt;p>I suppose I should mention that this is a powerful method and you should use it only with care respecting privacy of others in the network.🙂&lt;/p></description></item><item><title>Moodle Automation</title><link>https://aldrinjenson.me/projects/moodle-automation/</link><pubDate>Wed, 19 Jan 2022 19:25:18 +0530</pubDate><guid>https://aldrinjenson.me/projects/moodle-automation/</guid><description>&lt;p>Reflections on a nodeJS program I wrote to automate marking online attendance.&lt;/p>
 &lt;h2 id="motivation">Motivation&lt;/h2>
 &lt;p>I used to attend online classes. Sometimes I&amp;rsquo;ll be sleepy or the class may be really boring, but I always used to attend them given a choice. However, at times I used to forget marking the attendance.&lt;/p>
 &lt;p>The attendance marking system in our college(and in many other Govt. colleges) for online classes was kinda ridiculous. We use the awesome &lt;a href="https://moodle.com/lms/">Moodle LMS&lt;/a> system for managing online classes.
