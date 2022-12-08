@@ -1,0 +1,2 @@
+- show reading time for each article
+- set up analytics in blog

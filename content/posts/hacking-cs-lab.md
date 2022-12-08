@@ -21,8 +21,8 @@ So, hacking all the computers over there, should be cool too.?🙂
 Short write up of how I wrote a script to play rick roll in all computers in our lab. 🙂
 
 <center>
-  <video alt="demo of us rick-rolling" src="/posts/videos/hackCSLab.mp4" controls muted poster="/thumbs/hackCSLab.jpg" ></video>
-  <p class='caption'>On hindsight, should have added the --fullscreen flag to the browser as well!</p>
+  <video alt="demo of us rick-rolling" src="/videos/hackCSLab.mp4" controls muted poster="/thumbs/hackCSLab.jpg" ></video>
+  <p class='caption'>In hindsight, should have added the --fullscreen flag to the browser as well!</p>
 </center>
 
 1. find your ip address using
@@ -82,4 +82,4 @@ This worked perfectly in our case because the passwords of all the computers wer
 
 Finally, we were able to pull this off only because the staff in CS Lab were kind and understanding of the student's curiosity and interest to explore stuff.✨
 
-I suppose I should also mention that this is a powerful method and you should use it only with care respecting privacy of others in the network.🙂
+I suppose I should mention that this is a powerful method and you should use it only with care respecting privacy of others in the network.🙂
