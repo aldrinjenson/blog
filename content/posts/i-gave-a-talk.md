@@ -3,41 +3,35 @@ title: "I gave a talk at an international conference and Murphy's law sucks!"
 date: 2022-07-26T19:09:07+05:30
 description: "How my faith in Arch Linux was may be a bit too much🥲"
 tags: [indiaFoss, FOSS, arch-linux, talk]
-draft: true
+draft: false
 ---
 
 ## Introduction
 
-I got an opportunity to do a Flash-Talk for IndiaFoss conference held in Bangalore on 23-24 July 2022 and boy, Murphy's law messed up my presentation!
+I got an opportunity to do a Flash-Talk for IndiaFoss conference held in Bangalore on 23-24 July 2022 and boy, [Murphy's law](https://en.wikipedia.org/wiki/Murphy's_law) messed up my presentation!
 
 <center>
   <image src="/images/indiaFoss/indiaFossTalk.jpg" alt="My talk at IndiaFoss"/>
 <p class='caption'>Excuse the 240p quality please!</p>
 </center>
 
-The topic of my talk was: How to make sharing of digital assets as easy and accessible as possible.
-It was about [an app I had made earlier]({{<ref "projects/whatsapp-msg-without-save.md" >}}) to send messages by using the most common app in one's phone - Whatsapp, without having to save contact number of anyone.
+The topic of my talk was: **How to make sharing of digital assets as easy and accessible as possible.**
+It was based on [an app I had made earlier]({{<ref "projects/whatsapp-msg-without-save.md" >}}) to send messages by using the most common app in one's phone - Whatsapp, without having to save anyone's contact number.
 
 ## Background
 
 I was inspired by a talk which I heard over at IndiaFoss from Akash Hamirwasia who made a web-app called [Blaze](https://blaze.vercel.app/) for sending files over the internet using a website.
 His project was cool, but to me it seemed like the common man would find it a bit difficult. When I talk about the common man, I'm talking about they who doesn't even know to open web browsers(Yes, I've seen people to whom when I asked to open browser, they have opened settings and searched "browser" in the settings searchbar. Just know that you are really privileged if you think such people don't exist).
 
-To these people, they don't have a browser in their home screens. It may be there somewhere in the apps list, but the only apps they care about are Whatsapp, Facebook and some Indian Music app. You can easily see people like such when you travel by local buses.
+Whatsapp is the app with which people are most comfortable. If only there was a way to send files through whatsapp without having to save the contact number...
 
-People are really helpful and I've been asked not more than once by people to share my number so that they could save it to their contact list and have them send some file or link to me. The thing is these people won't necessarily be using my number ever again, but they still are having to save my contact for the lack of a better familiar option.
-
-Whatsapp is the app with which they are the most comfortable... if only there was a way to send files through whatsapp without having to save the contact number...
-
-Introducing my app which solves exactly this problem. It launches the above mentioned whatsapp api url behind the scenes to trigger and open whatsapp chat of the person whose number has just been entered.
+Introducing my app which solves exactly this problem. It generates a wa.me link and opens it behind the scenes so as to trigger and open whatsapp chat of the person whose number has just been entered.
 
 ## About the talk
 
-So being inspired by Mr.Akash, I gave my name for the flash talk. I had to make a presentation and have it sent to their mail and all. But anyways, they were pretty impressed and I got selected.
+So being inspired by Mr.Akash, I submitted my presentation and was selected to speak. I had been using Arch Linux for a while now and recently got a new laptop, but I was unsure if it would be able to connect to the HDMI port for the presentation. I saw others with ThinkPads easily connecting their laptops and presenting, so I thought Linux's plug and play support would have me covered. Unfortunately, I was mistaken.
 
-Now I've being using Arch for so long and I had bought a new laptop only a few weeks ago. I had never connected this to an HDMI port before and was a bit doubtful. But then I saw others with thinkPad easily connnecting their laptops and presenting and so I thought like the plug and play support provided by Linux will have me covered.. boy I was mistaken.
-
-Anyways, I got slot number 8 of the only 9 slots available and by the time it was my turn, the participants had taken up more time than what they were allotted and the event was late of schedule.
+I was given slot number 8 out of the 9 available slots, but by the time it was my turn, the participants had taken up more time than allotted and the event was running behind schedule.
 
 ## Et tu Arch..
 
@@ -47,10 +41,16 @@ Apparently my faith in Arch linux may have been a bit too much because had I bot
 
 So here I was in front of the stage with my laptop not being able to present and the schedule already really late for me to get another's laptop.
 
-Well, I started speaking. I didn't want to take up more time and delay the program. So I talked about the problem, about my solution and about my app. I had this cool demo planned where I would call up someone from the audience and will send them a hi without having to save their contact information, but couldn't do it without being able to present. Still I talked and showed my vision. I had a bit.ly link which I asked everyone to enter to see a demo which I think atleast a few would have done already.
+Well, I started speaking. I didn't want to take up more time and delay the program. So I talked about the problem, about my solution and about my app. I had this cool demo planned where I would call up someone from the audience and will send them a hi over Whatsapp without having to save their contact information, but couldn't do it without being able to present. Still I talked and shared my idea. I had a bit.ly link which I asked everyone to enter to see a demo and url of github repo so that people could check out the project later as well.
 
 ## Afterwords
 
-I spoke and at then went down to sit. Instantly a guy near me asked if I could make something similar for iOS as well to which I had to reply by saying that I'm not having a macBook at present to compile and build for iOS even though I used Flutter to build the project.
+Right after I finished the talk and went to sit, a guy near me asked if I could make something similar for iOS as well to which I had to reply by saying that I'm not having a macBook at present to compile and build for iOS even though I used Flutter to build the project.
 
-Before I even left the hall, 3 people came near me and asked if I could build for iOS as well. I mean this is something magical about giving a talk I think. People know about your project and you get feedback instantly!
+Before I even left the hall, 3 people came near me and asked if I could build for iOS as well. I mean this is something magical about giving a talk I think. People know about your project and you get feedback instantly! I was happy to realize that the problem I solved was worthwhile and that many people found the solution good enough to be used!
+
+### Final Thoughts
+
+This was the first time I was speaking at such a large conference and it certainly gave a whole different feel. While I was sad that I couldn't demo the presentation, I was happy that this would lead more people to benefit from my project.✨
+
+EDIT: Whatsapp recently introduced a click to chat feature recently which would replicate the functionality of my app. You just have to pasta an unsaved number to some chat and then click it again within whatsapp to take you to the whatsapp chat of that person.
