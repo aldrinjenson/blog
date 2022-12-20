@@ -64,9 +64,9 @@ sudo apt install sshpass
 4. (ii) Create script to loop through the script and remotely execute a command.
 
 <center>
-  <image src="/images/hackCsLab/remoteExec.jpg" alt="Remote exec sample script"></image>
+  <image src="/images/hackCsLab/loopIpScript.jpg" alt="sample script for looping over ips and executing a bash command"></image>
   <p class='caption'>
-  Simple script to remotely execute a command in a single client machine in network using sshpass.
+  Simple script to loop over a set of ips and execute a bash command.
   </p>
 </center>
 
