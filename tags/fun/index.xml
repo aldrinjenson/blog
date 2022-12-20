@@ -42,9 +42,9 @@ Simple script to remotely execute a command in a single client machine in networ
 &lt;li>(ii) Create script to loop through the script and remotely execute a command.&lt;/li>
 &lt;/ol>
 &lt;center>
-&lt;image src="https://aldrinjenson.me/images/hackCsLab/remoteExec.jpg" alt="Remote exec sample script">&lt;/image>
+&lt;image src="https://aldrinjenson.me/images/hackCsLab/loopIpScript.jpg" alt="sample script for looping over ips and executing a bash command">&lt;/image>
 &lt;p class='caption'>
-Simple script to remotely execute a command in a single client machine in network using sshpass.
+Simple script to loop over a set of ips and execute a bash command.
 &lt;/p>
 &lt;/center>
 &lt;h2 id="afterthoughts">Afterthoughts&lt;/h2>
