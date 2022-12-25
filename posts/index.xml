@@ -1,4 +1,97 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Aldrin Jenson</title><link>https://aldrinjenson.me/posts/</link><description>Aldrin Jenson (Posts)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 12 Sep 2022 19:02:56 +0530</lastBuildDate><atom:link href="https://aldrinjenson.me/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Notes</title><link>https://aldrinjenson.me/posts/notes/</link><pubDate>Mon, 12 Sep 2022 19:02:56 +0530</pubDate><guid>https://aldrinjenson.me/posts/notes/</guid><description>&lt;ol>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Aldrin Jenson</title><link>https://aldrinjenson.me/posts/</link><description>Aldrin Jenson (Posts)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 25 Dec 2022 18:14:39 +0530</lastBuildDate><atom:link href="https://aldrinjenson.me/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>How to add SSL and make a server https</title><link>https://aldrinjenson.me/posts/set-up-ssl/</link><pubDate>Sun, 25 Dec 2022 18:14:39 +0530</pubDate><guid>https://aldrinjenson.me/posts/set-up-ssl/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>An easy way to set up Secure Socket Layer (SSL) on a web server without having necessary nginx installation. SSL is a security protocol that encrypts data sent between a client and a server, helping to protect against hacking and other online threats. By enabling SSL on your web server, you can ensure that sensitive data sent to and from your server is protected.&lt;/p>
+&lt;h2 id="requirements">Requirements&lt;/h2>
+&lt;p>To set up SSL on your server, you will need the following:&lt;/p>
+&lt;ol>
+&lt;li>A Linux machine on which you want to enable SSL.&lt;/li>
+&lt;li>SSH access to the Linux machine.&lt;/li>
+&lt;li>A web server that listens on a route for requests.&lt;/li>
+&lt;li>DNS management access.&lt;/li>
+&lt;/ol>
+&lt;h2 id="steps-to-follow">Steps to follow&lt;/h2>
+&lt;ol>
+&lt;li>Install the certbot package on your machine. Certbot is a tool for interacting with Letsencrypt, a free, automated, and open certificate authority. You can install Certbot using the following command:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt-get install certbot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>Find the public IP address of your machine. You can get it from the cloud console of your cloud provider, or by running the following command:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>curl ipinfo.io/ip
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;li>Go to the DNS manager and add a new DNS entry for the server domain for which you want to enable SSL. For example, if you want to add SSL for the domain &amp;lt;your.domain.tld&amp;gt;, you would add a DNS entry for the public IP address of your server.&lt;/li>
+&lt;/ol>
+&lt;p>4 a. Run Certbot to generate an SSL certificate for this domain using the command:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo certbot certonly --standalone
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>4 b. If you&amp;rsquo;re having nginx already running, then use the following command instead:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo certbot --nginx --domain &amp;lt;your.domain.name&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="5">
+&lt;li>
+&lt;p>Follow the instructions provided by the Certbot wizard. At the end, you will have SSL certificate .pem files stored in the location /etc/letsencrypt/live/&amp;lt;your.url.entered&amp;gt;. Make note of this location, as you will need it later.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Start your web server and note down the port on which it is listening (e.g. 8080).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Add the path to the SSL certificate and private key generated earlier to your web server. The process for doing this will depend on the type of web server you are using.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>For example, if you are using a Node.js server, you can do it using the following code:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">express&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">require&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;express&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">https&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">require&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;https&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">fs&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">require&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;fs&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">app&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">express&lt;/span>();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// Read SSL certificate and private key
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">options&lt;/span> &lt;span style="color:#f92672">=&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">key&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#a6e22e">fs&lt;/span>.&lt;span style="color:#a6e22e">readFileSync&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;/etc/letsencrypt/live/&amp;lt;your.domain.tld&amp;gt;/privkey.pem&amp;#34;&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">cert&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#a6e22e">fs&lt;/span>.&lt;span style="color:#a6e22e">readFileSync&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;/etc/letsencrypt/live/&amp;lt;your.domain.tld&amp;gt;/cert.pem&amp;#34;&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// Define GET method in the root route
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">app&lt;/span>.&lt;span style="color:#a6e22e">get&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;/&amp;#34;&lt;/span>, (&lt;span style="color:#a6e22e">req&lt;/span>, &lt;span style="color:#a6e22e">res&lt;/span>) =&amp;gt; {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">res&lt;/span>.&lt;span style="color:#a6e22e">send&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Hello, World!&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>});
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// Create HTTPS server
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">https&lt;/span>.&lt;span style="color:#a6e22e">createServer&lt;/span>(&lt;span style="color:#a6e22e">options&lt;/span>, &lt;span style="color:#a6e22e">app&lt;/span>).&lt;span style="color:#a6e22e">listen&lt;/span>(&lt;span style="color:#ae81ff">443&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Server listening on port 443&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>For nginx, you will have a server block having configuration similar to the following:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-nginx" data-lang="nginx">&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">server&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">listen&lt;/span> &lt;span style="color:#ae81ff">443&lt;/span>; &lt;span style="color:#75715e"># listens for https requests
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#f92672">server_name&lt;/span> &lt;span style="color:#e6db74">&amp;lt;your.domain.tld&amp;gt;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">ssl_certificate&lt;/span> &lt;span style="color:#e6db74">/etc/letsencrypt/live/&amp;lt;your.domain.tld&amp;gt;/fullchain.pem&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">ssl_certificate_key&lt;/span> &lt;span style="color:#e6db74">/etc/letsencrypt/live/&amp;lt;your.domain.tld&amp;gt;/privkey.pem&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># serves the files mentioned here
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#f92672">location&lt;/span> &lt;span style="color:#e6db74">/&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">root&lt;/span> &lt;span style="color:#e6db74">/usr/share/nginx/html&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">index&lt;/span> &lt;span style="color:#e6db74">index.html&lt;/span> &lt;span style="color:#e6db74">index.htm&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To configure SSL for other types of web servers, such as Apache or even a Python/Flask server, you will need to consult the documentation for those servers.&lt;/p>
+&lt;p>But essentially, the process is simple. Generate ssl certificate for a site that has a DNS entry pointing to the public IP address of your server and have this certificate be referenced in code of your web server.&lt;/p>
+&lt;p>You can even write redirect rules which automatically forwards/redirects a request in http to https.&lt;/p>
+&lt;p>Here&amp;rsquo;s a demo using nginx.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-nginx" data-lang="nginx">&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">server&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">server_name&lt;/span> &lt;span style="color:#e6db74">&amp;lt;your.domain.tld&amp;gt;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># to redirect http requests automatically to https
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#f92672">return&lt;/span> &lt;span style="color:#ae81ff">301&lt;/span> &lt;span style="color:#e6db74">https://&lt;/span>$host$request_uri;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="references">References&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://letsencrypt.org/getting-started/">Letsencrypt Getting Started&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04">How To Set Up a Self-Signed SSL Certificate for Apache in Ubuntu 20.04&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://nginx.org/en/docs/http/configuring_https_servers.html">Nginx SSL Configuration&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://chat.openai.com/">Chat GPT&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ul></description></item><item><title>Notes</title><link>https://aldrinjenson.me/posts/notes/</link><pubDate>Mon, 12 Sep 2022 19:02:56 +0530</pubDate><guid>https://aldrinjenson.me/posts/notes/</guid><description>&lt;ol>
 &lt;li>
 &lt;p>Reverting back git history from a commit:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git revert --no-commit 0766c053..HEAD
