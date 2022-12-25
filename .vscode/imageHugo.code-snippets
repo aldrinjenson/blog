@@ -11,10 +11,10 @@
 		"prefix": "imagehugo",
 		"body": [
 			"<center>",
-			"\t<image src=\"$1\" alt=\"$2\"></image>",
-			"<p class='caption'>$3</p>",
+			"\t<image src=\"/images/$1.jpg\" alt=\"$2\"></image>",
+			"<p class='caption'>$2</p>",
 			"</center>",
-			"$2"
+			"$3"
 		],
 		"description": "Add video element in hugo"
 	}
