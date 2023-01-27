@@ -68,7 +68,8 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">index&lt;/span> &lt;span style="color:#e6db74">index.html&lt;/span> &lt;span style="color:#e6db74">index.htm&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To configure SSL for other types of web servers, such as Apache or even a Python/Flask server, you will need to consult the documentation for those servers.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>There you go, by now you should have the web server listening to https request on port 443✨.&lt;/p>
+&lt;p>To configure SSL for other types of web servers, such as Apache or even a Python/Flask server, you will need to consult the documentation for those servers.&lt;/p>
 &lt;p>But essentially, the process is simple. Generate ssl certificate for a site that has a DNS entry pointing to the public IP address of your server and have this certificate be referenced in code of your web server.&lt;/p>
 &lt;p>You can even write redirect rules which automatically forwards/redirects a request in http to https.&lt;/p>
 &lt;p>Here&amp;rsquo;s a demo using nginx.&lt;/p>
