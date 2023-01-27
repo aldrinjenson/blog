@@ -93,8 +93,9 @@ For nginx, you will have a server block having configuration similar to the foll
 	    }
 	}
 
-
 ```
+
+There you go, by now you should have the web server listening to https request on port 443✨.
 
 To configure SSL for other types of web servers, such as Apache or even a Python/Flask server, you will need to consult the documentation for those servers.
 
