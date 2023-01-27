@@ -1,4 +1,42 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>linux on Aldrin Jenson</title><link>https://aldrinjenson.me/tags/linux/</link><description>Aldrin Jenson (linux)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 25 Dec 2022 18:14:39 +0530</lastBuildDate><atom:link href="https://aldrinjenson.me/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>How to add SSL and make a server https</title><link>https://aldrinjenson.me/posts/set-up-ssl/</link><pubDate>Sun, 25 Dec 2022 18:14:39 +0530</pubDate><guid>https://aldrinjenson.me/posts/set-up-ssl/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>linux on Aldrin Jenson</title><link>https://aldrinjenson.me/tags/linux/</link><description>Aldrin Jenson (linux)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 27 Jan 2023 03:06:56 +0530</lastBuildDate><atom:link href="https://aldrinjenson.me/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>How to SSH to Termux Shell</title><link>https://aldrinjenson.me/posts/ssh-termux/</link><pubDate>Fri, 27 Jan 2023 03:06:56 +0530</pubDate><guid>https://aldrinjenson.me/posts/ssh-termux/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
+&lt;p>Easy way to ssh to termux shell running on Android&lt;/p>
+&lt;h1 id="prerequisites">Prerequisites&lt;/h1>
+&lt;ul>
+&lt;li>A device running Android with Termux installed&lt;/li>
+&lt;li>A Linux machine with OpenSSH installed&lt;/li>
+&lt;/ul>
+&lt;h2 id="steps">Steps&lt;/h2>
+&lt;ol>
+&lt;li>Find the IP address of termux using the following command&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ip addr | grep &lt;span style="color:#ae81ff">192&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>install open ssh&lt;/li>
+&lt;li>start ssh service using the following&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sshd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="4">
+&lt;li>Find hostname of termux machine using &lt;code>hostname&lt;/code> command&lt;/li>
+&lt;li>From host machine, perform ssh using the following command&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span> ssh -p &lt;span style="color:#ae81ff">8022&lt;/span> $hostname@$phoneIp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="6">
+&lt;li>The END&lt;/li>
+&lt;/ol>
+&lt;h2 id="conclusion">Conclusion&lt;/h2>
+&lt;p>Tada, You&amp;rsquo;ve successfully done ssh to termux✨&lt;/p>
+&lt;p>Use termux to start webservers (Apache, Nginx etc) just like you would normally do in a Linux machine and you can expose it to the internet using free services like ngrok.&lt;/p>
+&lt;h2 id="bonus-tip">Bonus Tip&lt;/h2>
+&lt;p>replace &lt;code>ssh&lt;/code> in step 5 using &lt;code>sftp&lt;/code> and suddenly you now have an extremely safe and easy way to transfer files to and from your phone. You&amp;rsquo;re welcome😊&lt;/p>
+&lt;h2 id="troubleshooting">Troubleshooting&lt;/h2>
+&lt;ul>
+&lt;li>Connection refused: Make sure that your device is connected to the same network as your Linux machine and that the SSH service is running on Termux.&lt;/li>
+&lt;li>Incorrect IP address: Double-check that you have the correct IP address of your device.&lt;/li>
+&lt;li>Firewall issues: Make sure that your firewall is not blocking the SSH connection.&lt;/li>
+&lt;/ul>
+&lt;h2 id="additional-resources">Additional Resources&lt;/h2>
+&lt;p>-&lt;a href="https://wiki.termux.com/wiki/Main_Page">Termux Wiki&lt;/a>
+-&lt;a href="https://www.openssh.com/">OpenSSH&lt;/a>&lt;/p></description></item><item><title>How to add SSL and make a server https</title><link>https://aldrinjenson.me/posts/set-up-ssl/</link><pubDate>Sun, 25 Dec 2022 18:14:39 +0530</pubDate><guid>https://aldrinjenson.me/posts/set-up-ssl/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
 &lt;p>An easy way to set up Secure Socket Layer (SSL) on a web server without having necessary nginx installation. SSL is a security protocol that encrypts data sent between a client and a server, helping to protect against hacking and other online threats. By enabling SSL on your web server, you can ensure that sensitive data sent to and from your server is protected.&lt;/p>
 &lt;h2 id="requirements">Requirements&lt;/h2>
 &lt;p>To set up SSL on your server, you will need the following:&lt;/p>
