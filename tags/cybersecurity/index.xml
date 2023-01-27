@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>cybersecurity on Aldrin Jenson</title><link>https://aldrinjenson.me/tags/cybersecurity/</link><description>Aldrin Jenson (cybersecurity)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 16 Jan 2023 02:33:48 +0530</lastBuildDate><atom:link href="https://aldrinjenson.me/tags/cybersecurity/index.xml" rel="self" type="application/rss+xml"/><item><title>How to crack almost any OS password</title><link>https://aldrinjenson.me/posts/crack-os-password/</link><pubDate>Mon, 16 Jan 2023 02:33:48 +0530</pubDate><guid>https://aldrinjenson.me/posts/crack-os-password/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>Use the infamous &lt;a href="https://github.com/ohmybahgosh/RockYou2021.txt">RockYou.txt&lt;/a> password list containing 14 million used passwords to brute force the user passwords in almost any system you&amp;rsquo;ve got&lt;/p>
+&lt;blockquote>
+&lt;p>Your computer is not safe, make your password stronger&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="overview">Overview&lt;/h2>
+&lt;ul>
+&lt;li>boot into the system using kali live usb&lt;/li>
+&lt;li>create a hash of etc password and etc shadow (default location where passwords are stored in Linux)&lt;/li>
+&lt;li>crack it using tools like john the ripper&lt;/li>
+&lt;/ul>
+&lt;h2 id="steps">Steps&lt;/h2>
+&lt;ol>
+&lt;li>Create a live USB of Kali Linux&lt;/li>
+&lt;li>Boot into this usb from the victim&amp;rsquo;s computer&lt;/li>
+&lt;li>mount the root partition under /mnt&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>lsblk &lt;span style="color:#75715e"># shows connected drives&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mount /dev/sda2 /mnt &lt;span style="color:#75715e"># mount the drive in /mnt. You&amp;#39;ll have to change the sda name according to lsblk output&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="4">
+&lt;li>Navigate to etc from /mnt and create hash out of shadow and password file using the &lt;code>unshadow&lt;/code> util of kali linux. Save this in the home directory&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>In linux, the passwords of all users are stored as a hash in a /etc/shadow file. The corresponding names can be taken from &lt;code>/etc/password&lt;/code> file&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo unshadow /etc/passwd /etc/shadow &amp;gt; ~/shadowhash &lt;span style="color:#75715e">#storing the unshadowed file in home directory&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="5">
+&lt;li>Crack this using tools like &lt;a href="https://www.openwall.com/john/">john-the-ripper&lt;/a>. Pass in a wordlist if the password may be complex.&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>john --format&lt;span style="color:#f92672">=&lt;/span>crypt shadowhash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># or&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>john shadowhash --wordlist&lt;span style="color:#f92672">=&lt;/span>/usr/share/wordlists/rockyou.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This should give you the password in plain text format for the victim&amp;rsquo;s OS in 70% + cases.&lt;/p>
+&lt;br>
+Reboot the system and log in to the victim's OS with cracked password to gain full access to the system.
+&lt;p>Note: This article focuses only on Linux machines. However, keep in mind that similar thing can be used for Windows systems as well.&lt;/p>
+&lt;hr/>
+&lt;p>P.S. It goes without saying that the purpose of the article is to show that we need to have a really complex password in our computers. Otherwise it can be cracked like above. Use proper long passwords containing both alphanumeric and special characters. Add a personal tinge something to the password as well so that it cannot be directly matched from a wordlist.&lt;/p>
+&lt;p>The End&lt;/p></description></item></channel></rss>
