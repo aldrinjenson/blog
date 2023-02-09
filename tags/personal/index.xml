@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>personal on Aldrin Jenson</title><link>aldrinjenson-github-io.vercel.app/tags/personal/</link><description>Aldrin Jenson (personal)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 26 Jul 2022 19:09:07 +0530</lastBuildDate><atom:link href="aldrinjenson-github-io.vercel.app/tags/personal/index.xml" rel="self" type="application/rss+xml"/><item><title>How we hacked an entire computer lab✨</title><link>aldrinjenson-github-io.vercel.app/posts/hacking-cs-lab/</link><pubDate>Tue, 26 Jul 2022 19:09:07 +0530</pubDate><guid>aldrinjenson-github-io.vercel.app/posts/hacking-cs-lab/</guid><description>&lt;p>Linux is cool.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>personal on Aldrin Jenson</title><link>/tags/personal/</link><description>Aldrin Jenson (personal)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 26 Jul 2022 19:09:07 +0530</lastBuildDate><atom:link href="/tags/personal/index.xml" rel="self" type="application/rss+xml"/><item><title>How we hacked an entire computer lab✨</title><link>/posts/hacking-cs-lab/</link><pubDate>Tue, 26 Jul 2022 19:09:07 +0530</pubDate><guid>/posts/hacking-cs-lab/</guid><description>&lt;p>Linux is cool.&lt;/p>
 &lt;p>Computer Networks is cool.&lt;/p>
 &lt;p>Rick roll is cool.&lt;/p>
 &lt;p>Our lab teacher - Titty sir, is definitely cool.&lt;/p>
@@ -6,7 +6,7 @@
 &lt;h2 id="introduction">Introduction&lt;/h2>
 &lt;p>Short write up of how I wrote a script to play rick roll in all computers in our lab. 🙂&lt;/p>
 &lt;center>
-&lt;video alt="demo of us rick-rolling" src="aldrinjenson-github-io.vercel.app/videos/hackCSLab.mp4" controls muted poster="/thumbs/hackCSLab.jpg" >&lt;/video>
+&lt;video alt="demo of us rick-rolling" src="/videos/hackCSLab.mp4" controls muted poster="/thumbs/hackCSLab.jpg" >&lt;/video>
 &lt;p class='caption'>In hindsight, should have added the --fullscreen flag to the browser as well!&lt;/p>
 &lt;/center>
 &lt;ol>
@@ -14,7 +14,7 @@
 &lt;/ol>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ip a | grep 192.
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;center>
-&lt;image src="aldrinjenson-github-io.vercel.app/images/hackCsLab/ipGrep.jpg" alt="ip grep image">&lt;/image>
+&lt;image src="/images/hackCsLab/ipGrep.jpg" alt="ip grep image">&lt;/image>
 &lt;p class='caption'>
 If the computer is connected to two or more networks(ethernet and wifi for example) the above would result in more than one entries.
 Note that the address ending with 255 is for broadcast and hence should not be used.
@@ -33,7 +33,7 @@ Note that the address ending with 255 is for broadcast and hence should not be u
 &lt;li>(i) Create simple bash script to ssh into one file and remotely execute a command&lt;/li>
 &lt;/ol>
 &lt;center>
-&lt;image src="aldrinjenson-github-io.vercel.app/images/hackCsLab/remoteExec.jpg" alt="Remote exec sample script">&lt;/image>
+&lt;image src="/images/hackCsLab/remoteExec.jpg" alt="Remote exec sample script">&lt;/image>
 &lt;p class='caption'>
 Simple script to remotely execute a command in a single client machine in network using sshpass.
 &lt;/p>
@@ -42,7 +42,7 @@ Simple script to remotely execute a command in a single client machine in networ
 &lt;li>(ii) Create script to loop through the script and remotely execute a command.&lt;/li>
 &lt;/ol>
 &lt;center>
-&lt;image src="aldrinjenson-github-io.vercel.app/images/hackCsLab/loopIpScript.jpg" alt="sample script for looping over ips and executing a bash command">&lt;/image>
+&lt;image src="/images/hackCsLab/loopIpScript.jpg" alt="sample script for looping over ips and executing a bash command">&lt;/image>
 &lt;p class='caption'>
 Simple script to loop over a set of ips and execute a bash command.
 &lt;/p>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Aldrin Jenson</title><link>aldrinjenson-github-io.vercel.app/posts/</link><description>Aldrin Jenson (Posts)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 27 Jan 2023 03:06:56 +0530</lastBuildDate><atom:link href="aldrinjenson-github-io.vercel.app/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>How to SSH to Termux Shell</title><link>aldrinjenson-github-io.vercel.app/posts/ssh-termux/</link><pubDate>Fri, 27 Jan 2023 03:06:56 +0530</pubDate><guid>aldrinjenson-github-io.vercel.app/posts/ssh-termux/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Aldrin Jenson</title><link>/posts/</link><description>Aldrin Jenson (Posts)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 27 Jan 2023 03:06:56 +0530</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>How to SSH to Termux Shell</title><link>/posts/ssh-termux/</link><pubDate>Fri, 27 Jan 2023 03:06:56 +0530</pubDate><guid>/posts/ssh-termux/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
 &lt;p>Easy way to ssh to termux shell running on Android&lt;/p>
 &lt;h1 id="prerequisites">Prerequisites&lt;/h1>
 &lt;ul>
@@ -36,7 +36,7 @@
 &lt;/ul>
 &lt;h2 id="additional-resources">Additional Resources&lt;/h2>
 &lt;p>-&lt;a href="https://wiki.termux.com/wiki/Main_Page">Termux Wiki&lt;/a>
--&lt;a href="https://www.openssh.com/">OpenSSH&lt;/a>&lt;/p></description></item><item><title>How to crack almost any OS password</title><link>aldrinjenson-github-io.vercel.app/posts/crack-os-password/</link><pubDate>Mon, 16 Jan 2023 02:33:48 +0530</pubDate><guid>aldrinjenson-github-io.vercel.app/posts/crack-os-password/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+-&lt;a href="https://www.openssh.com/">OpenSSH&lt;/a>&lt;/p></description></item><item><title>How to crack almost any OS password</title><link>/posts/crack-os-password/</link><pubDate>Mon, 16 Jan 2023 02:33:48 +0530</pubDate><guid>/posts/crack-os-password/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
 &lt;p>Use the infamous &lt;a href="https://github.com/ohmybahgosh/RockYou2021.txt">RockYou.txt&lt;/a> password list containing 14 million used passwords to brute force the user passwords in almost any system you&amp;rsquo;ve got&lt;/p>
 &lt;blockquote>
 &lt;p>Your computer is not safe, make your password stronger&lt;/p>
@@ -74,7 +74,7 @@ Reboot the system and log in to the victim's OS with cracked password to gain fu
 &lt;p>Note: This article focuses only on Linux machines. However, keep in mind that similar thing can be used for Windows systems as well.&lt;/p>
 &lt;hr/>
 &lt;p>P.S. It goes without saying that the purpose of the article is to show that we need to have a really complex password in our computers. Otherwise it can be cracked like above. Use proper long passwords containing both alphanumeric and special characters. Add a personal tinge something to the password as well so that it cannot be directly matched from a wordlist.&lt;/p>
-&lt;p>The End&lt;/p></description></item><item><title>How to add SSL and make a server https</title><link>aldrinjenson-github-io.vercel.app/posts/set-up-ssl/</link><pubDate>Sun, 25 Dec 2022 18:14:39 +0530</pubDate><guid>aldrinjenson-github-io.vercel.app/posts/set-up-ssl/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>The End&lt;/p></description></item><item><title>How to add SSL and make a server https</title><link>/posts/set-up-ssl/</link><pubDate>Sun, 25 Dec 2022 18:14:39 +0530</pubDate><guid>/posts/set-up-ssl/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
 &lt;p>An easy way to set up Secure Socket Layer (SSL) on a web server without having necessary nginx installation. SSL is a security protocol that encrypts data sent between a client and a server, helping to protect against hacking and other online threats. By enabling SSL on your web server, you can ensure that sensitive data sent to and from your server is protected.&lt;/p>
 &lt;h2 id="requirements">Requirements&lt;/h2>
 &lt;p>To set up SSL on your server, you will need the following:&lt;/p>
@@ -168,7 +168,7 @@ Reboot the system and log in to the victim's OS with cracked password to gain fu
 &lt;li>
 &lt;p>&lt;a href="https://chat.openai.com/">Chat GPT&lt;/a>&lt;/p>
 &lt;/li>
-&lt;/ul></description></item><item><title>Notes</title><link>aldrinjenson-github-io.vercel.app/posts/notes/</link><pubDate>Mon, 12 Sep 2022 19:02:56 +0530</pubDate><guid>aldrinjenson-github-io.vercel.app/posts/notes/</guid><description>&lt;ol>
+&lt;/ul></description></item><item><title>Notes</title><link>/posts/notes/</link><pubDate>Mon, 12 Sep 2022 19:02:56 +0530</pubDate><guid>/posts/notes/</guid><description>&lt;ol>
 &lt;li>
 &lt;p>Reverting back git history from a commit:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git revert --no-commit 0766c053..HEAD
@@ -186,7 +186,7 @@ Reboot the system and log in to the victim's OS with cracked password to gain fu
 &lt;ul>
 &lt;li>&lt;a href="https://bytesbin.com/download-view-only-pdf-google-drive/">https://bytesbin.com/download-view-only-pdf-google-drive/&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://askubuntu.com/a/474324">https://askubuntu.com/a/474324&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>How we hacked an entire computer lab✨</title><link>aldrinjenson-github-io.vercel.app/posts/hacking-cs-lab/</link><pubDate>Tue, 26 Jul 2022 19:09:07 +0530</pubDate><guid>aldrinjenson-github-io.vercel.app/posts/hacking-cs-lab/</guid><description>&lt;p>Linux is cool.&lt;/p>
+&lt;/ul></description></item><item><title>How we hacked an entire computer lab✨</title><link>/posts/hacking-cs-lab/</link><pubDate>Tue, 26 Jul 2022 19:09:07 +0530</pubDate><guid>/posts/hacking-cs-lab/</guid><description>&lt;p>Linux is cool.&lt;/p>
 &lt;p>Computer Networks is cool.&lt;/p>
 &lt;p>Rick roll is cool.&lt;/p>
 &lt;p>Our lab teacher - Titty sir, is definitely cool.&lt;/p>
@@ -194,7 +194,7 @@ Reboot the system and log in to the victim's OS with cracked password to gain fu
 &lt;h2 id="introduction">Introduction&lt;/h2>
 &lt;p>Short write up of how I wrote a script to play rick roll in all computers in our lab. 🙂&lt;/p>
 &lt;center>
-&lt;video alt="demo of us rick-rolling" src="aldrinjenson-github-io.vercel.app/videos/hackCSLab.mp4" controls muted poster="/thumbs/hackCSLab.jpg" >&lt;/video>
+&lt;video alt="demo of us rick-rolling" src="/videos/hackCSLab.mp4" controls muted poster="/thumbs/hackCSLab.jpg" >&lt;/video>
 &lt;p class='caption'>In hindsight, should have added the --fullscreen flag to the browser as well!&lt;/p>
 &lt;/center>
 &lt;ol>
@@ -202,7 +202,7 @@ Reboot the system and log in to the victim's OS with cracked password to gain fu
 &lt;/ol>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ip a | grep 192.
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;center>
-&lt;image src="aldrinjenson-github-io.vercel.app/images/hackCsLab/ipGrep.jpg" alt="ip grep image">&lt;/image>
+&lt;image src="/images/hackCsLab/ipGrep.jpg" alt="ip grep image">&lt;/image>
 &lt;p class='caption'>
 If the computer is connected to two or more networks(ethernet and wifi for example) the above would result in more than one entries.
 Note that the address ending with 255 is for broadcast and hence should not be used.
@@ -221,7 +221,7 @@ Note that the address ending with 255 is for broadcast and hence should not be u
 &lt;li>(i) Create simple bash script to ssh into one file and remotely execute a command&lt;/li>
 &lt;/ol>
 &lt;center>
-&lt;image src="aldrinjenson-github-io.vercel.app/images/hackCsLab/remoteExec.jpg" alt="Remote exec sample script">&lt;/image>
+&lt;image src="/images/hackCsLab/remoteExec.jpg" alt="Remote exec sample script">&lt;/image>
 &lt;p class='caption'>
 Simple script to remotely execute a command in a single client machine in network using sshpass.
 &lt;/p>
@@ -230,7 +230,7 @@ Simple script to remotely execute a command in a single client machine in networ
 &lt;li>(ii) Create script to loop through the script and remotely execute a command.&lt;/li>
 &lt;/ol>
 &lt;center>
-&lt;image src="aldrinjenson-github-io.vercel.app/images/hackCsLab/loopIpScript.jpg" alt="sample script for looping over ips and executing a bash command">&lt;/image>
+&lt;image src="/images/hackCsLab/loopIpScript.jpg" alt="sample script for looping over ips and executing a bash command">&lt;/image>
 &lt;p class='caption'>
 Simple script to loop over a set of ips and execute a bash command.
 &lt;/p>
@@ -241,14 +241,14 @@ Simple script to loop over a set of ips and execute a bash command.
 &lt;p>Now, even though we demoed using a rick roll, just know that if one could do this much, really dangerous stuff can be done once access to these many computers are granted. Stuff can range from crypto-mining to running keyloggers for accessing passwords of students.&lt;/p>
 &lt;p>This worked perfectly in our case because the passwords of all the computers were same. In little more stricter scenarios, the passwords being same are rare and hence you&amp;rsquo;d need to create separate files to map the ips to passwords before looping through.&lt;/p>
 &lt;p>Finally, we were able to pull this off only because the staff in CS Lab were kind and understanding of the student&amp;rsquo;s curiosity and interest to explore stuff.✨&lt;/p>
-&lt;p>I suppose I should mention that this is a powerful method and you should use it only with care respecting privacy of others in the network.🙂&lt;/p></description></item><item><title>I gave a talk at an international conference and Murphy's law sucks!</title><link>aldrinjenson-github-io.vercel.app/posts/i-gave-a-talk/</link><pubDate>Tue, 26 Jul 2022 19:09:07 +0530</pubDate><guid>aldrinjenson-github-io.vercel.app/posts/i-gave-a-talk/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>I suppose I should mention that this is a powerful method and you should use it only with care respecting privacy of others in the network.🙂&lt;/p></description></item><item><title>I gave a talk at an international conference and Murphy's law sucks!</title><link>/posts/i-gave-a-talk/</link><pubDate>Tue, 26 Jul 2022 19:09:07 +0530</pubDate><guid>/posts/i-gave-a-talk/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
 &lt;p>I got an opportunity to do a Flash-Talk for IndiaFoss conference held in Bangalore on 23-24 July 2022 and boy, &lt;a href="https://en.wikipedia.org/wiki/Murphy's_law">Murphy&amp;rsquo;s law&lt;/a> messed up my presentation!&lt;/p>
 &lt;center>
-&lt;image src="aldrinjenson-github-io.vercel.app/images/indiaFoss/indiaFossTalk.jpg" alt="My talk at IndiaFoss"/>
+&lt;image src="/images/indiaFoss/indiaFossTalk.jpg" alt="My talk at IndiaFoss"/>
 &lt;p class='caption'>Excuse the 240p quality please!&lt;/p>
 &lt;/center>
 &lt;p>The topic of my talk was: &lt;strong>How to make sharing of digital assets as easy and accessible as possible.&lt;/strong>
-It was based on &lt;a href="aldrinjenson-github-io.vercel.app/projects/whatsapp-msg-without-save/">an app I had made earlier&lt;/a> to send messages by using the most common app in one&amp;rsquo;s phone - Whatsapp, without having to save anyone&amp;rsquo;s contact number.&lt;/p>
+It was based on &lt;a href="/projects/whatsapp-msg-without-save/">an app I had made earlier&lt;/a> to send messages by using the most common app in one&amp;rsquo;s phone - Whatsapp, without having to save anyone&amp;rsquo;s contact number.&lt;/p>
 &lt;h2 id="background">Background&lt;/h2>
 &lt;p>I was inspired by a talk which I heard over at IndiaFoss from Akash Hamirwasia who made a web-app called &lt;a href="https://blaze.vercel.app/">Blaze&lt;/a> for sending files over the internet using a website.
 His project was cool, but to me it seemed like the common man would find it a bit difficult. When I talk about the common man, I&amp;rsquo;m talking about they who doesn&amp;rsquo;t even know to open web browsers(Yes, I&amp;rsquo;ve seen people to whom when I asked to open browser, they have opened settings and searched &amp;ldquo;browser&amp;rdquo; in the settings searchbar. Just know that you are really privileged if you think such people don&amp;rsquo;t exist).&lt;/p>
@@ -267,7 +267,7 @@ His project was cool, but to me it seemed like the common man would find it a bi
 &lt;p>Before I even left the hall, 3 people came near me and asked if I could build for iOS as well. I mean this is something magical about giving a talk I think. People know about your project and you get feedback instantly! I was happy to realize that the problem I solved was worthwhile and that many people found the solution good enough to be used!&lt;/p>
 &lt;h3 id="final-thoughts">Final Thoughts&lt;/h3>
 &lt;p>This was the first time I was speaking at such a large conference and it certainly gave a whole different feel. While I was sad that I couldn&amp;rsquo;t demo the presentation, I was happy that this would lead more people to benefit from my project.✨&lt;/p>
-&lt;p>EDIT: Whatsapp recently introduced a click to chat feature recently which would replicate the functionality of my app. You just have to pasta an unsaved number to some chat and then click it again within whatsapp to take you to the whatsapp chat of that person.&lt;/p></description></item><item><title>How to host a Hugo static site using Github pages</title><link>aldrinjenson-github-io.vercel.app/posts/hosting-hugo-sites-on-gh-pages/</link><pubDate>Thu, 21 Oct 2021 00:20:33 +0530</pubDate><guid>aldrinjenson-github-io.vercel.app/posts/hosting-hugo-sites-on-gh-pages/</guid><description>&lt;p>It took me a day to fix a bug related to hosting a Hugo blog on github pages. Thought I&amp;rsquo;d compile down my learnings here.&lt;/p>
+&lt;p>EDIT: Whatsapp recently introduced a click to chat feature recently which would replicate the functionality of my app. You just have to pasta an unsaved number to some chat and then click it again within whatsapp to take you to the whatsapp chat of that person.&lt;/p></description></item><item><title>How to host a Hugo static site using Github pages</title><link>/posts/hosting-hugo-sites-on-gh-pages/</link><pubDate>Thu, 21 Oct 2021 00:20:33 +0530</pubDate><guid>/posts/hosting-hugo-sites-on-gh-pages/</guid><description>&lt;p>It took me a day to fix a bug related to hosting a Hugo blog on github pages. Thought I&amp;rsquo;d compile down my learnings here.&lt;/p>
 &lt;p>Check out these two links to get started with the local installation and setting up of the development environment. This part is quite easy.&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://opensource.com/article/18/3/start-blog-30-minutes-hugo?utm_source=nomedium&amp;amp;utm_medium=web&amp;amp;utm_campaign=nomedium">Start a blog in 30 minutes with Hugo&lt;/a>&lt;/li>
@@ -295,12 +295,12 @@ His project was cool, but to me it seemed like the common man would find it a bi
 &lt;h2 id="pro-tip">Pro Tip:&lt;/h2>
 &lt;p>If you want to make your life a bit easier, add the following alias script to your bash or zsh shell to start up the dev server and open up your browser quickly to the localhost hugo dev URL.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span> alias hs&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;firefox --new-tab http://localhost:1313/ &amp;amp; hugo server -D&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The above works for most modern browsers and hence you can replace firefox with the browser of your choice. So next time you want to write a new blog, fire up your editor and simply enter the &lt;code>hs&lt;/code> command in your blog directory to start up hugo dev server and have your browser navigate to the hugo dev port.&lt;/p></description></item><item><title>How to Speed up your programming workflow by adding auto-correct in git</title><link>aldrinjenson-github-io.vercel.app/posts/git-autocorrect/</link><pubDate>Sun, 01 Nov 2020 17:07:10 +0530</pubDate><guid>aldrinjenson-github-io.vercel.app/posts/git-autocorrect/</guid><description>&lt;p>In this short post I would like to share a neat trick I learned which you can use to speed up your development workflow - adding auto-correct to git.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The above works for most modern browsers and hence you can replace firefox with the browser of your choice. So next time you want to write a new blog, fire up your editor and simply enter the &lt;code>hs&lt;/code> command in your blog directory to start up hugo dev server and have your browser navigate to the hugo dev port.&lt;/p></description></item><item><title>How to Speed up your programming workflow by adding auto-correct in git</title><link>/posts/git-autocorrect/</link><pubDate>Sun, 01 Nov 2020 17:07:10 +0530</pubDate><guid>/posts/git-autocorrect/</guid><description>&lt;p>In this short post I would like to share a neat trick I learned which you can use to speed up your development workflow - adding auto-correct to git.&lt;/p>
 &lt;h2 id="current-scenario">Current Scenario&lt;/h2>
 &lt;p>Currently, if you have a typo or some small error in your git command, git will automatically suggest the most plausible command corresponding to your keyboard input.
 Majority of the time this suggested command is bound to be the one you were trying to use. However, just suggesting the command is not that helpful since the programmer still has to navigate around and change the typo.&lt;/p>
 &lt;br/>
-&lt;p>&lt;img src="aldrinjenson-github-io.vercel.app/images/git-autocorrect/image1.png" alt="image1">&lt;/p>
+&lt;p>&lt;img src="/images/git-autocorrect/image1.png" alt="image1">&lt;/p>
 &lt;p align = "center">
 Before setting up auto-correct
 &lt;/p>
@@ -313,7 +313,7 @@ Before setting up auto-correct
 &lt;p>Just open your terminal and add the following line&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git config --global help.autocorrect &lt;span style="color:#ae81ff">1&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Adding the above command in your terminal results in the following :&lt;/p>
-&lt;p>&lt;img src="aldrinjenson-github-io.vercel.app/images/git-autocorrect/image2.png" alt="image2">&lt;/p>
+&lt;p>&lt;img src="/images/git-autocorrect/image2.png" alt="image2">&lt;/p>
 &lt;p align = "center">
 With auto-correct turned on
 &lt;/p>
@@ -325,7 +325,7 @@ With auto-correct turned on
 &lt;p>This can be achieved by changing the final integer value at the end to a multiple of 10 (say 20 or 30 which corresponds to 2 or 3 seconds respectively).&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git config --global help.autocorrect &lt;span style="color:#ae81ff">30&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Adding the above code in your terminal gives the following output when you have another typo in your code.&lt;/p>
-&lt;p>&lt;img src="aldrinjenson-github-io.vercel.app/images/git-autocorrect/image3.png" alt="image3">&lt;/p>
+&lt;p>&lt;img src="/images/git-autocorrect/image3.png" alt="image3">&lt;/p>
 &lt;p align = "center">
 Executing a git command after 3 seconds
 &lt;/p>
@@ -335,7 +335,7 @@ Executing a git command after 3 seconds
 &lt;p>If for some reason, you want to disable autocorrect feature (though I can’t really imagine why), all you need is to set the final integer to 0.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git config --global help.autocorrect &lt;span style="color:#ae81ff">0&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This will revert back the config settings to the default stage – to how it was before we modified it.&lt;/p>
-&lt;p>&lt;img src="aldrinjenson-github-io.vercel.app/images/git-autocorrect/image4.png" alt="image4">&lt;/p>
+&lt;p>&lt;img src="/images/git-autocorrect/image4.png" alt="image4">&lt;/p>
 &lt;p align = "center">
 Just like how it was before
 &lt;/p>
@@ -345,8 +345,8 @@ Just like how it was before
 &lt;h3 id="references">References:&lt;/h3>
 &lt;p>&lt;a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration">Here&lt;/a> is the official git docs in case you have further doubts.&lt;/p>
 &lt;p>P.S. Other than the auto-correct, git has got some other cool features as well. Be sure to check them out too while you are at it :).&lt;/p>
-&lt;p>&lt;img src="aldrinjenson-github-io.vercel.app/images/bg/bg1.jpg" alt="background image">&lt;/p>
-&lt;p>Have a good day!&lt;/p></description></item><item><title>Easiest way to add a splash screen in a React Native App</title><link>aldrinjenson-github-io.vercel.app/posts/add-splash-screen-in-react-native-app/</link><pubDate>Wed, 24 Jun 2020 00:58:27 +0530</pubDate><guid>aldrinjenson-github-io.vercel.app/posts/add-splash-screen-in-react-native-app/</guid><description>&lt;blockquote>
+&lt;p>&lt;img src="/images/bg/bg1.jpg" alt="background image">&lt;/p>
+&lt;p>Have a good day!&lt;/p></description></item><item><title>Easiest way to add a splash screen in a React Native App</title><link>/posts/add-splash-screen-in-react-native-app/</link><pubDate>Wed, 24 Jun 2020 00:58:27 +0530</pubDate><guid>/posts/add-splash-screen-in-react-native-app/</guid><description>&lt;blockquote>
 &lt;p>Note: This article was initially written in &lt;a href="https://medium.com/swlh/the-easiest-way-to-add-a-splash-screen-to-your-react-native-app-2d36bee3117b">Medium&lt;/a>&lt;/p>
 &lt;/blockquote>
 &lt;p>Hi, this article is a result of me spending a hell lot of time to figure out the best and easiest way to solve the above problem of adding a splash screen to a React-native app. Almost all the tutorials available as of when this post is being written (2020 June) have at least some part of the code outdated and so if you are lazy and tries to copy-paste all the code mentioned in them, your gradle config will break some way or the other and its total frustration.&lt;/p>

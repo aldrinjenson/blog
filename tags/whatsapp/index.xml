@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>whatsapp on Aldrin Jenson</title><link>aldrinjenson-github-io.vercel.app/tags/whatsapp/</link><description>Aldrin Jenson (whatsapp)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="aldrinjenson-github-io.vercel.app/tags/whatsapp/index.xml" rel="self" type="application/rss+xml"/><item><title>Sending Whatsapp messages without saving contact</title><link>aldrinjenson-github-io.vercel.app/projects/whatsapp-msg-without-save/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>aldrinjenson-github-io.vercel.app/projects/whatsapp-msg-without-save/</guid><description>&lt;h3 id="abstract">Abstract&lt;/h3>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>whatsapp on Aldrin Jenson</title><link>/tags/whatsapp/</link><description>Aldrin Jenson (whatsapp)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="/tags/whatsapp/index.xml" rel="self" type="application/rss+xml"/><item><title>Sending Whatsapp messages without saving contact</title><link>/projects/whatsapp-msg-without-save/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/projects/whatsapp-msg-without-save/</guid><description>&lt;h3 id="abstract">Abstract&lt;/h3>
 &lt;p>An app I made to ensure that you can share links and files really easily to anyone without having to save the contact number of that person by using the already existing most famous digital medium of communication - Whatsapp.&lt;/p>
 &lt;p>Get the code and APK from this &lt;a href="https://github.com/aldrinjenson/send-whatsapp-msg-without-save">link&lt;/a>.&lt;/p>
 &lt;h2 id="introduction">Introduction&lt;/h2>
@@ -23,7 +23,7 @@ This is cool and all, but why save someone&amp;rsquo;s contact if it&amp;rsquo; 
 &lt;p>Now, what if there was one app which could automate this even further so that even very common man could use this without having to use a browser to enter a URL each time!&lt;/p>
 &lt;p>Well, that&amp;rsquo;s exactly what I made: An app which behind the scenes, calls the above link with a mobile number accepted as parameter.&lt;/p>
 &lt;p>Here&amp;rsquo;s a demo:&lt;/p>
-&lt;img src="aldrinjenson-github-io.vercel.app/images/wa_msg_without_save_demo.gif" width=400 alt="demo workflow gif">
+&lt;img src="/images/wa_msg_without_save_demo.gif" width=400 alt="demo workflow gif">
 &lt;br/>
 &lt;h2 id="code-and-implementation">Code and implementation&lt;/h2>
 &lt;p>The code is written in Flutter because the main reason for the starting of this project was for me to try out Flutter.&lt;/p>
