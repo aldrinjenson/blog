@@ -30,102 +30,27 @@
     <lastmod>2023-01-16T02:33:48+05:30</lastmod>
   </url><url>
     <loc>https://aldrinjenson.me/tags/backend/</loc>
-    <lastmod>2022-12-25T18:15:07+05:30</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/tags/docker/</loc>
-    <lastmod>2022-12-25T18:15:07+05:30</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/tags/infra/</loc>
-    <lastmod>2022-12-25T18:15:07+05:30</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/tags/nginx/</loc>
-    <lastmod>2022-12-25T18:15:07+05:30</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/posts/redirect-subdomains-to-docker/</loc>
-    <lastmod>2022-12-25T18:15:07+05:30</lastmod>
+    <lastmod>2022-12-25T18:14:39+05:30</lastmod>
   </url><url>
     <loc>https://aldrinjenson.me/posts/set-up-ssl/</loc>
+    <lastmod>2022-12-25T18:14:39+05:30</lastmod>
+  </url><url>
+    <loc>https://aldrinjenson.me/tags/infra/</loc>
+    <lastmod>2022-12-25T18:14:39+05:30</lastmod>
+  </url><url>
+    <loc>https://aldrinjenson.me/tags/nginx/</loc>
     <lastmod>2022-12-25T18:14:39+05:30</lastmod>
   </url><url>
     <loc>https://aldrinjenson.me/tags/ssl/</loc>
     <lastmod>2022-12-25T18:14:39+05:30</lastmod>
   </url><url>
-    <loc>https://aldrinjenson.me/tags/fastai/</loc>
-    <lastmod>2022-10-03T11:20:30+00:00</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/posts/recreating-teachable-machine/</loc>
-    <lastmod>2022-10-03T11:20:30+00:00</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/tags/ml/</loc>
-    <lastmod>2022-10-03T11:20:30+00:00</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/tags/pytorch/</loc>
-    <lastmod>2022-10-03T11:20:30+00:00</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/tags/awe/</loc>
-    <lastmod>2022-10-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/tags/foss/</loc>
-    <lastmod>2022-10-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/tags/leadership/</loc>
-    <lastmod>2022-10-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/tags/learning/</loc>
-    <lastmod>2022-10-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/tags/management/</loc>
-    <lastmod>2022-10-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/posts/organizing-kochifoss/</loc>
-    <lastmod>2022-10-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/personal/principles/</loc>
-    <lastmod>2022-09-22T23:59:39+00:00</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/personal/</loc>
-    <lastmod>2022-09-22T23:59:39+00:00</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/tags/reflection/</loc>
-    <lastmod>2022-09-22T23:59:39+00:00</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/personal/tech-stuff/</loc>
-    <lastmod>2022-09-22T23:57:30+00:00</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/posts/tips-to-learn-better/</loc>
-    <lastmod>2022-09-22T13:23:14+05:30</lastmod>
-  </url><url>
     <loc>https://aldrinjenson.me/posts/notes/</loc>
     <lastmod>2022-09-12T19:02:56+05:30</lastmod>
   </url><url>
-    <loc>https://aldrinjenson.me/posts/everyone-is-fake/</loc>
-    <lastmod>2022-09-11T22:35:06+05:30</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/tags/thoughts/</loc>
-    <lastmod>2022-09-11T22:35:06+05:30</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/posts/useful-linux-stuff/</loc>
-    <lastmod>2022-08-21T21:20:19+05:30</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/posts/won-prizes-for-electrical/</loc>
-    <lastmod>2022-08-11T22:12:03+05:30</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/posts/released-a-product-on-reddit/</loc>
-    <lastmod>2022-08-09T19:41:25+05:30</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/tags/discovery/</loc>
-    <lastmod>2022-08-06T13:47:26+05:30</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/tags/exploration/</loc>
-    <lastmod>2022-08-06T13:47:26+05:30</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/tags/hack/</loc>
-    <lastmod>2022-08-06T13:47:26+05:30</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/posts/access-linux-files-from-windows/</loc>
-    <lastmod>2022-08-06T13:47:26+05:30</lastmod>
-  </url><url>
     <loc>https://aldrinjenson.me/tags/arch-linux/</loc>
+    <lastmod>2022-07-26T19:09:07+05:30</lastmod>
+  </url><url>
+    <loc>https://aldrinjenson.me/tags/foss/</loc>
     <lastmod>2022-07-26T19:09:07+05:30</lastmod>
   </url><url>
     <loc>https://aldrinjenson.me/tags/fun/</loc>
@@ -149,21 +74,6 @@
     <loc>https://aldrinjenson.me/tags/talk/</loc>
     <lastmod>2022-07-26T19:09:07+05:30</lastmod>
   </url><url>
-    <loc>https://aldrinjenson.me/posts/world-is-nice/</loc>
-    <lastmod>2022-03-26T19:09:07+05:30</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/posts/mutual-couple-finder/</loc>
-    <lastmod>2022-02-14T22:19:22+05:30</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/posts/win-wordle-with-grep/</loc>
-    <lastmod>2022-02-14T22:19:04+05:30</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/posts/my-linux-journey/</loc>
-    <lastmod>2022-01-30T02:33:33+00:00</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/tags/tech/</loc>
-    <lastmod>2022-01-30T02:33:33+00:00</lastmod>
-  </url><url>
     <loc>https://aldrinjenson.me/projects/moodle-automation/</loc>
     <lastmod>2022-01-19T19:25:18+05:30</lastmod>
   </url><url>
@@ -173,28 +83,13 @@
     <loc>https://aldrinjenson.me/projects/</loc>
     <lastmod>2022-01-19T19:25:18+05:30</lastmod>
   </url><url>
+    <loc>https://aldrinjenson.me/tags/tech/</loc>
+    <lastmod>2022-01-19T19:25:18+05:30</lastmod>
+  </url><url>
     <loc>https://aldrinjenson.me/tags/telegram/</loc>
     <lastmod>2022-01-19T19:25:18+05:30</lastmod>
   </url><url>
-    <loc>https://aldrinjenson.me/posts/a-good-leader/</loc>
-    <lastmod>2021-12-20T00:38:05+05:30</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/personal/gratitude/</loc>
-    <lastmod>2021-12-20T00:38:05+05:30</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/personal/my-bg/</loc>
-    <lastmod>2021-12-20T00:38:05+05:30</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/tags/rant/</loc>
-    <lastmod>2021-10-24T19:27:40+05:30</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/posts/ancients-werent-morons/</loc>
-    <lastmod>2021-10-24T19:27:40+05:30</lastmod>
-  </url><url>
     <loc>https://aldrinjenson.me/tags/aws/</loc>
-    <lastmod>2021-10-24T19:25:18+05:30</lastmod>
-  </url><url>
-    <loc>https://aldrinjenson.me/posts/serverless-bot-deployment/</loc>
     <lastmod>2021-10-24T19:25:18+05:30</lastmod>
   </url><url>
     <loc>https://aldrinjenson.me/projects/query-search-bot/</loc>
@@ -230,7 +125,7 @@
   </url><url>
     <loc>https://aldrinjenson.me/projects/love-calculator/</loc>
   </url><url>
-    <loc>https://aldrinjenson.me/personal/great-people/</loc>
+    <loc>https://aldrinjenson.me/personal/</loc>
   </url><url>
     <loc>https://aldrinjenson.me/projects/whatsapp-msg-without-save/</loc>
   </url><url>

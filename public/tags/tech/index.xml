@@ -6,44 +6,10 @@
     <description>Aldrin Jenson (tech)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 30 Jan 2022 02:33:33 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 19 Jan 2022 19:25:18 +0530</lastBuildDate>
     
     <atom:link href="https://aldrinjenson.me/tags/tech/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>My Linux Journey</title>
-      <link>https://aldrinjenson.me/posts/my-linux-journey/</link>
-      <pubDate>Sun, 30 Jan 2022 02:33:33 +0000</pubDate>
-      
-      <guid>https://aldrinjenson.me/posts/my-linux-journey/</guid>
-      <description>&lt;p&gt;I use Arch Linux with i3 tiling window manager. I&amp;rsquo;ve been using the same laptop for the last 11 years. It&amp;rsquo;s been an eventful journey and was filled with a lot of learnings and grit.&lt;/p&gt;
-&lt;p&gt;If you&amp;rsquo;re someone who have used windows and then gradually switched to Linux by installing the distro yourself and fixing the issues yourself, you&amp;rsquo;ll be able to relate a lot better than someone who got everything done to them.&lt;/p&gt;
-&lt;h2 id=&#34;the-beginning&#34;&gt;The beginning&lt;/h2&gt;
-&lt;p&gt;In 7th grade, I had to have surgery on my right knee. While I was in the hospital, my aunt came to visit me and gave me her old laptop to keep me entertained while I was laid up. It was a Dell Inspiron n4050 with both Windows 7 and Ubuntu pre-installed.&lt;/p&gt;
-&lt;p&gt;At the time, I was pretty used to downloading English movies via torrent and watching them on my phone, so having a laptop was really convenient as I could transfer the movies and watch them on a bigger screen.&lt;/p&gt;
-&lt;p&gt;I tried using Ubuntu a few times, but I couldn&amp;rsquo;t really find anything appealing about it. I couldn&amp;rsquo;t even open any of my games on it.&lt;/p&gt;
-&lt;h2 id=&#34;high-school&#34;&gt;High School&lt;/h2&gt;
-&lt;p&gt;In high school, I became even more interested in computers. We didn&amp;rsquo;t have regular internet access, so I had to use a net-setter to get online, but it was expensive and we could only afford to use it sparingly. I remember finding an app called NCERT solutions, which provided answers to questions in NCERT textbooks, and using it while in 8th grade. I also used to save APKs, ISO files, and web pages (by right-clicking and selecting &amp;ldquo;save as&amp;rdquo;) because of my limited internet access.&lt;/p&gt;
-&lt;p&gt;As I got older, I started using my computer to create cool art and designs. At the time, I was really into Jarvis from Iron Man and I remember customizing my Windows 7 to look like Iron Man&amp;rsquo;s interface using RainMeter themes.&lt;/p&gt;
-&lt;p&gt;During this time, I tried to delete Ubuntu from my system because I felt like it was taking up valuable space and I didn&amp;rsquo;t want to have to press enter to select Windows from the dual-boot grub menu every time I wanted to use my computer. I was pretty comfortable with Windows and was familiar with system management (right-clicking on &amp;ldquo;My Computer&amp;rdquo; and selecting options). In the program, I saw that there were 70 gigs of space that were not being used by Windows. I thought this would be easy to fix, so I right-clicked on the partition and deleted it, then extended the Windows drive (C) to use the newly-created free space. Success! I thought, as I checked the properties of the C drive and saw that it had expanded.&lt;/p&gt;
-&lt;p&gt;But the next day, when I tried to turn on my computer, I was greeted with a terrible grub error message. I had no idea what to do, since I couldn&amp;rsquo;t log into Windows anymore because deleting Ubuntu had broken something. I was really confused, because I had been able to fix any issues I had with Windows in the past, but this wasn&amp;rsquo;t Windows. This black screen with white letters seemed like something only hackers or coders could fix, right&amp;hellip;? And that&amp;rsquo;s where I would have given up. I asked my dad to take my laptop to a shop to be repaired, but he didn&amp;rsquo;t think laptops were that important for kids and told me to fix it myself since I was the one who broke it in the first place.&lt;/p&gt;
-&lt;center&gt;
-  &lt;image src=&#34;https://aldrinjenson.me/images/linuxJourney/grubError.jpg&#34; alt=&#34;The grub boot error message&#34;&gt;&lt;/image&gt;
-&lt;p class=&#39;caption&#39;&gt;The infamous Grub rescue error&lt;/p&gt;
-&lt;/center&gt;
-&lt;p&gt;Without my laptop, I was bored out of my mind, so I really wanted to fix it. We had an old Windows XP PC at home that was never used. I connected my dad&amp;rsquo;s phone to the PC, turned on USB tethering, and used that internet connection to search for solutions. After some searching, I found a way to fix it. Since I didn&amp;rsquo;t have a Windows 7 installation disk (since the laptop was a gift), I downloaded Hiren&amp;rsquo;s boot CD and, after 30 minutes of struggling, managed to get everything working again. Whew! I decided then and there that I would never use Ubuntu again.&lt;/p&gt;
-&lt;p&gt;Even during my 11th and 12th grade, I did all my C++ coding in Windows with Borland TurboC++.&lt;/p&gt;
-&lt;h2 id=&#34;college-life&#34;&gt;College Life&lt;/h2&gt;
-&lt;p&gt;The major change began in my College life. During this time, Windows began really pushing and promoting Windows 10 a lot. I got free offers and tried installing on my Laptop, but then quickly had to uninstll them due to the computer being so slow.&lt;/p&gt;
-&lt;p&gt;By the time I reached college, Microsoft stopped supporting Windows 7 and urged everyone to move to Windows 10. Due to my slowness, I wanted to find a better alternative. . There was a FOSS club in our college which was very active and a senior over there suggested me to switch to Ubuntu (again) in my first year. I was reluctant,, but then agreed and tried installing it myself. I got it to work well, but the issue was slowness. I couldn&amp;rsquo;t really find much better performance with the Ubuntu Gnome than Windows.&lt;/p&gt;
-&lt;p&gt;I was feeling down and started looking at ways to speed up my system. This led me to a rabbit hole of exploring differrent Linux distros and seeing how I could get the best performance from my system.
-Finally I settled on Xubuntu, a distro very similar to Ubuntu, but with XFCE as desktop environment. Now this was great for me. My RAM usage came to only 700-800 MBs in most idle times. I was happy.&lt;/p&gt;
-&lt;h2 id=&#34;transitioning&#34;&gt;Transitioning&lt;/h2&gt;
-&lt;p&gt;I got introduced to the FOSS aspect a lot in my first year and i tried exploring them a lot and wanted to find foss alternatives to popular proprietirary windows softwre. and all of this took place in my first year.
-I was scared to still delete windows asnd of&lt;/p&gt;
-</description>
-    </item>
     
     <item>
       <title>Moodle Automation</title>
@@ -97,61 +63,6 @@ This was not acceptable.&lt;/p&gt;
 &lt;p&gt;That being said, each time I saw another attendance automation project, I couldn&amp;rsquo;t just think that my version of automation was actually kinda good. You didn&amp;rsquo;t even have to enter any timetable, just the attendance page urls would suffice. I saw projects for which you have to enter time-tables which was a problem because sometimes time tables may change or a different teacher may take class on a different subject if one teacher is on leave etc. Other automation projects I sad didn&amp;rsquo;t have a notification system as well, they were all python programs written to be run in the terminal. I was kinda happy though that I wasn&amp;rsquo;t the only one fed up of this system, but this also made me wonder if using your skills to get around a broken system is actually wrong..&lt;/p&gt;
 &lt;p&gt;I open sourced the project after 14 months of the initial commit. Within that period I have seen good people losing attendance(and hence their marks due to the minimum 75% attendance scheme in Kerala colleges) because they had forgotten to mark in Moodle often times when they had attended the actual classes as well. I open sourced my code without any flashy announcements in the firm belief that if one is genuinely looking for a solution, he should find it. As the Bible says, &amp;ldquo;Seek and You will Find&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;Check out the code &lt;a href=&#34;https://github.com/aldrinjenson/moodle-automation&#34;&gt;here&lt;/a&gt; :).&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>How to deploy a Telegram bot to Serverless</title>
-      <link>https://aldrinjenson.me/posts/serverless-bot-deployment/</link>
-      <pubDate>Sun, 24 Oct 2021 19:25:18 +0530</pubDate>
-      
-      <guid>https://aldrinjenson.me/posts/serverless-bot-deployment/</guid>
-      <description>&lt;p&gt;When I worked as a Product Developer at TGH Tech, I had built multiple Telegram bots in nodeJs. In the inital stages all bots were using the default long polling method which required a server to be constantly running. We ran some bots on AWS ec2 and others using Heroku paid Plan. Keeping the server running all the time wasn&amp;rsquo;t economical for our usecase as there would be long gaps when the users won&amp;rsquo;t be using the bot. Running the server at night time and all hence wasn&amp;rsquo;t economical at all. So I started researching on AWS Lambda and how I could move the bots to serverless. The advantage of AWS Lambda functions is that you are paid only for the usage, as in you are paid only for the server running when a user uses your bot. No money is charged for all the idle time. Once I kinda figured out the steps to modify the code and have the bot deployed to Lambda, I created a document, outlining the process and shared it to many others who successfully managed to deploy their bots on serverless as well. This way we were able to save off a lot of money.&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;m adding the steps here as well for future references of anyone interested in moving their existing Telegram Bots to AWS Lambda using the &lt;a href=&#34;https://www.serverless.com/&#34;&gt;Serverless Framework&lt;/a&gt;.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Read &lt;a href=&#34;https://www.google.com/url?q=https://iamondemand.com/blog/building-your-first-serverless-telegram-bot/&amp;amp;sa=D&amp;amp;source=docs&amp;amp;ust=1643292794318291&amp;amp;usg=AOvVaw245vcHmEft7pWlVi0Muvf2&#34;&gt;this&lt;/a&gt; guide first&lt;/li&gt;
-&lt;li&gt;Skim through &lt;a href=&#34;https://www.google.com/url?q=https://core.telegram.org/bots/webhooks&amp;amp;sa=D&amp;amp;source=docs&amp;amp;ust=1643292815912938&amp;amp;usg=AOvVaw3Qvi7OgCOjGUL7dwHRYa4M&#34;&gt;this official Telegram docs&lt;/a&gt; about webhooks.
-&lt;ul&gt;
-&lt;li&gt;Basically, a webhook is used for getting updates when a user sends a command or a message to the bot.&lt;/li&gt;
-&lt;li&gt;However, in order to set a webhook, telegram requires an HTTPS enabled url to which telegram servers make a POST request on each message input.&lt;/li&gt;
-&lt;li&gt;We create a lambda function, which when deployed, provides us an HTTPS enabled url.&lt;/li&gt;
-&lt;li&gt;We set up the Telegram webhook using the above url to which telegram makes a POST request which contains the message object just as it is received in the msg object.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;bot&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;onText&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;/regex/&lt;/span&gt;, (&lt;span style=&#34;color:#a6e22e&#34;&gt;msg&lt;/span&gt;) =&amp;gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;console&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;msg&lt;/span&gt;));
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;We can then set up a switch statement or an if-else ladder to evaluate the message text and perform various actions depending on the command entered.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Note: It is not necessary that you use the &lt;code&gt;node-telegram-bot-api&lt;/code&gt; library to send a message or get msg input etc. Telegram provides apis which can be used to send messages easily by passing in the chatId, msg-text, keyboardType etc, as seen in the above articles. Msg input can be received using webhooks as well as mentioned in the above paragraph&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Create a serverless.yml file and define the function with a path similar to the article mentioned above and deploy the function using &lt;code&gt;serverless deploy&lt;/code&gt; to get the url.&lt;/li&gt;
-&lt;li&gt;Set up, remove, get status of webhooks easily using the urls mentioned in &lt;a href=&#34;https://xabaras.medium.com/setting-your-telegram-bot-webhook-the-easy-way-c7577b2d6f72&#34;&gt;this article&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;some-things-to-keep-in-mind&#34;&gt;Some things to keep in mind&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;It is important that you return an object with statusCode 200 so that telegram understands that the query has been successful. (Check the first link above for reference)&lt;/li&gt;
-&lt;li&gt;When you want to send JSON data, ensure that you send it after properly stringifying it first.&lt;/li&gt;
-&lt;li&gt;For sending URLs, sometime you may get the error TypeError: Request path contains unescaped characters which can be fixed by creating a function to format text using &lt;a href=&#34;https://stackoverflow.com/questions/31024779/typeerror-request-path-contains-unescaped-characters-how-can-i-fix-this/62437210#62437210&#34;&gt;this stackoverflow answer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Lambda functions are &lt;span style=&#34;background-color:#717140;padding: 0px 4px;&#34;&gt;stateless&lt;/span&gt;, meaning that you can’t persist variable states in global variables, Each new call will result in a fresh instance being fired upon. This would have implications when storing user keyboard presses in memory. (Some alternative would be storing the button status in a db (too slow) or using some in-memory cache systems like Redis or Memcached (as suggested in the discussion thread by Node-telegram bot api)).&lt;/li&gt;
-&lt;li&gt;Telegram ensures only one way of getting inputs is active at any particular moment. Hence you can’t have polling and webhooks enabled at the same time. Ie. If you use the node-telegram-bot-api and set polling:true and have also enabled a webhook, when you run npm start, the webhook will automatically get disabled.&lt;/li&gt;
-&lt;li&gt;In order to delete pending messages which may get accumulated in case you forgot to return 200 statusCode or for any other reason that could result in same response message being sent by the bot, you can use the following url structure to delete pending updates: &lt;a href=&#34;https://api.telegram.org/bot%7Bmy_bot_token%7D/setWebhook?url=%7Burl_to_send_updates_to%7D&amp;amp;drop_pending_update=true&#34;&gt;https://api.telegram.org/bot{my_bot_token}/setWebhook?url={url_to_send_updates_to}&amp;amp;drop_pending_update=true&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;If you’ve got some extra route defined which accepts a request from a backend and performs an action (eg: ‘/notify’ route which when called sends a telegram notification message to the user), then that function can be exported and defined in the serverless.yml file which will give a new HTTPS url for that function. This can then be called by the backend to invoke that function. The package aws serverless express can be used if the function is complex and would require some expressJs like route handling.&lt;/li&gt;
-&lt;li&gt;Note that you may have environment variables which may be defined in a .env file. This needs to be added to the aws console as well by going to the &lt;code&gt;configuration&lt;/code&gt; tab and selecting &lt;code&gt;environment-variables&lt;/code&gt; section from the left side menu.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;things-which-could-be-explored-and-improved-when-the-need-arises&#34;&gt;Things which could be explored and improved when the need arises&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Use ngrok to expose a local port to the internet, which would provide an HTTPS enabled url which can be used to set up the webhook. This would enable live-reloading whenever a change is made as there would be no more need to deploy the function to AWS to see the changes&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;A way to connect a database like MongoDb. This can be done by calling the Mongo connect function in the handler function so as to persist the database connection for some time without having to do a cold start for each invocation like mentioned in this example.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;extra-references&#34;&gt;Extra references&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/TGH-Tech/open-fruit-admin-bot/tree/lambda&#34;&gt;https://github.com/TGH-Tech/open-fruit-admin-bot/tree/lambda&lt;/a&gt;
-&lt;a href=&#34;https://github.com/TGH-Tech/query-search-bot&#34;&gt;https://github.com/TGH-Tech/query-search-bot&lt;/a&gt;
-&lt;a href=&#34;https://github.com/TGH-Tech/open-fruit-seller-bot/tree/test-deployment&#34;&gt;https://github.com/TGH-Tech/open-fruit-seller-bot/tree/test-deployment&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
