@@ -10,11 +10,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer-when-downgrade">
 
-<title>How to host a Hugo static site using Github pages - Aldrin&#39;s Blog</title>
+<title>How to host a Hugo static site using Github pages - Aldrin Jenson</title>
 <meta name="description" content="CS undergrad from Kerala, India">
 
-<link rel="icon" type="image/x-icon" href="https://aldrinjenson.github.io/favicon.ico">
-<link rel="apple-touch-icon-precomposed" href="https://aldrinjenson.github.io/favicon.png">
+<link rel="icon" type="image/x-icon" href="https://aldrinjenson.me/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="https://aldrinjenson.me/favicon.png">
 
 
 
@@ -31,7 +31,7 @@
     
 
     
-        <link rel="stylesheet" href="https://aldrinjenson.github.io/css/style.min.f4eb13e56aed35bf3e86401b634a04a16d7839a2d3981f5a9529ec32f65da88a.css" integrity="sha256-9OsT5WrtNb8&#43;hkAbY0oEoW14OaLTmB9alSnsMvZdqIo=">
+        <link rel="stylesheet" href="https://aldrinjenson.me/css/style.min.52d0182c610bf0781cb791431d6abbcbef22b3216890c4a187c7522ae3c71f26.css" integrity="sha256-UtAYLGEL8Hgct5FDHWq7y&#43;8isyFokMShh8dSKuPHHyY=">
     
 
 
@@ -42,10 +42,9 @@
 <meta property="og:title" content="How to host a Hugo static site using Github pages" />
 <meta property="og:description" content="Some pointers on hosting a Hugo site using Github pages" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://aldrinjenson.github.io/posts/hosting-hugo-sites-on-gh-pages/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://aldrinjenson.me/posts/hosting-hugo-sites-on-gh-pages/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-10-21T00:20:33+05:30" />
 <meta property="article:modified_time" content="2021-10-21T00:20:33+05:30" />
-
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to host a Hugo static site using Github pages"/>
@@ -56,6 +55,19 @@
 
 
 
+
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J94XZYNB9C"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-J94XZYNB9C', { 'anonymize_ip': false });
+}
+</script>
 
 
 
@@ -70,7 +82,7 @@
             
                 <div class="header-top">
     <h1 class="site-title">
-        <a href="https://aldrinjenson.github.io/">Aldrin&#39;s Blog</a>
+        <a href="https://aldrinjenson.me/">Aldrin Jenson</a>
     </h1>
     <ul class="social-icons">
 
@@ -151,6 +163,25 @@
         </li>
     
 
+    
+        
+        
+        <li>
+            <a href="https://aldrinjenson.github.io/index.xml" title="Rss" rel="me">
+            <span class="inline-svg" >
+
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-rss" viewBox="0 0 16 16"><path fill="currentColor" d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/><path fill="currentColor" d="M5.5 12a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-3-8.5a1 1 0 0 1 1-1c5.523 0 10 4.477 10 10a1 1 0 1 1-2 0 8 8 0 0 0-8-8 1 1 0 0 1-1-1zm0 4a1 1 0 0 1 1-1 6 6 0 0 1 6 6 1 1 0 1 1-2 0 4 4 0 0 0-4-4 1 1 0 0 1-1-1z"/></svg>
+
+</span>
+
+            </a>
+        </li>
+    
+
 </ul>
 
 </div>
@@ -158,11 +189,11 @@
     <nav>
         
         
-        <a class="" href="https://aldrinjenson.github.io/about/" title="About">About</a>
+        <a class="" href="https://aldrinjenson.me/" title="Home">Home</a>
         
-        <a class="" href="https://aldrinjenson.github.io/" title="Home">Home</a>
+        <a class="" href="https://aldrinjenson.me/posts/" title="Posts">Posts</a>
         
-        <a class="" href="https://aldrinjenson.github.io/posts/" title="Posts">Posts</a>
+        <a class="" href="https://aldrinjenson.me/projects/" title="Projects">Projects</a>
         
     </nav>
 
@@ -182,15 +213,15 @@
             
         </header>
         <div class="content e-content">
-            <p>It took me a day to fix a bug related to hosting a Hugo blog on github pages. Thought I&rsquo;d compile down the learnings here.</p>
-<p>To get started with the local installation and setting up of the development environment, it&rsquo;s quite easy. Just check out these two links:</p>
+            <p>It took me a day to fix a bug related to hosting a Hugo blog on github pages. Thought I&rsquo;d compile down my learnings here.</p>
+<p>Check out these two links to get started with the local installation and setting up of the development environment. This part is quite easy.</p>
 <ul>
 <li><a href="https://opensource.com/article/18/3/start-blog-30-minutes-hugo?utm_source=nomedium&amp;utm_medium=web&amp;utm_campaign=nomedium">Start a blog in 30 minutes with Hugo</a></li>
-<li><a href="https://gohugo.io/getting-started/quick-start/">Official Hugo Quick Start</a></li>
+<li><a href="https://gohugo.io/getting-started/quick-start/">Official Hugo Quick Start Guide</a></li>
 </ul>
 <p>By now you should be having a blog with atleast one post which can be previewed locally using <code>hugo server -D</code> command.</p>
-<p>Now, the part which I found difficult is to host this site and make it available for the internet. While there are guides available on the official docs for a lot of hosting options, the one for hosting with github pages isn&rsquo;t very helpful (general opinion of a lot of developers).</p>
-<p>Anyways, here are the simple gotchas you need to take note of for easy hosting after following the official guide [here](to be kept in mind).</p>
+<p>Now, the part which I found difficult is to host this site and make it available for the public. While there are guides available on the official docs for a lot of hosting options, the one for hosting with github pages isn&rsquo;t very helpful (general opinion of a lot of developers).</p>
+<p>Anyways, here are the simple gotchas you need to take note of for easy hosting after following the official guide.</p>
 <ol>
 <li>
 <p>The baseUrl in your config file should point to the url where which your site will be deployed. (Usually, <code>yourusername.github.io/</code>). No need to change it to rawgithubUserContent link if images or css doesn&rsquo;t load initially.</p>
@@ -199,10 +230,18 @@
 <p>If images are not being displayed on your site, add on <code>canonifyURLs: true</code> in your <code>config.yaml</code> file or the toml version in your <code>config.toml</code> file if you are using toml.</p>
 </li>
 <li>
-<p>When using the <a href="https://github.com/peaceiris/actions-gh-pages">gh-action</a> as mentioned in the docs, it&rsquo;s basically creating a new branch called gh-pages and then putting in the build files (from the public folder) in this branch and this is the one that is getting deployed in github pages. Basically, your source code is in the main branch, and the build output is in the gh-pages. (Not knowing this can confuse you in understanding how the magic happens ).</p>
+<p>When using the <a href="https://github.com/peaceiris/actions-gh-pages">gh-pages</a> github action as mentioned in the docs for deploying with Github, it&rsquo;s basically creating a new branch called gh-pages and then putting in the build files (from the public folder) in this branch and this is the one that is getting deployed in github pages. Basically, your source code is in the main branch, and the build output is in the gh-pages branch. (Not knowing this can confuse you in understanding how the magic happens ). The static HTML pages in this branch are deployed using github pages.</p>
+</li>
+<li>
+<p>If you want to host your site in a custom domain, then you got to create a file <code>CNAME</code> and put it in the hugo static folder. This file should contain just the domain name eg: <code>www.example.com</code>. This file from static folder will be put in the root folder of gh-pages branch once the site has been built by the gh action on push. If you get some errors regarding the domain, check out <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages#cname-errors">this part</a> of the official docs.</p>
 </li>
 </ol>
-<p>So there you go, these are the three simple points which you need to take note of so as to make the whole deployment process with hugo a bit easier.</p>
+<p>So there you go, these are the three simple points which you need to take note of so as to make the whole deployment process with hugo a bit easier. Now you can write blog posts and the site gets deployed once you push to the main branch.</p>
+<p>P.S. Just so you know, this current site you are looking at has been made completely using Hugo by following the above steps. So yeah, this works. You can check out the source code for this site <a href="https://github.com/aldrinjenson/aldrinjenson.github.io">here</a> if interested.</p>
+<h2 id="pro-tip">Pro Tip:</h2>
+<p>If you want to make your life a bit easier, add the following alias script to your bash or zsh shell to start up the dev server and open up your browser quickly to the localhost hugo dev URL.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  alias hs<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;firefox --new-tab http://localhost:1313/ &amp; hugo server -D&#39;</span>
+</span></span></code></pre></div><p>The above works for most modern browsers and hence you can replace firefox with the browser of your choice. So next time you want to write a new blog, fire up your editor and simply enter the <code>hs</code> command in your blog directory to start up hugo dev server and have your browser navigate to the hugo dev port.</p>
 
         </div>
         
@@ -215,8 +254,8 @@
         <div class="post-date dt-published">21-10-2021</div>
     
     
-    <a class="post-hidden-url u-url" href="https://aldrinjenson.github.io/posts/hosting-hugo-sites-on-gh-pages/">https://aldrinjenson.github.io/posts/hosting-hugo-sites-on-gh-pages/</a>
-    <a href="https://aldrinjenson.github.io" class="p-name p-author post-hidden-author h-card" rel="me">Aldrin Jenson</a>
+    <a class="post-hidden-url u-url" href="https://aldrinjenson.me/posts/hosting-hugo-sites-on-gh-pages/">https://aldrinjenson.me/posts/hosting-hugo-sites-on-gh-pages/</a>
+    <a href="https://aldrinjenson.me/" class="p-name p-author post-hidden-author h-card" rel="me">Aldrin Jenson</a>
 
 
     <div class="post-taxonomies">
@@ -224,7 +263,7 @@
             
                 <ul class="post-tags">
                     
-                        <li><a href="https://aldrinjenson.github.io/tags/tech">#tech</a></li>
+                        <li><a href="https://aldrinjenson.me/tags/tech">#tech</a></li>
                     
                 </ul>
         
@@ -236,12 +275,14 @@
     
         
     <div class="pagination post-pagination">
-        <div class="left pagination-item disabled">
+        <div class="left pagination-item ">
+            
+                <a href="https://aldrinjenson.me/posts/serverless-bot-deployment/">How to deploy a Telegram bot to Serverless</a>
             
         </div>
         <div class="right pagination-item ">
             
-                <a href="https://aldrinjenson.github.io/posts/first-post/">First Post</a>
+                <a href="https://aldrinjenson.me/posts/git-autocorrect/">How to Speed up your programming workflow by adding auto-correct in git</a>
             
         </div>
     </div>
@@ -286,11 +327,14 @@
     <div class="common-footer-bottom">
         
         <div class="copyright">
-            <p>© Aldrin Jenson, 2021<br>
-            Powered by <a target="_blank" rel="noopener noreferrer" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" rel="noopener noreferrer" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.<br>
-            
-            </p>  
-        </div> 
+            <p>©  <a href="https://github.com/aldrinjenson/aldrinjenson.github.io"
+                    target="_blank">Aldrin Jenson </a>, 2023<br>
+                Powered by <a target="_blank" rel="noopener noreferrer"
+                    href="https://gohugo.io/">Hugo</a><br>
+                
+            </p>
+            <br>
+        </div>
 
            
 
@@ -359,12 +403,12 @@
   }
 </script>
 
-   
+
     </div>
 
     <p class="h-card vcard">
 
-    <a href=https://aldrinjenson.github.io class="p-name u-url url fn" rel="me">Aldrin Jenson</a> 
+    <a href=https://aldrinjenson.me/ class="p-name u-url url fn" rel="me">Aldrin Jenson</a> 
 
      
         /
@@ -372,11 +416,10 @@
     
 
      
-        <img class="u-photo" src="https://aldrinjenson.github.io/images/me.jpg" />
+        <img class="u-photo" src="https://aldrinjenson.me/images/me.jpg" />
     
 </p> 
 </footer>
-
         
     </div>
 </body>

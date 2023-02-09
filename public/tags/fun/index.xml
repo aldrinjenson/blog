@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fun on Aldrin Jenson</title>
+    <link>https://aldrinjenson.me/tags/fun/</link>
+    <description>Aldrin Jenson (fun)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 Jul 2022 19:09:07 +0530</lastBuildDate>
+    
+    <atom:link href="https://aldrinjenson.me/tags/fun/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How we hacked an entire computer lab✨</title>
+      <link>https://aldrinjenson.me/posts/hacking-cs-lab/</link>
+      <pubDate>Tue, 26 Jul 2022 19:09:07 +0530</pubDate>
+      
+      <guid>https://aldrinjenson.me/posts/hacking-cs-lab/</guid>
+      <description>&lt;p&gt;Linux is cool.&lt;/p&gt;
+&lt;p&gt;Computer Networks is cool.&lt;/p&gt;
+&lt;p&gt;Rick roll is cool.&lt;/p&gt;
+&lt;p&gt;Our lab teacher - Titty sir, is definitely cool.&lt;/p&gt;
+&lt;p&gt;So, hacking all the computers over there, should be cool too.?🙂&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Short write up of how I wrote a script to play rick roll in all computers in our lab. 🙂&lt;/p&gt;
+&lt;center&gt;
+  &lt;video alt=&#34;demo of us rick-rolling&#34; src=&#34;https://aldrinjenson.me/videos/hackCSLab.mp4&#34; controls muted poster=&#34;/thumbs/hackCSLab.jpg&#34; &gt;&lt;/video&gt;
+  &lt;p class=&#39;caption&#39;&gt;In hindsight, should have added the --fullscreen flag to the browser as well!&lt;/p&gt;
+&lt;/center&gt;
+&lt;ol&gt;
+&lt;li&gt;find your ip address using&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ip a | grep 192.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;center&gt;
+  &lt;image src=&#34;https://aldrinjenson.me/images/hackCsLab/ipGrep.jpg&#34; alt=&#34;ip grep image&#34;&gt;&lt;/image&gt;
+  &lt;p class=&#39;caption&#39;&gt;
+  If the computer is connected to two or more networks(ethernet and wifi for example) the above would result in more than one entries.
+  Note that the address ending with 255 is for broadcast and hence should not be used.
+  &lt;/p&gt;
+&lt;/center&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Get the list of all devices connected to your network using the &lt;strong&gt;nmap&lt;/strong&gt; tool&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo nmap -sn 192.168.143.0-255
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo nmap -sn 192.168.143.0-255 &amp;gt; ips.txt &lt;span style=&#34;color:#75715e&#34;&gt;# to store output to a file&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Install &lt;a href=&#34;sshpass&#34;&gt;sshpass&lt;/a&gt; on your host machine&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install sshpass
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;(i) Create simple bash script to ssh into one file and remotely execute a command&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;
+  &lt;image src=&#34;https://aldrinjenson.me/images/hackCsLab/remoteExec.jpg&#34; alt=&#34;Remote exec sample script&#34;&gt;&lt;/image&gt;
+  &lt;p class=&#39;caption&#39;&gt;
+  Simple script to remotely execute a command in a single client machine in network using sshpass.
+  &lt;/p&gt;
+&lt;/center&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;(ii) Create script to loop through the script and remotely execute a command.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;
+  &lt;image src=&#34;https://aldrinjenson.me/images/hackCsLab/loopIpScript.jpg&#34; alt=&#34;sample script for looping over ips and executing a bash command&#34;&gt;&lt;/image&gt;
+  &lt;p class=&#39;caption&#39;&gt;
+  Simple script to loop over a set of ips and execute a bash command.
+  &lt;/p&gt;
+&lt;/center&gt;
+&lt;h2 id=&#34;afterthoughts&#34;&gt;Afterthoughts&lt;/h2&gt;
+&lt;p&gt;There you go. This script should let you run a command remotely in all the devices in your network.&lt;/p&gt;
+&lt;p&gt;I used this only once for playing rickRoll in all the computers in our lab just as a proof of concept.&lt;/p&gt;
+&lt;p&gt;Now, even though we demoed using a rick roll, just know that if one could do this much, really dangerous stuff can be done once access to these many computers are granted. Stuff can range from crypto-mining to running keyloggers for accessing passwords of students.&lt;/p&gt;
+&lt;p&gt;This worked perfectly in our case because the passwords of all the computers were same. In little more stricter scenarios, the passwords being same are rare and hence you&amp;rsquo;d need to create separate files to map the ips to passwords before looping through.&lt;/p&gt;
+&lt;p&gt;Finally, we were able to pull this off only because the staff in CS Lab were kind and understanding of the student&amp;rsquo;s curiosity and interest to explore stuff.✨&lt;/p&gt;
+&lt;p&gt;I suppose I should mention that this is a powerful method and you should use it only with care respecting privacy of others in the network.🙂&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Love Match Calculator</title>
+      <link>https://aldrinjenson.me/projects/love-calculator/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aldrinjenson.me/projects/love-calculator/</guid>
+      <description>&lt;p&gt;Before reading any further, visit this &lt;a href=&#34;https://aldrinjenson.github.io/Love-Calc/&#34;&gt;link&lt;/a&gt; and follow the instructions.&lt;/p&gt;
+&lt;hr&gt;
+Seriously dude, only continue if you visited the page and followed the instructions.
+&lt;p&gt;This project was inspired by an article written by Subin Siby of Vidhya Institue of Sciences where he mentioned about how we once got pranked by a similar site.
+I haven&amp;rsquo;t talked to him directly other than in an online meet when he answered a question I asked in chat, but I&amp;rsquo;ve heard he&amp;rsquo;s a cool dude interested in building cool software. (Wish I could talk to him directly for once🤞).&lt;/p&gt;
+&lt;p&gt;Anyways, On April 1st 2020, I decided to build something since it&amp;rsquo;s April Fool&amp;rsquo;s and all. During those days, some of us in class had created a Whatsapp group for those interested in programming, where we shared different articles, tutorials etc for everyone to pick up and improve. In that group, began a conversation which somehow ended on the topic of compatibility between partners(I know, just the usual typical topic discussed in a programming group.😁). Anyway, I saw this message in the morning and this got me thinking. Since it was April Fool&amp;rsquo;s day, I definitely wanted to do something fun; plus around that time, I had gotten myself pretty familiar with the awesome CSS framework &lt;a href=&#34;https://materializecss.com/&#34;&gt;Materialize-CSS&lt;/a&gt; and I wanted to build something cool with it as well.
+So with all these reasons, I decided to build a Love compatibility calculator(Not an actual one ofc.)&lt;/p&gt;
+&lt;h2 id=&#34;the-idea&#34;&gt;The Idea&lt;/h2&gt;
+&lt;p&gt;The idea was simple - prank folks by asking them to enter the details of their crush for finding the percentage of love compatibility between them. What&amp;rsquo;s the prank in this you ask? Well, once they details are submitted, instead of the data gets stored in a db and instead of a percentage value, the users get &lt;a href=&#34;https://en.wikipedia.org/wiki/Rickrolling&#34;&gt;Rick Rolled&lt;/a&gt;😇.&lt;/p&gt;
+&lt;h2 id=&#34;implementation&#34;&gt;Implementation&lt;/h2&gt;
+&lt;p&gt;The project was built fairly quickly. I started working on it in the afternoon and by evening the whole project was pretty much completed.
+The site was built using just HTML, Materialize-CSS and vanilla Javascript.
+I used firebase as the database since it was super quick to set up.&lt;/p&gt;
+&lt;p&gt;Basically once the user filled the form with details, a POST request is made and a new record is created in the firebase DB.
+The coding part was hence fairly easy. I added some GIFs and Mr.Been Youtube video as well.
+Sadly though, I wasn&amp;rsquo;t able to figure out how to autoplay Youtube videos in HTML at that time.&lt;/p&gt;
+&lt;h2 id=&#34;aftermath&#34;&gt;Aftermath&lt;/h2&gt;
+&lt;p&gt;I hosted the site using Netlify and put the link in the above mentioned Whatsapp group.
+Well, a lot of people tried it out and quite a good number of people entered the names of their actual crush. When they found out at the end that it was a prank, well some took the joke lightly while others it seemed were quite anxious🙈.&lt;/p&gt;
+&lt;p&gt;I was actually very excited about this nice joke and had sent the link to 2 seniors from my college as well without much thinking. One chechi(elder sister) who was 3 years senior to me, sent me just one message after a while: &lt;code&gt;&amp;quot;Why?&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;All the excitement and pride of having built something cool suddenly drained out of me. I didn&amp;rsquo;t know how to reply. After a while I took down the site, cleared the database and apologized. She was cool about my innocent joke though, as she later told me that she had a hunch about this being some sort of phishing website, so it was cool and all. But I was very much shaken. At that time, I didn&amp;rsquo;t even know about the concept of phishing. On that day, I suddenly became very much aware of powers a programmer or a tech person holds. It&amp;rsquo;s easy to trick people with innocent looking sites and apps. as much cliché as it may sound, with great power, comes great responsibility. It is not that difficult even for a single person to create a make believe site and ask people to enter sensitive information in the promise of some great reward. The collected information could then be used to blackmail the user and collect money or whatever.&lt;/p&gt;
+&lt;p&gt;This project hence, even though was a small one(only a few hours worth of work), it was an important one in my programming life. I realized that whatever you create could technically be used with a wrong intention as well which could result in major loss and sadness for people.&lt;/p&gt;
+&lt;p&gt;The main site was took down, and I had removed the firebase Db connections. What you might have already seen contains just the UI. So no data is sent to anyone in case you actually entered any sensitive information when you visited the above site. But of-course, you were smart and you didn&amp;rsquo;t enter any actual details right?🌝&lt;/p&gt;
+&lt;p&gt;Check out the project code &lt;a href=&#34;https://github.com/aldrinjenson/Love-Calc&#34;&gt;here&lt;/a&gt;!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

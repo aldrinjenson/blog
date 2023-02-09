@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Personal on Aldrin Jenson</title>
+    <link>https://aldrinjenson.me/personal/</link>
+    <description>Aldrin Jenson (Personal)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 22 Sep 2022 23:59:39 +0000</lastBuildDate>
+    
+    <atom:link href="https://aldrinjenson.me/personal/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My Principles</title>
+      <link>https://aldrinjenson.me/personal/principles/</link>
+      <pubDate>Thu, 22 Sep 2022 23:59:39 +0000</pubDate>
+      
+      <guid>https://aldrinjenson.me/personal/principles/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;If you are doing something, do it well, else don&amp;rsquo;t commit&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Tech experiences</title>
+      <link>https://aldrinjenson.me/personal/tech-stuff/</link>
+      <pubDate>Thu, 22 Sep 2022 23:57:30 +0000</pubDate>
+      
+      <guid>https://aldrinjenson.me/personal/tech-stuff/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gratitude Journal</title>
+      <link>https://aldrinjenson.me/personal/gratitude/</link>
+      <pubDate>Mon, 20 Dec 2021 00:38:05 +0530</pubDate>
+      
+      <guid>https://aldrinjenson.me/personal/gratitude/</guid>
+      <description>&lt;p&gt;There are thing I have and there are things I don&amp;rsquo;t. But the fact that I am here typing this out means I&amp;rsquo;m privileged. If you can read this in an electronic device, you&amp;rsquo;re privileged too.&lt;/p&gt;
+&lt;h2 id=&#34;stuff-im-grateful-for&#34;&gt;Stuff I&amp;rsquo;m grateful for&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;To be typing this out in a house on my own personal laptop&lt;/li&gt;
+&lt;li&gt;To get loving and caring parents to whom I could turn to in times of confusion, worry and sadness.&lt;/li&gt;
+&lt;li&gt;To have a great grandmother who instilled in me a sense of right and wrong.&lt;/li&gt;
+&lt;li&gt;To have a laptop as a gift from an early age for me to tinker and explore a lot of things&lt;/li&gt;
+&lt;li&gt;To go to a great Engineering college and be exposed to the wide and vast field of technology.&lt;/li&gt;
+&lt;li&gt;To have made some great friends with whom I know I could call and share to them my joys and worries.&lt;/li&gt;
+&lt;li&gt;To have been granted opportunities of leadership and team building&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I think I have achieved a few things, but whatever I have it&amp;rsquo;s all because of the one who strengthens me.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I can do all things through Christ which strengthens me.&lt;/p&gt;
+&lt;p&gt;Phillippians 4:13&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>My Background</title>
+      <link>https://aldrinjenson.me/personal/my-bg/</link>
+      <pubDate>Mon, 20 Dec 2021 00:38:05 +0530</pubDate>
+      
+      <guid>https://aldrinjenson.me/personal/my-bg/</guid>
+      <description>&lt;p&gt;This is a self reflective post. In my 20 years, I&amp;rsquo;ve had some experiences. However limited they be, I&amp;rsquo;ve been able to learn fro them. Hopefully as I grow older, I&amp;rsquo;ve also become a bit wiser. Here&amp;rsquo;s my background.&lt;/p&gt;
+&lt;p&gt;I suffer from Imposter Syndrome. I&amp;rsquo;ve always been worried about posting anything on Social Media. But here am I listing out some my bg.&lt;/p&gt;
+&lt;p&gt;I am well aware that my experience is very limited, but with whatever awareness I&amp;rsquo;m having at the moment, here I am listing out stuff about me.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve created softwares - big and small for personal joy or for startups and companies all using various languages ans stacks like:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;C/C++&lt;/p&gt;
+&lt;p&gt;My first programming language. After learning python, found this really primitive and &lt;em&gt;useless&lt;/em&gt;, but started liking it very much during Computer Networks class in 6th semester.
+Have made projects which involves:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Implementing tcp/udp connections&lt;/li&gt;
+&lt;li&gt;connecting with SQL databases&lt;/li&gt;
+&lt;li&gt;Making network calls&lt;/li&gt;
+&lt;li&gt;JSON parsing&lt;/li&gt;
+&lt;li&gt;socket programming (Made an IRC chat applications)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Dart / flutter&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Personally I&amp;rsquo;d say React Native and npm is a bit more nicer over Flutter and pub, but the tooling integration I find to be unbeatable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;GoLang&lt;/p&gt;
+&lt;p&gt;Simple language, gave me huge respect and motivation to learn and research more about C language and it&amp;rsquo;s origins.
+Have made only few CLI apps with it, but I want to one day be a part of some startup/company where Go is used as a major language&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Javascript&lt;/p&gt;
+&lt;p&gt;The language I was most confident in for the longest time. Nowadays, I consider myself more of a generalist, but earlier, if there was something I wanted to get done as soon as possible, I knew I could always count upon JS and npm to let me do the thing. Whatever the problem I had to solve, I was confident and capable of doing it in Javascript✨&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Node Js&lt;/p&gt;
+&lt;p&gt;With the power of being able to do server side logic and show result in a webpage with a few lines of express code, this was a huge tool in my arsenal. (Python + Flask is really good too, but NodeJs was what I started out with).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;streams&lt;/li&gt;
+&lt;li&gt;sockets&lt;/li&gt;
+&lt;li&gt;tcp connections&lt;/li&gt;
+&lt;li&gt;async/await&lt;/li&gt;
+&lt;li&gt;load balancing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;React.Js / Next.Js&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The library/framework which I&amp;rsquo;ve been really fond of. This took me places where I never saw myself ever wandering off.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;React Native&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Built several apps, &lt;a href=&#34;https://github.com/aldrinjenson/simple-stream&#34;&gt;one of which&lt;/a&gt; took several months, but is one I&amp;rsquo;m most proud of&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Java&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Learned in College. We had a whole semester of Object Oriented Programming with Java.&lt;/li&gt;
+&lt;li&gt;Some of my friends had huge distate towards the languge, but I thought it was okay.&lt;/li&gt;
+&lt;li&gt;Loved the memes as well ;)&lt;/li&gt;
+&lt;li&gt;(I also used to joke around mimicking in Pirate voice: &amp;ldquo;Public static void main &lt;em&gt;AAAARGHSS&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;Made GUI apps using Swing, but didn&amp;rsquo;t like the styling aspect of it much. Realized that JavaFX may be the way to go for building GUI stuff.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Python&lt;/p&gt;
+&lt;p&gt;Coming from a 12 th class C++ background, coding in TurboC++ of the late 1900s, python shocked me with the simple and clean syntax. I don&amp;rsquo;t do much leetcode, but whatever CP problems I&amp;rsquo;ve done, I usually use Python only to quickly translate thoughts to code.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Bash&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve been using Linux for 4 years. Bash has been essential for a lot of &lt;a href=&#34;https://github.com/aldrinjenson/scripts&#34;&gt;automation scripts I&amp;rsquo;ve made&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Awk&lt;/p&gt;
+&lt;p&gt;Really powerful text processing language. Learned for writing bash scripts. So powerful, yet so easy to use!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Linux administration&lt;/p&gt;
+&lt;p&gt;Been using Linux ever since I joined college and Arch has been my daily driver since second year. Think Linux is the best OS ever. With Linux, it&amp;rsquo;s like you tell the computer what you want, and it does it. The level of customizations, scripting, automation you can do with Linux is so awesome!.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Web dev&lt;/p&gt;
+&lt;p&gt;During the late half of my first year, I was very much into front end development. I was really comfortable with Google&amp;rsquo;s Materialize CSS framework. I was able to build websites really quickly and was in several clubs and communities for helping them build websites.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Html&lt;/li&gt;
+&lt;li&gt;CSS&lt;/li&gt;
+&lt;li&gt;Sass&lt;/li&gt;
+&lt;li&gt;Less&lt;/li&gt;
+&lt;li&gt;Materialize CSS / Bootstrap&lt;/li&gt;
+&lt;li&gt;Material UI&lt;/li&gt;
+&lt;li&gt;Tailwind CSS&lt;/li&gt;
+&lt;li&gt;Ember.Js&lt;/li&gt;
+&lt;li&gt;Foundation CSS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>People I think highly of</title>
+      <link>https://aldrinjenson.me/personal/great-people/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aldrinjenson.me/personal/great-people/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

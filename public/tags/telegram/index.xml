@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>telegram on Aldrin Jenson</title>
+    <link>https://aldrinjenson.me/tags/telegram/</link>
+    <description>Aldrin Jenson (telegram)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 19 Jan 2022 19:25:18 +0530</lastBuildDate>
+    
+    <atom:link href="https://aldrinjenson.me/tags/telegram/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Moodle Automation</title>
+      <link>https://aldrinjenson.me/projects/moodle-automation/</link>
+      <pubDate>Wed, 19 Jan 2022 19:25:18 +0530</pubDate>
+      
+      <guid>https://aldrinjenson.me/projects/moodle-automation/</guid>
+      <description>&lt;p&gt;Reflections on a nodeJS program I wrote to automate marking online attendance.&lt;/p&gt;
+&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;I used to attend online classes. Sometimes I&amp;rsquo;ll be sleepy or the class may be really boring, but I always used to attend them given a choice. However, at times I used to forget marking the attendance.&lt;/p&gt;
+&lt;p&gt;The attendance marking system in our college(and in many other Govt. colleges) for online classes was kinda ridiculous. We use the awesome &lt;a href=&#34;https://moodle.com/lms/&#34;&gt;Moodle LMS&lt;/a&gt; system for managing online classes.
+The students have to go to the Moodle course page every hour and mark the attendance for that particular subject happening at that particular hour. That&amp;rsquo;s right, the students mark their own attendance irrespective of whether they actually attends any classes at all🤦. The funniness of this situation becomes even more evident when the student is presented with the following three options for marking attendance in the course page:
+Present, Late or Absent.
+Seriously.. will any absent or late student actually mark the same given an option?🤷&lt;/p&gt;
+&lt;!-- todo: add image here --&gt;
+&lt;p&gt;Anyways.. I used to attend classes, but the attendance marking was very hard for me. I used to occasionally forget and sometimes by the time I&amp;rsquo;d have remembered about marking the attendance, the hour would&amp;rsquo;ve run out and the option would have been gone to mark it for that subject.&lt;/p&gt;
+&lt;p&gt;It once reached a dangerous point where I had only 38% of attendance for DS subject in which I had actually missed only 2 classes which I think were due to some genuine reasons. This led me to find a solution which was foolproof.&lt;/p&gt;
+&lt;h2 id=&#34;thought-process&#34;&gt;Thought Process&lt;/h2&gt;
+&lt;p&gt;I thought about the flow a student takes to mark his attendance.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;He navigates to the course page&lt;/li&gt;
+&lt;li&gt;He logs in to the moodle account by entering email and password. (yeah there are no persistent cookies in Moodle to preserve login state, atleast it&amp;rsquo;s not set up in the Moodle installation our college uses).&lt;/li&gt;
+&lt;li&gt;He clicks the attendance anchor tag element to go to the attendance page.&lt;/li&gt;
+&lt;li&gt;He selects the list item for the date which is having a field for marking attendance.&lt;/li&gt;
+&lt;li&gt;Once clicked he is navigated to another page having the 3 options: Present, Absent, Late&lt;/li&gt;
+&lt;li&gt;He selects the radio button for Present(obviously)&lt;/li&gt;
+&lt;li&gt;He clicks the Submit button.&lt;/li&gt;
+&lt;li&gt;He sighs at having marked his own attendance. The End&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The fact that I could describe the steps this way meant that I could definitely ask a computer to do these for me ie. to automate the process. Now the question was how to implement a program which could log in on my behalf and mark the attendance by following the above steps. Additionally I also wanted a way to let me know once the attendance had been successfully marked or if the attendance marking failed for some reason as then I could go and mark the attendance manually.&lt;/p&gt;
+&lt;h2 id=&#34;building-the-automation-program&#34;&gt;Building the automation program&lt;/h2&gt;
+&lt;p&gt;I used the nodeJs &lt;a href=&#34;https://github.com/puppeteer/puppeteer/&#34;&gt;puppeteer&lt;/a&gt; library for browser automation.
+I had once used it an year before for generating PDFs out of html. &lt;br/&gt;
+Anyways, I created a new nodeJs project, installed puppeteer and added my username and password as environment variables.
+&lt;br&gt;
+I created a file wherein I could add the subjectLinks for which I wanted to automatically mark attendance. I also installed expressJs and created a web UI - something like a dashboard which could show me the stats for various subjects - whether they were marked, when is the next check etc.&lt;/p&gt;
+&lt;img src=&#34;https://aldrinjenson.me/images/moodle-bot/dashboard.png&#34; width=400 alt=&#34;Dashboard preview&#34;&gt;
+&lt;br/&gt;
+&lt;p&gt;I tested the program a couple of times. Testing was a bit slow because there would be only one slot for me to test in one hour when there is an actual attendance open to automate.&lt;/p&gt;
+&lt;p&gt;Afterwards I installed the awesome &lt;a href=&#34;https://github.com/yagop/node-telegram-bot-api&#34;&gt;node-telegram-bot-api&lt;/a&gt; library for getting notifications through Telegram and also added some control commands as well.
+Anyways, within a few days, I had ironed out the bugs(most of them that is) and had the code working fine. Now the question was regarding hosting the server.&lt;/p&gt;
+&lt;p&gt;Running a web server is costly(atleast for a student that is). The only option I had was to use an AWS ec2 instance. In the initial code I wrote, I used the node-cron library to set a cron job which automatically executes the scraping program every 30 minutes from morning to evening every day and checks if any of my subject links have got an open attendance to mark. This worked fine.. but the problem was that this would mean my server would have to be continuously running to have the program be executed at the right time.
+This was not acceptable.&lt;/p&gt;
+&lt;p&gt;So I started looking for alternate solutions, and came upon this wonderful &lt;a href=&#34;https://cron-job.org/en/&#34;&gt;site&lt;/a&gt;🤩.My new approach didn&amp;rsquo;t have the cron script in my code. I had an API endpoint which will be called by the cron-job site every 30 minutes from morning to evening. I hosted by code in Heroku and gave the api endpoint url to the cron-job site to ping. Heroku has some serious limitations for free apps which prevents them to be up more than 21 days etc. With my new approach however this was not at all a problem as now my server will be active exactly only when the cron site executes ie. it&amp;rsquo;ll be active only when it is time to mark the attendance. No extra wasted awake time.&lt;/p&gt;
+&lt;p&gt;I hosted the project, and I have to say by the end of semester I had more than 75% of attendance for all subjects. Mind you that I actually did attend all the online classes myself, just that I didn&amp;rsquo;t have to do the boring process of opening Moodle and marking the attendance manually.&lt;/p&gt;
+&lt;img src=&#34;https://aldrinjenson.me/images/moodle-bot/bot.png&#34; width=400 alt=&#34;bot preview&#34;&gt;
+&lt;br/&gt;
+&lt;h2 id=&#34;afterthoughts&#34;&gt;Afterthoughts&lt;/h2&gt;
+&lt;p&gt;One doubt I initially had was if this was a good project from an ethical standpoint and whether my code could be used by others for getting attendance without coming to class. Since I was conflicted on this, for over one year, I didn&amp;rsquo;t tell to anyone about this project and kept the code in a private Github repo. However it was only a matter of time before I saw that students were just tired of this stupid process of manually going to moodle and marking their own attendance. I saw over 4 other automation projects for marking attendance, ie students were trying to find a way to get around the broken system;&lt;/p&gt;
+&lt;p&gt;Me keeping my project closed because I was afraid of my code being misused didn&amp;rsquo;t really matter much, people were always looking for a workaround and it was only a matter of time before they follow similar paths that you took.&lt;/p&gt;
+&lt;p&gt;That being said, each time I saw another attendance automation project, I couldn&amp;rsquo;t just think that my version of automation was actually kinda good. You didn&amp;rsquo;t even have to enter any timetable, just the attendance page urls would suffice. I saw projects for which you have to enter time-tables which was a problem because sometimes time tables may change or a different teacher may take class on a different subject if one teacher is on leave etc. Other automation projects I sad didn&amp;rsquo;t have a notification system as well, they were all python programs written to be run in the terminal. I was kinda happy though that I wasn&amp;rsquo;t the only one fed up of this system, but this also made me wonder if using your skills to get around a broken system is actually wrong..&lt;/p&gt;
+&lt;p&gt;I open sourced the project after 14 months of the initial commit. Within that period I have seen good people losing attendance(and hence their marks due to the minimum 75% attendance scheme in Kerala colleges) because they had forgotten to mark in Moodle often times when they had attended the actual classes as well. I open sourced my code without any flashy announcements in the firm belief that if one is genuinely looking for a solution, he should find it. As the Bible says, &amp;ldquo;Seek and You will Find&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Check out the code &lt;a href=&#34;https://github.com/aldrinjenson/moodle-automation&#34;&gt;here&lt;/a&gt; :).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to deploy a Telegram bot to Serverless</title>
+      <link>https://aldrinjenson.me/posts/serverless-bot-deployment/</link>
+      <pubDate>Sun, 24 Oct 2021 19:25:18 +0530</pubDate>
+      
+      <guid>https://aldrinjenson.me/posts/serverless-bot-deployment/</guid>
+      <description>&lt;p&gt;When I worked as a Product Developer at TGH Tech, I had built multiple Telegram bots in nodeJs. In the inital stages all bots were using the default long polling method which required a server to be constantly running. We ran some bots on AWS ec2 and others using Heroku paid Plan. Keeping the server running all the time wasn&amp;rsquo;t economical for our usecase as there would be long gaps when the users won&amp;rsquo;t be using the bot. Running the server at night time and all hence wasn&amp;rsquo;t economical at all. So I started researching on AWS Lambda and how I could move the bots to serverless. The advantage of AWS Lambda functions is that you are paid only for the usage, as in you are paid only for the server running when a user uses your bot. No money is charged for all the idle time. Once I kinda figured out the steps to modify the code and have the bot deployed to Lambda, I created a document, outlining the process and shared it to many others who successfully managed to deploy their bots on serverless as well. This way we were able to save off a lot of money.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m adding the steps here as well for future references of anyone interested in moving their existing Telegram Bots to AWS Lambda using the &lt;a href=&#34;https://www.serverless.com/&#34;&gt;Serverless Framework&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Read &lt;a href=&#34;https://www.google.com/url?q=https://iamondemand.com/blog/building-your-first-serverless-telegram-bot/&amp;amp;sa=D&amp;amp;source=docs&amp;amp;ust=1643292794318291&amp;amp;usg=AOvVaw245vcHmEft7pWlVi0Muvf2&#34;&gt;this&lt;/a&gt; guide first&lt;/li&gt;
+&lt;li&gt;Skim through &lt;a href=&#34;https://www.google.com/url?q=https://core.telegram.org/bots/webhooks&amp;amp;sa=D&amp;amp;source=docs&amp;amp;ust=1643292815912938&amp;amp;usg=AOvVaw3Qvi7OgCOjGUL7dwHRYa4M&#34;&gt;this official Telegram docs&lt;/a&gt; about webhooks.
+&lt;ul&gt;
+&lt;li&gt;Basically, a webhook is used for getting updates when a user sends a command or a message to the bot.&lt;/li&gt;
+&lt;li&gt;However, in order to set a webhook, telegram requires an HTTPS enabled url to which telegram servers make a POST request on each message input.&lt;/li&gt;
+&lt;li&gt;We create a lambda function, which when deployed, provides us an HTTPS enabled url.&lt;/li&gt;
+&lt;li&gt;We set up the Telegram webhook using the above url to which telegram makes a POST request which contains the message object just as it is received in the msg object.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;bot&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;onText&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;/regex/&lt;/span&gt;, (&lt;span style=&#34;color:#a6e22e&#34;&gt;msg&lt;/span&gt;) =&amp;gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;console&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;msg&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;We can then set up a switch statement or an if-else ladder to evaluate the message text and perform various actions depending on the command entered.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note: It is not necessary that you use the &lt;code&gt;node-telegram-bot-api&lt;/code&gt; library to send a message or get msg input etc. Telegram provides apis which can be used to send messages easily by passing in the chatId, msg-text, keyboardType etc, as seen in the above articles. Msg input can be received using webhooks as well as mentioned in the above paragraph&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a serverless.yml file and define the function with a path similar to the article mentioned above and deploy the function using &lt;code&gt;serverless deploy&lt;/code&gt; to get the url.&lt;/li&gt;
+&lt;li&gt;Set up, remove, get status of webhooks easily using the urls mentioned in &lt;a href=&#34;https://xabaras.medium.com/setting-your-telegram-bot-webhook-the-easy-way-c7577b2d6f72&#34;&gt;this article&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;some-things-to-keep-in-mind&#34;&gt;Some things to keep in mind&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;It is important that you return an object with statusCode 200 so that telegram understands that the query has been successful. (Check the first link above for reference)&lt;/li&gt;
+&lt;li&gt;When you want to send JSON data, ensure that you send it after properly stringifying it first.&lt;/li&gt;
+&lt;li&gt;For sending URLs, sometime you may get the error TypeError: Request path contains unescaped characters which can be fixed by creating a function to format text using &lt;a href=&#34;https://stackoverflow.com/questions/31024779/typeerror-request-path-contains-unescaped-characters-how-can-i-fix-this/62437210#62437210&#34;&gt;this stackoverflow answer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Lambda functions are &lt;span style=&#34;background-color:#717140;padding: 0px 4px;&#34;&gt;stateless&lt;/span&gt;, meaning that you can’t persist variable states in global variables, Each new call will result in a fresh instance being fired upon. This would have implications when storing user keyboard presses in memory. (Some alternative would be storing the button status in a db (too slow) or using some in-memory cache systems like Redis or Memcached (as suggested in the discussion thread by Node-telegram bot api)).&lt;/li&gt;
+&lt;li&gt;Telegram ensures only one way of getting inputs is active at any particular moment. Hence you can’t have polling and webhooks enabled at the same time. Ie. If you use the node-telegram-bot-api and set polling:true and have also enabled a webhook, when you run npm start, the webhook will automatically get disabled.&lt;/li&gt;
+&lt;li&gt;In order to delete pending messages which may get accumulated in case you forgot to return 200 statusCode or for any other reason that could result in same response message being sent by the bot, you can use the following url structure to delete pending updates: &lt;a href=&#34;https://api.telegram.org/bot%7Bmy_bot_token%7D/setWebhook?url=%7Burl_to_send_updates_to%7D&amp;amp;drop_pending_update=true&#34;&gt;https://api.telegram.org/bot{my_bot_token}/setWebhook?url={url_to_send_updates_to}&amp;amp;drop_pending_update=true&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;If you’ve got some extra route defined which accepts a request from a backend and performs an action (eg: ‘/notify’ route which when called sends a telegram notification message to the user), then that function can be exported and defined in the serverless.yml file which will give a new HTTPS url for that function. This can then be called by the backend to invoke that function. The package aws serverless express can be used if the function is complex and would require some expressJs like route handling.&lt;/li&gt;
+&lt;li&gt;Note that you may have environment variables which may be defined in a .env file. This needs to be added to the aws console as well by going to the &lt;code&gt;configuration&lt;/code&gt; tab and selecting &lt;code&gt;environment-variables&lt;/code&gt; section from the left side menu.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;things-which-could-be-explored-and-improved-when-the-need-arises&#34;&gt;Things which could be explored and improved when the need arises&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Use ngrok to expose a local port to the internet, which would provide an HTTPS enabled url which can be used to set up the webhook. This would enable live-reloading whenever a change is made as there would be no more need to deploy the function to AWS to see the changes&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A way to connect a database like MongoDb. This can be done by calling the Mongo connect function in the handler function so as to persist the database connection for some time without having to do a cold start for each invocation like mentioned in this example.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;extra-references&#34;&gt;Extra references&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/TGH-Tech/open-fruit-admin-bot/tree/lambda&#34;&gt;https://github.com/TGH-Tech/open-fruit-admin-bot/tree/lambda&lt;/a&gt;
+&lt;a href=&#34;https://github.com/TGH-Tech/query-search-bot&#34;&gt;https://github.com/TGH-Tech/query-search-bot&lt;/a&gt;
+&lt;a href=&#34;https://github.com/TGH-Tech/open-fruit-seller-bot/tree/test-deployment&#34;&gt;https://github.com/TGH-Tech/open-fruit-seller-bot/tree/test-deployment&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Query Search Bot</title>
+      <link>https://aldrinjenson.me/projects/query-search-bot/</link>
+      <pubDate>Sun, 24 Oct 2021 19:25:18 +0530</pubDate>
+      
+      <guid>https://aldrinjenson.me/projects/query-search-bot/</guid>
+      <description>&lt;p&gt;I started my experiments with Telegram Bots in the November of 2020 when I wanted an easy way to receive notifications.
+Discord was the first option, but it was just too cumbersome for the simple purpose of receiving notifications. Telegram was much more convenient and easy to use. I used and built various Telegram bots of different complexities during my tenure at TGH Tech. I also used it for my &lt;a href=&#34;https://aldrinjenson.me/projects/moodle-automation&#34;&gt;Moodle Automation&lt;/a&gt; program as well.&lt;/p&gt;
+&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;This is one of my first major Telegram bot and was first made to get myself familiar with the functions offered by the &lt;a href=&#34;https://github.com/yagop/node-telegram-bot-api&#34;&gt;node-telegram-bot-api&lt;/a&gt; library. The idea is simple - make Internet queries without leaving telegram.&lt;/p&gt;
+&lt;h2 id=&#34;the-flow&#34;&gt;The flow&lt;/h2&gt;
+&lt;p&gt;The steps involved are as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The user adds the bot to a group&lt;/li&gt;
+&lt;li&gt;He uses a command to trigger the bot&lt;/li&gt;
+&lt;li&gt;He sends the bot a query to search&lt;/li&gt;
+&lt;li&gt;The bot sends the top search results of that particular query.&lt;/li&gt;
+&lt;li&gt;END&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;implementation&#34;&gt;Implementation&lt;/h2&gt;
+&lt;p&gt;Searching part is basically web-scraping. While google doesn&amp;rsquo;t provide a free api to search, there are some alternative implementation like &lt;a href=&#34;https://github.com/jarun/googler&#34;&gt;googlr&lt;/a&gt;. I tried to use these alternatives, but they either works only in the cli or were just too cumbersome to use.
+&lt;br/&gt;
+With Google unavailable, I started looking for alternatives, which lead me to my answer -&amp;gt; Bing api. Initially I was a bit skeptical about using bing search engine, but turns out it&amp;rsquo;s the second most popular search engine after Google even though there&amp;rsquo;s a large market share gap.
+I found that the results for search queries were quite reasonable as well.
+&lt;br/&gt;
+So with bing fixed, I used the &lt;a href=&#34;https://www.npmjs.com/package/bing-scraper&#34;&gt;bing-scraper&lt;/a&gt; npm package for my query searching.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;p&gt;The logic was quite simple actually. Whenever the user sends a search query to the bot, in the backend, the bot uses the above library to scrape bing and find the top results which are then sent as response messages back to the user.&lt;/p&gt;
+&lt;p&gt;Since this was a small project, I didn&amp;rsquo;t want to host it on a server as usual. Heroku was the first option I thought about. However, due to Heroku&amp;rsquo;s free tier limitations, once the server entered a sleep state, it needs an external HTTP request to wake it up. The telegram bot I set up was using constant polling mechanism to listen for requests, which meant that the telegram triggers won&amp;rsquo;t wake up the Heroku server.&lt;/p&gt;
+&lt;p&gt;I initially tried to create a simple API endpoint from the server, and then constantly pinging it at regular intervals to prevent the server from going to sleep. However even this wasn&amp;rsquo;t sustainable as Heroku free tier has this limitation that your server cannot be active for more than 500 hours per month. Bummer.&lt;/p&gt;
+&lt;p&gt;So as usual, I started looking for other options to get free hosting. I had an AWS account. I didn&amp;rsquo;t want to use and ec2 for this small project. But there were &lt;a href=&#34;https://aws.amazon.com/lambda&#34;&gt;Lambdas&lt;/a&gt; available. I didn&amp;rsquo;t have much experiences with serverless computing before, but this seemed like a good opportunity to try them out. AWS Lambda offers 1 million free requests per month, which seemed more than plenty for my use case😇.&lt;/p&gt;
+&lt;h2 id=&#34;implementing-lambda-functions&#34;&gt;Implementing Lambda functions&lt;/h2&gt;
+&lt;p&gt;Implementing lambda functions can be made very easy using the &lt;a href=&#34;https://www.serverless.com/&#34;&gt;serverless framework&lt;/a&gt;.
+It was very confusing for me initially on the product&amp;rsquo;s name - Serverless, the same name as the serverless architecture. 🤷 I&amp;rsquo;ll refer to the Serverless platform with a capital S.
+The process involved the following steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You install Serverless cli and generates the serverless boilerplate for nodeJs(other languages also available)&lt;/li&gt;
+&lt;li&gt;You create a Serverless account and login to your dashboard&lt;/li&gt;
+&lt;li&gt;You connect your cloud provider(AWS Lambda in my case) to Serverless&lt;/li&gt;
+&lt;li&gt;You push your code to a github repo and connect it to the Serverless platform. (optional)&lt;/li&gt;
+&lt;li&gt;You enter the command &lt;code&gt;sls deploy&lt;/code&gt; in your code directory to deploy the code to the connected cloud provider.&lt;/li&gt;
+&lt;li&gt;END&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now there was one change I had to make for the bot to work with serverless. Since serverless functions will be active only once a request has been received, my initial approach of using long polling(default approach in the node-telegram-bot-api library as well) to query for updates won&amp;rsquo;t work. So I used webhook approach to fix this issue. Basically once the user sends a message to the bot, it reaches the Telegram servers first, and then from there it calls the deployed serverless url wherein I have a switch statement that fires functions depending on the message content/command. &lt;a href=&#34;https://github.com/aldrinjenson/tg-querySearchBot/blob/d5260c7672909f07ca664bb075369f4bfbe0b5cd/index.js#L50&#34;&gt;Here&amp;rsquo;s&lt;/a&gt; the actual code implementation.
+Check out the &lt;a href=&#34;https://github.com/aldrinjenson/tg-querySearchBot/blob/main/README.md&#34;&gt;ReadMe file&lt;/a&gt; as well where I&amp;rsquo;ve added some instructions on the process of setting up webhooks for telegram bots.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Once the serverless flow was understood, then building and deploying the bot was not that difficult. I had used this same bot as an example to explain the concept of building and deploying bots to many others. Overall even thought the project was kinda small in code or logic, it contained many learnings and people other than me were able to benefit out of this project. So Lesson learned, it&amp;rsquo;s better almost always to learn something by building rather than just by simply watching a Youtube tutorial without applying the concepts.&lt;/p&gt;
+&lt;p&gt;This bot was actually the base of many other complex Telegram bots I made. By the end of 2 months in TGH Tech, I was pretty well-versed in the node-telegram-bot-api library and had even written several utility functions to make a lot of tasks much, much easier. It was my wish to group them together and publish them as a library so that many other who faced similar problems could use it. Sadly though, I got busy afterwards with other projects and by the time I was free, I had lost all touch with bots and I had this feeling that even if I had published them as a library, I may not be able to fix any issues people may raise or even test PRs because I won&amp;rsquo;t be working with any Telegram bots at all. Now though, while writing about this, I&amp;rsquo;m having different thoughts.. may be I think even if I won&amp;rsquo;t be feeling any motivation to fix these, the code could be useful to many people and maybe someone could fork it and work on it to improve.. The chances of bugs are pretty low as well, because several bots are running in production level at TGH tech using the utility functions I wrote.. so hmm, let me see, I&amp;rsquo;ll update it here if I&amp;rsquo;m publishing the library🤞.&lt;/p&gt;
+&lt;p&gt;Check out the project &lt;a href=&#34;https://github.com/aldrinjenson/tg-querySearchBot&#34;&gt;here&lt;/a&gt;.
+&lt;br/&gt;
+Live Demo at &lt;a href=&#34;https://t.me/querySearchBot&#34;&gt;querySearchBot&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

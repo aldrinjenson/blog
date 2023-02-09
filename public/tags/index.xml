@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Aldrin&#39;s Blog</title>
-    <link>https://aldrinjenson.github.io/tags/</link>
-    <description>Aldrin&#39;s Blog (Tags)</description>
+    <title>Tags on Aldrin Jenson</title>
+    <link>https://aldrinjenson.me/tags/</link>
+    <description>Aldrin Jenson (Tags)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 21 Oct 2021 00:20:33 +0530</lastBuildDate>
+    <lastBuildDate>Fri, 27 Jan 2023 03:06:56 +0530</lastBuildDate>
     
-    <atom:link href="https://aldrinjenson.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://aldrinjenson.me/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
