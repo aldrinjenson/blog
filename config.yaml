@@ -32,7 +32,7 @@ menu:
 params:
   author: "Aldrin Jenson"
   email: aldrinjenson@gmail.com
-  avatar: "/images/me.jpg"
+  avatar: "/images/me.webp"
   description: "CS undergrad from Kerala, India"
   dateFormat: "02-01-2006"
   paginationSinglePost: true

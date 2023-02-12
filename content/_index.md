@@ -6,7 +6,7 @@ description: "Personal blog of Aldrin Jenson, CTO of IEDCMEC"
 ---
 
 <center>
-  <img src='/images/me.jpg' width="60%" alt='my old photo'>
+  <img src='/images/me.webp' width="60%" height="auto" alt='my old photo'>
   <p class='caption'>An old photo of mine before I started wearing specs</p>
 </center>
 
@@ -20,7 +20,7 @@ With the amount of information available on the internet, given enough time I be
 Other than tinkering with Computers, I also love playing guitar and going out with close friends.
 
 <center>
-<img width="100%" src="/images/group.jpg" alt="me in group photo">
+<img width="100%" src="/images/group.jpg" height="auto" alt="me in group photo">
 <p class="caption">Pranav, Nikita, Nayana and me in our first Bangalore trip</p>
 </center>
 
