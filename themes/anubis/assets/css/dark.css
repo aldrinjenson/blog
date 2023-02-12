@@ -1,9 +1,9 @@
-/* dark.css */ 
+/* dark.css */
 --font-color: #eee;
 --bg-color: #212121;
 
---link-color:#599ada;
---link-state-color:#ff5858;
+--link-color: #599ada;
+--link-state-color: #ff5858;
 --link-state-border-color: rgba(238, 54, 54, 0.5);
 
 --thead-bg-color: #343a40;
@@ -25,3 +25,4 @@
 
 --switcher-color: #333;
 --switcher-bg-color: #fff;
+--caption-color: #ababab;

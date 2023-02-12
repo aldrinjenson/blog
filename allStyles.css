@@ -17,6 +17,7 @@
   --post-info-color: grey;
   --switcher-color: #fff;
   --switcher-bg-color: #333;
+  --caption-color: #595959;
 }
 [data-theme="dark"] {
   --font-color: #eee;
@@ -37,6 +38,7 @@
   --post-info-color: grey;
   --switcher-color: #333;
   --switcher-bg-color: #fff;
+  --caption-color: #ababab;
 }
 html {
   font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto,

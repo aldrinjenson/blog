@@ -1,19 +1,19 @@
-.center{
-    display:'flex';
-    justify-content: center;
-    align-items: center;
+.center {
+  display: "flex";
+  justify-content: center;
+  align-items: center;
 }
-.center-img{
-   margin-left: auto;
-   margin-right: auto;
+.center-img {
+  margin-left: auto;
+  margin-right: auto;
 }
-img{
-    margin-top: 2%;
+img {
+  margin-top: 2%;
 }
 
-.caption{
-    font-size: smaller;
-    font-style: italic;
-    color: gray;
-    margin-bottom: 5%;
+.caption {
+  font-size: smaller;
+  font-style: italic;
+  color: var(--caption-color);
+  margin-bottom: 5%;
 }
