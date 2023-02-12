@@ -22,7 +22,8 @@
   --pagination-bg-color: #fafafa;
   --pagination-link-color: #696969;
 
-  --post-info-color: grey;
+  /* --post-info-color: grey; */
+  --post-info-color: #595959;
 
   --switcher-color: #fff;
   --caption-color: #595959;
