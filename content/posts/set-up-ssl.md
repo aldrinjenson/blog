@@ -47,6 +47,12 @@ sudo certbot certonly --standalone
 sudo certbot --nginx --domain <your.domain.name>
 ```
 
+Note: If you get the errror: `The requested nginx plugin does not appear to be installed` on running the above command(usually on the first time), just install the cerbot-nginx plugin using the following:
+
+```bash
+sudo apt install python3-certbot-nginx
+```
+
 5.  Follow the instructions provided by the Certbot wizard. At the end, you will have SSL certificate .pem files stored in the location /etc/letsencrypt/live/<your.url.entered>. Make note of this location, as you will need it later.
 
 6.  Start your web server and note down the port on which it is listening (e.g. 8080).
