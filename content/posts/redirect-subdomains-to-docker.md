@@ -1,7 +1,7 @@
 ---
 title: "Redirecting Subdomains to docker containers in same server"
 date: 2022-12-25T18:15:07+05:30
-draft: true
+draft: false
 description: "How to create subdomains and have them point to diferrent services running in the same machine"
 tags: ["infra", "docker", "backend", "nginx", "linux"]
 ---
@@ -27,35 +27,20 @@ sudo apt install nginx
 
 2. Ensure that you can access your docker containers locally using curl/wget command.
 
-3. Write a rule for configuring nginx to like this
-
-```nginx
-	server {
-	    listen 443;
-	    server_name server.iedcmec.in;
-    	    ssl_certificate /etc/letsencrypt/live/server.iedcmec.in/fullchain.pem;
-    	    ssl_certificate_key /etc/letsencrypt/live/server.iedcmec.in/privkey.pem;
-	    location / {
-	        root /usr/share/nginx/html;
-	        index index.html index.htm;
-	    }
-	}
-```
-
-4. Start running your services or docker containers to which you want to route traffic
+3. Start running your services or docker containers to which you want to route traffic
 ```sh
 cd <your_project_folder>
-docker-compose up
+docker-compose up # or whatever other command you have assigned to start your server.
 ```
 
-5. Find the port in which your container or services re running. Double check using this command
+4. Find the port in which your container or services re running. Double check and ensure that the API is working fine in localhost, using the following commands
 
 ```sh
-ss -lntp
-curl localhost:PORT
+ss -lntp # check that the corredt port is exposed.
+curl localhost:PORT # verify that you get the expected response.
 ```
 
-6. Decide on the subdomains to which you want to route traffic and add them using your dns management console
+5. Decide on the subdomains to which you want to route traffic and add them using your dns management console
 
 Here's an example image using cloudflare
 <center>
@@ -69,27 +54,37 @@ Note: You can get the public IP of your server using the following `curl` comman
 curl ipinfo.io/ip
 ```
 
-7. Once you add a subdomain in cloudflare, the next step is to ask nginx to route traffic from these subdomains to the docker services. This can be achieved by the following configuration in `/etc/nginx/nginx.conf`
+6. Once you add a subdomain in cloudflare, the next step is to ask nginx to route traffic from these subdomains to the docker services. This can be achieved by the following configuration in `/etc/nginx/nginx.conf`
 
 
 
 ```nginx
 http {
-     	server {
-     	    listen 443 ssl;
-     	    server_name subdomain.your-domain.tld;
- 
-#     	    ssl_certificate /etc/letsencrypt/live/mail.iedcmec.in/fullchain.pem;
-#     	    ssl_certificate_key /etc/letsencrypt/live/mail.iedcmec.in/privkey.pem;
- 
-     	    location / {
-     	        proxy_pass http://localhost:9000;
-     	        proxy_set_header Host $host;
-     	        proxy_set_header X-Real-IP $remote_addr;
-     	        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-     	        proxy_set_header X-Forwarded-Proto $scheme;
-     	    }
-     	}
-  }
+   	server {
+   	    listen 80; # replace with the line below if ssl support is added
+#       listen 443 ssl;
+   	    server_name subdomain.your-domain.com;
 
+#    	    ssl_certificate /etc/letsencrypt/live/subdomain.domain.com/fullchain.pem;
+#    	    ssl_certificate_key /etc/letsencrypt/live/subdomain.domain.com/privkey.pem;
+
+   	    location / {
+   	        proxy_pass http://localhost:9000;
+   	        proxy_set_header Host $host;
+   	        proxy_set_header X-Real-IP $remote_addr;
+   	        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+   	        proxy_set_header X-Forwarded-Proto $scheme;
+   	    }
+   	}
+}
 ```
+
+The ssl_certificate fields are optional and need to be added only if you want to add https in your subdomain. For more details on adding SSL to your subdomain using `certbot`, checkout [this link](../set-up-ssl). 
+
+Alright, that's it. Now you can navigate to http:<you_subdomain>.<your_domain_with_tld> to access your API.
+
+You can add multiple subdomains and add other server blocks like above in nginx.conf file.
+
+Tada✨
+
+
