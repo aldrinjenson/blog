@@ -58,6 +58,8 @@ params:
       name: aldrinjenson
     - id: medium
       name: aldrinjenson
+    - id: youtube
+      name: aldrinjenson
     - id: rss
       name: "index.xml"
 
