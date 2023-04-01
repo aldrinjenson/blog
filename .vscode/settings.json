@@ -6,12 +6,15 @@
     "canonify",
     "disqus",
     "fullscreen",
+    "Gokul",
     "goldmark",
     "IEDCMEC",
     "Jenson",
+    "Kaliash",
     "linkedin",
     "microformats",
     "Moodle",
+    "Nadh",
     "Nayana",
     "NCERT",
     "peaceiris",
@@ -19,8 +22,10 @@
     "pingback",
     "Pranav",
     "soundcloud",
+    "sshpass",
     "usecase",
     "utteranc",
-    "webmentions"
+    "webmentions",
+    "webp"
   ]
 }

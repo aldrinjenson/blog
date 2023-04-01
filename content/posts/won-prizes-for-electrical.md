@@ -1,7 +1,7 @@
 ---
 title: "Won Prizes for Electrical"
 date: 2022-08-11T22:12:03+05:30
-description: "Thoghts on how me and my friend for CS won 4 events under non-CS category all thanks to well.. CS :). Also about why you should participate in events out of your domain sometimes atleast"
+description: "Thoughts on how me and my friend for CS won 4 events under non-CS category all thanks to well.. CS :). Also about why you should participate in events out of your domain sometimes atleast"
 draft: true
 ---
 
