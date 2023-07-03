@@ -8,7 +8,7 @@ tags: ["gpt", "ai", "creativity"]
 
 Yes chatGPT is involved. But way lesser than you think.
 
-## What happenned
+## What happened
 
 Inspiration randomly stuck and I wrote this poem within 2-3 minutes (Yes, I noted the time. It's definitely lesser than 4 minutes).
 
@@ -24,17 +24,17 @@ Oh what is disgust,
 but a fleeting moment of distate
 
 Oh, in this world, what is real
-but not a fleeting moent of emtion
+but not a fleeting moment of emotion
 Oh why do we care so much
 for something that is fleeting..
 
 Oh, for validation and appreciation
-isn't worth the subjugatoin
+isn't worth the subjugation
 Oh, for anger and annoyance,
 isn't worth the pain
 
 Everything is temporary
-Eveything is fleeting
+Everything is fleeting
 Why hurt yourself
 Trying so hard
 in this fleeting world..
