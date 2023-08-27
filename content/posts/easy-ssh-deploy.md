@@ -2,7 +2,7 @@
 title: "Easy SSH based Continuous delivery pipeline"
 date: 2023-04-25T00:32:13+05:30
 draft: false
-description: "Super simple way which may be obvious, but I casually discovered to set up a deployment pipeline to a Linux server"
+description: "Super simple way to set up a deployment pipeline to a Linux server"
 tags: [linux, ssh, devops]
 ---
 
