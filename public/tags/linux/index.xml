@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on Aldrin Jenson</title>
+    <link>/tags/linux/</link>
+    <description>Aldrin Jenson (linux)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Apr 2023 00:32:13 +0530</lastBuildDate>
+    
+    <atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Easy SSH based Continuous delivery pipeline</title>
+      <link>/posts/easy-ssh-deploy/</link>
+      <pubDate>Tue, 25 Apr 2023 00:32:13 +0530</pubDate>
+      
+      <guid>/posts/easy-ssh-deploy/</guid>
+      <description>&lt;p&gt;If you have a Virtual Private Server(VPS) and want to have the code you push to github/VCS, be deployed in your server, here is a super simple and quick way to do so.&lt;/p&gt;
+&lt;p&gt;It basically involves creating a github action workflow that does the following.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Deploy to Server&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;on&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;push&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;branches&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;jobs&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;deploy&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;runs-on&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ubuntu-latest&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;steps&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Install sshpass&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          sudo apt install sshpass -y&lt;/span&gt;          
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Git pull and Deploy with Docker Compose&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          sshpass -p ${{ secrets.SERVER_PASS }} ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_NAME }} &amp;#34;cd project-folder &amp;amp;&amp;amp; git pull &amp;amp;&amp;amp; docker compose up -d&amp;#34;&lt;/span&gt;          
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-Requisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Install git and docker on your VM&lt;/li&gt;
+&lt;li&gt;configure your vm for ssh&lt;/li&gt;
+&lt;li&gt;store the server ssh url and server ssh password as github secrets with the same variable names as mentioned above in the workflow&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;what-the-workflow-does&#34;&gt;What the workflow does&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Installs &lt;code&gt;sshpass&lt;/code&gt; on the github VM&lt;/li&gt;
+&lt;li&gt;Does SSH to your VM with &lt;code&gt;sshpass&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Runs the command to
+&lt;ul&gt;
+&lt;li&gt;git clone the repository&lt;/li&gt;
+&lt;li&gt;run the command to start the project(&lt;code&gt;docker compose up&lt;/code&gt; in this case )&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;customisability&#34;&gt;Customisability&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Currently it&amp;rsquo;s based on docker. But you can easily replace the final command with anything else to build your product (eg: &lt;code&gt;make&lt;/code&gt; or &lt;code&gt;npx serve&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Replace &lt;code&gt;project-folder&lt;/code&gt; with the path to the folder in which you have the project. sshpass will run the command to clone the latest version from VCS to this folder and will run the start/build/serve command.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;limitations&#34;&gt;Limitations&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Currently this script is based on traditional servers which works on the basis of ssh log-in using username and password. If you want to use it to access servers like AWS EC2 which supports only pem file based auth, you&amp;rsquo;d need to modify the workflow.
+&lt;ul&gt;
+&lt;li&gt;You can store the pem file contents in a github secret and then use it inside the sshpass flow indirectly.&lt;/li&gt;
+&lt;li&gt;Or, you can use existing github actions &lt;a href=&#34;https://lightrains.com/blogs/deploy-aws-ec2-using-github-actions&#34;&gt;like this&lt;/a&gt; written specifically for CI/CD with AWS.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;how-did-this-come-to-be&#34;&gt;How did this come to be?&lt;/h2&gt;
+&lt;p&gt;It basically started of by thinking about the steps you would do to push your code to production without having to automate it. This would come to have the following steps in a really high level way:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Pushing your local code to a VCS.&lt;/li&gt;
+&lt;li&gt;SSH-ing to your VPS&lt;/li&gt;
+&lt;li&gt;Pulling the code from VCS to the server&lt;/li&gt;
+&lt;li&gt;Running the start command&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Now, what are github actions? A way to run linux commands when certain events occur in github. So can we combine them both? Of course yes.
+There you go.🙂&lt;/p&gt;
+&lt;h2 id=&#34;things-to-note&#34;&gt;Things to note&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;I use ssh-pass to do steps 2,3 and 4 at once.
+sshpass allows you to ssh to a server and run custom commands on it as the user doing SSH.&lt;/p&gt;
+&lt;p&gt;You can also use rsync&lt;/p&gt;
+&lt;p&gt;SSHPass is first installed in the serverless instance where the github action is run.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Store the SSH username and passwords as a Github secret to not let it be exposed.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In the workflow file, don&amp;rsquo;t have commands with any stateful logic as the workflow instance would be a fresh one each time.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to SSH to Termux Shell</title>
+      <link>/posts/ssh-termux/</link>
+      <pubDate>Fri, 27 Jan 2023 03:06:56 +0530</pubDate>
+      
+      <guid>/posts/ssh-termux/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Easy way to ssh to termux shell running on Android&lt;/p&gt;
+&lt;h1 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;A device running Android with Termux installed&lt;/li&gt;
+&lt;li&gt;A Linux machine with OpenSSH installed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;steps&#34;&gt;Steps&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Find the IP address of termux using the following command&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ip addr | grep &lt;span style=&#34;color:#ae81ff&#34;&gt;192&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;install open ssh&lt;/li&gt;
+&lt;li&gt;start ssh service using the following&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sshd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Find hostname of termux machine using &lt;code&gt;hostname&lt;/code&gt; command&lt;/li&gt;
+&lt;li&gt;From host machine, perform ssh using the following command&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  ssh -p &lt;span style=&#34;color:#ae81ff&#34;&gt;8022&lt;/span&gt; $hostname@$phoneIp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;The END&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Tada, You&amp;rsquo;ve successfully done ssh to termux✨&lt;/p&gt;
+&lt;p&gt;Use termux to start webservers (Apache, Nginx etc) just like you would normally do in a Linux machine and you can expose it to the internet using free services like ngrok.&lt;/p&gt;
+&lt;h2 id=&#34;bonus-tip&#34;&gt;Bonus Tip&lt;/h2&gt;
+&lt;p&gt;replace &lt;code&gt;ssh&lt;/code&gt; in step 5 using &lt;code&gt;sftp&lt;/code&gt; and suddenly you now have an extremely safe and easy way to transfer files to and from your phone. You&amp;rsquo;re welcome😊&lt;/p&gt;
+&lt;h2 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Connection refused: Make sure that your device is connected to the same network as your Linux machine and that the SSH service is running on Termux.&lt;/li&gt;
+&lt;li&gt;Incorrect IP address: Double-check that you have the correct IP address of your device.&lt;/li&gt;
+&lt;li&gt;Firewall issues: Make sure that your firewall is not blocking the SSH connection.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;additional-resources&#34;&gt;Additional Resources&lt;/h2&gt;
+&lt;p&gt;-&lt;a href=&#34;https://wiki.termux.com/wiki/Main_Page&#34;&gt;Termux Wiki&lt;/a&gt;
+-&lt;a href=&#34;https://www.openssh.com/&#34;&gt;OpenSSH&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Redirecting Subdomains to docker containers in same server</title>
+      <link>/posts/redirect-subdomains-to-docker/</link>
+      <pubDate>Sun, 25 Dec 2022 18:15:07 +0530</pubDate>
+      
+      <guid>/posts/redirect-subdomains-to-docker/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Article on how to have multiple running docker containers (or any other web servers) and have separate subdomains which map to these services.&lt;/p&gt;
+&lt;!-- Bonus tip on how to add https on these as well :) --&gt;
+&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;A Linux machine on which you have docker containers running&lt;/li&gt;
+&lt;li&gt;SSH access to this Linux machine.&lt;/li&gt;
+&lt;li&gt;DNS management access.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;steps&#34;&gt;Steps&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Start by installing a tool to manage a reverse proxy. nginx is a really good option.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install nginx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Ensure that you can access your docker containers locally using curl/wget command.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Start running your services or docker containers to which you want to route traffic&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd &amp;lt;your_project_folder&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker-compose up &lt;span style=&#34;color:#75715e&#34;&gt;# or whatever other command you have assigned to start your server.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Find the port in which your container or services re running. Double check and ensure that the API is working fine in localhost, using the following commands&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ss -lntp &lt;span style=&#34;color:#75715e&#34;&gt;# check that the corredt port is exposed.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl localhost:PORT &lt;span style=&#34;color:#75715e&#34;&gt;# verify that you get the expected response.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Decide on the subdomains to which you want to route traffic and add them using your dns management console&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Here&amp;rsquo;s an example image using cloudflare&lt;/p&gt;
+&lt;center&gt;
+	&lt;image src=&#34;/images/ssl/cloudflareDns.png&#34; alt=&#34;Cloudflare DNS - Adding new subdomain&#34;&gt;&lt;/image&gt;
+&lt;p class=&#39;caption&#39;&gt;Cloudflare DNS - Adding new subdomain(replace the ip with your server&#39;s public ip)&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;Note: You can get the public IP of your server using the following &lt;code&gt;curl&lt;/code&gt; command&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl ipinfo.io/ip
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;Once you add a subdomain in cloudflare, the next step is to ask nginx to route traffic from these subdomains to the docker services. This can be achieved by the following configuration in &lt;code&gt;/etc/nginx/nginx.conf&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-nginx&#34; data-lang=&#34;nginx&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;http&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   	&lt;span style=&#34;color:#f92672&#34;&gt;server&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   	    &lt;span style=&#34;color:#f92672&#34;&gt;listen&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;; &lt;span style=&#34;color:#75715e&#34;&gt;# replace with the line below if ssl support is added
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#       listen 443 ssl;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;   	    &lt;span style=&#34;color:#f92672&#34;&gt;server_name&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;subdomain.your-domain.com&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#    	    ssl_certificate /etc/letsencrypt/live/subdomain.domain.com/fullchain.pem;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#    	    ssl_certificate_key /etc/letsencrypt/live/subdomain.domain.com/privkey.pem;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   	    &lt;span style=&#34;color:#f92672&#34;&gt;location&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;/&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   	        &lt;span style=&#34;color:#f92672&#34;&gt;proxy_pass&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;http://localhost:9000&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   	        &lt;span style=&#34;color:#f92672&#34;&gt;proxy_set_header&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;Host&lt;/span&gt; $host;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   	        &lt;span style=&#34;color:#f92672&#34;&gt;proxy_set_header&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;X-Real-IP&lt;/span&gt; $remote_addr;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   	        &lt;span style=&#34;color:#f92672&#34;&gt;proxy_set_header&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;X-Forwarded-For&lt;/span&gt; $proxy_add_x_forwarded_for;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   	        &lt;span style=&#34;color:#f92672&#34;&gt;proxy_set_header&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;X-Forwarded-Proto&lt;/span&gt; $scheme;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   	    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The ssl_certificate fields are optional and need to be added only if you want to add https in your subdomain. For more details on adding SSL to your subdomain using &lt;code&gt;certbot&lt;/code&gt;, checkout &lt;a href=&#34;../set-up-ssl&#34;&gt;this link&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Alright, that&amp;rsquo;s it. Now you can navigate to http:&amp;lt;you_subdomain&amp;gt;.&amp;lt;your_domain_with_tld&amp;gt; to access your API.&lt;/p&gt;
+&lt;p&gt;You can add multiple subdomains and add other server blocks like above in nginx.conf file.&lt;/p&gt;
+&lt;p&gt;Tada✨&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to add SSL and make a server https</title>
+      <link>/posts/set-up-ssl/</link>
+      <pubDate>Sun, 25 Dec 2022 18:14:39 +0530</pubDate>
+      
+      <guid>/posts/set-up-ssl/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;An easy way to set up Secure Socket Layer (SSL) on a web server without having necessary nginx installation. SSL is a security protocol that encrypts data sent between a client and a server, helping to protect against hacking and other online threats. By enabling SSL on your web server, you can ensure that sensitive data sent to and from your server is protected.&lt;/p&gt;
+&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;/h2&gt;
+&lt;p&gt;To set up SSL on your server, you will need the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A Linux machine on which you want to enable SSL.&lt;/li&gt;
+&lt;li&gt;SSH access to the Linux machine.&lt;/li&gt;
+&lt;li&gt;A web server that listens on a route for requests.&lt;/li&gt;
+&lt;li&gt;DNS management access.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;steps-to-follow&#34;&gt;Steps to follow&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Install the certbot package on your machine. Certbot is a tool for interacting with Letsencrypt, a free, automated, and open certificate authority. You can install Certbot using the following command:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get install certbot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Find the public IP address of your machine. You can get it from the cloud console of your cloud provider, or by running the following command:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl ipinfo.io/ip
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Go to the DNS manager and add a new DNS entry for the server domain for which you want to enable SSL. For example, if you want to add SSL for the domain &amp;lt;your.domain.tld&amp;gt;, you would add a DNS entry for the public IP address of your server.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;4 a. Run Certbot to generate an SSL certificate for this domain using the command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo certbot certonly --standalone
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;4 b. If you&amp;rsquo;re having nginx already running, then use the following command instead:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo certbot --nginx --domain &amp;lt;your.domain.name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note: If you get the errror: &lt;code&gt;The requested nginx plugin does not appear to be installed&lt;/code&gt; on running the above command(usually on the first time), just install the cerbot-nginx plugin using the following:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install python3-certbot-nginx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Follow the instructions provided by the Certbot wizard. At the end, you will have SSL certificate .pem files stored in the location /etc/letsencrypt/live/&amp;lt;your.url.entered&amp;gt;. Make note of this location, as you will need it later.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Start your web server and note down the port on which it is listening (e.g. 8080).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add the path to the SSL certificate and private key generated earlier to your web server. The process for doing this will depend on the type of web server you are using.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For example, if you are using a Node.js server, you can do it using the following code:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;express&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;express&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;https&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;fs&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fs&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;app&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;express&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Read SSL certificate and private key
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;options&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;fs&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;readFileSync&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/etc/letsencrypt/live/&amp;lt;your.domain.tld&amp;gt;/privkey.pem&amp;#34;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;cert&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;fs&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;readFileSync&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/etc/letsencrypt/live/&amp;lt;your.domain.tld&amp;gt;/cert.pem&amp;#34;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;};
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Define GET method in the root route
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;app&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;get&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt;, (&lt;span style=&#34;color:#a6e22e&#34;&gt;req&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;res&lt;/span&gt;) =&amp;gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;res&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;send&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;});
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Create HTTPS server
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;https&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;createServer&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;options&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;app&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;listen&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;443&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;console&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Server listening on port 443&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For nginx, you will have a server block having configuration similar to the following:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-nginx&#34; data-lang=&#34;nginx&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;server&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	    &lt;span style=&#34;color:#f92672&#34;&gt;listen&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;443&lt;/span&gt;; &lt;span style=&#34;color:#75715e&#34;&gt;# listens for https requests
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	    &lt;span style=&#34;color:#f92672&#34;&gt;server_name&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;lt;your.domain.tld&amp;gt;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    	    &lt;span style=&#34;color:#f92672&#34;&gt;ssl_certificate&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;/etc/letsencrypt/live/&amp;lt;your.domain.tld&amp;gt;/fullchain.pem&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    	    &lt;span style=&#34;color:#f92672&#34;&gt;ssl_certificate_key&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;/etc/letsencrypt/live/&amp;lt;your.domain.tld&amp;gt;/privkey.pem&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#75715e&#34;&gt;# serves the files mentioned here
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	    &lt;span style=&#34;color:#f92672&#34;&gt;location&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;/&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	        &lt;span style=&#34;color:#f92672&#34;&gt;root&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;/usr/share/nginx/html&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	        &lt;span style=&#34;color:#f92672&#34;&gt;index&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;index.html&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;index.htm&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;There you go, by now you should have the web server listening to https request on port 443✨.&lt;/p&gt;
+&lt;p&gt;To configure SSL for other types of web servers, such as Apache or even a Python/Flask server, you will need to consult the documentation for those servers.&lt;/p&gt;
+&lt;p&gt;But essentially, the process is simple. Generate ssl certificate for a site that has a DNS entry pointing to the public IP address of your server and have this certificate be referenced in code of your web server.&lt;/p&gt;
+&lt;p&gt;You can even write redirect rules which automatically forwards/redirects a request in http to https.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s a demo using nginx.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-nginx&#34; data-lang=&#34;nginx&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 	&lt;span style=&#34;color:#66d9ef&#34;&gt;server&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 	    &lt;span style=&#34;color:#f92672&#34;&gt;server_name&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;lt;your.domain.tld&amp;gt;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    	    &lt;span style=&#34;color:#75715e&#34;&gt;# to redirect http requests automatically to https
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt; 	    &lt;span style=&#34;color:#f92672&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;301&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;https://&lt;/span&gt;$host$request_uri;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://letsencrypt.org/getting-started/&#34;&gt;Letsencrypt Getting Started&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04&#34;&gt;How To Set Up a Self-Signed SSL Certificate for Apache in Ubuntu 20.04&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://nginx.org/en/docs/http/configuring_https_servers.html&#34;&gt;Nginx SSL Configuration&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://chat.openai.com/&#34;&gt;Chat GPT&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to Speed up your programming workflow by adding auto-correct in git</title>
+      <link>/posts/git-autocorrect/</link>
+      <pubDate>Sun, 01 Nov 2020 17:07:10 +0530</pubDate>
+      
+      <guid>/posts/git-autocorrect/</guid>
+      <description>&lt;p&gt;In this short post I would like to share a neat trick I learned which you can use to speed up your development workflow - adding auto-correct to git.&lt;/p&gt;
+&lt;h2 id=&#34;current-scenario&#34;&gt;Current Scenario&lt;/h2&gt;
+&lt;p&gt;Currently, if you have a typo or some small error in your git command, git will automatically suggest the most plausible command corresponding to your keyboard input.
+Majority of the time this suggested command is bound to be the one you were trying to use. However, just suggesting the command is not that helpful since the programmer still has to navigate around and change the typo.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;img src=&#34;/images/git-autocorrect/image1.png&#34; alt=&#34;image1&#34;&gt;&lt;/p&gt;
+&lt;p align = &#34;center&#34;&gt;
+Before setting up auto-correct
+&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;According to the official git &lt;a href=&#34;https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_code_help_autocorrect_code&#34;&gt;docs&lt;/a&gt;,&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Git helpfully tries to figure out what you meant, but it still refuses to do it. If you set help.autocorrect to 1, Git will actually run this command for you&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;solution&#34;&gt;Solution:&lt;/h2&gt;
+&lt;p&gt;Just open your terminal and add the following line&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git config --global help.autocorrect &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Adding the above command in your terminal results in the following :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/git-autocorrect/image2.png&#34; alt=&#34;image2&#34;&gt;&lt;/p&gt;
+&lt;p align = &#34;center&#34;&gt;
+With auto-correct turned on
+&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;See, git gave us a warning saying that there is a typo in our command and then executed the most matching/similar command.&lt;/p&gt;
+&lt;p&gt;Now, here the value which we assigned at the end has to be an integer which represents the tenths of a second after which your command will be executed.&lt;/p&gt;
+&lt;h2 id=&#34;preventing-accidental-commands&#34;&gt;Preventing accidental commands&lt;/h2&gt;
+&lt;p&gt;If you are worried about git accidentally executing a command which is similar to your input but is not what you actually wanted to run, then you can add a few seconds of extra time before which the command will be executed, so that you can cancel out the execution if needed.&lt;/p&gt;
+&lt;p&gt;This can be achieved by changing the final integer value at the end to a multiple of 10 (say 20 or 30 which corresponds to 2 or 3 seconds respectively).&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git config --global help.autocorrect &lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Adding the above code in your terminal gives the following output when you have another typo in your code.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/git-autocorrect/image3.png&#34; alt=&#34;image3&#34;&gt;&lt;/p&gt;
+&lt;p align = &#34;center&#34;&gt;
+Executing a git command after 3 seconds
+&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;The actual command will be executed only after 3 seconds; which means that you can cancel the execution anytime within three seconds by just pressing &lt;strong&gt;ctrl-c&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;disabling-auto-correct&#34;&gt;Disabling auto-correct:&lt;/h2&gt;
+&lt;p&gt;If for some reason, you want to disable autocorrect feature (though I can’t really imagine why), all you need is to set the final integer to 0.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git config --global help.autocorrect &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will revert back the config settings to the default stage – to how it was before we modified it.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/git-autocorrect/image4.png&#34; alt=&#34;image4&#34;&gt;&lt;/p&gt;
+&lt;p align = &#34;center&#34;&gt;
+Just like how it was before
+&lt;/p&gt;
+&lt;br/&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I have been using this cool autocorrect feature of git for some years now and it&amp;rsquo;s really a cool time saver. The small few micro seconds it saves by preventing us from not pressing the up arrow and then navigating around to fix typos in our command, can get compounded and become a huge time saver in the long run.&lt;/p&gt;
+&lt;h3 id=&#34;references&#34;&gt;References:&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration&#34;&gt;Here&lt;/a&gt; is the official git docs in case you have further doubts.&lt;/p&gt;
+&lt;p&gt;P.S. Other than the auto-correct, git has got some other cool features as well. Be sure to check them out too while you are at it :).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/bg/bg1.jpg&#34; alt=&#34;background image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Have a good day!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

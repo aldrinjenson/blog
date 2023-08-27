@@ -26,10 +26,16 @@ ip a | grep inet
 - https://askubuntu.com/a/474324
 
 4. Finding the public IP of a computer or server
+
 ```sh
 curl ipinfo.io/ip
 ```
+
 (Optional) Create a bash alias like the following to make it even easier
+
 ```bash
 alias whatismypublicip='curl ipinfo.io/ip'
 ```
+
+5. Removing sensitive data after having it be commited to github
+   Use git filter branch

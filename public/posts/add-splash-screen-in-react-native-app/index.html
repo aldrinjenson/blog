@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+
+
+<html lang="en-us" data-theme="">
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>Easiest way to add a splash screen in a React Native App - Aldrin Jenson</title>
+<meta name="description" content="CS undergrad from Kerala, India">
+
+<link rel="icon" type="image/x-icon" href="/%20favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="/%20favicon.png">
+
+
+
+    
+
+
+
+
+
+    
+    
+        
+    
+    
+
+    
+        <link rel="stylesheet" href="/css/style.min.a6f5b3d50adf9432413f07022323f9c27629f1f4b3f8aec4cbedae27f35927c1.css" integrity="sha256-pvWz1QrflDJBPwcCIyP5wnYp8fSz&#43;K7Ey&#43;2uJ/NZJ8E=">
+    
+
+
+
+
+
+
+<meta property="og:title" content="Easiest way to add a splash screen in a React Native App" />
+<meta property="og:description" content="An easy way I discovered to make the process of adding splash screens in React Native much easier and efficient." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/add-splash-screen-in-react-native-app/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-06-24T00:58:27+05:30" />
+<meta property="article:modified_time" content="2020-06-24T00:58:27+05:30" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Easiest way to add a splash screen in a React Native App"/>
+<meta name="twitter:description" content="An easy way I discovered to make the process of adding splash screens in React Native much easier and efficient."/>
+
+
+
+
+
+
+
+
+
+
+<script async defer src="https://www.googletagmanager.com/gtag/js?id=G-75EZN9Q628"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-75EZN9Q628');
+</script>
+
+
+
+    
+</head>
+<body>
+    <a class="skip-main" href="#main">Skip to main content</a>
+    <div class="container">
+        <header class="common-header"> 
+            
+                <div class="header-top">
+    <h1 class="site-title">
+        <a href="/">Aldrin Jenson</a>
+    </h1>
+    <ul class="social-icons">
+
+
+    
+        
+        
+        <li>
+            <a href="https://github.com/aldrinjenson" title="Github" rel="me">
+            <span class="inline-svg" >
+
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+</span>
+
+            </a>
+        </li>
+    
+
+    
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/in/aldrinjenson" title="Linkedin" rel="me">
+            <span class="inline-svg" >
+
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+</span>
+
+            </a>
+        </li>
+    
+
+    
+        
+        
+        <li>
+            <a href="https://twitter.com/aldrinjenson" title="Twitter" rel="me">
+            <span class="inline-svg" >
+
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+
+</span>
+
+            </a>
+        </li>
+    
+
+    
+        
+        
+        <li>
+            <a href="https://medium.com/@aldrinjenson" title="Medium" rel="me">
+            <span class="inline-svg" >
+
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="svg-inline--fa fa-medium" data-icon="medium" data-prefix="fab" focusable="false" role="img" viewBox="0 0 640 512"><path fill="currentColor" fill="currentColor" d="M180.5 74.26C80.81 74.26 0 155.6 0 256S80.82 437.7 180.5 437.7 361 356.4 361 256 280.2 74.26 180.5 74.26zm288.3 10.65c-49.85 0-90.25 76.62-90.25 171.1s40.41 171.1 90.25 171.1 90.25-76.62 90.25-171.1H559C559 161.5 518.6 84.91 468.8 84.91zm139.5 17.82c-17.53 0-31.74 68.63-31.74 153.3s14.2 153.3 31.74 153.3S640 340.6 640 256C640 171.4 625.8 102.7 608.3 102.7z"/></svg>
+
+</span>
+
+            </a>
+        </li>
+    
+
+    
+        
+        
+        <li>
+            <a href="https://www.youtube.com/aldrinjenson" title="Youtube" rel="me">
+            <span class="inline-svg" >
+
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+
+</span>
+
+            </a>
+        </li>
+    
+
+    
+        
+        
+        <li>
+            <a href="https://aldrinjenson.github.io/index.xml" title="Rss" rel="me">
+            <span class="inline-svg" >
+
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"/></svg>
+
+</span>
+
+            </a>
+        </li>
+    
+
+</ul>
+
+</div>
+
+    <nav>
+        
+        
+        <a class="" href="/" title="Home">Home</a>
+        
+        <a class="" href="/posts/" title="Posts">Posts</a>
+        
+        <a class="" href="/projects/" title="Projects">Projects</a>
+        
+    </nav>
+
+
+
+
+
+            
+        </header>
+        <main id="main" tabindex="-1"> 
+            
+    
+
+    <article class="post h-entry">
+        <header class="post-header">
+            <h1 class="p-name post-title">Easiest way to add a splash screen in a React Native App</h1>
+
+            
+        </header>
+        <div class="content e-content">
+            <blockquote>
+<p>Note: This article was initially written in <a href="https://medium.com/swlh/the-easiest-way-to-add-a-splash-screen-to-your-react-native-app-2d36bee3117b">Medium</a></p>
+</blockquote>
+<p>Hi, this article is a result of me spending a hell lot of time to figure out the best and easiest way to solve the above problem of adding a splash screen to a React-native app. Almost all the tutorials available as of when this post is being written (2020 June) have at least some part of the code outdated and so if you are lazy and tries to copy-paste all the code mentioned in them, your gradle config will break some way or the other and its total frustration.</p>
+<blockquote>
+<p>Note: If you are building your app using the awesome expo-cli, then you don’t need to go through the below tutorial, adding a splash screen to an expo app is as simple as replacing the default splash image in assets folder with your own custom image and then renaming it as ‘splash.png’.</p>
+</blockquote>
+<p>Now, for those of us who have built the app with the good-old react-native init, adding a splash screen consists of the following 4 steps:</p>
+<h2 id="step-0-get-the-splash-image-ready">Step 0: Get the splash image ready!</h2>
+<p>I know, this is a no-brainier. But hey, do you exactly have the splash image in 6 different dimensions? No? Well guess what, you actually do need the same image in 6 dimensions! So how will you manage to make-do with just one image if that’s all what you got?</p>
+<p>Don’t bother going to Photoshop and resizing, here’s an awesome tool I found to make the process of splash image generation a piece of cake.</p>
+<p>Just go to <a href="https://apetools.webprofusion.com/#/tools/imagegorilla">this</a> site, add your one splash image(preferably with the highest quality), choose the required platform(andoid and/or ios) and punch the Kapow button). The tool will generate a zip file of the splash screen in various different pixel dimensions.</p>
+<p>Extract it and copy all the contents in the android and/or ios folder from the bundle to your android/app/src/main/res folder.</p>
+<h2 id="step-1-install-the-super-cool-npm-package-react-native-splash-screen">Step 1: Install the super cool npm package: react-native-splash-screen</h2>
+<p>This will make the whole process dead simple</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm i react-native-splash-screen
+</span></span></code></pre></div><p>or using yarn,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>yarn add react-native-splash-screen
+</span></span></code></pre></div><blockquote>
+<p>Note: if your react-native cli version is below 0.6, don’t forget to link the above package using: <code>react-native link react-native-splash-screen</code></p>
+</blockquote>
+<h2 id="step-2-configuration">Step 2: Configuration</h2>
+<h3 id="android">Android:</h3>
+<p>You have got to update the MainActivity.java file (located at <code>android/app/src/main/java/com/your_project_name</code> folder) in order to use react-native-splash-screen in your project. Just make changes to the file like given below:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> android.os.Bundle<span style="color:#f92672">;</span><span style="color:#f92672">import</span> com.facebook.react.ReactActivity<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.devio.rn.splashscreen.SplashScreen<span style="color:#f92672">;</span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MainActivity</span> <span style="color:#66d9ef">extends</span> ReactActivity <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span> <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onCreate</span><span style="color:#f92672">(</span>Bundle savedInstanceState<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    SplashScreen<span style="color:#f92672">.</span><span style="color:#a6e22e">show</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">onCreate</span><span style="color:#f92672">(</span>savedInstanceState<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ...other code
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Now, create a file called <code>launch_screen.xml</code> in <code>app/src/main/res/layout</code> (create the layout folder if it doesn&rsquo;t exist). The contents of the file should be the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;RelativeLayout</span> <span style="color:#a6e22e">xmlns:android=</span><span style="color:#e6db74">&#34;http://schemas.android.com/apk/res/android&#34;</span><span style="color:#a6e22e">android:orientation=</span><span style="color:#e6db74">&#34;vertical&#34;</span> <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;match_parent&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;match_parent&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;ImageView</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;match_parent&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;match_parent&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">android:src=</span><span style="color:#e6db74">&#34;@drawable/screen&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">android:scaleType=</span><span style="color:#e6db74">&#34;centerCrop&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/RelativeLayout&gt;</span>
+</span></span></code></pre></div><p>Now we have got to add a color called primary_dark in app/src/main/res/values/colors.xml(create if it doesn&rsquo;t exist already)by pasting in the following code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;resources&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;color</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;primary_dark&#34;</span><span style="color:#f92672">&gt;</span>#000000<span style="color:#f92672">&lt;/color&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/resources&gt;</span>
+</span></span></code></pre></div><h3 id="ios">iOS:</h3>
+<p>Update AppDelegate.m (located at ios/splashapp) with the following additions:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>#<span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#34;AppDelegate.h&#34;</span>
+</span></span><span style="display:flex;"><span>#<span style="color:#66d9ef">import</span> &lt;<span style="color:#a6e22e">React</span><span style="color:#f92672">/</span><span style="color:#a6e22e">RCTBundleURLProvider</span>.<span style="color:#a6e22e">h</span>&gt;
+</span></span><span style="display:flex;"><span>#<span style="color:#66d9ef">import</span> &lt;<span style="color:#a6e22e">React</span><span style="color:#f92672">/</span><span style="color:#a6e22e">RCTRootView</span>.<span style="color:#a6e22e">h</span>&gt;
+</span></span><span style="display:flex;"><span>#<span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#34;RNSplashScreen.h&#34;</span>
+</span></span><span style="display:flex;"><span>@implementation AppDelegate<span style="color:#f92672">-</span> (BOOL)application:(UIApplication <span style="color:#66d9ef">_</span>)application didFinishLaunchingWithOptions:(NSDictionary <span style="color:#66d9ef">_</span>)launchOptions{
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// ...other code</span>
+</span></span><span style="display:flex;"><span>  [RNSplashScreen show]; <span style="color:#75715e">// or//[RNSplashScreen showSplash:@&#34;LaunchScreen&#34; inRootView:rootView];</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> YES;
+</span></span><span style="display:flex;"><span>  }@end
+</span></span></code></pre></div><h2 id="step-3-hiding-the-splash-and-loading-your-main-screen">Step 3: Hiding the splash and loading your main-screen</h2>
+<p>By now, if you run your app, you would be able to see the splash image cover the entire screen(like it should) and showing forever(like it shouldn’t). Basically it would never close, and there is even a chance of your app crashing after a few seconds of the image showing like this.</p>
+<p>Now, when should the splash screen be closed? Maybe when the main entry file of your app is executed? Yes! So let’s just modify App.js so that exactly when the project files would finish loading and is ready to be executed, the splash screen would give way to your main/primary screen.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// make following changes to App.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SplashScreen</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-native-splash-screen&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">App</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Component</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">componentDidMount</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// do stuff while splash screen is shown
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// After having done stuff (such as async tasks) hide the splash screen
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">SplashScreen</span>.<span style="color:#a6e22e">hide</span>();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In case you are using functional components, just call SplashScreen.hide() inside a <code>useEffect</code> hook with an empty dependency array.</p>
+<hr>
+<p>And, there you go my friends, that’s all there is to it.</p>
+<p>I have tested the above in android and it works perfectly. Inability of having Apple device have prevented me from verifying it on iOS, but hopefully this should all work fine. If the above solution for some reason didn’t work for you, or if you want to add some advanced effects in your splash screen like customizing the color of the status bar when loading etc, here are the references I used. However, do keep in mind that all software related guides(including this one) tend to get outdated as new features get added to the various packages used and some breaking change occurs. That being said, all the best to your project. Cheers ✨</p>
+<ul>
+<li><a href="https://medium.com/handlebar-labs/how-to-add-a-splash-screen-to-a-react-native-app-ios-and-android-30a3cec835ae">https://medium.com/handlebar-labs/how-to-add-a-splash-screen-to-a-react-native-app-ios-and-android-30a3cec835ae</a></li>
+<li><a href="https://www.npmjs.com/package/react-native-splash-screen">https://www.npmjs.com/package/react-native-splash-screen</a></li>
+<li><a href="https://www.netguru.com/blog/react-native-splash-screen">https://www.netguru.com/blog/react-native-splash-screen</a></li>
+</ul>
+
+        </div>
+        
+
+    
+
+
+<div class="post-info">
+    
+        <div class="post-date dt-published">24-06-2020</div>
+    
+    
+    <a class="post-hidden-url u-url" href="/posts/add-splash-screen-in-react-native-app/">/posts/add-splash-screen-in-react-native-app/</a>
+    <a href="/" class="p-name p-author post-hidden-author h-card" rel="me">Aldrin Jenson</a>
+
+
+    <div class="post-taxonomies">
+        
+            
+                <ul class="post-tags">
+                    
+                        <li><a href="/tags/tech">#tech</a></li>
+                    
+                        <li><a href="/tags/react-native">#react-native</a></li>
+                    
+                </ul>
+        
+    </div>
+</div>
+
+    </article>
+
+    
+        
+    <div class="pagination post-pagination">
+        <div class="left pagination-item ">
+            
+                <a href="/posts/git-autocorrect/">How to Speed up your programming workflow by adding auto-correct in git</a>
+            
+        </div>
+        <div class="right pagination-item disabled">
+            
+        </div>
+    </div>
+
+
+
+
+    
+
+    
+
+    
+        
+
+
+
+        
+        
+        
+        
+        
+        
+
+<script src="https://utteranc.es/client.js"
+        repo="aldrinjenson/aldrinjenson.github.io"
+        issue-term="pathname"
+        label="comment"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+
+    
+
+
+        </main>
+        
+            <footer class="common-footer">
+    
+    
+
+    <div class="common-footer-bottom">
+        
+        <div class="copyright">
+            <p>©  <a href="https://github.com/aldrinjenson/aldrinjenson.github.io"
+                    target="_blank">Aldrin Jenson </a>, 2023<br>
+                Powered by <a target="_blank" rel="noopener noreferrer"
+                    href="https://gohugo.io/">Hugo</a><br>
+                
+            </p>
+            <br>
+        </div>
+
+           
+
+<button class="theme-switcher">Dark theme</button>
+
+<script>
+  const STORAGE_KEY = 'user-color-scheme'
+  const defaultTheme = "auto"
+
+  let currentTheme
+  let switchButton
+  let autoDefinedScheme = window.matchMedia('(prefers-color-scheme: dark)')
+
+  const autoChangeScheme = e => {
+      currentTheme = e.matches ? 'dark' : 'light'
+      document.documentElement.setAttribute('data-theme', currentTheme)
+      changeButtonText()
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+      switchButton = document.querySelector('.theme-switcher')
+      currentTheme = detectCurrentScheme()
+      if (currentTheme == 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark')
+      }
+      if (currentTheme == 'auto') {
+          autoChangeScheme(autoDefinedScheme);
+          autoDefinedScheme.addListener(autoChangeScheme);
+      }
+      changeButtonText()
+      switchButton.addEventListener('click', switchTheme, false)
+  })
+
+  function detectCurrentScheme() {
+      if (localStorage.getItem(STORAGE_KEY)) {
+          return localStorage.getItem(STORAGE_KEY)
+      }
+      if (defaultTheme) {
+          return defaultTheme
+      }
+      if (!window.matchMedia) {
+          return 'light'
+      }
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark'
+      }
+      return 'light'
+  }
+
+  function changeButtonText()
+  {
+      switchButton.textContent = currentTheme == 'dark' ?  "Light theme" : "Dark theme"
+  }
+
+  function switchTheme(e) {
+      if (currentTheme == 'dark') {
+          localStorage.setItem(STORAGE_KEY, 'light')
+          document.documentElement.setAttribute('data-theme', 'light')
+          currentTheme = 'light'
+      } else {
+          localStorage.setItem(STORAGE_KEY, 'dark')
+          document.documentElement.setAttribute('data-theme', 'dark')
+          currentTheme = 'dark'
+      }
+      changeButtonText()
+  }
+</script>
+
+
+    </div>
+
+    <p class="h-card vcard">
+
+    <a href=/ class="p-name u-url url fn" rel="me">Aldrin Jenson</a> 
+
+     
+        /
+        <a class="p-email u-email email" rel="me" href="mailto:aldrinjenson@gmail.com">aldrinjenson@gmail.com</a>
+    
+
+     
+        <img class="u-photo" src="/images/me.webp" />
+    
+</p> 
+</footer>
+        
+    </div>
+</body>
+</html>

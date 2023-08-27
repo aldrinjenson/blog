@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS on Aldrin Jenson</title>
+    <link>/tags/aws/</link>
+    <description>Aldrin Jenson (AWS)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 Mar 2023 16:04:39 +0000</lastBuildDate>
+    
+    <atom:link href="/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to deploy an express application to serverless using AWS Lambda</title>
+      <link>/posts/serverless-express-api/</link>
+      <pubDate>Sun, 26 Mar 2023 16:04:39 +0000</pubDate>
+      
+      <guid>/posts/serverless-express-api/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;AWS Lambda is an easy way to set up APIs which you don&amp;rsquo;t use regularly. The free tier from AWS is very generous (1 million requests per month). I personally found it to be a pain to find an easy way to setup a CI/CD workflow with it. After several hours, here is the approach I made myself to have a super easy way to set up a pipeline to Lambda.&lt;/p&gt;
+&lt;h1 id=&#34;steps&#34;&gt;Steps&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Initialise a nodejs application if you don&amp;rsquo;t have one already&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm init
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Install the packages &lt;code&gt;express&lt;/code&gt; and &lt;code&gt;serverless-http&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install express serverless-http
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;In the index.js file, create an express app and export it&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;express&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;express&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;app&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;express&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;app&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;get&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt;, (&lt;span style=&#34;color:#a6e22e&#34;&gt;_&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;res&lt;/span&gt;) =&amp;gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;res&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;send&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Server active&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;});
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;process&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;env&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;isDev&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;app&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;listen&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;5000&lt;/span&gt;, () =&amp;gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;console&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;listening on port 5000&amp;#34;&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;module&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;exports&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;app&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Create a file called &lt;code&gt;lambda.js&lt;/code&gt; which takes this exported app and converts the routes to lambda functions using &lt;code&gt;serverless-http&lt;/code&gt; package.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// lambda.js
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;use strict&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;app&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;./index&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;serverless&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;serverless-http&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;module&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;exports&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;handler&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;serverless&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;app&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Create a &lt;code&gt;serverless.yml&lt;/code&gt; file like the one below. The service property can be renamed to anything you see fit.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;There needs to be only one handler. Any routes created using standard express convention will be automatically configured as lambda routes using the filename as the endpoint slug.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;service&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;express-to-lambda&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;provider&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;aws&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;runtime&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;nodejs16.x&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;stage&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;prod&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;region&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ap-south-1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;memorySize&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;512&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;functions&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;app&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;handler&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;lambda/lambda.handler&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;events&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;http&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;path&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;method&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ANY&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;cors&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;http&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;path&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;/{proxy+}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;method&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ANY&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;cors&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;NOTE: CORS is taken care by in the above yml. If you would require fine grained control, you can add fine-grained and programmatic CORS control using nodeJS middleware to handle it using your preference.&lt;/p&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;Deploy the functions&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Deploying to AWS Lambda is super easy and can be done by the &lt;code&gt;serverless&lt;/code&gt; nodejs library.
+Run the following from the root directory of your project.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm i -g serverless
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;serverless config credentials --provider aws --key AWS_ACCESS_KEY_ID --secret  AWS_SECRET_ACCESS_KEY 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# replace the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY with your own values which can be received from AWS IAM &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;serverless deploy
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;There you go. That&amp;rsquo;s it. The above step may take some time, but with it, you would be able to deploy your express application with AWS Lambda.&lt;/p&gt;
+&lt;h1 id=&#34;bonus&#34;&gt;Bonus&lt;/h1&gt;
+&lt;p&gt;Setting up CI/CD pipeline to deploy from a github repo is super easy as well. It can be achieved by creating a github workflow file like the one below:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Place in .github/workflows/deploy.yml&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;deploy to lambda&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;on&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;push&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;branches&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;jobs&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;lambda-deploy&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;runs-on&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ubuntu-latest&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;steps&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Checkout repo&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions/checkout@v2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Setup node environment&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions/setup-node@v1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;with&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;node-version&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Install serverless globally&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;npm install -g serverless&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Configure serverless authentication&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;sls config credentials --provider aws --key ${{ secrets.AWS_ACCESS_KEY_ID }} --secret ${{ secrets.AWS_SECRET_ACCESS_KEY }}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Install npm dependencies&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;npm ci&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Deploy lambda function&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;sls deploy&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Add the AWS values AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY in github secrets and you&amp;rsquo;re good to go. Now each time a new change is made and the code committed to the main branch, this workflow will run and the updated serverless function will be deployed to AWS Lambda✨&lt;/p&gt;
+&lt;p&gt;By the way, small tip - when doing local development, you can just add the following dev script in &lt;code&gt;package.json&lt;/code&gt; to get live-reload as well.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;scripts&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;dev&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;isDev=true nodemon index.js&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Just run &lt;code&gt;npm run dev&lt;/code&gt; the next time when developing locally.&lt;/p&gt;
+&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/IEDCMEC/lambda-functions&#34;&gt;https://github.com/IEDCMEC/lambda-functions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://aws.amazon.com/lambda&#34;&gt;https://aws.amazon.com/lambda&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;ChatGPT&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Query Search Bot</title>
+      <link>/projects/query-search-bot/</link>
+      <pubDate>Sun, 24 Oct 2021 19:25:18 +0530</pubDate>
+      
+      <guid>/projects/query-search-bot/</guid>
+      <description>&lt;p&gt;I started my experiments with Telegram Bots in the November of 2020 when I wanted an easy way to receive notifications.
+Discord was the first option, but it was just too cumbersome for the simple purpose of receiving notifications. Telegram was much more convenient and easy to use. I used and built various Telegram bots of different complexities during my tenure at TGH Tech. I also used it for my &lt;a href=&#34;/projects/moodle-automation&#34;&gt;Moodle Automation&lt;/a&gt; program as well.&lt;/p&gt;
+&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;This is one of my first major Telegram bot and was first made to get myself familiar with the functions offered by the &lt;a href=&#34;https://github.com/yagop/node-telegram-bot-api&#34;&gt;node-telegram-bot-api&lt;/a&gt; library. The idea is simple - make Internet queries without leaving telegram.&lt;/p&gt;
+&lt;h2 id=&#34;the-flow&#34;&gt;The flow&lt;/h2&gt;
+&lt;p&gt;The steps involved are as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The user adds the bot to a group&lt;/li&gt;
+&lt;li&gt;He uses a command to trigger the bot&lt;/li&gt;
+&lt;li&gt;He sends the bot a query to search&lt;/li&gt;
+&lt;li&gt;The bot sends the top search results of that particular query.&lt;/li&gt;
+&lt;li&gt;END&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;implementation&#34;&gt;Implementation&lt;/h2&gt;
+&lt;p&gt;Searching part is basically web-scraping. While google doesn&amp;rsquo;t provide a free api to search, there are some alternative implementation like &lt;a href=&#34;https://github.com/jarun/googler&#34;&gt;googlr&lt;/a&gt;. I tried to use these alternatives, but they either works only in the cli or were just too cumbersome to use.
+&lt;br/&gt;
+With Google unavailable, I started looking for alternatives, which lead me to my answer -&amp;gt; Bing api. Initially I was a bit skeptical about using bing search engine, but turns out it&amp;rsquo;s the second most popular search engine after Google even though there&amp;rsquo;s a large market share gap.
+I found that the results for search queries were quite reasonable as well.
+&lt;br/&gt;
+So with bing fixed, I used the &lt;a href=&#34;https://www.npmjs.com/package/bing-scraper&#34;&gt;bing-scraper&lt;/a&gt; npm package for my query searching.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;p&gt;The logic was quite simple actually. Whenever the user sends a search query to the bot, in the backend, the bot uses the above library to scrape bing and find the top results which are then sent as response messages back to the user.&lt;/p&gt;
+&lt;p&gt;Since this was a small project, I didn&amp;rsquo;t want to host it on a server as usual. Heroku was the first option I thought about. However, due to Heroku&amp;rsquo;s free tier limitations, once the server entered a sleep state, it needs an external HTTP request to wake it up. The telegram bot I set up was using constant polling mechanism to listen for requests, which meant that the telegram triggers won&amp;rsquo;t wake up the Heroku server.&lt;/p&gt;
+&lt;p&gt;I initially tried to create a simple API endpoint from the server, and then constantly pinging it at regular intervals to prevent the server from going to sleep. However even this wasn&amp;rsquo;t sustainable as Heroku free tier has this limitation that your server cannot be active for more than 500 hours per month. Bummer.&lt;/p&gt;
+&lt;p&gt;So as usual, I started looking for other options to get free hosting. I had an AWS account. I didn&amp;rsquo;t want to use and ec2 for this small project. But there were &lt;a href=&#34;https://aws.amazon.com/lambda&#34;&gt;Lambdas&lt;/a&gt; available. I didn&amp;rsquo;t have much experiences with serverless computing before, but this seemed like a good opportunity to try them out. AWS Lambda offers 1 million free requests per month, which seemed more than plenty for my use case😇.&lt;/p&gt;
+&lt;h2 id=&#34;implementing-lambda-functions&#34;&gt;Implementing Lambda functions&lt;/h2&gt;
+&lt;p&gt;Implementing lambda functions can be made very easy using the &lt;a href=&#34;https://www.serverless.com/&#34;&gt;serverless framework&lt;/a&gt;.
+It was very confusing for me initially on the product&amp;rsquo;s name - Serverless, the same name as the serverless architecture. 🤷 I&amp;rsquo;ll refer to the Serverless platform with a capital S.
+The process involved the following steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You install Serverless cli and generates the serverless boilerplate for nodeJs(other languages also available)&lt;/li&gt;
+&lt;li&gt;You create a Serverless account and login to your dashboard&lt;/li&gt;
+&lt;li&gt;You connect your cloud provider(AWS Lambda in my case) to Serverless&lt;/li&gt;
+&lt;li&gt;You push your code to a github repo and connect it to the Serverless platform. (optional)&lt;/li&gt;
+&lt;li&gt;You enter the command &lt;code&gt;sls deploy&lt;/code&gt; in your code directory to deploy the code to the connected cloud provider.&lt;/li&gt;
+&lt;li&gt;END&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now there was one change I had to make for the bot to work with serverless. Since serverless functions will be active only once a request has been received, my initial approach of using long polling(default approach in the node-telegram-bot-api library as well) to query for updates won&amp;rsquo;t work. So I used webhook approach to fix this issue. Basically once the user sends a message to the bot, it reaches the Telegram servers first, and then from there it calls the deployed serverless url wherein I have a switch statement that fires functions depending on the message content/command. &lt;a href=&#34;https://github.com/aldrinjenson/tg-querySearchBot/blob/d5260c7672909f07ca664bb075369f4bfbe0b5cd/index.js#L50&#34;&gt;Here&amp;rsquo;s&lt;/a&gt; the actual code implementation.
+Check out the &lt;a href=&#34;https://github.com/aldrinjenson/tg-querySearchBot/blob/main/README.md&#34;&gt;ReadMe file&lt;/a&gt; as well where I&amp;rsquo;ve added some instructions on the process of setting up webhooks for telegram bots.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Once the serverless flow was understood, then building and deploying the bot was not that difficult. I had used this same bot as an example to explain the concept of building and deploying bots to many others. Overall even thought the project was kinda small in code or logic, it contained many learnings and people other than me were able to benefit out of this project. So Lesson learned, it&amp;rsquo;s better almost always to learn something by building rather than just by simply watching a Youtube tutorial without applying the concepts.&lt;/p&gt;
+&lt;p&gt;This bot was actually the base of many other complex Telegram bots I made. By the end of 2 months in TGH Tech, I was pretty well-versed in the node-telegram-bot-api library and had even written several utility functions to make a lot of tasks much, much easier. It was my wish to group them together and publish them as a library so that many other who faced similar problems could use it. Sadly though, I got busy afterwards with other projects and by the time I was free, I had lost all touch with bots and I had this feeling that even if I had published them as a library, I may not be able to fix any issues people may raise or even test PRs because I won&amp;rsquo;t be working with any Telegram bots at all. Now though, while writing about this, I&amp;rsquo;m having different thoughts.. may be I think even if I won&amp;rsquo;t be feeling any motivation to fix these, the code could be useful to many people and maybe someone could fork it and work on it to improve.. The chances of bugs are pretty low as well, because several bots are running in production level at TGH tech using the utility functions I wrote.. so hmm, let me see, I&amp;rsquo;ll update it here if I&amp;rsquo;m publishing the library🤞.&lt;/p&gt;
+&lt;p&gt;Check out the project &lt;a href=&#34;https://github.com/aldrinjenson/tg-querySearchBot&#34;&gt;here&lt;/a&gt;.
+&lt;br/&gt;
+Live Demo at &lt;a href=&#34;https://t.me/querySearchBot&#34;&gt;querySearchBot&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

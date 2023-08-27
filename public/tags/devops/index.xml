@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>devops on Aldrin Jenson</title>
+    <link>/tags/devops/</link>
+    <description>Aldrin Jenson (devops)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Apr 2023 00:32:13 +0530</lastBuildDate>
+    
+    <atom:link href="/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Easy SSH based Continuous delivery pipeline</title>
+      <link>/posts/easy-ssh-deploy/</link>
+      <pubDate>Tue, 25 Apr 2023 00:32:13 +0530</pubDate>
+      
+      <guid>/posts/easy-ssh-deploy/</guid>
+      <description>&lt;p&gt;If you have a Virtual Private Server(VPS) and want to have the code you push to github/VCS, be deployed in your server, here is a super simple and quick way to do so.&lt;/p&gt;
+&lt;p&gt;It basically involves creating a github action workflow that does the following.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Deploy to Server&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;on&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;push&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;branches&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;jobs&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;deploy&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;runs-on&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ubuntu-latest&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;steps&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Install sshpass&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          sudo apt install sshpass -y&lt;/span&gt;          
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Git pull and Deploy with Docker Compose&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          sshpass -p ${{ secrets.SERVER_PASS }} ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_NAME }} &amp;#34;cd project-folder &amp;amp;&amp;amp; git pull &amp;amp;&amp;amp; docker compose up -d&amp;#34;&lt;/span&gt;          
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-Requisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Install git and docker on your VM&lt;/li&gt;
+&lt;li&gt;configure your vm for ssh&lt;/li&gt;
+&lt;li&gt;store the server ssh url and server ssh password as github secrets with the same variable names as mentioned above in the workflow&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;what-the-workflow-does&#34;&gt;What the workflow does&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Installs &lt;code&gt;sshpass&lt;/code&gt; on the github VM&lt;/li&gt;
+&lt;li&gt;Does SSH to your VM with &lt;code&gt;sshpass&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Runs the command to
+&lt;ul&gt;
+&lt;li&gt;git clone the repository&lt;/li&gt;
+&lt;li&gt;run the command to start the project(&lt;code&gt;docker compose up&lt;/code&gt; in this case )&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;customisability&#34;&gt;Customisability&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Currently it&amp;rsquo;s based on docker. But you can easily replace the final command with anything else to build your product (eg: &lt;code&gt;make&lt;/code&gt; or &lt;code&gt;npx serve&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Replace &lt;code&gt;project-folder&lt;/code&gt; with the path to the folder in which you have the project. sshpass will run the command to clone the latest version from VCS to this folder and will run the start/build/serve command.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;limitations&#34;&gt;Limitations&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Currently this script is based on traditional servers which works on the basis of ssh log-in using username and password. If you want to use it to access servers like AWS EC2 which supports only pem file based auth, you&amp;rsquo;d need to modify the workflow.
+&lt;ul&gt;
+&lt;li&gt;You can store the pem file contents in a github secret and then use it inside the sshpass flow indirectly.&lt;/li&gt;
+&lt;li&gt;Or, you can use existing github actions &lt;a href=&#34;https://lightrains.com/blogs/deploy-aws-ec2-using-github-actions&#34;&gt;like this&lt;/a&gt; written specifically for CI/CD with AWS.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;how-did-this-come-to-be&#34;&gt;How did this come to be?&lt;/h2&gt;
+&lt;p&gt;It basically started of by thinking about the steps you would do to push your code to production without having to automate it. This would come to have the following steps in a really high level way:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Pushing your local code to a VCS.&lt;/li&gt;
+&lt;li&gt;SSH-ing to your VPS&lt;/li&gt;
+&lt;li&gt;Pulling the code from VCS to the server&lt;/li&gt;
+&lt;li&gt;Running the start command&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Now, what are github actions? A way to run linux commands when certain events occur in github. So can we combine them both? Of course yes.
+There you go.🙂&lt;/p&gt;
+&lt;h2 id=&#34;things-to-note&#34;&gt;Things to note&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;I use ssh-pass to do steps 2,3 and 4 at once.
+sshpass allows you to ssh to a server and run custom commands on it as the user doing SSH.&lt;/p&gt;
+&lt;p&gt;You can also use rsync&lt;/p&gt;
+&lt;p&gt;SSHPass is first installed in the serverless instance where the github action is run.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Store the SSH username and passwords as a Github secret to not let it be exposed.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In the workflow file, don&amp;rsquo;t have commands with any stateful logic as the workflow instance would be a fresh one each time.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

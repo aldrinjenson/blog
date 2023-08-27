@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nodeJs on Aldrin Jenson</title>
+    <link>/tags/nodejs/</link>
+    <description>Aldrin Jenson (nodeJs)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 19 Jan 2022 19:25:18 +0530</lastBuildDate>
+    
+    <atom:link href="/tags/nodejs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Moodle Automation</title>
+      <link>/projects/moodle-automation/</link>
+      <pubDate>Wed, 19 Jan 2022 19:25:18 +0530</pubDate>
+      
+      <guid>/projects/moodle-automation/</guid>
+      <description>&lt;p&gt;Reflections on a nodeJS program I wrote to automate marking online attendance.&lt;/p&gt;
+&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;I used to attend online classes. Sometimes I&amp;rsquo;ll be sleepy or the class may be really boring, but I always used to attend them given a choice. However, at times I used to forget marking the attendance.&lt;/p&gt;
+&lt;p&gt;The attendance marking system in our college(and in many other Govt. colleges) for online classes was kinda ridiculous. We use the awesome &lt;a href=&#34;https://moodle.com/lms/&#34;&gt;Moodle LMS&lt;/a&gt; system for managing online classes.
+The students have to go to the Moodle course page every hour and mark the attendance for that particular subject happening at that particular hour. That&amp;rsquo;s right, the students mark their own attendance irrespective of whether they actually attends any classes at all🤦. The funniness of this situation becomes even more evident when the student is presented with the following three options for marking attendance in the course page:
+Present, Late or Absent.
+Seriously.. will any absent or late student actually mark the same given an option?🤷&lt;/p&gt;
+&lt;!-- todo: add image here --&gt;
+&lt;p&gt;Anyways.. I used to attend classes, but the attendance marking was very hard for me. I used to occasionally forget and sometimes by the time I&amp;rsquo;d have remembered about marking the attendance, the hour would&amp;rsquo;ve run out and the option would have been gone to mark it for that subject.&lt;/p&gt;
+&lt;p&gt;It once reached a dangerous point where I had only 38% of attendance for DS subject in which I had actually missed only 2 classes which I think were due to some genuine reasons. This led me to find a solution which was foolproof.&lt;/p&gt;
+&lt;h2 id=&#34;thought-process&#34;&gt;Thought Process&lt;/h2&gt;
+&lt;p&gt;I thought about the flow a student takes to mark his attendance.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;He navigates to the course page&lt;/li&gt;
+&lt;li&gt;He logs in to the moodle account by entering email and password. (yeah there are no persistent cookies in Moodle to preserve login state, atleast it&amp;rsquo;s not set up in the Moodle installation our college uses).&lt;/li&gt;
+&lt;li&gt;He clicks the attendance anchor tag element to go to the attendance page.&lt;/li&gt;
+&lt;li&gt;He selects the list item for the date which is having a field for marking attendance.&lt;/li&gt;
+&lt;li&gt;Once clicked he is navigated to another page having the 3 options: Present, Absent, Late&lt;/li&gt;
+&lt;li&gt;He selects the radio button for Present(obviously)&lt;/li&gt;
+&lt;li&gt;He clicks the Submit button.&lt;/li&gt;
+&lt;li&gt;He sighs at having marked his own attendance. The End&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The fact that I could describe the steps this way meant that I could definitely ask a computer to do these for me ie. to automate the process. Now the question was how to implement a program which could log in on my behalf and mark the attendance by following the above steps. Additionally I also wanted a way to let me know once the attendance had been successfully marked or if the attendance marking failed for some reason as then I could go and mark the attendance manually.&lt;/p&gt;
+&lt;h2 id=&#34;building-the-automation-program&#34;&gt;Building the automation program&lt;/h2&gt;
+&lt;p&gt;I used the nodeJs &lt;a href=&#34;https://github.com/puppeteer/puppeteer/&#34;&gt;puppeteer&lt;/a&gt; library for browser automation.
+I had once used it an year before for generating PDFs out of html. &lt;br/&gt;
+Anyways, I created a new nodeJs project, installed puppeteer and added my username and password as environment variables.
+&lt;br&gt;
+I created a file wherein I could add the subjectLinks for which I wanted to automatically mark attendance. I also installed expressJs and created a web UI - something like a dashboard which could show me the stats for various subjects - whether they were marked, when is the next check etc.&lt;/p&gt;
+&lt;img src=&#34;/images/moodle-bot/dashboard.png&#34; width=400 alt=&#34;Dashboard preview&#34;&gt;
+&lt;br/&gt;
+&lt;p&gt;I tested the program a couple of times. Testing was a bit slow because there would be only one slot for me to test in one hour when there is an actual attendance open to automate.&lt;/p&gt;
+&lt;p&gt;Afterwards I installed the awesome &lt;a href=&#34;https://github.com/yagop/node-telegram-bot-api&#34;&gt;node-telegram-bot-api&lt;/a&gt; library for getting notifications through Telegram and also added some control commands as well.
+Anyways, within a few days, I had ironed out the bugs(most of them that is) and had the code working fine. Now the question was regarding hosting the server.&lt;/p&gt;
+&lt;p&gt;Running a web server is costly(atleast for a student that is). The only option I had was to use an AWS ec2 instance. In the initial code I wrote, I used the node-cron library to set a cron job which automatically executes the scraping program every 30 minutes from morning to evening every day and checks if any of my subject links have got an open attendance to mark. This worked fine.. but the problem was that this would mean my server would have to be continuously running to have the program be executed at the right time.
+This was not acceptable.&lt;/p&gt;
+&lt;p&gt;So I started looking for alternate solutions, and came upon this wonderful &lt;a href=&#34;https://cron-job.org/en/&#34;&gt;site&lt;/a&gt;🤩.My new approach didn&amp;rsquo;t have the cron script in my code. I had an API endpoint which will be called by the cron-job site every 30 minutes from morning to evening. I hosted by code in Heroku and gave the api endpoint url to the cron-job site to ping. Heroku has some serious limitations for free apps which prevents them to be up more than 21 days etc. With my new approach however this was not at all a problem as now my server will be active exactly only when the cron site executes ie. it&amp;rsquo;ll be active only when it is time to mark the attendance. No extra wasted awake time.&lt;/p&gt;
+&lt;p&gt;I hosted the project, and I have to say by the end of semester I had more than 75% of attendance for all subjects. Mind you that I actually did attend all the online classes myself, just that I didn&amp;rsquo;t have to do the boring process of opening Moodle and marking the attendance manually.&lt;/p&gt;
+&lt;img src=&#34;/images/moodle-bot/bot.png&#34; width=400 alt=&#34;bot preview&#34;&gt;
+&lt;br/&gt;
+&lt;h2 id=&#34;afterthoughts&#34;&gt;Afterthoughts&lt;/h2&gt;
+&lt;p&gt;One doubt I initially had was if this was a good project from an ethical standpoint and whether my code could be used by others for getting attendance without coming to class. Since I was conflicted on this, for over one year, I didn&amp;rsquo;t tell to anyone about this project and kept the code in a private Github repo. However it was only a matter of time before I saw that students were just tired of this stupid process of manually going to moodle and marking their own attendance. I saw over 4 other automation projects for marking attendance, ie students were trying to find a way to get around the broken system;&lt;/p&gt;
+&lt;p&gt;Me keeping my project closed because I was afraid of my code being misused didn&amp;rsquo;t really matter much, people were always looking for a workaround and it was only a matter of time before they follow similar paths that you took.&lt;/p&gt;
+&lt;p&gt;That being said, each time I saw another attendance automation project, I couldn&amp;rsquo;t just think that my version of automation was actually kinda good. You didn&amp;rsquo;t even have to enter any timetable, just the attendance page urls would suffice. I saw projects for which you have to enter time-tables which was a problem because sometimes time tables may change or a different teacher may take class on a different subject if one teacher is on leave etc. Other automation projects I sad didn&amp;rsquo;t have a notification system as well, they were all python programs written to be run in the terminal. I was kinda happy though that I wasn&amp;rsquo;t the only one fed up of this system, but this also made me wonder if using your skills to get around a broken system is actually wrong..&lt;/p&gt;
+&lt;p&gt;I open sourced the project after 14 months of the initial commit. Within that period I have seen good people losing attendance(and hence their marks due to the minimum 75% attendance scheme in Kerala colleges) because they had forgotten to mark in Moodle often times when they had attended the actual classes as well. I open sourced my code without any flashy announcements in the firm belief that if one is genuinely looking for a solution, he should find it. As the Bible says, &amp;ldquo;Seek and You will Find&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Check out the code &lt;a href=&#34;https://github.com/aldrinjenson/moodle-automation&#34;&gt;here&lt;/a&gt; :).&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

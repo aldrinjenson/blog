@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>android on Aldrin Jenson</title>
+    <link>/tags/android/</link>
+    <description>Aldrin Jenson (android)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 27 Jan 2023 03:06:56 +0530</lastBuildDate>
+    
+    <atom:link href="/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to SSH to Termux Shell</title>
+      <link>/posts/ssh-termux/</link>
+      <pubDate>Fri, 27 Jan 2023 03:06:56 +0530</pubDate>
+      
+      <guid>/posts/ssh-termux/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Easy way to ssh to termux shell running on Android&lt;/p&gt;
+&lt;h1 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;A device running Android with Termux installed&lt;/li&gt;
+&lt;li&gt;A Linux machine with OpenSSH installed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;steps&#34;&gt;Steps&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Find the IP address of termux using the following command&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ip addr | grep &lt;span style=&#34;color:#ae81ff&#34;&gt;192&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;install open ssh&lt;/li&gt;
+&lt;li&gt;start ssh service using the following&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sshd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Find hostname of termux machine using &lt;code&gt;hostname&lt;/code&gt; command&lt;/li&gt;
+&lt;li&gt;From host machine, perform ssh using the following command&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  ssh -p &lt;span style=&#34;color:#ae81ff&#34;&gt;8022&lt;/span&gt; $hostname@$phoneIp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;The END&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Tada, You&amp;rsquo;ve successfully done ssh to termux✨&lt;/p&gt;
+&lt;p&gt;Use termux to start webservers (Apache, Nginx etc) just like you would normally do in a Linux machine and you can expose it to the internet using free services like ngrok.&lt;/p&gt;
+&lt;h2 id=&#34;bonus-tip&#34;&gt;Bonus Tip&lt;/h2&gt;
+&lt;p&gt;replace &lt;code&gt;ssh&lt;/code&gt; in step 5 using &lt;code&gt;sftp&lt;/code&gt; and suddenly you now have an extremely safe and easy way to transfer files to and from your phone. You&amp;rsquo;re welcome😊&lt;/p&gt;
+&lt;h2 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Connection refused: Make sure that your device is connected to the same network as your Linux machine and that the SSH service is running on Termux.&lt;/li&gt;
+&lt;li&gt;Incorrect IP address: Double-check that you have the correct IP address of your device.&lt;/li&gt;
+&lt;li&gt;Firewall issues: Make sure that your firewall is not blocking the SSH connection.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;additional-resources&#34;&gt;Additional Resources&lt;/h2&gt;
+&lt;p&gt;-&lt;a href=&#34;https://wiki.termux.com/wiki/Main_Page&#34;&gt;Termux Wiki&lt;/a&gt;
+-&lt;a href=&#34;https://www.openssh.com/&#34;&gt;OpenSSH&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>project on Aldrin Jenson</title>
+    <link>/tags/project/</link>
+    <description>Aldrin Jenson (project)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 Jul 2022 19:09:07 +0530</lastBuildDate>
+    
+    <atom:link href="/tags/project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How we hacked an entire computer lab✨</title>
+      <link>/posts/hacking-cs-lab/</link>
+      <pubDate>Tue, 26 Jul 2022 19:09:07 +0530</pubDate>
+      
+      <guid>/posts/hacking-cs-lab/</guid>
+      <description>&lt;p&gt;Linux is cool.&lt;/p&gt;
+&lt;p&gt;Computer Networks is cool.&lt;/p&gt;
+&lt;p&gt;Rick roll is cool.&lt;/p&gt;
+&lt;p&gt;Our lab teacher - Titty sir, is definitely cool.&lt;/p&gt;
+&lt;p&gt;So, hacking all the computers over there, should be cool too.?🙂&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Short write up of how I wrote a script to play rick roll in all computers in our lab. 🙂&lt;/p&gt;
+&lt;center&gt;
+  &lt;video alt=&#34;demo of us rick-rolling&#34; src=&#34;/videos/hackCSLab.mp4&#34; controls muted poster=&#34;/thumbs/hackCSLab.jpg&#34; &gt;&lt;/video&gt;
+  &lt;p class=&#39;caption&#39;&gt;In hindsight, should have added the --fullscreen flag to the browser as well!&lt;/p&gt;
+&lt;/center&gt;
+&lt;ol&gt;
+&lt;li&gt;find your ip address using&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ip a | grep 192.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;center&gt;
+  &lt;image src=&#34;/images/hackCsLab/ipGrep.jpg&#34; alt=&#34;ip grep image&#34;&gt;&lt;/image&gt;
+  &lt;p class=&#39;caption&#39;&gt;
+  If the computer is connected to two or more networks(ethernet and wifi for example) the above would result in more than one entries.
+  Note that the address ending with 255 is for broadcast and hence should not be used.
+  &lt;/p&gt;
+&lt;/center&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Get the list of all devices connected to your network using the &lt;strong&gt;nmap&lt;/strong&gt; tool&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo nmap -sn 192.168.143.0-255
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo nmap -sn 192.168.143.0-255 &amp;gt; ips.txt &lt;span style=&#34;color:#75715e&#34;&gt;# to store output to a file&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Install &lt;a href=&#34;sshpass&#34;&gt;sshpass&lt;/a&gt; on your host machine&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install sshpass
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;(i) Create simple bash script to ssh into one file and remotely execute a command&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;
+  &lt;image src=&#34;/images/hackCsLab/remoteExec.jpg&#34; alt=&#34;Remote exec sample script&#34;&gt;&lt;/image&gt;
+  &lt;p class=&#39;caption&#39;&gt;
+  Simple script to remotely execute a command in a single client machine in network using sshpass.
+  &lt;/p&gt;
+&lt;/center&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;(ii) Create script to loop through the script and remotely execute a command.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;
+  &lt;image src=&#34;/images/hackCsLab/loopIpScript.jpg&#34; alt=&#34;sample script for looping over ips and executing a bash command&#34;&gt;&lt;/image&gt;
+  &lt;p class=&#39;caption&#39;&gt;
+  Simple script to loop over a set of ips and execute a bash command.
+  &lt;/p&gt;
+&lt;/center&gt;
+&lt;h2 id=&#34;afterthoughts&#34;&gt;Afterthoughts&lt;/h2&gt;
+&lt;p&gt;There you go. This script should let you run a command remotely in all the devices in your network.&lt;/p&gt;
+&lt;p&gt;I used this only once for playing rickRoll in all the computers in our lab just as a proof of concept.&lt;/p&gt;
+&lt;p&gt;Now, even though we demoed using a rick roll, just know that if one could do this much, really dangerous stuff can be done once access to these many computers are granted. Stuff can range from crypto-mining to running keyloggers for accessing passwords of students.&lt;/p&gt;
+&lt;p&gt;This worked perfectly in our case because the passwords of all the computers were same. In little more stricter scenarios, the passwords being same are rare and hence you&amp;rsquo;d need to create separate files to map the ips to passwords before looping through.&lt;/p&gt;
+&lt;p&gt;Finally, we were able to pull this off only because the staff in CS Lab were kind and understanding of the student&amp;rsquo;s curiosity and interest to explore stuff.✨&lt;/p&gt;
+&lt;p&gt;I suppose I should mention that this is a powerful method and you should use it only with care respecting privacy of others in the network.🙂&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

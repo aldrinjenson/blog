@@ -69,22 +69,3 @@ markup:
       unsafe: true # enable raw HTML in Markdown
 
 canonifyURLs: true
-
-# New configuration to skip generating the /test route
-outputs:
-  home:
-    - "HTML"
-    - "RSS"
-    - "JSON"
-    - "ATOM"
-
-outputFormats:
-  HTML:
-    baseName: "sketches"
-    mediaType: "text/html"
-    isPlainText: true
-    notAlternative: true
-
-mediaTypes:
-  "text/html":
-    suffixes: ["html"]
