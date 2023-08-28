@@ -2,7 +2,7 @@
 title: "How to SSH to Termux Shell"
 date: 2023-01-27T03:06:56+05:30
 draft: false
-description: "Steps to access your phone using Termus over SSH"
+description: "Steps to access your phone using Termux over SSH"
 tags: [android, ssh, linux]
 ---
 
@@ -57,5 +57,4 @@ replace `ssh` in step 5 using `sftp` and suddenly you now have an extremely safe
 
 ## Additional Resources
 
--[Termux Wiki](https://wiki.termux.com/wiki/Main_Page)
--[OpenSSH](https://www.openssh.com/)
+-[Termux Wiki](https://wiki.termux.com/wiki/Main_Page) -[OpenSSH](https://www.openssh.com/)
