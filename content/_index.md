@@ -21,7 +21,7 @@ Other than tinkering with Computers, I also love playing guitar and going out wi
 
 <center>
 <img width="100%" src="/images/group.jpg" height="auto" alt="me in group photo">
-<p class="caption">Pranav, Nikita, Nayana and me in our first Bangalore trip</p>
+<p class="caption">Pranav, Nikita, Nayana and me during our first Bangalore trip</p>
 </center>
 
 This blog is an archive of some thoughts, experiences and learnings from my life - Writings which I can look back in a few years and feel _cringe_!

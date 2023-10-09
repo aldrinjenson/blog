@@ -84,7 +84,7 @@ For in acceptance we find solace,
 and true contentment shall be.
 ```
 
-## Mind = Blown
+## Mind = Blown🤯
 
 I was blown away by the response. It rightly added rhyming schemes while correctly keeping the message of the poem.
 
