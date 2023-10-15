@@ -47,11 +47,34 @@ jobs:
 - Currently it's based on docker. But you can easily replace the final command with anything else to build your product (eg: `make` or `npx serve`)
 - Replace `project-folder` with the path to the folder in which you have the project. sshpass will run the command to clone the latest version from VCS to this folder and will run the start/build/serve command.
 
-## Limitations
+## For AWS ec2 or servers requiring pem file based auth
 
-- Currently this script is based on traditional servers which works on the basis of ssh log-in using username and password. If you want to use it to access servers like AWS EC2 which supports only pem file based auth, you'd need to modify the workflow.
-  - You can store the pem file contents in a github secret and then use it inside the sshpass flow indirectly.
-  - Or, you can use existing github actions [like this](https://lightrains.com/blogs/deploy-aws-ec2-using-github-actions) written specifically for CI/CD with AWS.
+Use the following workflow yaml
+
+```yaml
+name: Deploy to AWS EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Add SSH Key
+        run: echo "${{ secrets.AWS_SECRET }}" > ssh_key.pem && chmod 600 ssh_key.pem
+
+      - name: Deploy to AWS EC2
+        run: |
+          ssh -i ssh_key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_ADDRESS }} "cd ~/project/ && git pull origin main && sudo docker compose restart"
+        env:
+          PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+```
+
+Just add the contents of pem file to AWS_SECRET. Then add the username@aws-ip to the EC2_ADDRESS secret as well
 
 ## How did this come to be?
 
