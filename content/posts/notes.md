@@ -38,4 +38,13 @@ alias whatismypublicip='curl ipinfo.io/ip'
 ```
 
 5. Removing sensitive data after having it be commited to github
-   Use git filter branch
+   `Use git filter branch`
+
+6. Getting saved wifi passwords from a linux machine
+
+```bash
+cd /etc/NetworkManager/system-connections/
+ls
+# find the correct connection-name / wifi SSID
+cat <connection-name> | grep psk
+```
