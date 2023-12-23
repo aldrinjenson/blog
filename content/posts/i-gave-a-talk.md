@@ -21,7 +21,7 @@ It was based on [an app I had made earlier]({{<ref "projects/whatsapp-msg-withou
 ## Background
 
 I was inspired by a talk which I heard over at IndiaFoss from Akash Hamirwasia who made a web-app called [Blaze](https://blaze.vercel.app/) for sending files over the internet using a website.
-His project was cool, but to me it seemed like the common man would find it a bit difficult. When I talk about the common man, I'm talking about they who doesn't even know to open web browsers(Yes, I've seen people to whom when I asked to open browser, they have opened settings and searched "browser" in the settings searchbar. Just know that you are really privileged if you think such people don't exist).
+His project was cool, but to me it seemed like the common man would find it a bit difficult. When I talk about the common man, I'm talking about they who doesn't even know to open web browsers(Yes, I've seen people to whom when I asked to open browser, they have opened settings and searched "browser" in the settings search-bar. Just know that you are really privileged if you think such people don't exist).
 
 Whatsapp is the app with which people are most comfortable. If only there was a way to send files through whatsapp without having to save the contact number...
 

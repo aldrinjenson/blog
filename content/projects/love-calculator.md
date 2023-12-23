@@ -11,7 +11,7 @@ Before reading any further, visit this [link](https://aldrinjenson.github.io/Lov
 <hr>
 Seriously dude, only continue if you visited the page and followed the instructions.
 
-This project was inspired by an article written by Subin Siby of Vidhya Institue of Sciences where he mentioned about how we once got pranked by a similar site.
+This project was inspired by an article written by Subin Siby of Vidhya Institute of Sciences where he mentioned about how we once got pranked by a similar site.
 I haven't talked to him directly other than in an online meet when he answered a question I asked in chat, but I've heard he's a cool dude interested in building cool software. (Wish I could talk to him directly for once🤞).
 
 Anyways, On April 1st 2020, I decided to build something since it's April Fool's and all. During those days, some of us in class had created a Whatsapp group for those interested in programming, where we shared different articles, tutorials etc for everyone to pick up and improve. In that group, began a conversation which somehow ended on the topic of compatibility between partners(I know, just the usual typical topic discussed in a programming group.😁). Anyway, I saw this message in the morning and this got me thinking. Since it was April Fool's day, I definitely wanted to do something fun; plus around that time, I had gotten myself pretty familiar with the awesome CSS framework [Materialize-CSS](https://materializecss.com/) and I wanted to build something cool with it as well.

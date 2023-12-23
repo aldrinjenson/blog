@@ -68,7 +68,7 @@ Also really useful if you started talking to someone at a conference and you wan
 
 I've also used the app when I've gone to churches or festivals and have someone send a copy of the notice or brochure but usually folks only know to send via Whatsapp and hence need to save contact number.
 
-I found this really useful and when I showed it to a few friends, even they could instantly relate with the problem. I realized that opening up the app and entering a number is waay faster than opening browser, typing wa.me/+91 and then entering the 10 digit phone number. It won't seem obvious until you actually try it out yourself!
+I found this really useful and when I showed it to a few friends, even they could instantly relate with the problem. I realized that opening up the app and entering a number is way faster than opening browser, typing wa.me/+91 and then entering the 10 digit phone number. It won't seem obvious until you actually try it out yourself!
 
 Hey, maybe you can try it out now and see if it's useful to you as well✨.
 

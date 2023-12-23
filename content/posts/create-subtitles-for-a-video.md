@@ -1,9 +1,9 @@
 ---
 title: "Creating and embedding Subtitles for custom videos"
-date: 2023-12-24
+date: 2023-12-24T00:45:00+05:30
 draft: false
 description: "Easy way to create subtitles and encode it in a custom video of yours"
-tags: ["linux", "foss", "hack"]
+tags: ["linux", "foss", "hack", "ffmpeg"]
 ---
 
 # How to create and add subtitles to your custom video

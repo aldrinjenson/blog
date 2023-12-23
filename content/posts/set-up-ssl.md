@@ -47,7 +47,7 @@ sudo certbot certonly --standalone
 sudo certbot --nginx --domain <your.domain.name>
 ```
 
-Note: If you get the errror: `The requested nginx plugin does not appear to be installed` on running the above command(usually on the first time), just install the cerbot-nginx plugin using the following:
+Note: If you get the error: `The requested nginx plugin does not appear to be installed` on running the above command(usually on the first time), just install the cerbot-nginx plugin using the following:
 
 ```bash
 sudo apt install python3-certbot-nginx

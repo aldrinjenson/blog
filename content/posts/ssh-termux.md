@@ -43,7 +43,7 @@ sshd
 
 Tada, You've successfully done ssh to termux✨
 
-Use termux to start webservers (Apache, Nginx etc) just like you would normally do in a Linux machine and you can expose it to the internet using free services like ngrok.
+Use termux to start web-servers (Apache, Nginx etc) just like you would normally do in a Linux machine and you can expose it to the internet using free services like ngrok.
 
 ## Bonus Tip
 
