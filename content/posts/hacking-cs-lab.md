@@ -46,7 +46,7 @@ sudo nmap -sn 192.168.143.0-255
 sudo nmap -sn 192.168.143.0-255 > ips.txt # to store output to a file
 ```
 
-3. Install [sshpass](sshpass) on your host machine
+3. Install [sshpass](https://man.archlinux.org/man/sshpass.1) on your host machine
 
 ```bash
 sudo apt install sshpass

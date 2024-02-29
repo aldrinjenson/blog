@@ -57,4 +57,6 @@ replace `ssh` in step 5 using `sftp` and suddenly you now have an extremely safe
 
 ## Additional Resources
 
--[Termux Wiki](https://wiki.termux.com/wiki/Main_Page) -[OpenSSH](https://www.openssh.com/)
+-[Termux Wiki](https://wiki.termux.com/wiki/Main_Page)
+
+-[OpenSSH](https://www.openssh.com/)
