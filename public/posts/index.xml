@@ -6,10 +6,54 @@
     <description>Aldrin Jenson (Posts)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Dec 2023 00:45:00 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 24 Mar 2024 00:00:00 +0000</lastBuildDate>
     
     <atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Essential Components for Building Human-Like AI Assistants</title>
+      <link>//localhost:1313/posts/essential-components-for-human-like-ai-assistants/</link>
+      <pubDate>Sun, 24 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/posts/essential-components-for-human-like-ai-assistants/</guid>
+      <description>&lt;p&gt;In this article, I&amp;rsquo;ll explore the key components that I believe are essential for current Large Language Models (LLMs) to function effectively as AI assistants or agents. Based on my analysis, there are five core elements, plus one bonus feature, that bring us really close to creating truly human-like AI assistants.&lt;/p&gt;
+&lt;h3 id=&#34;core-components&#34;&gt;Core Components&lt;/h3&gt;
+&lt;h3 id=&#34;1-computer-interaction-capabilities&#34;&gt;1. Computer Interaction Capabilities&lt;/h3&gt;
+&lt;p&gt;The LLM should be able to navigate computers and browsers just as a human would. This fundamental ability enables the AI to interact with digital interfaces naturally and effectively.&lt;/p&gt;
+&lt;p&gt;Ref: &lt;a href=&#34;https://openai.com/index/introducing-operator/&#34;&gt;OpenAI operator&lt;/a&gt;, &lt;a href=&#34;https://www.hyperbrowser.ai/&#34;&gt;Hyperbrowser&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;2-robust-coding-environment&#34;&gt;2. Robust Coding Environment&lt;/h3&gt;
+&lt;p&gt;Rather than judging an AI assistant by its pre-built tools, we should evaluate its ability to create tools in real-time using a coding environment like Python. This environment should enable the AI to write functions for specific tasks, such as making API calls to fetch data, and create reusable tools as needed.&lt;/p&gt;
+&lt;p&gt;Ref: &lt;a href=&#34;https://resources.athenaintel.com/docs/task-studio/task-builder&#34;&gt;Task builder&lt;/a&gt; in Athena Intelligence which lets the AI write code to save new tools that it can use&lt;/p&gt;
+&lt;h3 id=&#34;3-voice-communication&#34;&gt;3. Voice Communication&lt;/h3&gt;
+&lt;p&gt;An ideal AI assistant shouldn&amp;rsquo;t be limited to text-based interactions. Like a human executive assistant, it should be capable of natural and efficient voice communication, making interactions more intuitive and accessible.&lt;/p&gt;
+&lt;p&gt;Ref: OpenAIs real-time Voice mode&lt;/p&gt;
+&lt;h3 id=&#34;4-context-awareness-and-memory&#34;&gt;4. Context Awareness and Memory&lt;/h3&gt;
+&lt;p&gt;Personalization is crucial for an effective AI assistant. The system should maintain context through vector embeddings of past interactions and user preferences, allowing it to learn from experience and apply this knowledge in future sessions.&lt;/p&gt;
+&lt;p&gt;Ref: &lt;a href=&#34;https://github.com/getzep/graphiti&#34;&gt;Graphiti&lt;/a&gt; by Zep or normal RAG of learnings -&amp;gt; with memories injected to context for every new human message.&lt;/p&gt;
+&lt;p&gt;Ideally there should be a tool the agent can call to save learnings to the graph or Embedding space whenever required. I think for every human message, the right memories are fetched from the vector space and given as probable context.&lt;/p&gt;
+&lt;h3 id=&#34;5-real-time-feedback-loop&#34;&gt;5. Real-time Feedback Loop&lt;/h3&gt;
+&lt;p&gt;For managing long-running tasks, a robust feedback system is essential. The LangChain framework demonstrates this well with its messaging system. When handling extended tasks, the tool should:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Provide immediate acknowledgment (e.g., &amp;ldquo;Task initiated&amp;rdquo;) by yielding a Tool Response Msg&lt;/li&gt;
+&lt;li&gt;Offer a function handler/listener for progress monitoring — that the agent can call at any later time to check progress&lt;/li&gt;
+&lt;li&gt;Once the long-running task is done, inject the output as a ToolResponse message — The llms with their increasingly large context windows would be smart enough to associate the responce with the originally called tool.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ref: &lt;a href=&#34;https://python.langchain.com/api_reference/core/messages/langchain_core.messages.tool.ToolMessage.html&#34;&gt;Langchain&amp;rsquo;s ToolResponse&lt;/a&gt; message&lt;/p&gt;
+&lt;h3 id=&#34;bonus-feature-task-branching&#34;&gt;Bonus Feature: Task Branching&lt;/h3&gt;
+&lt;p&gt;An additional powerful capability would be task branching or forking. This feature would allow the agent to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create separate execution threads while maintaining full context&lt;/li&gt;
+&lt;li&gt;Work independently on specific tasks&lt;/li&gt;
+&lt;li&gt;Report back to the main thread upon completion&lt;/li&gt;
+&lt;li&gt;Continue main operations uninterrupted while ensuring that every branched task has full context of everything till previous flow Ref: num_past_messages = infinity for subagents in Athena Agents&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This mirrors how a human team member might take on an assigned task, work independently, and report back upon completion.&lt;/p&gt;
+&lt;p&gt;These components, when implemented effectively, bring us much closer to creating AI assistants that can truly emulate human-like capabilities and interactions.&lt;/p&gt;
+&lt;p&gt;I strongly feel that the system built and improved at &lt;a href=&#34;https://athenaintel.com/&#34;&gt;Athena Intelligence&lt;/a&gt; will be one of the first ones that can truly achieve the incredible feat of making a near identical AI assistant.&lt;/p&gt;
+&lt;p&gt;Credits: The AI system — Winston from the novel &lt;a href=&#34;https://en.wikipedia.org/wiki/Origin_(Brown_novel)&#34;&gt;Origin&lt;/a&gt;, by Dan Brown&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Creating and embedding Subtitles for custom videos</title>
