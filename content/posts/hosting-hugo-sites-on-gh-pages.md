@@ -1,7 +1,7 @@
 ---
 title: "How to host a Hugo static site using Github pages"
 description: "Some pointers on hosting a Hugo site using Github pages"
-date: 2021-10-21T00:20:33+05:30
+# date: 2021-10-21T00:20:33+05:30
 draft: false
 tags: [tech]
 ---

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ffmpeg on Aldrin Jenson</title>
+    <link>//localhost:1313/tags/ffmpeg/</link>
+    <description>Aldrin Jenson (Ffmpeg)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 Dec 2023 00:45:00 +0530</lastBuildDate>
+    
+    <atom:link href="//localhost:1313/tags/ffmpeg/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Creating and embedding Subtitles for custom videos</title>
+      <link>//localhost:1313/posts/create-subtitles-for-a-video/</link>
+      <pubDate>Sun, 24 Dec 2023 00:45:00 +0530</pubDate>
+      
+      <guid>//localhost:1313/posts/create-subtitles-for-a-video/</guid>
+      <description>&lt;h1 id=&#34;how-to-create-and-add-subtitles-to-your-custom-video&#34;&gt;How to create and add subtitles to your custom video&lt;/h1&gt;
+&lt;p&gt;It consists of the following steps&lt;/p&gt;
+&lt;h2 id=&#34;step-1-have-the-video-be-ready-at-hand&#34;&gt;Step 1: Have the video be ready at hand.&lt;/h2&gt;
+&lt;p&gt;No-brainer. But ensure that you have a video in which there is speech present. You can record the video using any web based recorders if you don&amp;rsquo;t have camera software installed.&lt;/p&gt;
+&lt;p&gt;If you are in Mac, you can also record using QuickTime Player -&amp;gt; File -&amp;gt; New Movie Recording. This way you don&amp;rsquo;t need to use any other extra software than the ones already installed!&lt;/p&gt;
+&lt;p&gt;Linux has a bunch of cli and GUI based free software available that you can use as well.&lt;/p&gt;
+&lt;h2 id=&#34;step-2-download-whisper&#34;&gt;Step 2: Download whisper&lt;/h2&gt;
+&lt;p&gt;Whisper is state of the speech recognition model released by OpenAI.
+There is both the original whisper python package and also &lt;a href=&#34;https://github.com/ggerganov/whisper.cpp&#34;&gt;whisper.cpp&lt;/a&gt;.
+Second one is highly recommended as it&amp;rsquo;s much more faster and optimised(cus it&amp;rsquo;s in C++ 🚀).&lt;/p&gt;
+&lt;p&gt;If you have a good CPU, choose the medium model to begin with.&lt;/p&gt;
+&lt;p&gt;So now,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Just install whisper by following the ReadMe instructions specific to your OS.&lt;/li&gt;
+&lt;li&gt;choose the medium model&lt;/li&gt;
+&lt;li&gt;build the binary by running: &lt;code&gt;make&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;step-3-creating-an-wav-file-from-video&#34;&gt;Step 3: Creating an wav file from video&lt;/h2&gt;
+&lt;p&gt;Now you&amp;rsquo;d need to convert the video file to an audio file to pass it on to &lt;code&gt;whisper&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;As of writing this blog, whisper takes in only 16-bit &lt;code&gt;wav&lt;/code&gt; file as input.&lt;/p&gt;
+&lt;p&gt;Converting the video to .wav is as easy as running this simple &lt;code&gt;ffmpeg&lt;/code&gt; command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ffmpeg -i input.mov -ar &lt;span style=&#34;color:#ae81ff&#34;&gt;16000&lt;/span&gt; -ac &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; -c:a pcm_s16le output.wav
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will create a new file called &lt;code&gt;output.wav&lt;/code&gt; which contains just the audio from your video file.&lt;/p&gt;
+&lt;h2 id=&#34;step-4-generating-an-srt-file-using-whisper&#34;&gt;Step 4: Generating an srt file using whisper&lt;/h2&gt;
+&lt;p&gt;Now,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;pass in this audio file as input and generate subtitles&lt;/li&gt;
+&lt;li&gt;If the subtitles generated are not &lt;em&gt;that&lt;/em&gt; great, just choose a bigger model.&lt;/li&gt;
+&lt;li&gt;pass the &lt;code&gt;-osrt&lt;/code&gt; flag to generate the output as a &lt;code&gt;.srt &lt;/code&gt;file&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This would be the final command to achieve the above:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;./main -m  models/ggml-medium.en.bin ./output2.wav -osrt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will generate subtitles in the file &lt;code&gt;output2.wav.srt&lt;/code&gt; and place it in the same directory.&lt;/p&gt;
+&lt;p&gt;Open this file and do some minor manual editing if necessary.&lt;/p&gt;
+&lt;p&gt;Whisper is pretty good, but in some rare cases like for names, it may need some additional manual corrections.&lt;/p&gt;
+&lt;h2 id=&#34;step-5-encoding-the-subtitle-file-to-the-original-videooptional&#34;&gt;Step 5: Encoding the subtitle file to the original video(optional)&lt;/h2&gt;
+&lt;p&gt;The final step involves creating a video which has the subtitles embedded inside.
+This can be easily achieved using a simple ffmpeg script:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ffmpeg -i input.mov -vf subtitles&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;output2.wav.srt final_with_sub.mp4
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above script uses the &lt;code&gt;-vf&lt;/code&gt; flag to pass in the subtitle file. It generates the final output in a &lt;code&gt;.mp4&lt;/code&gt; format as well.&lt;/p&gt;
+&lt;h2 id=&#34;step-6-boost-the-volume-of-videooptional&#34;&gt;Step 6: Boost the volume of video(optional)&lt;/h2&gt;
+&lt;p&gt;If for some reason, you may want to increase the volume of the audio, you can achieve that also using ffmpeg with the -af param and passing the required audio.&lt;/p&gt;
+&lt;p&gt;eg:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ffmpeg -i input.mov -vf subtitles&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;output2.wav.srt -af &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;volume=1.3&amp;#34;&lt;/span&gt; final_with_sub.mov
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;p&gt;There you go. That&amp;rsquo;s all there is to adding custom subtitles to your videos!&lt;/p&gt;
+&lt;p&gt;No need for any proprietary fancy video editing software.&lt;/p&gt;
+&lt;p&gt;FFMPEG FTW ✨&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

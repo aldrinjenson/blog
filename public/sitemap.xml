@@ -2,166 +2,316 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/tags/ai/</loc>
+    <loc>//localhost:1313/personal/great-people/</loc>
+    <lastmod>2023-12-25T00:45:00+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/personal/</loc>
+    <lastmod>2023-12-25T00:45:00+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/personal/</loc>
+    <lastmod>2023-12-25T00:45:00+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/</loc>
+    <lastmod>2023-12-25T00:45:00+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/thoughts/</loc>
+    <lastmod>2023-12-25T00:45:00+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/create-subtitles-for-a-video/</loc>
+    <lastmod>2023-12-24T00:45:00+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/ffmpeg/</loc>
+    <lastmod>2023-12-24T00:45:00+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/foss/</loc>
+    <lastmod>2023-12-24T00:45:00+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/hack/</loc>
+    <lastmod>2023-12-24T00:45:00+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/linux/</loc>
+    <lastmod>2023-12-24T00:45:00+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/</loc>
+    <lastmod>2023-12-24T00:45:00+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/gh-action-for-rust-build/</loc>
+    <lastmod>2023-09-20T14:42:38+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/github-action/</loc>
+    <lastmod>2023-09-20T14:42:38+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/rust/</loc>
+    <lastmod>2023-09-20T14:42:38+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/yaml/</loc>
+    <lastmod>2023-09-20T14:42:38+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/docker/</loc>
+    <lastmod>2023-08-27T07:00:55+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/adding-metatags-to-streamlit/</loc>
+    <lastmod>2023-08-27T07:00:55+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/python/</loc>
+    <lastmod>2023-08-27T07:00:55+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/tech/</loc>
+    <lastmod>2023-08-27T07:00:55+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/projects/simple-stable-diffusion/</loc>
+    <lastmod>2023-07-23T19:25:18+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/projects/</loc>
+    <lastmod>2023-07-23T19:25:18+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/no-bad-people/</loc>
+    <lastmod>2023-07-23T06:16:19+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/ai/</loc>
     <lastmod>2023-07-03T21:56:59+05:30</lastmod>
   </url><url>
-    <loc>/tags/creativity/</loc>
+    <loc>//localhost:1313/tags/creativity/</loc>
     <lastmod>2023-07-03T21:56:59+05:30</lastmod>
   </url><url>
-    <loc>/tags/gpt/</loc>
+    <loc>//localhost:1313/tags/gpt/</loc>
     <lastmod>2023-07-03T21:56:59+05:30</lastmod>
   </url><url>
-    <loc>/posts/i-wrote-poems-in-10-mins/</loc>
+    <loc>//localhost:1313/posts/i-wrote-poems-in-10-mins/</loc>
     <lastmod>2023-07-03T21:56:59+05:30</lastmod>
   </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2023-07-03T21:56:59+05:30</lastmod>
+    <loc>//localhost:1313/posts/gnu-parallel-is-awesome/</loc>
+    <lastmod>2023-06-04T21:16:26+05:30</lastmod>
   </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2023-07-03T21:56:59+05:30</lastmod>
-  </url><url>
-    <loc>/tags/devops/</loc>
+    <loc>//localhost:1313/tags/devops/</loc>
     <lastmod>2023-04-25T00:32:13+05:30</lastmod>
   </url><url>
-    <loc>/posts/easy-ssh-deploy/</loc>
+    <loc>//localhost:1313/posts/easy-ssh-deploy/</loc>
     <lastmod>2023-04-25T00:32:13+05:30</lastmod>
   </url><url>
-    <loc>/tags/linux/</loc>
+    <loc>//localhost:1313/tags/ssh/</loc>
     <lastmod>2023-04-25T00:32:13+05:30</lastmod>
   </url><url>
-    <loc>/tags/ssh/</loc>
-    <lastmod>2023-04-25T00:32:13+05:30</lastmod>
+    <loc>//localhost:1313/talks/minedojo-seminar/</loc>
+    <lastmod>2023-03-29T21:57:09+05:30</lastmod>
   </url><url>
-    <loc>/tags/aws/</loc>
+    <loc>//localhost:1313/talks/</loc>
+    <lastmod>2023-03-29T21:57:09+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/aws/</loc>
     <lastmod>2023-03-26T16:04:39+00:00</lastmod>
   </url><url>
-    <loc>/tags/express/</loc>
+    <loc>//localhost:1313/tags/express/</loc>
     <lastmod>2023-03-26T16:04:39+00:00</lastmod>
   </url><url>
-    <loc>/posts/serverless-express-api/</loc>
+    <loc>//localhost:1313/posts/serverless-express-api/</loc>
     <lastmod>2023-03-26T16:04:39+00:00</lastmod>
   </url><url>
-    <loc>/tags/node/</loc>
+    <loc>//localhost:1313/tags/node/</loc>
     <lastmod>2023-03-26T16:04:39+00:00</lastmod>
   </url><url>
-    <loc>/tags/serverless/</loc>
+    <loc>//localhost:1313/tags/serverless/</loc>
     <lastmod>2023-03-26T16:04:39+00:00</lastmod>
   </url><url>
-    <loc>/tags/android/</loc>
+    <loc>//localhost:1313/posts/organizing-a-hackathon/</loc>
+    <lastmod>2023-03-20T00:43:55+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/backend/</loc>
+    <lastmod>2023-03-01T10:29:22+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/my-2-cents-on-scaling/</loc>
+    <lastmod>2023-03-01T10:29:22+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/scaling/</loc>
+    <lastmod>2023-03-01T10:29:22+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/android/</loc>
     <lastmod>2023-01-27T03:06:56+05:30</lastmod>
   </url><url>
-    <loc>/posts/ssh-termux/</loc>
+    <loc>//localhost:1313/posts/ssh-termux/</loc>
     <lastmod>2023-01-27T03:06:56+05:30</lastmod>
   </url><url>
-    <loc>/tags/cybersecurity/</loc>
+    <loc>//localhost:1313/tags/cybersecurity/</loc>
     <lastmod>2023-01-16T02:33:48+05:30</lastmod>
   </url><url>
-    <loc>/posts/crack-os-password/</loc>
+    <loc>//localhost:1313/posts/crack-os-password/</loc>
     <lastmod>2023-01-16T02:33:48+05:30</lastmod>
   </url><url>
-    <loc>/tags/kali/</loc>
+    <loc>//localhost:1313/tags/kali/</loc>
     <lastmod>2023-01-16T02:33:48+05:30</lastmod>
   </url><url>
-    <loc>/tags/backend/</loc>
+    <loc>//localhost:1313/tags/infra/</loc>
     <lastmod>2022-12-25T18:15:07+05:30</lastmod>
   </url><url>
-    <loc>/tags/docker/</loc>
+    <loc>//localhost:1313/tags/nginx/</loc>
     <lastmod>2022-12-25T18:15:07+05:30</lastmod>
   </url><url>
-    <loc>/tags/infra/</loc>
+    <loc>//localhost:1313/posts/redirect-subdomains-to-docker/</loc>
     <lastmod>2022-12-25T18:15:07+05:30</lastmod>
   </url><url>
-    <loc>/tags/nginx/</loc>
-    <lastmod>2022-12-25T18:15:07+05:30</lastmod>
-  </url><url>
-    <loc>/posts/redirect-subdomains-to-docker/</loc>
-    <lastmod>2022-12-25T18:15:07+05:30</lastmod>
-  </url><url>
-    <loc>/posts/set-up-ssl/</loc>
+    <loc>//localhost:1313/posts/set-up-ssl/</loc>
     <lastmod>2022-12-25T18:14:39+05:30</lastmod>
   </url><url>
-    <loc>/tags/ssl/</loc>
+    <loc>//localhost:1313/tags/ssl/</loc>
     <lastmod>2022-12-25T18:14:39+05:30</lastmod>
   </url><url>
-    <loc>/posts/notes/</loc>
+    <loc>//localhost:1313/tags/fastai/</loc>
+    <lastmod>2022-10-03T11:20:30+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/projects/recreating-teachable-machine/</loc>
+    <lastmod>2022-10-03T11:20:30+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/ml/</loc>
+    <lastmod>2022-10-03T11:20:30+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/pytorch/</loc>
+    <lastmod>2022-10-03T11:20:30+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/awe/</loc>
+    <lastmod>2022-10-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/leadership/</loc>
+    <lastmod>2022-10-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/learning/</loc>
+    <lastmod>2022-10-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/management/</loc>
+    <lastmod>2022-10-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/organizing-kochifoss/</loc>
+    <lastmod>2022-10-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/personal/principles/</loc>
+    <lastmod>2022-09-22T23:59:39+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/reflection/</loc>
+    <lastmod>2022-09-22T23:59:39+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/personal/tech-stuff/</loc>
+    <lastmod>2022-09-22T23:57:30+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/tips-to-learn-better/</loc>
+    <lastmod>2022-09-22T13:23:14+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/notes/</loc>
     <lastmod>2022-09-12T19:02:56+05:30</lastmod>
   </url><url>
-    <loc>/tags/arch-linux/</loc>
+    <loc>//localhost:1313/posts/everyone-is-fake/</loc>
+    <lastmod>2022-09-11T22:35:06+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/useful-linux-stuff/</loc>
+    <lastmod>2022-08-21T21:20:19+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/won-prizes-for-electrical/</loc>
+    <lastmod>2022-08-11T22:12:03+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/released-a-product-on-reddit/</loc>
+    <lastmod>2022-08-09T19:41:25+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/discovery/</loc>
+    <lastmod>2022-08-06T13:47:26+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/exploration/</loc>
+    <lastmod>2022-08-06T13:47:26+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/access-linux-files-from-windows/</loc>
+    <lastmod>2022-08-06T13:47:26+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/arch-linux/</loc>
     <lastmod>2022-07-26T19:09:07+05:30</lastmod>
   </url><url>
-    <loc>/tags/foss/</loc>
+    <loc>//localhost:1313/tags/fun/</loc>
     <lastmod>2022-07-26T19:09:07+05:30</lastmod>
   </url><url>
-    <loc>/tags/fun/</loc>
+    <loc>//localhost:1313/posts/hacking-cs-lab/</loc>
     <lastmod>2022-07-26T19:09:07+05:30</lastmod>
   </url><url>
-    <loc>/posts/hacking-cs-lab/</loc>
+    <loc>//localhost:1313/posts/i-gave-a-talk/</loc>
     <lastmod>2022-07-26T19:09:07+05:30</lastmod>
   </url><url>
-    <loc>/posts/i-gave-a-talk/</loc>
+    <loc>//localhost:1313/tags/indiafoss/</loc>
     <lastmod>2022-07-26T19:09:07+05:30</lastmod>
   </url><url>
-    <loc>/tags/indiafoss/</loc>
+    <loc>//localhost:1313/tags/project/</loc>
     <lastmod>2022-07-26T19:09:07+05:30</lastmod>
   </url><url>
-    <loc>/tags/personal/</loc>
+    <loc>//localhost:1313/tags/talk/</loc>
     <lastmod>2022-07-26T19:09:07+05:30</lastmod>
   </url><url>
-    <loc>/tags/project/</loc>
-    <lastmod>2022-07-26T19:09:07+05:30</lastmod>
+    <loc>//localhost:1313/posts/world-is-nice/</loc>
+    <lastmod>2022-03-26T19:09:07+05:30</lastmod>
   </url><url>
-    <loc>/tags/talk/</loc>
-    <lastmod>2022-07-26T19:09:07+05:30</lastmod>
+    <loc>//localhost:1313/projects/mutual-couple-finder/</loc>
+    <lastmod>2022-02-14T22:19:22+05:30</lastmod>
   </url><url>
-    <loc>/projects/moodle-automation/</loc>
+    <loc>//localhost:1313/tags/telegram-bot/</loc>
+    <lastmod>2022-02-14T22:19:22+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/win-wordle-with-grep/</loc>
+    <lastmod>2022-02-14T22:19:04+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/my-linux-journey/</loc>
+    <lastmod>2022-01-30T02:33:33+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/projects/moodle-automation/</loc>
     <lastmod>2022-01-19T19:25:18+05:30</lastmod>
   </url><url>
-    <loc>/tags/nodejs/</loc>
+    <loc>//localhost:1313/tags/nodejs/</loc>
     <lastmod>2022-01-19T19:25:18+05:30</lastmod>
   </url><url>
-    <loc>/projects/</loc>
+    <loc>//localhost:1313/tags/telegram/</loc>
     <lastmod>2022-01-19T19:25:18+05:30</lastmod>
   </url><url>
-    <loc>/tags/tech/</loc>
-    <lastmod>2022-01-19T19:25:18+05:30</lastmod>
+    <loc>//localhost:1313/posts/a-good-leader/</loc>
+    <lastmod>2021-12-20T00:38:05+05:30</lastmod>
   </url><url>
-    <loc>/tags/telegram/</loc>
-    <lastmod>2022-01-19T19:25:18+05:30</lastmod>
+    <loc>//localhost:1313/personal/gratitude/</loc>
+    <lastmod>2021-12-20T00:38:05+05:30</lastmod>
   </url><url>
-    <loc>/projects/query-search-bot/</loc>
+    <loc>//localhost:1313/personal/my-bg/</loc>
+    <lastmod>2021-12-20T00:38:05+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/rant/</loc>
+    <lastmod>2021-10-24T19:27:40+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/ancients-werent-morons/</loc>
+    <lastmod>2021-10-24T19:27:40+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/serverless-bot-deployment/</loc>
     <lastmod>2021-10-24T19:25:18+05:30</lastmod>
   </url><url>
-    <loc>/posts/hosting-hugo-sites-on-gh-pages/</loc>
-    <lastmod>2021-10-21T00:20:33+05:30</lastmod>
+    <loc>//localhost:1313/projects/query-search-bot/</loc>
+    <lastmod>2021-10-24T19:25:18+05:30</lastmod>
   </url><url>
-    <loc>/</loc>
+    <loc>//localhost:1313/</loc>
     <lastmod>2021-10-17T19:19:16+05:30</lastmod>
   </url><url>
-    <loc>/posts/git-autocorrect/</loc>
+    <loc>//localhost:1313/posts/git-autocorrect/</loc>
     <lastmod>2020-11-01T17:07:10+05:30</lastmod>
   </url><url>
-    <loc>/posts/add-splash-screen-in-react-native-app/</loc>
+    <loc>//localhost:1313/posts/add-splash-screen-in-react-native-app/</loc>
     <lastmod>2020-06-24T00:58:27+05:30</lastmod>
   </url><url>
-    <loc>/tags/react-native/</loc>
+    <loc>//localhost:1313/tags/react-native/</loc>
     <lastmod>2020-06-24T00:58:27+05:30</lastmod>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>//localhost:1313/categories/</loc>
   </url><url>
-    <loc>/tags/ethics/</loc>
+    <loc>//localhost:1313/tags/ethics/</loc>
   </url><url>
-    <loc>/tags/firebase/</loc>
+    <loc>//localhost:1313/tags/firebase/</loc>
   </url><url>
-    <loc>/tags/flutter/</loc>
+    <loc>//localhost:1313/tags/flutter/</loc>
   </url><url>
-    <loc>/tags/global-good/</loc>
+    <loc>//localhost:1313/tags/global-good/</loc>
   </url><url>
-    <loc>/projects/love-calculator/</loc>
+    <loc>//localhost:1313/posts/hosting-hugo-sites-on-gh-pages/</loc>
   </url><url>
-    <loc>/personal/</loc>
+    <loc>//localhost:1313/projects/love-calculator/</loc>
   </url><url>
-    <loc>/projects/whatsapp-msg-without-save/</loc>
+    <loc>//localhost:1313/projects/whatsapp-msg-without-save/</loc>
   </url><url>
-    <loc>/tags/whatsapp/</loc>
+    <loc>//localhost:1313/tags/whatsapp/</loc>
   </url>
 </urlset>

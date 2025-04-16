@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>whatsapp on Aldrin Jenson</title>
-    <link>/tags/whatsapp/</link>
-    <description>Aldrin Jenson (whatsapp)</description>
+    <title>Whatsapp on Aldrin Jenson</title>
+    <link>//localhost:1313/tags/whatsapp/</link>
+    <description>Aldrin Jenson (Whatsapp)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <atom:link href="/tags/whatsapp/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/whatsapp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Sending Whatsapp messages without saving contact</title>
-      <link>/projects/whatsapp-msg-without-save/</link>
+      <link>//localhost:1313/projects/whatsapp-msg-without-save/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/projects/whatsapp-msg-without-save/</guid>
+      <guid>//localhost:1313/projects/whatsapp-msg-without-save/</guid>
       <description>&lt;h3 id=&#34;abstract&#34;&gt;Abstract&lt;/h3&gt;
 &lt;p&gt;An app I made to ensure that you can share links and files really easily to anyone without having to save the contact number of that person by using the already existing most famous digital medium of communication - Whatsapp.&lt;/p&gt;
 &lt;p&gt;Get the code and APK from this &lt;a href=&#34;https://github.com/aldrinjenson/send-whatsapp-msg-without-save&#34;&gt;link&lt;/a&gt;.&lt;/p&gt;
@@ -41,7 +41,7 @@ This is cool and all, but why save someone&amp;rsquo;s contact if it&amp;rsquo; 
 &lt;p&gt;Now, what if there was one app which could automate this even further so that even very common man could use this without having to use a browser to enter a URL each time!&lt;/p&gt;
 &lt;p&gt;Well, that&amp;rsquo;s exactly what I made: An app which behind the scenes, calls the above link with a mobile number accepted as parameter.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s a demo:&lt;/p&gt;
-&lt;img src=&#34;/images/wa_msg_without_save_demo.gif&#34; width=400 alt=&#34;demo workflow gif&#34;&gt;
+&lt;img src=&#34;//localhost:1313/images/wa_msg_without_save_demo.gif&#34; width=400 alt=&#34;demo workflow gif&#34;&gt;
 &lt;br/&gt;
 &lt;h2 id=&#34;code-and-implementation&#34;&gt;Code and implementation&lt;/h2&gt;
 &lt;p&gt;The code is written in Flutter because the main reason for the starting of this project was for me to try out Flutter.&lt;/p&gt;
@@ -52,7 +52,7 @@ This is cool and all, but why save someone&amp;rsquo;s contact if it&amp;rsquo; 
 &lt;p&gt;Most of my projects so far which a lot of people have felt really useful are those which were really simple to implement. Within just 2 months of building this app, I felt myself using this way more than I initially anticipated. An app like this is really useful if you&amp;rsquo;re organizing an event and you&amp;rsquo;d want to just start a conversation with a participant but you know for sure that you won&amp;rsquo;t be contacting them again after this one time event.&lt;/p&gt;
 &lt;p&gt;Also really useful if you started talking to someone at a conference and you want to send them a link about your project.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve also used the app when I&amp;rsquo;ve gone to churches or festivals and have someone send a copy of the notice or brochure but usually folks only know to send via Whatsapp and hence need to save contact number.&lt;/p&gt;
-&lt;p&gt;I found this really useful and when I showed it to a few friends, even they could instantly relate with the problem. I realized that opening up the app and entering a number is waay faster than opening browser, typing wa.me/+91 and then entering the 10 digit phone number. It won&amp;rsquo;t seem obvious until you actually try it out yourself!&lt;/p&gt;
+&lt;p&gt;I found this really useful and when I showed it to a few friends, even they could instantly relate with the problem. I realized that opening up the app and entering a number is way faster than opening browser, typing wa.me/+91 and then entering the 10 digit phone number. It won&amp;rsquo;t seem obvious until you actually try it out yourself!&lt;/p&gt;
 &lt;p&gt;Hey, maybe you can try it out now and see if it&amp;rsquo;s useful to you as well✨.&lt;/p&gt;
 &lt;p&gt;Get the code and APK file from &lt;a href=&#34;https://github.com/aldrinjenson/send-whatsapp-msg-without-save&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
 </description>

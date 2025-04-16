@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>nginx on Aldrin Jenson</title>
-    <link>/tags/nginx/</link>
-    <description>Aldrin Jenson (nginx)</description>
+    <title>Nginx on Aldrin Jenson</title>
+    <link>//localhost:1313/tags/nginx/</link>
+    <description>Aldrin Jenson (Nginx)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 25 Dec 2022 18:15:07 +0530</lastBuildDate>
     
-    <atom:link href="/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Redirecting Subdomains to docker containers in same server</title>
-      <link>/posts/redirect-subdomains-to-docker/</link>
+      <link>//localhost:1313/posts/redirect-subdomains-to-docker/</link>
       <pubDate>Sun, 25 Dec 2022 18:15:07 +0530</pubDate>
       
-      <guid>/posts/redirect-subdomains-to-docker/</guid>
+      <guid>//localhost:1313/posts/redirect-subdomains-to-docker/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Article on how to have multiple running docker containers (or any other web servers) and have separate subdomains which map to these services.&lt;/p&gt;
 &lt;!-- Bonus tip on how to add https on these as well :) --&gt;
@@ -44,14 +44,14 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;Find the port in which your container or services re running. Double check and ensure that the API is working fine in localhost, using the following commands&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ss -lntp &lt;span style=&#34;color:#75715e&#34;&gt;# check that the corredt port is exposed.&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ss -lntp &lt;span style=&#34;color:#75715e&#34;&gt;# check that the correct port is exposed.&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl localhost:PORT &lt;span style=&#34;color:#75715e&#34;&gt;# verify that you get the expected response.&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
 &lt;li&gt;Decide on the subdomains to which you want to route traffic and add them using your dns management console&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Here&amp;rsquo;s an example image using cloudflare&lt;/p&gt;
 &lt;center&gt;
-	&lt;image src=&#34;/images/ssl/cloudflareDns.png&#34; alt=&#34;Cloudflare DNS - Adding new subdomain&#34;&gt;&lt;/image&gt;
+	&lt;image src=&#34;//localhost:1313/images/ssl/cloudflareDns.png&#34; alt=&#34;Cloudflare DNS - Adding new subdomain&#34;&gt;&lt;/image&gt;
 &lt;p class=&#39;caption&#39;&gt;Cloudflare DNS - Adding new subdomain(replace the ip with your server&#39;s public ip)&lt;/p&gt;
 &lt;/center&gt;
 &lt;p&gt;Note: You can get the public IP of your server using the following &lt;code&gt;curl&lt;/code&gt; command&lt;/p&gt;
@@ -86,10 +86,10 @@
     
     <item>
       <title>How to add SSL and make a server https</title>
-      <link>/posts/set-up-ssl/</link>
+      <link>//localhost:1313/posts/set-up-ssl/</link>
       <pubDate>Sun, 25 Dec 2022 18:14:39 +0530</pubDate>
       
-      <guid>/posts/set-up-ssl/</guid>
+      <guid>//localhost:1313/posts/set-up-ssl/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;An easy way to set up Secure Socket Layer (SSL) on a web server without having necessary nginx installation. SSL is a security protocol that encrypts data sent between a client and a server, helping to protect against hacking and other online threats. By enabling SSL on your web server, you can ensure that sensitive data sent to and from your server is protected.&lt;/p&gt;
 &lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;/h2&gt;
@@ -116,7 +116,7 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo certbot certonly --standalone
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;4 b. If you&amp;rsquo;re having nginx already running, then use the following command instead:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo certbot --nginx --domain &amp;lt;your.domain.name&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note: If you get the errror: &lt;code&gt;The requested nginx plugin does not appear to be installed&lt;/code&gt; on running the above command(usually on the first time), just install the cerbot-nginx plugin using the following:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note: If you get the error: &lt;code&gt;The requested nginx plugin does not appear to be installed&lt;/code&gt; on running the above command(usually on the first time), just install the cerbot-nginx plugin using the following:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install python3-certbot-nginx
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
 &lt;li&gt;

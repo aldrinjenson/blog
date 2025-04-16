@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>firebase on Aldrin Jenson</title>
-    <link>/tags/firebase/</link>
-    <description>Aldrin Jenson (firebase)</description>
+    <title>Firebase on Aldrin Jenson</title>
+    <link>//localhost:1313/tags/firebase/</link>
+    <description>Aldrin Jenson (Firebase)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <atom:link href="/tags/firebase/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/firebase/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Love Match Calculator</title>
-      <link>/projects/love-calculator/</link>
+      <link>//localhost:1313/projects/love-calculator/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/projects/love-calculator/</guid>
+      <guid>//localhost:1313/projects/love-calculator/</guid>
       <description>&lt;p&gt;Before reading any further, visit this &lt;a href=&#34;https://aldrinjenson.github.io/Love-Calc/&#34;&gt;link&lt;/a&gt; and follow the instructions.&lt;/p&gt;
 &lt;hr&gt;
 Seriously dude, only continue if you visited the page and followed the instructions.
-&lt;p&gt;This project was inspired by an article written by Subin Siby of Vidhya Institue of Sciences where he mentioned about how we once got pranked by a similar site.
+&lt;p&gt;This project was inspired by an article written by Subin Siby of Vidhya Institute of Sciences where he mentioned about how we once got pranked by a similar site.
 I haven&amp;rsquo;t talked to him directly other than in an online meet when he answered a question I asked in chat, but I&amp;rsquo;ve heard he&amp;rsquo;s a cool dude interested in building cool software. (Wish I could talk to him directly for once🤞).&lt;/p&gt;
 &lt;p&gt;Anyways, On April 1st 2020, I decided to build something since it&amp;rsquo;s April Fool&amp;rsquo;s and all. During those days, some of us in class had created a Whatsapp group for those interested in programming, where we shared different articles, tutorials etc for everyone to pick up and improve. In that group, began a conversation which somehow ended on the topic of compatibility between partners(I know, just the usual typical topic discussed in a programming group.😁). Anyway, I saw this message in the morning and this got me thinking. Since it was April Fool&amp;rsquo;s day, I definitely wanted to do something fun; plus around that time, I had gotten myself pretty familiar with the awesome CSS framework &lt;a href=&#34;https://materializecss.com/&#34;&gt;Materialize-CSS&lt;/a&gt; and I wanted to build something cool with it as well.
 So with all these reasons, I decided to build a Love compatibility calculator(Not an actual one ofc.)&lt;/p&gt;

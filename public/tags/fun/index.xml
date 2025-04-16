@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>fun on Aldrin Jenson</title>
-    <link>/tags/fun/</link>
-    <description>Aldrin Jenson (fun)</description>
+    <title>Fun on Aldrin Jenson</title>
+    <link>//localhost:1313/tags/fun/</link>
+    <description>Aldrin Jenson (Fun)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 26 Jul 2022 19:09:07 +0530</lastBuildDate>
     
-    <atom:link href="/tags/fun/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/fun/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How we hacked an entire computer lab✨</title>
-      <link>/posts/hacking-cs-lab/</link>
+      <link>//localhost:1313/posts/hacking-cs-lab/</link>
       <pubDate>Tue, 26 Jul 2022 19:09:07 +0530</pubDate>
       
-      <guid>/posts/hacking-cs-lab/</guid>
+      <guid>//localhost:1313/posts/hacking-cs-lab/</guid>
       <description>&lt;p&gt;Linux is cool.&lt;/p&gt;
 &lt;p&gt;Computer Networks is cool.&lt;/p&gt;
 &lt;p&gt;Rick roll is cool.&lt;/p&gt;
@@ -25,7 +25,7 @@
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Short write up of how I wrote a script to play rick roll in all computers in our lab. 🙂&lt;/p&gt;
 &lt;center&gt;
-  &lt;video alt=&#34;demo of us rick-rolling&#34; src=&#34;/videos/hackCSLab.mp4&#34; controls muted poster=&#34;/thumbs/hackCSLab.jpg&#34; &gt;&lt;/video&gt;
+  &lt;video alt=&#34;demo of us rick-rolling&#34; src=&#34;//localhost:1313/videos/hackCSLab.mp4&#34; controls muted poster=&#34;/thumbs/hackCSLab.jpg&#34; &gt;&lt;/video&gt;
   &lt;p class=&#39;caption&#39;&gt;In hindsight, should have added the --fullscreen flag to the browser as well!&lt;/p&gt;
 &lt;/center&gt;
 &lt;ol&gt;
@@ -33,7 +33,7 @@
 &lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ip a | grep 192.
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;center&gt;
-  &lt;image src=&#34;/images/hackCsLab/ipGrep.jpg&#34; alt=&#34;ip grep image&#34;&gt;&lt;/image&gt;
+  &lt;image src=&#34;//localhost:1313/images/hackCsLab/ipGrep.jpg&#34; alt=&#34;ip grep image&#34;&gt;&lt;/image&gt;
   &lt;p class=&#39;caption&#39;&gt;
   If the computer is connected to two or more networks(ethernet and wifi for example) the above would result in more than one entries.
   Note that the address ending with 255 is for broadcast and hence should not be used.
@@ -45,14 +45,14 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo nmap -sn 192.168.143.0-255
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo nmap -sn 192.168.143.0-255 &amp;gt; ips.txt &lt;span style=&#34;color:#75715e&#34;&gt;# to store output to a file&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;Install &lt;a href=&#34;sshpass&#34;&gt;sshpass&lt;/a&gt; on your host machine&lt;/li&gt;
+&lt;li&gt;Install &lt;a href=&#34;https://man.archlinux.org/man/sshpass.1&#34;&gt;sshpass&lt;/a&gt; on your host machine&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install sshpass
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;(i) Create simple bash script to ssh into one file and remotely execute a command&lt;/li&gt;
 &lt;/ol&gt;
 &lt;center&gt;
-  &lt;image src=&#34;/images/hackCsLab/remoteExec.jpg&#34; alt=&#34;Remote exec sample script&#34;&gt;&lt;/image&gt;
+  &lt;image src=&#34;//localhost:1313/images/hackCsLab/remoteExec.jpg&#34; alt=&#34;Remote exec sample script&#34;&gt;&lt;/image&gt;
   &lt;p class=&#39;caption&#39;&gt;
   Simple script to remotely execute a command in a single client machine in network using sshpass.
   &lt;/p&gt;
@@ -61,7 +61,7 @@
 &lt;li&gt;(ii) Create script to loop through the script and remotely execute a command.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;center&gt;
-  &lt;image src=&#34;/images/hackCsLab/loopIpScript.jpg&#34; alt=&#34;sample script for looping over ips and executing a bash command&#34;&gt;&lt;/image&gt;
+  &lt;image src=&#34;//localhost:1313/images/hackCsLab/loopIpScript.jpg&#34; alt=&#34;sample script for looping over ips and executing a bash command&#34;&gt;&lt;/image&gt;
   &lt;p class=&#39;caption&#39;&gt;
   Simple script to loop over a set of ips and execute a bash command.
   &lt;/p&gt;
@@ -78,14 +78,14 @@
     
     <item>
       <title>Love Match Calculator</title>
-      <link>/projects/love-calculator/</link>
+      <link>//localhost:1313/projects/love-calculator/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/projects/love-calculator/</guid>
+      <guid>//localhost:1313/projects/love-calculator/</guid>
       <description>&lt;p&gt;Before reading any further, visit this &lt;a href=&#34;https://aldrinjenson.github.io/Love-Calc/&#34;&gt;link&lt;/a&gt; and follow the instructions.&lt;/p&gt;
 &lt;hr&gt;
 Seriously dude, only continue if you visited the page and followed the instructions.
-&lt;p&gt;This project was inspired by an article written by Subin Siby of Vidhya Institue of Sciences where he mentioned about how we once got pranked by a similar site.
+&lt;p&gt;This project was inspired by an article written by Subin Siby of Vidhya Institute of Sciences where he mentioned about how we once got pranked by a similar site.
 I haven&amp;rsquo;t talked to him directly other than in an online meet when he answered a question I asked in chat, but I&amp;rsquo;ve heard he&amp;rsquo;s a cool dude interested in building cool software. (Wish I could talk to him directly for once🤞).&lt;/p&gt;
 &lt;p&gt;Anyways, On April 1st 2020, I decided to build something since it&amp;rsquo;s April Fool&amp;rsquo;s and all. During those days, some of us in class had created a Whatsapp group for those interested in programming, where we shared different articles, tutorials etc for everyone to pick up and improve. In that group, began a conversation which somehow ended on the topic of compatibility between partners(I know, just the usual typical topic discussed in a programming group.😁). Anyway, I saw this message in the morning and this got me thinking. Since it was April Fool&amp;rsquo;s day, I definitely wanted to do something fun; plus around that time, I had gotten myself pretty familiar with the awesome CSS framework &lt;a href=&#34;https://materializecss.com/&#34;&gt;Materialize-CSS&lt;/a&gt; and I wanted to build something cool with it as well.
 So with all these reasons, I decided to build a Love compatibility calculator(Not an actual one ofc.)&lt;/p&gt;

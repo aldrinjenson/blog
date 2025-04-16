@@ -2,9 +2,11 @@ baseUrl: "/"
 languageCode: "en-us"
 title: "Aldrin Jenson"
 theme: "anubis"
-paginate: 25
 enableRobotsTXT: true
 googleAnalytics: "G-75EZN9Q628"
+
+pagination:
+  pagerSize: 25
 
 menu:
   main:
@@ -39,6 +41,7 @@ params:
   style: auto
   readMore: false
   disableSummary: false
+  disqusShortname: ""
   utterancesRepo: "https://github.com/aldrinjenson/aldrinjenson.github."
   utterancesTheme: "github-dark"
   customCSS:

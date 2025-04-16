@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Aldrin Jenson</title>
-    <link>/tags/</link>
+    <link>//localhost:1313/tags/</link>
     <description>Aldrin Jenson (Tags)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Jul 2023 21:56:59 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 25 Dec 2023 00:45:00 +0530</lastBuildDate>
     
-    <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

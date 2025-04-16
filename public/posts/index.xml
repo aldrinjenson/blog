@@ -2,21 +2,372 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Aldrin Jenson</title>
-    <link>/posts/</link>
+    <link>//localhost:1313/posts/</link>
     <description>Aldrin Jenson (Posts)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Jul 2023 21:56:59 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 24 Dec 2023 00:45:00 +0530</lastBuildDate>
     
-    <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Creating and embedding Subtitles for custom videos</title>
+      <link>//localhost:1313/posts/create-subtitles-for-a-video/</link>
+      <pubDate>Sun, 24 Dec 2023 00:45:00 +0530</pubDate>
+      
+      <guid>//localhost:1313/posts/create-subtitles-for-a-video/</guid>
+      <description>&lt;h1 id=&#34;how-to-create-and-add-subtitles-to-your-custom-video&#34;&gt;How to create and add subtitles to your custom video&lt;/h1&gt;
+&lt;p&gt;It consists of the following steps&lt;/p&gt;
+&lt;h2 id=&#34;step-1-have-the-video-be-ready-at-hand&#34;&gt;Step 1: Have the video be ready at hand.&lt;/h2&gt;
+&lt;p&gt;No-brainer. But ensure that you have a video in which there is speech present. You can record the video using any web based recorders if you don&amp;rsquo;t have camera software installed.&lt;/p&gt;
+&lt;p&gt;If you are in Mac, you can also record using QuickTime Player -&amp;gt; File -&amp;gt; New Movie Recording. This way you don&amp;rsquo;t need to use any other extra software than the ones already installed!&lt;/p&gt;
+&lt;p&gt;Linux has a bunch of cli and GUI based free software available that you can use as well.&lt;/p&gt;
+&lt;h2 id=&#34;step-2-download-whisper&#34;&gt;Step 2: Download whisper&lt;/h2&gt;
+&lt;p&gt;Whisper is state of the speech recognition model released by OpenAI.
+There is both the original whisper python package and also &lt;a href=&#34;https://github.com/ggerganov/whisper.cpp&#34;&gt;whisper.cpp&lt;/a&gt;.
+Second one is highly recommended as it&amp;rsquo;s much more faster and optimised(cus it&amp;rsquo;s in C++ 🚀).&lt;/p&gt;
+&lt;p&gt;If you have a good CPU, choose the medium model to begin with.&lt;/p&gt;
+&lt;p&gt;So now,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Just install whisper by following the ReadMe instructions specific to your OS.&lt;/li&gt;
+&lt;li&gt;choose the medium model&lt;/li&gt;
+&lt;li&gt;build the binary by running: &lt;code&gt;make&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;step-3-creating-an-wav-file-from-video&#34;&gt;Step 3: Creating an wav file from video&lt;/h2&gt;
+&lt;p&gt;Now you&amp;rsquo;d need to convert the video file to an audio file to pass it on to &lt;code&gt;whisper&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;As of writing this blog, whisper takes in only 16-bit &lt;code&gt;wav&lt;/code&gt; file as input.&lt;/p&gt;
+&lt;p&gt;Converting the video to .wav is as easy as running this simple &lt;code&gt;ffmpeg&lt;/code&gt; command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ffmpeg -i input.mov -ar &lt;span style=&#34;color:#ae81ff&#34;&gt;16000&lt;/span&gt; -ac &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; -c:a pcm_s16le output.wav
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will create a new file called &lt;code&gt;output.wav&lt;/code&gt; which contains just the audio from your video file.&lt;/p&gt;
+&lt;h2 id=&#34;step-4-generating-an-srt-file-using-whisper&#34;&gt;Step 4: Generating an srt file using whisper&lt;/h2&gt;
+&lt;p&gt;Now,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;pass in this audio file as input and generate subtitles&lt;/li&gt;
+&lt;li&gt;If the subtitles generated are not &lt;em&gt;that&lt;/em&gt; great, just choose a bigger model.&lt;/li&gt;
+&lt;li&gt;pass the &lt;code&gt;-osrt&lt;/code&gt; flag to generate the output as a &lt;code&gt;.srt &lt;/code&gt;file&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This would be the final command to achieve the above:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;./main -m  models/ggml-medium.en.bin ./output2.wav -osrt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will generate subtitles in the file &lt;code&gt;output2.wav.srt&lt;/code&gt; and place it in the same directory.&lt;/p&gt;
+&lt;p&gt;Open this file and do some minor manual editing if necessary.&lt;/p&gt;
+&lt;p&gt;Whisper is pretty good, but in some rare cases like for names, it may need some additional manual corrections.&lt;/p&gt;
+&lt;h2 id=&#34;step-5-encoding-the-subtitle-file-to-the-original-videooptional&#34;&gt;Step 5: Encoding the subtitle file to the original video(optional)&lt;/h2&gt;
+&lt;p&gt;The final step involves creating a video which has the subtitles embedded inside.
+This can be easily achieved using a simple ffmpeg script:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ffmpeg -i input.mov -vf subtitles&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;output2.wav.srt final_with_sub.mp4
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above script uses the &lt;code&gt;-vf&lt;/code&gt; flag to pass in the subtitle file. It generates the final output in a &lt;code&gt;.mp4&lt;/code&gt; format as well.&lt;/p&gt;
+&lt;h2 id=&#34;step-6-boost-the-volume-of-videooptional&#34;&gt;Step 6: Boost the volume of video(optional)&lt;/h2&gt;
+&lt;p&gt;If for some reason, you may want to increase the volume of the audio, you can achieve that also using ffmpeg with the -af param and passing the required audio.&lt;/p&gt;
+&lt;p&gt;eg:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ffmpeg -i input.mov -vf subtitles&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;output2.wav.srt -af &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;volume=1.3&amp;#34;&lt;/span&gt; final_with_sub.mov
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;p&gt;There you go. That&amp;rsquo;s all there is to adding custom subtitles to your videos!&lt;/p&gt;
+&lt;p&gt;No need for any proprietary fancy video editing software.&lt;/p&gt;
+&lt;p&gt;FFMPEG FTW ✨&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Github release workflow for Rust projects</title>
+      <link>//localhost:1313/posts/gh-action-for-rust-build/</link>
+      <pubDate>Wed, 20 Sep 2023 14:42:38 +0530</pubDate>
+      
+      <guid>//localhost:1313/posts/gh-action-for-rust-build/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This is a github workflow I wrote for Parsable&amp;rsquo;s release system&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Release builds for Mac(64bit, Arm), Windows and Linux(64 bit, Arm)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;on&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;push&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;tags&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;v[0-9]+.[0-9]+.[0-9]+*&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;paths-ignore&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;docs/**&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;helm/**&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;assets/**&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;**.md&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;jobs&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;build-linux&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Build for ${{matrix.target}}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;runs-on&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ubuntu-latest&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;strategy&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;fail-fast&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;matrix&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;target&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          - &lt;span style=&#34;color:#ae81ff&#34;&gt;aarch64-unknown-linux-gnu&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# linux(arm)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          - &lt;span style=&#34;color:#ae81ff&#34;&gt;x86_64-unknown-linux-gnu&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# linux(64 bit)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;steps&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions/checkout@v2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions-rs/toolchain@v1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;with&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;toolchain&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;stable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;profile&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;minimal&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# minimal component installation (ie, no documentation)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;target&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;${{matrix.target}}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;override&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions-rs/cargo@v1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;with&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;use-cross&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;command&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;build&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;args&lt;/span&gt;: --&lt;span style=&#34;color:#ae81ff&#34;&gt;release --target ${{matrix.target}}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Create Artifact&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions/upload-artifact@v3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;with&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Parseable_${{ matrix.target }}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;path&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;target/${{ matrix.target }}/release/parseable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Rename binary&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          mv target/${{ matrix.target }}/release/parseable Parseable_${{ matrix.target }}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Publish Archive to Release Page&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;softprops/action-gh-release@v0.1.15&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;if&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;${{ startsWith(github.ref, &amp;#39;refs/tags/&amp;#39;) }}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;with&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;draft&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;files&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Parseable_${{ matrix.target }}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;env&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;GITHUB_TOKEN&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;${{ secrets.GITHUB_TOKEN }}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;build-windows&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;runs-on&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;windows-latest&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;steps&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Checkout&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions/checkout@v1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Install latest rust toolchain&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions-rs/toolchain@v1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;with&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;toolchain&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;stable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;profile&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;minimal&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;default&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;override&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Build&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;cargo build --all --release --target x86_64-pc-windows-msvc&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Create artifact for Windows&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions/upload-artifact@v2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;with&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Parseable_x86_64-pc-windows-msvc&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;path&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;target/x86_64-pc-windows-msvc/release/PARSEABLE.exe&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Rename binary&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          mv target/x86_64-pc-windows-msvc/release/PARSEABLE.exe Parseable_x86_64-pc-windows-msvc.exe&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Publish Archive to Release Page&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;softprops/action-gh-release@v0.1.15&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;if&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;${{ startsWith(github.ref, &amp;#39;refs/tags/&amp;#39;) }}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;with&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;draft&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;files&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Parseable_x86_64-pc-windows-msvc.exe&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;env&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;GITHUB_TOKEN&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;${{ secrets.GITHUB_TOKEN }}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;build-mac&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;runs-on&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;macos-latest&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;strategy&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;matrix&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;target&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          - &lt;span style=&#34;color:#ae81ff&#34;&gt;aarch64-apple-darwin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          - &lt;span style=&#34;color:#ae81ff&#34;&gt;x86_64-apple-darwin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;steps&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Checkout&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions/checkout@v1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Install latest rust toolchain&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions-rs/toolchain@v1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;with&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;toolchain&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;stable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;profile&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;minimal&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;target&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;${{ matrix.target }}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;default&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;override&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Build&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          cargo build --release --target ${{ matrix.target }}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          strip target/${{ matrix.target }}/release/Parseable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Create artifact&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions/upload-artifact@v2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;with&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Parseable_${{ matrix.target }}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;path&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;            target/${{ matrix.target }}/release/Parseable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Rename binary&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          mv target/${{ matrix.target }}/release/Parseable Parseable_${{ matrix.target }}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Publish Archive to Release Page&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;softprops/action-gh-release@v0.1.15&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;if&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;${{ startsWith(github.ref, &amp;#39;refs/tags/&amp;#39;) }}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;with&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;draft&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;files&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Parseable_${{ matrix.target }}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;env&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;GITHUB_TOKEN&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;${{ secrets.GITHUB_TOKEN }}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to add meta tags to a Streamlit app</title>
+      <link>//localhost:1313/posts/adding-metatags-to-streamlit/</link>
+      <pubDate>Sun, 27 Aug 2023 07:00:55 +0000</pubDate>
+      
+      <guid>//localhost:1313/posts/adding-metatags-to-streamlit/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Streamlit is a cool Python library to build GUIs for python based web-apps&lt;/li&gt;
+&lt;li&gt;It doesn&amp;rsquo;t support the feature to provide custom meta-tags for the apps you make and instead always have the default streamlit-tags instead&lt;/li&gt;
+&lt;li&gt;The following steps is based on deploying a streamlit app bundled as a docker which you can deploy in your VPS.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;workaround-tldr&#34;&gt;Workaround tl;dr&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Replace the default index file used by streamlit with our custom file containing meta tags of our own&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;pre-requisites&#34;&gt;Pre-requisites&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Ensure docker/docker-compose is installed on your VPS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;steps&#34;&gt;Steps&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Create an index.html in the src directory with similar contents:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;html&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lang&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;en&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;head&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;meta&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;charset&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;UTF-8&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;link&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;rel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;shortcut icon&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;./favicon.png&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;title&lt;/span&gt;&amp;gt;Your Site Name&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;title&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      window.&lt;span style=&#34;color:#a6e22e&#34;&gt;prerenderReady&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;!-- changes to be made here --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;defer&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;defer&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;./static/js/main.dccfd6b5.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;link&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;./static/css/main.f4a8738f.css&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;rel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;!-- changes to be made above this --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;meta&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;title&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;content&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Custom Title&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;head&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;body&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;noscript&lt;/span&gt;&amp;gt;You need to enable JavaScript to run this app.&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;noscript&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;root&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;body&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;html&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Feel free to add in more meta tags of your choice.&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Update your dockerfile to have a line like the following:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-dockerfile&#34; data-lang=&#34;dockerfile&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; python:3.9&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;WORKDIR&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; /app&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;COPY&lt;/span&gt; requirements.txt .&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;RUN&lt;/span&gt; pip install --no-cache-dir -r requirements.txt&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# important line for adding custom metatags&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;COPY&lt;/span&gt; src/index.html /usr/local/lib/python3.9/site-packages/streamlit/static/index.html&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# ensure that the above line is present in your dockerfile&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;COPY&lt;/span&gt; . .&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;CMD&lt;/span&gt; [&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;streamlit&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;run&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Home.py&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--server.headless&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--server.fileWatcherType&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;none&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--browser.gatherUsageStats=False&amp;#34;&lt;/span&gt;]&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Basically we&amp;rsquo;re copying the index file to replace the streamlit default index.html inside the docker container.&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Start the container. eg: &lt;code&gt;docker-compose up&lt;/code&gt;
+You&amp;rsquo;ll notice that what you get is just a white screen in the streamlit app endpoint. This is because the javascript is not loaded yet.&lt;/li&gt;
+&lt;li&gt;Find the pid of the container(&lt;code&gt;docker ps&lt;/code&gt;) and exec into it to run bash&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker exec -it &amp;lt;pid&amp;gt; bash
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This basically lets you go inside the running container and inspect it using bash. Replace the PID with the PID of your container&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Go to the path &lt;code&gt;/usr/local/lib/python3.9/site-packages/streamlit/static/static/js&lt;/code&gt; inside the interactive bash shell inside container.
+Note that the python3.9 may be different in your case. In that case, just let &lt;code&gt;cd&lt;/code&gt; + &lt;code&gt;tab&lt;/code&gt; autocomplete the path for you based on the python version you have installed.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Now do an &lt;code&gt;ls&lt;/code&gt; like the following:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ls main*.js
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;Copy the full filename of this file and replace it in the script tag of the index.html file we created earlier.&lt;/li&gt;
+&lt;li&gt;Restart the container.(rebuild if necessary too).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This should let the javascript load correctly and have your project be loaded fine with custom meta tags.&lt;/p&gt;
+&lt;p&gt;If you note that somehow css seems to have broken, then just &lt;code&gt;cd&lt;/code&gt; to &lt;code&gt;/usr/local/lib/python3.9/site-packages/streamlit/static/static/css&lt;/code&gt; inside the container and do an ls like:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ls main.*.css
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once you identify the the main css file, replace main.f4a8738f.css in the index.html file with this one.&lt;/p&gt;
+&lt;p&gt;Essentially, we&amp;rsquo;re replacing the basic html file from streamlit with our custom file and then loading the streamlit libraries(js and css) from their path inside the docker container.&lt;/p&gt;
+&lt;p&gt;Alright, with these steps, you should easily be able to create a streamlit application with custom Meta-tags.&lt;/p&gt;
+&lt;h2 id=&#34;bonus-tip&#34;&gt;Bonus tip&lt;/h2&gt;
+&lt;p&gt;Maybe you are already aware of this, but to get meta images freely hosted, just paste your images to postimg.cc site. Upload the image and then paste the url to the meta image tag as the following:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;meta&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;property&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;og:image&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;content&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://i.postimg.cc/&amp;lt;code&amp;gt;/image.png&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;meta&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;property&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;twitter:image&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;content&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://i.postimg.cc/&amp;lt;code&amp;gt;/image.png&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Tada✨&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>There are no bad People in this world</title>
+      <link>//localhost:1313/posts/no-bad-people/</link>
+      <pubDate>Sun, 23 Jul 2023 06:16:19 +0000</pubDate>
+      
+      <guid>//localhost:1313/posts/no-bad-people/</guid>
+      <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;I used to be someone who considers people as black and white - good and bad.
+There are good people who are kind, helpful and overall nice. Then there are bad people who are the opposite.&lt;/p&gt;
+&lt;p&gt;However, right now, I don&amp;rsquo;t think this approach is right.
+No no. I am not saying there is a gray area for everyone. Instead I am just implying that the concept of classifying people based on their &amp;ldquo;niceness&amp;rdquo; or good-ness may be outright invalid. not wrong, but inapplicable&lt;/p&gt;
+&lt;h2 id=&#34;the-beginning&#34;&gt;The beginning&lt;/h2&gt;
+&lt;p&gt;It all started with an epiphany after reading the first chapter of the famous Carneige book for finding friends where it said: Never Condemn, criticize or &amp;lt;&amp;gt; a person. You never know what they are going through.&lt;/p&gt;
+&lt;p&gt;After reading through all the principals shown in that chapter, I was able to relate a lot of my own life.
+Surprisingly, I was able to relate to a lot of movie example as well!&lt;/p&gt;
+&lt;p&gt;1: take Cobra Kai series which is a sequel of the famous Karate Kid movies.
+Quick recap: In Karate Kid, Daniel Larousso is a kid who is bullied for talking to a girl. He learns Karate from Miyagi and later beats the heck out of the bully and then getting the girl. We all cheered when at the end Daniel san did a crane kick and knocked down the bully. Cobra Kai continues this story and talks about how the life of bully John. From his perspective, Daniel is the foreigner who comes and takes his girlfriend away from him, and disgracing him in front of his master!
+Most of would never have felt this way. We almost always side with the protagnoist of the story as the &amp;ldquo;hero&amp;rdquo;. Those who are agains the protagonist will be &amp;ldquo;villains&amp;rdquo; and hence the bad guys.&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Another example of bully actually not really being a bad guy. In the movie &amp;lt; of 2 brothers with brad as a boy innocent and dirk as dirk the jerk bully&amp;gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Many movies have been made where we see things from the &amp;ldquo;bad guy&amp;rsquo;s&amp;rdquo; perspective and we would be able to relate to their actions as well.&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Another example..&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;conclusion--afterthoughts&#34;&gt;Conclusion / Afterthoughts&lt;/h2&gt;
+&lt;p&gt;Few questions may arise after reding through these.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Does this mean all people are saints?
+Nope. Just as all people cannot be labelled as bad, so can&amp;rsquo;t they be labelled as good. Because, classifying &amp;ldquo;good&amp;quot;ness is not possible. same as &amp;ldquo;bad&amp;quot;ness is not possible.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Does this mean that we should trust everyone?
+Nope. I don&amp;rsquo;t think so. After multiple instances where a person has let you down, maybe it would be wise to not encourage that person to do so again. There would be multiple reasons for that person to do so. The point is not criticize and label a person as bad just because of this reason. Move on. Don&amp;rsquo;t argue&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Don&amp;rsquo;t argue.
+No good has ever come up by arguing. Sure you should explain your point of view. But make sure that you tell it by not considering the other person as someone who have done something terrible and hence you consider them as someone beneath you. Don&amp;rsquo;t do that. It may surprise you to know that the other person may be having the exact feeling about you!.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
       <title>I wrote a poem in 10 minutes!</title>
-      <link>/posts/i-wrote-poems-in-10-mins/</link>
+      <link>//localhost:1313/posts/i-wrote-poems-in-10-mins/</link>
       <pubDate>Mon, 03 Jul 2023 21:56:59 +0530</pubDate>
       
-      <guid>/posts/i-wrote-poems-in-10-mins/</guid>
+      <guid>//localhost:1313/posts/i-wrote-poems-in-10-mins/</guid>
       <description>&lt;p&gt;Yes chatGPT is involved. But way lesser than you think.&lt;/p&gt;
 &lt;h2 id=&#34;what-happened&#34;&gt;What happened&lt;/h2&gt;
 &lt;p&gt;Inspiration randomly stuck and I wrote this poem within 2-3 minutes (Yes, I noted the time. It&amp;rsquo;s definitely lesser than 4 minutes).&lt;/p&gt;
@@ -84,7 +435,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;with a heart light and free
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;For in acceptance we find solace,
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;and true contentment shall be.
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;mind--blown&#34;&gt;Mind = Blown&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;mind--blown&#34;&gt;Mind = Blown🤯&lt;/h2&gt;
 &lt;p&gt;I was blown away by the response. It rightly added rhyming schemes while correctly keeping the message of the poem.&lt;/p&gt;
 &lt;p&gt;I tried one more variation that was okayish, but nothing too spectacular as this one.&lt;/p&gt;
 &lt;p&gt;So I then took parts from both and rewrote some lines myself to finally I have this final piece that took all around 10 minutes in total, right from the writing phase. Here goes:&lt;/p&gt;
@@ -130,11 +481,22 @@
     </item>
     
     <item>
+      <title>Gnu Parallel Is Awesome</title>
+      <link>//localhost:1313/posts/gnu-parallel-is-awesome/</link>
+      <pubDate>Sun, 04 Jun 2023 21:16:26 +0530</pubDate>
+      
+      <guid>//localhost:1313/posts/gnu-parallel-is-awesome/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;I discovered GNU-Parallel from a Youtube comment today and I am blown away by this awesome piece of software that is written over 15 years ago!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Easy SSH based Continuous delivery pipeline</title>
-      <link>/posts/easy-ssh-deploy/</link>
+      <link>//localhost:1313/posts/easy-ssh-deploy/</link>
       <pubDate>Tue, 25 Apr 2023 00:32:13 +0530</pubDate>
       
-      <guid>/posts/easy-ssh-deploy/</guid>
+      <guid>//localhost:1313/posts/easy-ssh-deploy/</guid>
       <description>&lt;p&gt;If you have a Virtual Private Server(VPS) and want to have the code you push to github/VCS, be deployed in your server, here is a super simple and quick way to do so.&lt;/p&gt;
 &lt;p&gt;It basically involves creating a github action workflow that does the following.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Deploy to Server&lt;/span&gt;
@@ -148,10 +510,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;steps&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Install sshpass&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          sudo apt install sshpass -y&lt;/span&gt;          
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          sudo apt install sshpass -y&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Git pull and Deploy with Docker Compose&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          sshpass -p ${{ secrets.SERVER_PASS }} ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_NAME }} &amp;#34;cd project-folder &amp;amp;&amp;amp; git pull &amp;amp;&amp;amp; docker compose up -d&amp;#34;&lt;/span&gt;          
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          sshpass -p ${{ secrets.SERVER_PASS }} ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_NAME }} &amp;#34;cd project-folder &amp;amp;&amp;amp; git pull &amp;amp;&amp;amp; docker compose up -d&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-Requisites&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Install git and docker on your VM&lt;/li&gt;
@@ -174,15 +536,29 @@
 &lt;li&gt;Currently it&amp;rsquo;s based on docker. But you can easily replace the final command with anything else to build your product (eg: &lt;code&gt;make&lt;/code&gt; or &lt;code&gt;npx serve&lt;/code&gt;)&lt;/li&gt;
 &lt;li&gt;Replace &lt;code&gt;project-folder&lt;/code&gt; with the path to the folder in which you have the project. sshpass will run the command to clone the latest version from VCS to this folder and will run the start/build/serve command.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;limitations&#34;&gt;Limitations&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Currently this script is based on traditional servers which works on the basis of ssh log-in using username and password. If you want to use it to access servers like AWS EC2 which supports only pem file based auth, you&amp;rsquo;d need to modify the workflow.
-&lt;ul&gt;
-&lt;li&gt;You can store the pem file contents in a github secret and then use it inside the sshpass flow indirectly.&lt;/li&gt;
-&lt;li&gt;Or, you can use existing github actions &lt;a href=&#34;https://lightrains.com/blogs/deploy-aws-ec2-using-github-actions&#34;&gt;like this&lt;/a&gt; written specifically for CI/CD with AWS.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2 id=&#34;for-aws-ec2-or-servers-requiring-pem-file-based-auth&#34;&gt;For AWS ec2 or servers requiring pem file based auth&lt;/h2&gt;
+&lt;p&gt;Use the following workflow yaml&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Deploy to AWS EC2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;on&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;push&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;branches&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;jobs&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;deploy&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;runs-on&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ubuntu-latest&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;steps&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Add SSH Key&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;echo &amp;#34;${{ secrets.AWS_SECRET }}&amp;#34; &amp;gt; ssh_key.pem &amp;amp;&amp;amp; chmod 600 ssh_key.pem&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Deploy to AWS EC2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          ssh -i ssh_key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_ADDRESS }} &amp;#34;cd ~/project/ &amp;amp;&amp;amp; git pull origin main &amp;amp;&amp;amp; sudo docker compose restart&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;env&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;PRIVATE_KEY&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;${{ secrets.DEPLOY_KEY }}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Just add the contents of pem file to AWS_SECRET. Then add the username@aws-ip to the EC2_ADDRESS secret as well&lt;/p&gt;
 &lt;h2 id=&#34;how-did-this-come-to-be&#34;&gt;How did this come to be?&lt;/h2&gt;
 &lt;p&gt;It basically started of by thinking about the steps you would do to push your code to production without having to automate it. This would come to have the following steps in a really high level way:&lt;/p&gt;
 &lt;ol&gt;
@@ -212,11 +588,11 @@ sshpass allows you to ssh to a server and run custom commands on it as the user 
     </item>
     
     <item>
-      <title>How to deploy an express application to serverless using AWS Lambda</title>
-      <link>/posts/serverless-express-api/</link>
+      <title>How to deploy an express application to serverless with AWS Lambda</title>
+      <link>//localhost:1313/posts/serverless-express-api/</link>
       <pubDate>Sun, 26 Mar 2023 16:04:39 +0000</pubDate>
       
-      <guid>/posts/serverless-express-api/</guid>
+      <guid>//localhost:1313/posts/serverless-express-api/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;AWS Lambda is an easy way to set up APIs which you don&amp;rsquo;t use regularly. The free tier from AWS is very generous (1 million requests per month). I personally found it to be a pain to find an easy way to setup a CI/CD workflow with it. After several hours, here is the approach I made myself to have a super easy way to set up a pipeline to Lambda.&lt;/p&gt;
 &lt;h1 id=&#34;steps&#34;&gt;Steps&lt;/h1&gt;
@@ -276,19 +652,20 @@ sshpass allows you to ssh to a server and run custom commands on it as the user 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;path&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;/{proxy+}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;method&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ANY&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;cors&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;NOTE: CORS is taken care by in the above yml. If you would require fine grained control, you can add fine-grained and programmatic CORS control using nodeJS middleware to handle it using your preference.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;NOTE: CORS is taken care by default in the above yml. If you would require fine grained control, you can add fine-grained and programmatic CORS control using the nodeJS CORS middleware.&lt;/p&gt;
 &lt;ol start=&#34;6&#34;&gt;
 &lt;li&gt;Deploy the functions&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Deploying to AWS Lambda is super easy and can be done by the &lt;code&gt;serverless&lt;/code&gt; nodejs library.
 Run the following from the root directory of your project.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm i -g serverless
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;serverless config credentials --provider aws --key AWS_ACCESS_KEY_ID --secret  AWS_SECRET_ACCESS_KEY 
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# replace the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY with your own values which can be received from AWS IAM &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;serverless config credentials --provider aws --key AWS_ACCESS_KEY_ID --secret  AWS_SECRET_ACCESS_KEY
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# replace the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY with your own values which can be received from AWS IAM&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;serverless deploy
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;There you go. That&amp;rsquo;s it. The above step may take some time, but with it, you would be able to deploy your express application with AWS Lambda.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For easier way, wake it into a shell alias or add it as a script to do one command deploy as well. You can also try adding it as new workflow in github actions for getting CI/CD.&lt;/p&gt;
+&lt;p&gt;There you go. That&amp;rsquo;s it. The above step may take some time, but with it, you would be able to deploy your express application with AWS Lambda.&lt;/p&gt;
 &lt;h1 id=&#34;bonus&#34;&gt;Bonus&lt;/h1&gt;
-&lt;p&gt;Setting up CI/CD pipeline to deploy from a github repo is super easy as well. It can be achieved by creating a github workflow file like the one below:&lt;/p&gt;
+&lt;p&gt;Setting up CI/CD pipeline to deploy from a github repo is super easy as well.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Place in .github/workflows/deploy.yml&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;deploy to lambda&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -324,6 +701,11 @@ Run the following from the root directory of your project.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;dev&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;isDev=true nodemon index.js&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Just run &lt;code&gt;npm run dev&lt;/code&gt; the next time when developing locally.&lt;/p&gt;
+&lt;p&gt;Now, you can develope the function routes using the normal familiar express way, while also getting the ability to host these functions in a serverless environment on pushing to your VCS.&lt;/p&gt;
+&lt;h2 id=&#34;remarks&#34;&gt;Remarks&lt;/h2&gt;
+&lt;p&gt;I wrote it for IEDC during my tenure as CTO. Once this was made multiple students were using it our projects. We had several serverless functions running for sending emails, doing cleanups, knowing status etc. Everyone who used it really found the benefit of this, especially in such ease of getting started with development.&lt;/p&gt;
+&lt;h3 id=&#34;extra-things-to-keep-in-mind&#34;&gt;Extra things to keep in mind&lt;/h3&gt;
+&lt;p&gt;Do note that while lambda is great, it doesn&amp;rsquo;t usually go too well with things like puppeteer and other automation tools which spins up a full blown browser. You can get around this using special puppeteer packages made specifically for lambda. In our case, we had a small ec2 instance which was free and we just used that to run our puppeteer script quickly; Depending on your use case, you can do it either way✨.&lt;/p&gt;
 &lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/IEDCMEC/lambda-functions&#34;&gt;https://github.com/IEDCMEC/lambda-functions&lt;/a&gt;&lt;/li&gt;
@@ -334,11 +716,108 @@ Run the following from the root directory of your project.&lt;/p&gt;
     </item>
     
     <item>
+      <title>Organizing a Hackathon</title>
+      <link>//localhost:1313/posts/organizing-a-hackathon/</link>
+      <pubDate>Mon, 20 Mar 2023 00:43:55 +0530</pubDate>
+      
+      <guid>//localhost:1313/posts/organizing-a-hackathon/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;My thoughts after being an organizer for Technohack 2023&lt;/p&gt;
+&lt;h2 id=&#34;lets-begin&#34;&gt;Let&amp;rsquo;s begin&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;When the situation demands it, I can be a natural leader&lt;/li&gt;
+&lt;li&gt;I find that it&amp;rsquo;s always waaay easier to assign it to others and provide them with helpful suggestions&lt;/li&gt;
+&lt;li&gt;When stressed, call for help&lt;/li&gt;
+&lt;li&gt;Sometimes, you just need to take a decision and move forward&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;backdrop&#34;&gt;Backdrop&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Technohack was really good withe constraints&lt;/li&gt;
+&lt;li&gt;It was done because of good managements and clear work distribution&lt;/li&gt;
+&lt;li&gt;Events team is really useful&lt;/li&gt;
+&lt;li&gt;Not getting stressed is really important&lt;/li&gt;
+&lt;li&gt;Just approach everything with a sense of calmness&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>My Two Cents on Scaling</title>
+      <link>//localhost:1313/posts/my-2-cents-on-scaling/</link>
+      <pubDate>Wed, 01 Mar 2023 10:29:22 +0530</pubDate>
+      
+      <guid>//localhost:1313/posts/my-2-cents-on-scaling/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;As a young developer, there are a few things I&amp;rsquo;ve learned about scaling over the years through talking to wise and experienced people in the industry. I want to share some of my thoughts on scaling and architecting software systems based on my experience. These thoughts are specific to certain software systems that I&amp;rsquo;ve used so far and are not generalized.&lt;/p&gt;
+&lt;p&gt;I am scared to write this to be honest. I am writing these mostly as a suggestion/ guidelines to myself to be used in the very near future. Many of these may be improved and if you know of them please don&amp;rsquo;t hesitate to point them out in the comments.&lt;/p&gt;
+&lt;p&gt;These are just a few tips and tricks I&amp;rsquo;ve learned, but it needn&amp;rsquo;t be the best.&lt;/p&gt;
+&lt;h1 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;I have limited years of experience&lt;/li&gt;
+&lt;li&gt;These are the few things I&amp;rsquo;ve learned over the years after talking to wise or experienced people in the industry who know what they are talking about.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;lets-begin&#34;&gt;Let&amp;rsquo;s Begin&lt;/h1&gt;
+&lt;h2 id=&#34;0-dont-prematurely-optimize&#34;&gt;0. Don&amp;rsquo;t Prematurely Optimize&lt;/h2&gt;
+&lt;p&gt;You don&amp;rsquo;t need to worry about scaling for your side project from the very beginning or ideation stage. Premature optimization can add more pressure and kill the initial drive/motivation.&lt;/p&gt;
+&lt;h2 id=&#34;1-be-cautious-with-serverlesslambda-functions&#34;&gt;1. Be Cautious With Serverless/Lambda Functions&lt;/h2&gt;
+&lt;p&gt;Don&amp;rsquo;t use serverless/lambda functions unless your service has certain peak times of load. Good candidates for serverless functions would be development servers or APIs which will be called occasionally only. Hence, it may not be a good idea to convert the whole backend to serverless most of the time.&lt;/p&gt;
+&lt;h2 id=&#34;2-good-coding-practices-matter&#34;&gt;2. Good Coding Practices Matter&lt;/h2&gt;
+&lt;p&gt;No matter how much you architect, poor coding practices can always let you down. Writing optimized code always has way more precedence than the caching system you use or the type of database you use.&lt;/p&gt;
+&lt;h2 id=&#34;3-decouple-gradually&#34;&gt;3. Decouple Gradually&lt;/h2&gt;
+&lt;p&gt;You don&amp;rsquo;t need to go full-blown serverless or monolith route. Just start by decoupling large bits. Maybe the database can be separated. If the app is complex, maybe the frontend and backend could be separated.&lt;/p&gt;
+&lt;h1 id=&#34;rules-of-thumb&#34;&gt;Rules of Thumb&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;First and foremost, when you write code, ensure that it is written well with reasonable optimizations.&lt;/li&gt;
+&lt;li&gt;Whatever happens, don&amp;rsquo;t use AWS Lightsail.&lt;/li&gt;
+&lt;li&gt;Start with a small EC2 instance maybe.&lt;/li&gt;
+&lt;li&gt;Maybe decouple the database gradually.&lt;/li&gt;
+&lt;li&gt;Maybe decouple the frontend and backend gradually.&lt;/li&gt;
+&lt;li&gt;Add EC2 to an auto-scaling group slowly.&lt;/li&gt;
+&lt;li&gt;Add a load balancer in front.&lt;/li&gt;
+&lt;li&gt;As you anticipate more traffic incoming, the load balancer + auto-scaling should help you scale while reducing costs.&lt;/li&gt;
+&lt;li&gt;If database requests are taking the maximum time, maybe see if you can decouple it, but still bring it closer to the same region using AWS Aurora or Amazon Relational Database service.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;other-learnings&#34;&gt;Other Learnings&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Avoiding joins in the database is good.
+&lt;ul&gt;
+&lt;li&gt;If you think that most of your queries would be joins, maybe it&amp;rsquo;s time to rearchitect your relational database or maybe even skip it to use a non-relational one.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Make good use of Promise.all when necessary so as to parallelize network requests.&lt;/li&gt;
+&lt;li&gt;Make good use of Cloudflare for free caching.&lt;/li&gt;
+&lt;li&gt;Even adding simple caching in server without any Redis, just by storing the past result in memory for a short time, can severely improve performance speeds.&lt;/li&gt;
+&lt;li&gt;JSON.stringify and JSON.parse (or their counterparts in other languages) are not CPU intensive operations. Write code well to avoid these.&lt;/li&gt;
+&lt;li&gt;When you want to go the serverless route, it&amp;rsquo;s much easier to write the serverless code using a traditional server-side framework and then write a wrapper file which converts it to serverless once you push to GitHub repo. (&lt;/li&gt;
+&lt;li&gt;When you want to go the serverless route, it&amp;rsquo;s much easier to write the serverless code using a traditional server-side framework and then write a wrapper file that converts it to serverless once you push it to the GitHub repo. For example, define all routes and write logic using something like Express.js in Node.js and then use a wrapper file that uses aws-serverless-express to do the conversion behind the scenes.&lt;/li&gt;
+&lt;li&gt;When you just want to get an API hosted, free services like deta.sh could be really useful.&lt;/li&gt;
+&lt;li&gt;When you know that you have a front-end and back-end separately from the beginning and the chances of projects scaling to extreme levels are rare, maybe start with Next.js. - P.S. What I&amp;rsquo;ve felt is that, if you are starting with a React project, it would be easiest to go with Next.js from the start.&lt;/li&gt;
+&lt;li&gt;Supabase is a great free option for a hosted backend. It has the full power of a relational database (PostgreSQL) with a clean UI and authentication features.&lt;/li&gt;
+&lt;li&gt;Setting up CI/CD pipelines is really good and can make you proud of yourself after saving your time.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;my-defacto-standard-to-start-a-new-project&#34;&gt;My defacto standard to start a new project:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;If it&amp;rsquo;s React-based, use Next.js + Supabase. Host it on Vercel, managing DNS with Cloudflare and with caching turned on.&lt;/li&gt;
+&lt;li&gt;Just a simple website, host it on Netlify or Vercel.&lt;/li&gt;
+&lt;li&gt;If it&amp;rsquo;s a proper backend server that needs to be running most of the time, host it on AWS EC2.&lt;/li&gt;
+&lt;li&gt;If it&amp;rsquo;s just a few APIs, host it on Deta.sh or AWS Lambda. If there&amp;rsquo;s front-end code associated, use a Next.js project.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;extra-resources-which-i-found-to-be-quite-useful&#34;&gt;Extra resources which I found to be quite useful&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://zerodha.tech/blog/scaling-with-common-sense/&#34;&gt;Scaling With Common Sense - Kaliash Nadh&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/memcached/memcached/wiki/TutorialCachingStory&#34;&gt;MemCached&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://widgetsandshit.com/teddziuba/2008/04/im-going-to-scale-my-foot-up-y.html&#34;&gt;rant&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That&amp;rsquo;s it! Scaling is not as hard as it seems to be. Keep these rules of thumb and best practices in mind, and you&amp;rsquo;ll be on your way to success. Remember to keep your code well-written and optimized, and you&amp;rsquo;ll have a solid foundation to build upon.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>How to SSH to Termux Shell</title>
-      <link>/posts/ssh-termux/</link>
+      <link>//localhost:1313/posts/ssh-termux/</link>
       <pubDate>Fri, 27 Jan 2023 03:06:56 +0530</pubDate>
       
-      <guid>/posts/ssh-termux/</guid>
+      <guid>//localhost:1313/posts/ssh-termux/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;Easy way to ssh to termux shell running on Android&lt;/p&gt;
 &lt;h1 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h1&gt;
@@ -366,7 +845,7 @@ Run the following from the root directory of your project.&lt;/p&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;Tada, You&amp;rsquo;ve successfully done ssh to termux✨&lt;/p&gt;
-&lt;p&gt;Use termux to start webservers (Apache, Nginx etc) just like you would normally do in a Linux machine and you can expose it to the internet using free services like ngrok.&lt;/p&gt;
+&lt;p&gt;Use termux to start web-servers (Apache, Nginx etc) just like you would normally do in a Linux machine and you can expose it to the internet using free services like ngrok.&lt;/p&gt;
 &lt;h2 id=&#34;bonus-tip&#34;&gt;Bonus Tip&lt;/h2&gt;
 &lt;p&gt;replace &lt;code&gt;ssh&lt;/code&gt; in step 5 using &lt;code&gt;sftp&lt;/code&gt; and suddenly you now have an extremely safe and easy way to transfer files to and from your phone. You&amp;rsquo;re welcome😊&lt;/p&gt;
 &lt;h2 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h2&gt;
@@ -376,17 +855,17 @@ Run the following from the root directory of your project.&lt;/p&gt;
 &lt;li&gt;Firewall issues: Make sure that your firewall is not blocking the SSH connection.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;additional-resources&#34;&gt;Additional Resources&lt;/h2&gt;
-&lt;p&gt;-&lt;a href=&#34;https://wiki.termux.com/wiki/Main_Page&#34;&gt;Termux Wiki&lt;/a&gt;
--&lt;a href=&#34;https://www.openssh.com/&#34;&gt;OpenSSH&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;-&lt;a href=&#34;https://wiki.termux.com/wiki/Main_Page&#34;&gt;Termux Wiki&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;-&lt;a href=&#34;https://www.openssh.com/&#34;&gt;OpenSSH&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>How to crack almost any OS password </title>
-      <link>/posts/crack-os-password/</link>
+      <link>//localhost:1313/posts/crack-os-password/</link>
       <pubDate>Mon, 16 Jan 2023 02:33:48 +0530</pubDate>
       
-      <guid>/posts/crack-os-password/</guid>
+      <guid>//localhost:1313/posts/crack-os-password/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Use the infamous &lt;a href=&#34;https://github.com/ohmybahgosh/RockYou2021.txt&#34;&gt;RockYou.txt&lt;/a&gt; password list containing 14 million used passwords to brute force the user passwords in almost any system you&amp;rsquo;ve got&lt;/p&gt;
 &lt;blockquote&gt;
@@ -431,10 +910,10 @@ Reboot the system and log in to the victim&#39;s OS with cracked password to gai
     
     <item>
       <title>Redirecting Subdomains to docker containers in same server</title>
-      <link>/posts/redirect-subdomains-to-docker/</link>
+      <link>//localhost:1313/posts/redirect-subdomains-to-docker/</link>
       <pubDate>Sun, 25 Dec 2022 18:15:07 +0530</pubDate>
       
-      <guid>/posts/redirect-subdomains-to-docker/</guid>
+      <guid>//localhost:1313/posts/redirect-subdomains-to-docker/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Article on how to have multiple running docker containers (or any other web servers) and have separate subdomains which map to these services.&lt;/p&gt;
 &lt;!-- Bonus tip on how to add https on these as well :) --&gt;
@@ -462,14 +941,14 @@ Reboot the system and log in to the victim&#39;s OS with cracked password to gai
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;Find the port in which your container or services re running. Double check and ensure that the API is working fine in localhost, using the following commands&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ss -lntp &lt;span style=&#34;color:#75715e&#34;&gt;# check that the corredt port is exposed.&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ss -lntp &lt;span style=&#34;color:#75715e&#34;&gt;# check that the correct port is exposed.&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl localhost:PORT &lt;span style=&#34;color:#75715e&#34;&gt;# verify that you get the expected response.&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
 &lt;li&gt;Decide on the subdomains to which you want to route traffic and add them using your dns management console&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Here&amp;rsquo;s an example image using cloudflare&lt;/p&gt;
 &lt;center&gt;
-	&lt;image src=&#34;/images/ssl/cloudflareDns.png&#34; alt=&#34;Cloudflare DNS - Adding new subdomain&#34;&gt;&lt;/image&gt;
+	&lt;image src=&#34;//localhost:1313/images/ssl/cloudflareDns.png&#34; alt=&#34;Cloudflare DNS - Adding new subdomain&#34;&gt;&lt;/image&gt;
 &lt;p class=&#39;caption&#39;&gt;Cloudflare DNS - Adding new subdomain(replace the ip with your server&#39;s public ip)&lt;/p&gt;
 &lt;/center&gt;
 &lt;p&gt;Note: You can get the public IP of your server using the following &lt;code&gt;curl&lt;/code&gt; command&lt;/p&gt;
@@ -504,10 +983,10 @@ Reboot the system and log in to the victim&#39;s OS with cracked password to gai
     
     <item>
       <title>How to add SSL and make a server https</title>
-      <link>/posts/set-up-ssl/</link>
+      <link>//localhost:1313/posts/set-up-ssl/</link>
       <pubDate>Sun, 25 Dec 2022 18:14:39 +0530</pubDate>
       
-      <guid>/posts/set-up-ssl/</guid>
+      <guid>//localhost:1313/posts/set-up-ssl/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;An easy way to set up Secure Socket Layer (SSL) on a web server without having necessary nginx installation. SSL is a security protocol that encrypts data sent between a client and a server, helping to protect against hacking and other online threats. By enabling SSL on your web server, you can ensure that sensitive data sent to and from your server is protected.&lt;/p&gt;
 &lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;/h2&gt;
@@ -534,7 +1013,7 @@ Reboot the system and log in to the victim&#39;s OS with cracked password to gai
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo certbot certonly --standalone
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;4 b. If you&amp;rsquo;re having nginx already running, then use the following command instead:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo certbot --nginx --domain &amp;lt;your.domain.name&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note: If you get the errror: &lt;code&gt;The requested nginx plugin does not appear to be installed&lt;/code&gt; on running the above command(usually on the first time), just install the cerbot-nginx plugin using the following:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note: If you get the error: &lt;code&gt;The requested nginx plugin does not appear to be installed&lt;/code&gt; on running the above command(usually on the first time), just install the cerbot-nginx plugin using the following:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install python3-certbot-nginx
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
 &lt;li&gt;
@@ -609,25 +1088,77 @@ Reboot the system and log in to the victim&#39;s OS with cracked password to gai
     </item>
     
     <item>
+      <title>Organizing KochiFOSS 2022</title>
+      <link>//localhost:1313/posts/organizing-kochifoss/</link>
+      <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/posts/organizing-kochifoss/</guid>
+      <description>&lt;p&gt;KochiFOSS 2022 conference was held on 15th October 2022 and from the participant&amp;rsquo;s responses, the conference was a huge success. I was lucky to be a part of the core organizing team. Jotting down my experiences and the lessons learned.&lt;/p&gt;
+&lt;h2 id=&#34;my-experiences&#34;&gt;My experiences&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;I worked on the KochiFOSS website&lt;/li&gt;
+&lt;li&gt;Used Frappe framework
+&lt;ul&gt;
+&lt;li&gt;was a pain to get started&lt;/li&gt;
+&lt;li&gt;But once the pattern was understood, then the future works were easy to manage&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tried bringing in a new guy from the tech team, but he had to suddenly leave which forced me to find a replacment quickly.&lt;/li&gt;
+&lt;li&gt;I had placments the two weeks before and after KochiFOSS
+&lt;ul&gt;
+&lt;li&gt;Adithya offerred to help out for a couple of days&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;I handled Twitter posts as well&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;lessons-learned&#34;&gt;Lessons learned&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;There&amp;rsquo;ll be times when it&amp;rsquo;s better and safer to take a decision and go with the flow ASAP rather than taking time to analyze and think of all the pros and cons for taking a decision,&lt;/li&gt;
+&lt;li&gt;There&amp;rsquo;ll be people from va&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;doubts-and-questions-i-have&#34;&gt;Doubts and questions I have&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Why do people volunteer?&lt;/li&gt;
+&lt;li&gt;How being able to multi-task can be really useful at times&lt;/li&gt;
+&lt;li&gt;The skill of management - keeping people happy and getting things done without hurting anyone&amp;rsquo;s ego.
+&lt;ul&gt;
+&lt;li&gt;Adi&amp;rsquo;s message&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Tips to Learn Better</title>
+      <link>//localhost:1313/posts/tips-to-learn-better/</link>
+      <pubDate>Thu, 22 Sep 2022 13:23:14 +0530</pubDate>
+      
+      <guid>//localhost:1313/posts/tips-to-learn-better/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Everyone wants to learn things fast end easily. In this information age, there is data ana learning material easily available. It&amp;rsquo;s all about processing that faster and imbingin the information better. Let&amp;rsquo;s see a few tips and suggestions to do that.&lt;/p&gt;
+&lt;p&gt;Note: Most of the concepts here are from the Coursera Course I took earlier: &amp;ldquo;Learning How To Learn&amp;rdquo; by Barbara Oakley&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Notes</title>
-      <link>/posts/notes/</link>
+      <link>//localhost:1313/posts/notes/</link>
       <pubDate>Mon, 12 Sep 2022 19:02:56 +0530</pubDate>
       
-      <guid>/posts/notes/</guid>
+      <guid>//localhost:1313/posts/notes/</guid>
       <description>&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Reverting back git history from a commit:&lt;/p&gt;
+&lt;li&gt;Reverting back git history from a commit:&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git revert --no-commit 0766c053..HEAD
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git commit
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/a/21718540/11879596&#34;&gt;source: stackoverflow&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;getting the ipaddress quickly in most linux systems including termux:&lt;/p&gt;
-&lt;/li&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;getting the IP Address quickly in most linux systems including termux:&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ip a | grep inet
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;Downloading protected pdfs from google drive and having them be searchable:&lt;/li&gt;
+&lt;li&gt;Downloading protected PDFs from google drive and having them be searchable:&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://bytesbin.com/download-view-only-pdf-google-drive/&#34;&gt;https://bytesbin.com/download-view-only-pdf-google-drive/&lt;/a&gt;&lt;/li&gt;
@@ -640,18 +1171,96 @@ Reboot the system and log in to the victim&#39;s OS with cracked password to gai
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;(Optional) Create a bash alias like the following to make it even easier&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;alias whatismypublicip&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;curl ipinfo.io/ip&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;Removing sensitive data after having it be commited to github
-Use git filter branch&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Removing sensitive data after having it be committed to github
+&lt;code&gt;Use git filter branch&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Getting saved wifi passwords from a linux machine&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd /etc/NetworkManager/system-connections/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ls
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# find the correct connection-name / wifi SSID&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cat &amp;lt;connection-name&amp;gt; | grep psk
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Everything on the internet Is Fake</title>
+      <link>//localhost:1313/posts/everyone-is-fake/</link>
+      <pubDate>Sun, 11 Sep 2022 22:35:06 +0530</pubDate>
+      
+      <guid>//localhost:1313/posts/everyone-is-fake/</guid>
+      <description>&lt;p&gt;When was the last time you admitted that you were an asshole?
+Oh wait, you don&amp;rsquo;t even think that you were such a person&lt;/p&gt;
+&lt;h1 id=&#34;the-people-are-fake-and-the-world-is-unkind&#34;&gt;The people are fake and the world is unkind&lt;/h1&gt;
+&lt;p&gt;Everyone is selfish. People want their on stuff to be prioritized.
+Sure sometimes a few people may be kind to others by helping them in times of need, but that is only after considering if they are bored at that moment.&lt;/p&gt;
+&lt;p&gt;Else it&amp;rsquo;s just them saying excuses to keep away from someone who&amp;rsquo;d need their help.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;I don&amp;rsquo;t like this world and this kind of people..&lt;/p&gt;
+&lt;p&gt;Why can&amp;rsquo;t everyone be more genuine and open.. Ahh, I get it. It&amp;rsquo;s because everyone want to maintain good connections with everyone else so they side with people during good times. However when&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Useful Linux Stuff</title>
+      <link>//localhost:1313/posts/useful-linux-stuff/</link>
+      <pubDate>Sun, 21 Aug 2022 21:20:19 +0530</pubDate>
+      
+      <guid>//localhost:1313/posts/useful-linux-stuff/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Mention about the convert files in loop and how it saved the day for IEDC blog release date&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Won Prizes for Electrical</title>
+      <link>//localhost:1313/posts/won-prizes-for-electrical/</link>
+      <pubDate>Thu, 11 Aug 2022 22:12:03 +0530</pubDate>
+      
+      <guid>//localhost:1313/posts/won-prizes-for-electrical/</guid>
+      <description>&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;For excel 2021, me and my very good friend Gokul participated in 5 non-CS events conducted mostly by the electrical, electronics &amp;amp; bio-medical departments in our college and we won prizes for 4 of those events all thanks to CS knowledge and experience:)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Lessons learned from releasing a product on Reddit</title>
+      <link>//localhost:1313/posts/released-a-product-on-reddit/</link>
+      <pubDate>Tue, 09 Aug 2022 19:41:25 +0530</pubDate>
+      
+      <guid>//localhost:1313/posts/released-a-product-on-reddit/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;I created an app and I released it on Reddit. The feedback was immense. Some said the app was a lifesaver while some said the app is just plain unnecessary. Some gave me suggestions to improve while some said how it could be misused and all of it was given really quickly within a few hours! Reddit is awesome for getting feedback.&lt;/p&gt;
+&lt;p&gt;Here are some of my thoughts.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Don&amp;rsquo;t go expecting a lot of positive feedback.&lt;/li&gt;
+&lt;li&gt;The way you phrase your post is important:
+People could either rip your idea and leave you in sadness or they could offer helpful advice to improve your project.&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
     </item>
     
     <item>
+      <title>Unknown benefit of creating a home partition - Access linux files from Windows</title>
+      <link>//localhost:1313/posts/access-linux-files-from-windows/</link>
+      <pubDate>Sat, 06 Aug 2022 13:47:26 +0530</pubDate>
+      
+      <guid>//localhost:1313/posts/access-linux-files-from-windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>How we hacked an entire computer lab✨</title>
-      <link>/posts/hacking-cs-lab/</link>
+      <link>//localhost:1313/posts/hacking-cs-lab/</link>
       <pubDate>Tue, 26 Jul 2022 19:09:07 +0530</pubDate>
       
-      <guid>/posts/hacking-cs-lab/</guid>
+      <guid>//localhost:1313/posts/hacking-cs-lab/</guid>
       <description>&lt;p&gt;Linux is cool.&lt;/p&gt;
 &lt;p&gt;Computer Networks is cool.&lt;/p&gt;
 &lt;p&gt;Rick roll is cool.&lt;/p&gt;
@@ -660,7 +1269,7 @@ Use git filter branch&lt;/li&gt;
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Short write up of how I wrote a script to play rick roll in all computers in our lab. 🙂&lt;/p&gt;
 &lt;center&gt;
-  &lt;video alt=&#34;demo of us rick-rolling&#34; src=&#34;/videos/hackCSLab.mp4&#34; controls muted poster=&#34;/thumbs/hackCSLab.jpg&#34; &gt;&lt;/video&gt;
+  &lt;video alt=&#34;demo of us rick-rolling&#34; src=&#34;//localhost:1313/videos/hackCSLab.mp4&#34; controls muted poster=&#34;/thumbs/hackCSLab.jpg&#34; &gt;&lt;/video&gt;
   &lt;p class=&#39;caption&#39;&gt;In hindsight, should have added the --fullscreen flag to the browser as well!&lt;/p&gt;
 &lt;/center&gt;
 &lt;ol&gt;
@@ -668,7 +1277,7 @@ Use git filter branch&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ip a | grep 192.
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;center&gt;
-  &lt;image src=&#34;/images/hackCsLab/ipGrep.jpg&#34; alt=&#34;ip grep image&#34;&gt;&lt;/image&gt;
+  &lt;image src=&#34;//localhost:1313/images/hackCsLab/ipGrep.jpg&#34; alt=&#34;ip grep image&#34;&gt;&lt;/image&gt;
   &lt;p class=&#39;caption&#39;&gt;
   If the computer is connected to two or more networks(ethernet and wifi for example) the above would result in more than one entries.
   Note that the address ending with 255 is for broadcast and hence should not be used.
@@ -680,14 +1289,14 @@ Use git filter branch&lt;/li&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo nmap -sn 192.168.143.0-255
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo nmap -sn 192.168.143.0-255 &amp;gt; ips.txt &lt;span style=&#34;color:#75715e&#34;&gt;# to store output to a file&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;Install &lt;a href=&#34;sshpass&#34;&gt;sshpass&lt;/a&gt; on your host machine&lt;/li&gt;
+&lt;li&gt;Install &lt;a href=&#34;https://man.archlinux.org/man/sshpass.1&#34;&gt;sshpass&lt;/a&gt; on your host machine&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install sshpass
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;(i) Create simple bash script to ssh into one file and remotely execute a command&lt;/li&gt;
 &lt;/ol&gt;
 &lt;center&gt;
-  &lt;image src=&#34;/images/hackCsLab/remoteExec.jpg&#34; alt=&#34;Remote exec sample script&#34;&gt;&lt;/image&gt;
+  &lt;image src=&#34;//localhost:1313/images/hackCsLab/remoteExec.jpg&#34; alt=&#34;Remote exec sample script&#34;&gt;&lt;/image&gt;
   &lt;p class=&#39;caption&#39;&gt;
   Simple script to remotely execute a command in a single client machine in network using sshpass.
   &lt;/p&gt;
@@ -696,7 +1305,7 @@ Use git filter branch&lt;/li&gt;
 &lt;li&gt;(ii) Create script to loop through the script and remotely execute a command.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;center&gt;
-  &lt;image src=&#34;/images/hackCsLab/loopIpScript.jpg&#34; alt=&#34;sample script for looping over ips and executing a bash command&#34;&gt;&lt;/image&gt;
+  &lt;image src=&#34;//localhost:1313/images/hackCsLab/loopIpScript.jpg&#34; alt=&#34;sample script for looping over ips and executing a bash command&#34;&gt;&lt;/image&gt;
   &lt;p class=&#39;caption&#39;&gt;
   Simple script to loop over a set of ips and execute a bash command.
   &lt;/p&gt;
@@ -713,21 +1322,21 @@ Use git filter branch&lt;/li&gt;
     
     <item>
       <title>I gave a talk at an international conference and Murphy&#39;s law sucks!</title>
-      <link>/posts/i-gave-a-talk/</link>
+      <link>//localhost:1313/posts/i-gave-a-talk/</link>
       <pubDate>Tue, 26 Jul 2022 19:09:07 +0530</pubDate>
       
-      <guid>/posts/i-gave-a-talk/</guid>
+      <guid>//localhost:1313/posts/i-gave-a-talk/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I got an opportunity to do a Flash-Talk for IndiaFoss conference held in Bangalore on 23-24 July 2022 and boy, &lt;a href=&#34;https://en.wikipedia.org/wiki/Murphy&#39;s_law&#34;&gt;Murphy&amp;rsquo;s law&lt;/a&gt; messed up my presentation!&lt;/p&gt;
 &lt;center&gt;
-  &lt;image src=&#34;/images/indiaFoss/indiaFossTalk.jpg&#34; alt=&#34;My talk at IndiaFoss&#34;/&gt;
+  &lt;image src=&#34;//localhost:1313/images/indiaFoss/indiaFossTalk.jpg&#34; alt=&#34;My talk at IndiaFoss&#34;/&gt;
 &lt;p class=&#39;caption&#39;&gt;Excuse the 240p quality please!&lt;/p&gt;
 &lt;/center&gt;
 &lt;p&gt;The topic of my talk was: &lt;strong&gt;How to make sharing of digital assets as easy and accessible as possible.&lt;/strong&gt;
-It was based on &lt;a href=&#34;/projects/whatsapp-msg-without-save/&#34;&gt;an app I had made earlier&lt;/a&gt; to send messages by using the most common app in one&amp;rsquo;s phone - Whatsapp, without having to save anyone&amp;rsquo;s contact number.&lt;/p&gt;
+It was based on &lt;a href=&#34;//localhost:1313/projects/whatsapp-msg-without-save/&#34;&gt;an app I had made earlier&lt;/a&gt; to send messages by using the most common app in one&amp;rsquo;s phone - Whatsapp, without having to save anyone&amp;rsquo;s contact number.&lt;/p&gt;
 &lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
 &lt;p&gt;I was inspired by a talk which I heard over at IndiaFoss from Akash Hamirwasia who made a web-app called &lt;a href=&#34;https://blaze.vercel.app/&#34;&gt;Blaze&lt;/a&gt; for sending files over the internet using a website.
-His project was cool, but to me it seemed like the common man would find it a bit difficult. When I talk about the common man, I&amp;rsquo;m talking about they who doesn&amp;rsquo;t even know to open web browsers(Yes, I&amp;rsquo;ve seen people to whom when I asked to open browser, they have opened settings and searched &amp;ldquo;browser&amp;rdquo; in the settings searchbar. Just know that you are really privileged if you think such people don&amp;rsquo;t exist).&lt;/p&gt;
+His project was cool, but to me it seemed like the common man would find it a bit difficult. When I talk about the common man, I&amp;rsquo;m talking about they who doesn&amp;rsquo;t even know to open web browsers(Yes, I&amp;rsquo;ve seen people to whom when I asked to open browser, they have opened settings and searched &amp;ldquo;browser&amp;rdquo; in the settings search-bar. Just know that you are really privileged if you think such people don&amp;rsquo;t exist).&lt;/p&gt;
 &lt;p&gt;Whatsapp is the app with which people are most comfortable. If only there was a way to send files through whatsapp without having to save the contact number&amp;hellip;&lt;/p&gt;
 &lt;p&gt;Introducing my app which solves exactly this problem. It generates a wa.me link and opens it behind the scenes so as to trigger and open whatsapp chat of the person whose number has just been entered.&lt;/p&gt;
 &lt;h2 id=&#34;about-the-talk&#34;&gt;About the talk&lt;/h2&gt;
@@ -748,55 +1357,179 @@ His project was cool, but to me it seemed like the common man would find it a bi
     </item>
     
     <item>
-      <title>How to host a Hugo static site using Github pages</title>
-      <link>/posts/hosting-hugo-sites-on-gh-pages/</link>
-      <pubDate>Thu, 21 Oct 2021 00:20:33 +0530</pubDate>
+      <title>This world is great and the people are kind</title>
+      <link>//localhost:1313/posts/world-is-nice/</link>
+      <pubDate>Sat, 26 Mar 2022 19:09:07 +0530</pubDate>
       
-      <guid>/posts/hosting-hugo-sites-on-gh-pages/</guid>
-      <description>&lt;p&gt;It took me a day to fix a bug related to hosting a Hugo blog on github pages. Thought I&amp;rsquo;d compile down my learnings here.&lt;/p&gt;
-&lt;p&gt;Check out these two links to get started with the local installation and setting up of the development environment. This part is quite easy.&lt;/p&gt;
+      <guid>//localhost:1313/posts/world-is-nice/</guid>
+      <description>&lt;p&gt;I had an exam today. It wak okay, but that&amp;rsquo;s not what this post is about. This post is about the world we live in. Not the physical one with houses, trees, buildings and college, but the one which is more subtle and often times a bit hard to identify, the one filled with people, friends, laughter, rainbows and dewdrops.&lt;/p&gt;
+&lt;p&gt;I want to say about some people whose actions have really had a deep impact in me, because I couldn&amp;rsquo;t fathom why these people do the stuff they do when they don&amp;rsquo;t get any benefit out of them.&lt;/p&gt;
+&lt;p&gt;I have a senior who took the time and effort to write a handwritten note for me about how he cherished the time together. I&amp;rsquo;ve had seniors text me things like how they missed me for gatherings. I&amp;rsquo;ve had a junior message me on days before exams when I was stressed, saying about how he the exams will be alright, because he has prayed for me.
+These things I don&amp;rsquo;t understand, why do people do this to me. Do i really deserve this&amp;hellip; I&amp;rsquo;ve not done any of them to others, I really feel blessed and grateful and a little confused about whether I really are worth the love, kindness and compassion people show to me.
+I&amp;rsquo;ve often wondered why people why they does these, and often times, I think it&amp;rsquo;s how people are. Most of the times, people don&amp;rsquo;t do these just for me, they will be doing these small act of love/kindness to others as well, out of their own goodwill, but boy, does this give you such a good feeling. It gives you a feeling of warmth and enforces the feeling that you&amp;rsquo;re good too, that you are worthy too, to have someone spend time and effort to go the extra mile for you when they knew that they won&amp;rsquo;t be getting any extra points for good behavior.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve thought about why I haven&amp;rsquo;t done any of the above things.. Maybe it&amp;rsquo;s because I&amp;rsquo;m selfish, or maybe it&amp;rsquo;s because I felt like doing any of the above mentioned things would make it cringe and the other person would consider me a weirdo or something, or maybe it&amp;rsquo;s both.
+But once I&amp;rsquo;ve been in the receiving side, I never felt any cringe at all, all I felt was pure contentment, to feel that I&amp;rsquo;m worth too, that there are people out there who thinks I&amp;rsquo;m good too. I always remember feeling suddenly grateful, to feel happy that the actions I&amp;rsquo;ve done have made others feel good in such a way that they&amp;rsquo;re taking pains to make me feel good.&lt;/p&gt;
+&lt;p&gt;The Lord is great, This world is great, the people are great. I&amp;rsquo;m gonna start passing this onwards as well. Oh wait actually some small things which I&amp;rsquo;ve been doing in the past may be considered in these category as well. I&amp;rsquo;ve often times called any random person from my class whom I prolly won&amp;rsquo;t even be talking in real life, but chumma, simply I&amp;rsquo;ve called these people just to ask them hey, how do you do? These calls mostly happened during the COVID lowdown times and even though I won&amp;rsquo;t be having any topics which I could discuss, something or other would happen, and before I know it I would&amp;rsquo;ve been talking to this person for hours🙂.&lt;/p&gt;
+&lt;p&gt;Most of the times when I call someone after a good time, I usually ask them how they are and how they&amp;rsquo;ve been maintaining connections with their friends. The usual reply I get is that they sometime text each other, but other than that not much contact, so don&amp;rsquo;t know how things are going with each other. So this will prompt me to ask them to have a call and the response I get back almost always is about how they think they are not having anything to talk about, little knowing the fact that the call they&amp;rsquo;ve being doing with me for the past hour or so started with &amp;ldquo;hey, class okke engane pokunnu uvu&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;I don&amp;rsquo;t know if this calling people to talk really count as a selfless activity because these talks usually are fun and I like talking with people as well. One thing I&amp;rsquo;ve observed is that usually there are a lot of people who would be having a lot to talk about and you&amp;rsquo;d not be expecting these at all becuase they are usually so silent in class, but I&amp;rsquo;ve been at a lot of times, a listener for people to rant. And I don&amp;rsquo;t mean rant as in a bad kinda way, but in a way where people could just vent out their bottled up feelings freely without feeling that the other person(me in this case) would be judging them. Wow I&amp;rsquo;m lucky I think to have people trust me this m&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Win Wordle With Grep</title>
+      <link>//localhost:1313/posts/win-wordle-with-grep/</link>
+      <pubDate>Mon, 14 Feb 2022 22:19:04 +0530</pubDate>
+      
+      <guid>//localhost:1313/posts/win-wordle-with-grep/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>My Linux Journey</title>
+      <link>//localhost:1313/posts/my-linux-journey/</link>
+      <pubDate>Sun, 30 Jan 2022 02:33:33 +0000</pubDate>
+      
+      <guid>//localhost:1313/posts/my-linux-journey/</guid>
+      <description>&lt;p&gt;I use Arch Linux with i3 tiling window manager. I&amp;rsquo;ve been using the same laptop for the last 11 years. It&amp;rsquo;s been an eventful journey and was filled with a lot of learnings and grit.&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;re someone who have used windows and then gradually switched to Linux by installing the distro yourself and fixing the issues yourself, you&amp;rsquo;ll be able to relate a lot better than someone who got everything done to them.&lt;/p&gt;
+&lt;h2 id=&#34;the-beginning&#34;&gt;The beginning&lt;/h2&gt;
+&lt;p&gt;In 7th grade, I had to have surgery on my right knee. While I was in the hospital, my aunt came to visit me and gave me her old laptop to keep me entertained while I was laid up. It was a Dell Inspiron n4050 with both Windows 7 and Ubuntu pre-installed.&lt;/p&gt;
+&lt;p&gt;At the time, I was pretty used to downloading English movies via torrent and watching them on my phone, so having a laptop was really convenient as I could transfer the movies and watch them on a bigger screen.&lt;/p&gt;
+&lt;p&gt;I tried using Ubuntu a few times, but I couldn&amp;rsquo;t really find anything appealing about it. I couldn&amp;rsquo;t even open any of my games on it.&lt;/p&gt;
+&lt;h2 id=&#34;high-school&#34;&gt;High School&lt;/h2&gt;
+&lt;p&gt;In high school, I became even more interested in computers. We didn&amp;rsquo;t have regular internet access, so I had to use a net-setter to get online, but it was expensive and we could only afford to use it sparingly. I remember finding an app called NCERT solutions, which provided answers to questions in NCERT textbooks, and using it while in 8th grade. I also used to save APKs, ISO files, and web pages (by right-clicking and selecting &amp;ldquo;save as&amp;rdquo;) because of my limited internet access.&lt;/p&gt;
+&lt;p&gt;As I got older, I started using my computer to create cool art and designs. At the time, I was really into Jarvis from Iron Man and I remember customizing my Windows 7 to look like Iron Man&amp;rsquo;s interface using RainMeter themes.&lt;/p&gt;
+&lt;p&gt;During this time, I tried to delete Ubuntu from my system because I felt like it was taking up valuable space and I didn&amp;rsquo;t want to have to press enter to select Windows from the dual-boot grub menu every time I wanted to use my computer. I was pretty comfortable with Windows and was familiar with system management (right-clicking on &amp;ldquo;My Computer&amp;rdquo; and selecting options). In the program, I saw that there were 70 gigs of space that were not being used by Windows. I thought this would be easy to fix, so I right-clicked on the partition and deleted it, then extended the Windows drive (C) to use the newly-created free space. Success! I thought, as I checked the properties of the C drive and saw that it had expanded.&lt;/p&gt;
+&lt;p&gt;But the next day, when I tried to turn on my computer, I was greeted with a terrible grub error message. I had no idea what to do, since I couldn&amp;rsquo;t log into Windows anymore because deleting Ubuntu had broken something. I was really confused, because I had been able to fix any issues I had with Windows in the past, but this wasn&amp;rsquo;t Windows. This black screen with white letters seemed like something only hackers or coders could fix, right&amp;hellip;? And that&amp;rsquo;s where I would have given up. I asked my dad to take my laptop to a shop to be repaired, but he didn&amp;rsquo;t think laptops were that important for kids and told me to fix it myself since I was the one who broke it in the first place.&lt;/p&gt;
+&lt;center&gt;
+  &lt;image src=&#34;//localhost:1313/images/linuxJourney/grubError.jpg&#34; alt=&#34;The grub boot error message&#34;&gt;&lt;/image&gt;
+&lt;p class=&#39;caption&#39;&gt;The infamous Grub rescue error&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;Without my laptop, I was bored out of my mind, so I really wanted to fix it. We had an old Windows XP PC at home that was never used. I connected my dad&amp;rsquo;s phone to the PC, turned on USB tethering, and used that internet connection to search for solutions. After some searching, I found a way to fix it. Since I didn&amp;rsquo;t have a Windows 7 installation disk (since the laptop was a gift), I downloaded Hiren&amp;rsquo;s boot CD and, after 30 minutes of struggling, managed to get everything working again. Whew! I decided then and there that I would never use Ubuntu again.&lt;/p&gt;
+&lt;p&gt;Even during my 11th and 12th grade, I did all my C++ coding in Windows with Borland TurboC++.&lt;/p&gt;
+&lt;h2 id=&#34;college-life&#34;&gt;College Life&lt;/h2&gt;
+&lt;p&gt;The major change began in my College life. During this time, Windows began really pushing and promoting Windows 10 a lot. I got free offers and tried installing on my Laptop, but then quickly had to uninstll them due to the computer being so slow.&lt;/p&gt;
+&lt;p&gt;By the time I reached college, Microsoft stopped supporting Windows 7 and urged everyone to move to Windows 10. Due to my slowness, I wanted to find a better alternative. . There was a FOSS club in our college which was very active and a senior over there suggested me to switch to Ubuntu (again) in my first year. I was reluctant,, but then agreed and tried installing it myself. I got it to work well, but the issue was slowness. I couldn&amp;rsquo;t really find much better performance with the Ubuntu Gnome than Windows.&lt;/p&gt;
+&lt;p&gt;I was feeling down and started looking at ways to speed up my system. This led me to a rabbit hole of exploring differrent Linux distros and seeing how I could get the best performance from my system.
+Finally I settled on Xubuntu, a distro very similar to Ubuntu, but with XFCE as desktop environment. Now this was great for me. My RAM usage came to only 700-800 MBs in most idle times. I was happy.&lt;/p&gt;
+&lt;h2 id=&#34;transitioning&#34;&gt;Transitioning&lt;/h2&gt;
+&lt;p&gt;I got introduced to the FOSS aspect a lot in my first year and i tried exploring them a lot and wanted to find foss alternatives to popular proprietirary windows softwre. and all of this took place in my first year.
+I was scared to still delete windows asnd of&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A Good Leader</title>
+      <link>//localhost:1313/posts/a-good-leader/</link>
+      <pubDate>Mon, 20 Dec 2021 00:38:05 +0530</pubDate>
+      
+      <guid>//localhost:1313/posts/a-good-leader/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcallagylaw.com%2Fwp-content%2Fuploads%2F2015%2F02%2FCallagy-Law-Leadership.jpg&amp;amp;f=1&amp;amp;nofb=1&#34; alt=&#34;Leadership&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;h2 id=&#34;disclaimer&#34;&gt;Disclaimer&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;m just a 3rd year B.Tech student and these points are based on the limited experiences I&amp;rsquo;ve had so far during my college days mainly.&lt;/p&gt;
+&lt;h3 id=&#34;1-a-good-leader-is-humble&#34;&gt;1. A good leader is humble&lt;/h3&gt;
+&lt;h3 id=&#34;2-a-good-leader-knows-stuff&#34;&gt;2. A good leader knows stuff&lt;/h3&gt;
+&lt;h3 id=&#34;3-a-good-leader-is-selfless&#34;&gt;3. A good leader is selfless&lt;/h3&gt;
+&lt;h1 id=&#34;conlusion&#34;&gt;Conlusion&lt;/h1&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Why the ancients weren&#39;t morons</title>
+      <link>//localhost:1313/posts/ancients-werent-morons/</link>
+      <pubDate>Sun, 24 Oct 2021 19:27:40 +0530</pubDate>
+      
+      <guid>//localhost:1313/posts/ancients-werent-morons/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;NOTE: This is a personal opinion at this point in time and is subject to change with time and the constructive criticism I receive. :)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Nowadays most zoomers I&amp;rsquo;ve known both in college groups and in various online forums have this notion that the ancients especially in India were kinda primitive to the current generation and culture.&lt;/p&gt;
+&lt;p&gt;I would like to gently disagree. It&amp;rsquo;s time to acknowledge that while we&amp;rsquo;re standing on top of giants, this doesn&amp;rsquo;t necessarily make us any taller than any one of the previous generation.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;The problem is the genZ with all &amp;ldquo;rational&amp;rdquo; or &amp;ldquo;logical&amp;rdquo; point of view says &amp;lsquo;Oh dude, the ancients/our ancestors used to practice stupid cultural traditions like Sati where the women had to jump into the pyre and kill herself if her husband dies as well. Now, isn&amp;rsquo;t that a horrible thing to do?? Surely the ancestors must have been plain stupid to allow those kind of practices to prevail!!. It&amp;rsquo;s so irrational, so they must be dumb.&amp;rsquo;&lt;/p&gt;
+&lt;p&gt;How I&amp;rsquo;d like to interject here: &lt;strong&gt;No custom or tradition can sustain/continue for a sufficiently long period of time without a very reasonable cause&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;That is, there must have been a good explanation on why traditions were continued for decades or even centuries.
+eg: consider Sati. Let&amp;rsquo;s think about why this was happening&amp;hellip; did it happen because one day a king or a Brahman decided that from tomorrow onwards all women must kill herself if her husband died? Nope. That sounds ridiculous.
+The ancient India consisted of many kingdoms where wars were pretty common. The women were considered as nurtures or nourishers who brings life to this world and cares for them. The men were considered as protectors of the land.
+As a result, it were the men were sent to wars - They had to pledge the loyalty to the kingdom and had to take vows to protect the citizens from foreign invaders even if it meant sacrificing their lives.&lt;/p&gt;
+&lt;p&gt;Now, think about it, what happens if the country loses the war? You all have seen the movies, what happens when the enemies defeat the home country? They loot out and take the gold and&amp;hellip;&amp;hellip;and what , they kill all the man and&amp;hellip;? to take revenge of their fallen brothers and to please their lustful natures, they rape the women and torture the children, sometime often at the same place in front of each other.
+See, this is the cause of Sati.. in ancient India, what happened to women after a kingdom lost a war was often worse than death.&lt;/p&gt;
+&lt;p&gt;The point I am trying to make is that, in order for any custom or practice or tradition to continue for a reasonable good amount of time, there would have been a very good cause for it. Without properly understanding what that cause was, if you try to call the people who practiced it as stupid, just because you think their practices were irrational, then it is you who is a dork.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;TODO: Search about the actual cause for the origination of Sati and the reason it was continued for so long.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Let&amp;rsquo;s consider another example: In traditional Hindu homes, in the evening, there would be an oil lamp lit in front of the door. This practice has come down a lot and only very few Hindu homes still practice this and even recite ramaNama in the evening sitting near the lamp. According to the common genZ culture where one is free to choose any belief and religious practice of one&amp;rsquo;s liking, this may seems pointless and olden. Even from the last few decades, where being an atheist was somehow considered cool, this may seem&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to deploy a Telegram bot to Serverless</title>
+      <link>//localhost:1313/posts/serverless-bot-deployment/</link>
+      <pubDate>Sun, 24 Oct 2021 19:25:18 +0530</pubDate>
+      
+      <guid>//localhost:1313/posts/serverless-bot-deployment/</guid>
+      <description>&lt;p&gt;When I worked as a Product Developer at TGH Tech, I had built multiple Telegram bots in nodeJs. In the inital stages all bots were using the default long polling method which required a server to be constantly running. We ran some bots on AWS ec2 and others using Heroku paid Plan. Keeping the server running all the time wasn&amp;rsquo;t economical for our usecase as there would be long gaps when the users won&amp;rsquo;t be using the bot. Running the server at night time and all hence wasn&amp;rsquo;t economical at all. So I started researching on AWS Lambda and how I could move the bots to serverless. The advantage of AWS Lambda functions is that you are paid only for the usage, as in you are paid only for the server running when a user uses your bot. No money is charged for all the idle time. Once I kinda figured out the steps to modify the code and have the bot deployed to Lambda, I created a document, outlining the process and shared it to many others who successfully managed to deploy their bots on serverless as well. This way we were able to save off a lot of money.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m adding the steps here as well for future references of anyone interested in moving their existing Telegram Bots to AWS Lambda using the &lt;a href=&#34;https://www.serverless.com/&#34;&gt;Serverless Framework&lt;/a&gt;.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://opensource.com/article/18/3/start-blog-30-minutes-hugo?utm_source=nomedium&amp;amp;utm_medium=web&amp;amp;utm_campaign=nomedium&#34;&gt;Start a blog in 30 minutes with Hugo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://gohugo.io/getting-started/quick-start/&#34;&gt;Official Hugo Quick Start Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Read &lt;a href=&#34;https://www.google.com/url?q=https://iamondemand.com/blog/building-your-first-serverless-telegram-bot/&amp;amp;sa=D&amp;amp;source=docs&amp;amp;ust=1643292794318291&amp;amp;usg=AOvVaw245vcHmEft7pWlVi0Muvf2&#34;&gt;this&lt;/a&gt; guide first&lt;/li&gt;
+&lt;li&gt;Skim through &lt;a href=&#34;https://www.google.com/url?q=https://core.telegram.org/bots/webhooks&amp;amp;sa=D&amp;amp;source=docs&amp;amp;ust=1643292815912938&amp;amp;usg=AOvVaw3Qvi7OgCOjGUL7dwHRYa4M&#34;&gt;this official Telegram docs&lt;/a&gt; about webhooks.
+&lt;ul&gt;
+&lt;li&gt;Basically, a webhook is used for getting updates when a user sends a command or a message to the bot.&lt;/li&gt;
+&lt;li&gt;However, in order to set a webhook, telegram requires an HTTPS enabled url to which telegram servers make a POST request on each message input.&lt;/li&gt;
+&lt;li&gt;We create a lambda function, which when deployed, provides us an HTTPS enabled url.&lt;/li&gt;
+&lt;li&gt;We set up the Telegram webhook using the above url to which telegram makes a POST request which contains the message object just as it is received in the msg object.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;By now you should be having a blog with atleast one post which can be previewed locally using &lt;code&gt;hugo server -D&lt;/code&gt; command.&lt;/p&gt;
-&lt;p&gt;Now, the part which I found difficult is to host this site and make it available for the public. While there are guides available on the official docs for a lot of hosting options, the one for hosting with github pages isn&amp;rsquo;t very helpful (general opinion of a lot of developers).&lt;/p&gt;
-&lt;p&gt;Anyways, here are the simple gotchas you need to take note of for easy hosting after following the official guide.&lt;/p&gt;
-&lt;ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;bot&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;onText&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;/regex/&lt;/span&gt;, (&lt;span style=&#34;color:#a6e22e&#34;&gt;msg&lt;/span&gt;) =&amp;gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;console&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;msg&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;We can then set up a switch statement or an if-else ladder to evaluate the message text and perform various actions depending on the command entered.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note: It is not necessary that you use the &lt;code&gt;node-telegram-bot-api&lt;/code&gt; library to send a message or get msg input etc. Telegram provides apis which can be used to send messages easily by passing in the chatId, msg-text, keyboardType etc, as seen in the above articles. Msg input can be received using webhooks as well as mentioned in the above paragraph&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a serverless.yml file and define the function with a path similar to the article mentioned above and deploy the function using &lt;code&gt;serverless deploy&lt;/code&gt; to get the url.&lt;/li&gt;
+&lt;li&gt;Set up, remove, get status of webhooks easily using the urls mentioned in &lt;a href=&#34;https://xabaras.medium.com/setting-your-telegram-bot-webhook-the-easy-way-c7577b2d6f72&#34;&gt;this article&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;some-things-to-keep-in-mind&#34;&gt;Some things to keep in mind&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;It is important that you return an object with statusCode 200 so that telegram understands that the query has been successful. (Check the first link above for reference)&lt;/li&gt;
+&lt;li&gt;When you want to send JSON data, ensure that you send it after properly stringifying it first.&lt;/li&gt;
+&lt;li&gt;For sending URLs, sometime you may get the error TypeError: Request path contains unescaped characters which can be fixed by creating a function to format text using &lt;a href=&#34;https://stackoverflow.com/questions/31024779/typeerror-request-path-contains-unescaped-characters-how-can-i-fix-this/62437210#62437210&#34;&gt;this stackoverflow answer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Lambda functions are &lt;span style=&#34;background-color:#717140;padding: 0px 4px;&#34;&gt;stateless&lt;/span&gt;, meaning that you can’t persist variable states in global variables, Each new call will result in a fresh instance being fired upon. This would have implications when storing user keyboard presses in memory. (Some alternative would be storing the button status in a db (too slow) or using some in-memory cache systems like Redis or Memcached (as suggested in the discussion thread by Node-telegram bot api)).&lt;/li&gt;
+&lt;li&gt;Telegram ensures only one way of getting inputs is active at any particular moment. Hence you can’t have polling and webhooks enabled at the same time. Ie. If you use the node-telegram-bot-api and set polling:true and have also enabled a webhook, when you run npm start, the webhook will automatically get disabled.&lt;/li&gt;
+&lt;li&gt;In order to delete pending messages which may get accumulated in case you forgot to return 200 statusCode or for any other reason that could result in same response message being sent by the bot, you can use the following url structure to delete pending updates: &lt;a href=&#34;https://api.telegram.org/bot%7Bmy_bot_token%7D/setWebhook?url=%7Burl_to_send_updates_to%7D&amp;amp;drop_pending_update=true&#34;&gt;https://api.telegram.org/bot{my_bot_token}/setWebhook?url={url_to_send_updates_to}&amp;amp;drop_pending_update=true&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;If you’ve got some extra route defined which accepts a request from a backend and performs an action (eg: ‘/notify’ route which when called sends a telegram notification message to the user), then that function can be exported and defined in the serverless.yml file which will give a new HTTPS url for that function. This can then be called by the backend to invoke that function. The package aws serverless express can be used if the function is complex and would require some expressJs like route handling.&lt;/li&gt;
+&lt;li&gt;Note that you may have environment variables which may be defined in a .env file. This needs to be added to the aws console as well by going to the &lt;code&gt;configuration&lt;/code&gt; tab and selecting &lt;code&gt;environment-variables&lt;/code&gt; section from the left side menu.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;things-which-could-be-explored-and-improved-when-the-need-arises&#34;&gt;Things which could be explored and improved when the need arises&lt;/h3&gt;
+&lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;The baseUrl in your config file should point to the url where which your site will be deployed. (Usually, &lt;code&gt;yourusername.github.io/&lt;/code&gt;). No need to change it to rawgithubUserContent link if images or css doesn&amp;rsquo;t load initially.&lt;/p&gt;
+&lt;p&gt;Use ngrok to expose a local port to the internet, which would provide an HTTPS enabled url which can be used to set up the webhook. This would enable live-reloading whenever a change is made as there would be no more need to deploy the function to AWS to see the changes&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;If images are not being displayed on your site, add on &lt;code&gt;canonifyURLs: true&lt;/code&gt; in your &lt;code&gt;config.yaml&lt;/code&gt; file or the toml version in your &lt;code&gt;config.toml&lt;/code&gt; file if you are using toml.&lt;/p&gt;
+&lt;p&gt;A way to connect a database like MongoDb. This can be done by calling the Mongo connect function in the handler function so as to persist the database connection for some time without having to do a cold start for each invocation like mentioned in this example.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;When using the &lt;a href=&#34;https://github.com/peaceiris/actions-gh-pages&#34;&gt;gh-pages&lt;/a&gt; github action as mentioned in the docs for deploying with Github, it&amp;rsquo;s basically creating a new branch called gh-pages and then putting in the build files (from the public folder) in this branch and this is the one that is getting deployed in github pages. Basically, your source code is in the main branch, and the build output is in the gh-pages branch. (Not knowing this can confuse you in understanding how the magic happens ). The static HTML pages in this branch are deployed using github pages.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;If you want to host your site in a custom domain, then you got to create a file &lt;code&gt;CNAME&lt;/code&gt; and put it in the hugo static folder. This file should contain just the domain name eg: &lt;code&gt;www.example.com&lt;/code&gt;. This file from static folder will be put in the root folder of gh-pages branch once the site has been built by the gh action on push. If you get some errors regarding the domain, check out &lt;a href=&#34;https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages#cname-errors&#34;&gt;this part&lt;/a&gt; of the official docs.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;So there you go, these are the three simple points which you need to take note of so as to make the whole deployment process with hugo a bit easier. Now you can write blog posts and the site gets deployed once you push to the main branch.&lt;/p&gt;
-&lt;p&gt;P.S. Just so you know, this current site you are looking at has been made completely using Hugo by following the above steps. So yeah, this works. You can check out the source code for this site &lt;a href=&#34;https://github.com/aldrinjenson/aldrinjenson.github.io&#34;&gt;here&lt;/a&gt; if interested.&lt;/p&gt;
-&lt;h2 id=&#34;pro-tip&#34;&gt;Pro Tip:&lt;/h2&gt;
-&lt;p&gt;If you want to make your life a bit easier, add the following alias script to your bash or zsh shell to start up the dev server and open up your browser quickly to the localhost hugo dev URL.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  alias hs&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;firefox --new-tab http://localhost:1313/ &amp;amp; hugo server -D&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above works for most modern browsers and hence you can replace firefox with the browser of your choice. So next time you want to write a new blog, fire up your editor and simply enter the &lt;code&gt;hs&lt;/code&gt; command in your blog directory to start up hugo dev server and have your browser navigate to the hugo dev port.&lt;/p&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;extra-references&#34;&gt;Extra references&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/TGH-Tech/open-fruit-admin-bot/tree/lambda&#34;&gt;https://github.com/TGH-Tech/open-fruit-admin-bot/tree/lambda&lt;/a&gt;
+&lt;a href=&#34;https://github.com/TGH-Tech/query-search-bot&#34;&gt;https://github.com/TGH-Tech/query-search-bot&lt;/a&gt;
+&lt;a href=&#34;https://github.com/TGH-Tech/open-fruit-seller-bot/tree/test-deployment&#34;&gt;https://github.com/TGH-Tech/open-fruit-seller-bot/tree/test-deployment&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>How to Speed up your programming workflow by adding auto-correct in git</title>
-      <link>/posts/git-autocorrect/</link>
+      <link>//localhost:1313/posts/git-autocorrect/</link>
       <pubDate>Sun, 01 Nov 2020 17:07:10 +0530</pubDate>
       
-      <guid>/posts/git-autocorrect/</guid>
+      <guid>//localhost:1313/posts/git-autocorrect/</guid>
       <description>&lt;p&gt;In this short post I would like to share a neat trick I learned which you can use to speed up your development workflow - adding auto-correct to git.&lt;/p&gt;
 &lt;h2 id=&#34;current-scenario&#34;&gt;Current Scenario&lt;/h2&gt;
 &lt;p&gt;Currently, if you have a typo or some small error in your git command, git will automatically suggest the most plausible command corresponding to your keyboard input.
 Majority of the time this suggested command is bound to be the one you were trying to use. However, just suggesting the command is not that helpful since the programmer still has to navigate around and change the typo.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;&lt;img src=&#34;/images/git-autocorrect/image1.png&#34; alt=&#34;image1&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/git-autocorrect/image1.png&#34; alt=&#34;image1&#34;&gt;&lt;/p&gt;
 &lt;p align = &#34;center&#34;&gt;
 Before setting up auto-correct
 &lt;/p&gt;
@@ -809,7 +1542,7 @@ Before setting up auto-correct
 &lt;p&gt;Just open your terminal and add the following line&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git config --global help.autocorrect &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Adding the above command in your terminal results in the following :&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/git-autocorrect/image2.png&#34; alt=&#34;image2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/git-autocorrect/image2.png&#34; alt=&#34;image2&#34;&gt;&lt;/p&gt;
 &lt;p align = &#34;center&#34;&gt;
 With auto-correct turned on
 &lt;/p&gt;
@@ -821,7 +1554,7 @@ With auto-correct turned on
 &lt;p&gt;This can be achieved by changing the final integer value at the end to a multiple of 10 (say 20 or 30 which corresponds to 2 or 3 seconds respectively).&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git config --global help.autocorrect &lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Adding the above code in your terminal gives the following output when you have another typo in your code.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/git-autocorrect/image3.png&#34; alt=&#34;image3&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/git-autocorrect/image3.png&#34; alt=&#34;image3&#34;&gt;&lt;/p&gt;
 &lt;p align = &#34;center&#34;&gt;
 Executing a git command after 3 seconds
 &lt;/p&gt;
@@ -831,7 +1564,7 @@ Executing a git command after 3 seconds
 &lt;p&gt;If for some reason, you want to disable autocorrect feature (though I can’t really imagine why), all you need is to set the final integer to 0.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git config --global help.autocorrect &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will revert back the config settings to the default stage – to how it was before we modified it.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/git-autocorrect/image4.png&#34; alt=&#34;image4&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/git-autocorrect/image4.png&#34; alt=&#34;image4&#34;&gt;&lt;/p&gt;
 &lt;p align = &#34;center&#34;&gt;
 Just like how it was before
 &lt;/p&gt;
@@ -841,17 +1574,17 @@ Just like how it was before
 &lt;h3 id=&#34;references&#34;&gt;References:&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration&#34;&gt;Here&lt;/a&gt; is the official git docs in case you have further doubts.&lt;/p&gt;
 &lt;p&gt;P.S. Other than the auto-correct, git has got some other cool features as well. Be sure to check them out too while you are at it :).&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/bg/bg1.jpg&#34; alt=&#34;background image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/bg/bg1.jpg&#34; alt=&#34;background image&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Have a good day!&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Easiest way to add a splash screen in a React Native App</title>
-      <link>/posts/add-splash-screen-in-react-native-app/</link>
+      <link>//localhost:1313/posts/add-splash-screen-in-react-native-app/</link>
       <pubDate>Wed, 24 Jun 2020 00:58:27 +0530</pubDate>
       
-      <guid>/posts/add-splash-screen-in-react-native-app/</guid>
+      <guid>//localhost:1313/posts/add-splash-screen-in-react-native-app/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Note: This article was initially written in &lt;a href=&#34;https://medium.com/swlh/the-easiest-way-to-add-a-splash-screen-to-your-react-native-app-2d36bee3117b&#34;&gt;Medium&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -876,14 +1609,14 @@ Just like how it was before
 &lt;h2 id=&#34;step-2-configuration&#34;&gt;Step 2: Configuration&lt;/h2&gt;
 &lt;h3 id=&#34;android&#34;&gt;Android:&lt;/h3&gt;
 &lt;p&gt;You have got to update the MainActivity.java file (located at &lt;code&gt;android/app/src/main/java/com/your_project_name&lt;/code&gt; folder) in order to use react-native-splash-screen in your project. Just make changes to the file like given below:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; android.os.Bundle&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; com.facebook.react.ReactActivity&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; org.devio.rn.splashscreen.SplashScreen&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;MainActivity&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;extends&lt;/span&gt; ReactActivity &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;@Override&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;protected&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;onCreate&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Bundle savedInstanceState&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    SplashScreen&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;show&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;super&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;onCreate&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;savedInstanceState&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// ...other code
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; android.os.Bundle;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; com.facebook.react.ReactActivity;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; org.devio.rn.splashscreen.SplashScreen;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;MainActivity&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;extends&lt;/span&gt; ReactActivity {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;@Override&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;protected&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;onCreate&lt;/span&gt;(Bundle savedInstanceState) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    SplashScreen.&lt;span style=&#34;color:#a6e22e&#34;&gt;show&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;super&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;onCreate&lt;/span&gt;(savedInstanceState);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// ...other code&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, create a file called &lt;code&gt;launch_screen.xml&lt;/code&gt; in &lt;code&gt;app/src/main/res/layout&lt;/code&gt; (create the layout folder if it doesn&amp;rsquo;t exist). The contents of the file should be the following:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt;&lt;/span&gt;
@@ -933,6 +1666,44 @@ Just like how it was before
 &lt;li&gt;&lt;a href=&#34;https://www.npmjs.com/package/react-native-splash-screen&#34;&gt;https://www.npmjs.com/package/react-native-splash-screen&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.netguru.com/blog/react-native-splash-screen&#34;&gt;https://www.netguru.com/blog/react-native-splash-screen&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to host a Hugo static site using Github pages</title>
+      <link>//localhost:1313/posts/hosting-hugo-sites-on-gh-pages/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/posts/hosting-hugo-sites-on-gh-pages/</guid>
+      <description>&lt;p&gt;It took me a day to fix a bug related to hosting a Hugo blog on github pages. Thought I&amp;rsquo;d compile down my learnings here.&lt;/p&gt;
+&lt;p&gt;Check out these two links to get started with the local installation and setting up of the development environment. This part is quite easy.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://opensource.com/article/18/3/start-blog-30-minutes-hugo?utm_source=nomedium&amp;amp;utm_medium=web&amp;amp;utm_campaign=nomedium&#34;&gt;Start a blog in 30 minutes with Hugo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/getting-started/quick-start/&#34;&gt;Official Hugo Quick Start Guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;By now you should be having a blog with atleast one post which can be previewed locally using &lt;code&gt;hugo server -D&lt;/code&gt; command.&lt;/p&gt;
+&lt;p&gt;Now, the part which I found difficult is to host this site and make it available for the public. While there are guides available on the official docs for a lot of hosting options, the one for hosting with github pages isn&amp;rsquo;t very helpful (general opinion of a lot of developers).&lt;/p&gt;
+&lt;p&gt;Anyways, here are the simple gotchas you need to take note of for easy hosting after following the official guide.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;The baseUrl in your config file should point to the url where which your site will be deployed. (Usually, &lt;code&gt;yourusername.github.io/&lt;/code&gt;). No need to change it to rawgithubUserContent link if images or css doesn&amp;rsquo;t load initially.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If images are not being displayed on your site, add on &lt;code&gt;canonifyURLs: true&lt;/code&gt; in your &lt;code&gt;config.yaml&lt;/code&gt; file or the toml version in your &lt;code&gt;config.toml&lt;/code&gt; file if you are using toml.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When using the &lt;a href=&#34;https://github.com/peaceiris/actions-gh-pages&#34;&gt;gh-pages&lt;/a&gt; github action as mentioned in the docs for deploying with Github, it&amp;rsquo;s basically creating a new branch called gh-pages and then putting in the build files (from the public folder) in this branch and this is the one that is getting deployed in github pages. Basically, your source code is in the main branch, and the build output is in the gh-pages branch. (Not knowing this can confuse you in understanding how the magic happens ). The static HTML pages in this branch are deployed using github pages.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you want to host your site in a custom domain, then you got to create a file &lt;code&gt;CNAME&lt;/code&gt; and put it in the hugo static folder. This file should contain just the domain name eg: &lt;code&gt;www.example.com&lt;/code&gt;. This file from static folder will be put in the root folder of gh-pages branch once the site has been built by the gh action on push. If you get some errors regarding the domain, check out &lt;a href=&#34;https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages#cname-errors&#34;&gt;this part&lt;/a&gt; of the official docs.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So there you go, these are the three simple points which you need to take note of so as to make the whole deployment process with hugo a bit easier. Now you can write blog posts and the site gets deployed once you push to the main branch.&lt;/p&gt;
+&lt;p&gt;P.S. Just so you know, this current site you are looking at has been made completely using Hugo by following the above steps. So yeah, this works. You can check out the source code for this site &lt;a href=&#34;https://github.com/aldrinjenson/aldrinjenson.github.io&#34;&gt;here&lt;/a&gt; if interested.&lt;/p&gt;
+&lt;h2 id=&#34;pro-tip&#34;&gt;Pro Tip:&lt;/h2&gt;
+&lt;p&gt;If you want to make your life a bit easier, add the following alias script to your bash or zsh shell to start up the dev server and open up your browser quickly to the localhost hugo dev URL.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  alias hs&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;firefox --new-tab http://localhost:1313/ &amp;amp; hugo server -D&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above works for most modern browsers and hence you can replace firefox with the browser of your choice. So next time you want to write a new blog, fire up your editor and simply enter the &lt;code&gt;hs&lt;/code&gt; command in your blog directory to start up hugo dev server and have your browser navigate to the hugo dev port.&lt;/p&gt;
 </description>
     </item>
     

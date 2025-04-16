@@ -5,9 +5,9 @@
 
     <div class="articles h-feed">
         {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
-        {{ range (.Paginate $pages).Pages }}
+        <!-- {{ range (.Paginate $pages).Pages }}
             {{ partial "post-summary.html" . }}
-        {{ end }}
+        {{ end }} -->
         {{ partial "pagination.html" . }}
     </div>
 

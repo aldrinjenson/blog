@@ -2,21 +2,110 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Aldrin Jenson</title>
-    <link>/projects/</link>
+    <link>//localhost:1313/projects/</link>
     <description>Aldrin Jenson (Projects)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Jan 2022 19:25:18 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 23 Jul 2023 19:25:18 +0530</lastBuildDate>
     
-    <atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Custom Stable Diffusion; uncensored, but without NSFW 🙂 </title>
+      <link>//localhost:1313/projects/simple-stable-diffusion/</link>
+      <pubDate>Sun, 23 Jul 2023 19:25:18 +0530</pubDate>
+      
+      <guid>//localhost:1313/projects/simple-stable-diffusion/</guid>
+      <description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://diffusion.mec.ac.in/&#34;&gt;http://diffusion.mec.ac.in/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;project-abstract&#34;&gt;Project Abstract&lt;/h2&gt;
+&lt;p&gt;A minimalist and opinionated web user interface (UI) for AI based image generation using the open source Stable Diffusion models.&lt;/p&gt;
+&lt;h2 id=&#34;tech-stack&#34;&gt;Tech Stack&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Python/Streamlit(awesome framework)&lt;/li&gt;
+&lt;li&gt;Stable diffusion webUI by Automatic1111&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;how-it-came-to-be&#34;&gt;How it came to be&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;I got admitted into Govt. Model Engineering College&lt;/li&gt;
+&lt;li&gt;The final year project our team worked on required GPU resources&lt;/li&gt;
+&lt;li&gt;Titty sir and CS department was kind and considerate to give access to a GPU server from MEC&lt;/li&gt;
+&lt;li&gt;I was so happy with getting access to a server that I tried out lot of cool ML models that I may not have been able to try out otherwise on my laptop🙂&lt;/li&gt;
+&lt;li&gt;I was lucky enough to get access during the time when stable diffusion and LLMs were beginning to be in the hype. After Facebook&amp;rsquo;s LLama model weights were made public,lot of development in the Open Source LLMs were being done, leading to lot of cool tools and projects to explore&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Discovered stable diffusion from the internet and explored it extensively - from generating character based images using LoRa to creating AI QR codes using ControlNet.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There was this awesome open-source project called stable-diffusion-webui by a person called Automatic1111(props to him for the great open source work he has done). I was doing all my image generation on his project. I tested out a lot of different models starting from the base stable-diffusion 1.5 to a wide variety of others ranging from generating comic book style versions to super ultra realistic portraits of Humans. Lot of time was spent on reading blogs, watching Youtube videos exploring various models etc to try this out. His software requires a good GPU and could only be run in the college Server with 8 GB GPU.&lt;/p&gt;
+&lt;p&gt;Now after being satisfied, towards the end of my final year project, I went to Titty Sir(bless him for being so awesome) and showed him the UI. He was impressed and liked the idea. He was cool with opening it to the public. I was happy too, though after having explored the models quite well, I was aware that this could be well misused as well. The stable diffusion webui involved a section where you can just use just your text to manipulate existing images - similar to using PhotoShop / Adobe Firefly.&lt;/p&gt;
+&lt;p&gt;But then I went with the flow, because I remembered the quote which is associated with Linux and Mac:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Mac is not idiot proof, it is smart people proof.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Most people would just want something that works, but there would be a few people. Few tinkerers who really want to explore and do great things. Craftsmen - tinkerers who would think about taking existing pices and thinking ho they could bbe crafted upon in great creative ways. For them, I felt the extra features would be super useful.&lt;/p&gt;
+&lt;h2 id=&#34;thoughts&#34;&gt;Thoughts&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;I initially hosted the Stable-Diffusion-webUI by Automatic11111 directly in our servers.&lt;/li&gt;
+&lt;li&gt;Showed it to Titty Sir and he liked it and was cool to make it public. Titty sir is a good person.&lt;/li&gt;
+&lt;li&gt;Anyways, we did it so and then people strated using it for NSFW images because the model used was uncensored🙂&lt;/li&gt;
+&lt;li&gt;uncensored models are usually way powerful and really good at generating realistic faces and hyper realistic natural bodies, but yeah they can be used for nsfw content too.&lt;/li&gt;
+&lt;li&gt;By default the Automatic1111 webui used to save all images generated in the db. Surprised to find the patter that, the common themes were: celebrities, Gods, random descriptions of art copied from midjourney and then nsfw content.&lt;/li&gt;
+&lt;li&gt;Very few people tried generating nsfw, but those that did, actually tried generating a lot!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;issues-with-automatic1111&#34;&gt;Issues with Automatic1111&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Was too complex for most people.&lt;/li&gt;
+&lt;li&gt;Many people used it for generating images with their names. They didn&amp;rsquo;t really understand the power and potential of such project&lt;/li&gt;
+&lt;li&gt;So many feature, with little to no description on hwo to use them!(In the project&amp;rsquo;s defence, it was meant for people who were already familiar with stable diffusion concepts). Hence wasn&amp;rsquo;t suitable for a lot of people because they find it too hard to use&lt;/li&gt;
+&lt;li&gt;Had a bug where if you hit the Generate button without any prompt, then by default it generates random images and multiple of these were NSFW.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;so&#34;&gt;So,&lt;/h2&gt;
+&lt;p&gt;The model I used was one called Deliberate. It was the most rated and downloaded model in civitai during that time. It was really good at generating faces and any general purpose art for that matter. This is the model which caused issues:)&lt;/p&gt;
+&lt;p&gt;As soon as a friend called me up and informed about the bug, I called up Titty sir, told him as well and we decided to replace deliberate with a pixar based model. This model works, but was definitiely less impressive. Almost like how chatGPT got nerfed out, this one was weak, but yes no more NSFW content.&lt;/p&gt;
+&lt;p&gt;But now there&amp;rsquo;s the issue of the ui being complex.&lt;/p&gt;
+&lt;p&gt;The solution was simple. Build something new from scratch.
+Well, that&amp;rsquo;s exactly what I did.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>I recreated Google&#39;s Teachable Machine and made it better!</title>
+      <link>//localhost:1313/projects/recreating-teachable-machine/</link>
+      <pubDate>Mon, 03 Oct 2022 11:20:30 +0000</pubDate>
+      
+      <guid>//localhost:1313/projects/recreating-teachable-machine/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Google&amp;rsquo;s Teachable machine is pretty cool for training a quick model with images received from a webcam. However, it&amp;rsquo;s very limited if, as a developer you want to update the pre-trained model and add extra data into it. I faced this issue when working on a &lt;a href=&#34;memoria&#34;&gt;project&lt;/a&gt; wherein I had to train an Image classification ML model and when new training data is received, retrain the model such that the new data is incorporated as well.&lt;/p&gt;
+&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mutual Couple FInder</title>
+      <link>//localhost:1313/projects/mutual-couple-finder/</link>
+      <pubDate>Mon, 14 Feb 2022 22:19:22 +0530</pubDate>
+      
+      <guid>//localhost:1313/projects/mutual-couple-finder/</guid>
+      <description>&lt;h2 id=&#34;links&#34;&gt;Links:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/aldrinjenson/mutual-finder&#34;&gt;https://github.com/aldrinjenson/mutual-finder&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Find out if your crush
+This is good code.&lt;/p&gt;
+&lt;p&gt;lot of memories associated with this.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Moodle Automation</title>
-      <link>/projects/moodle-automation/</link>
+      <link>//localhost:1313/projects/moodle-automation/</link>
       <pubDate>Wed, 19 Jan 2022 19:25:18 +0530</pubDate>
       
-      <guid>/projects/moodle-automation/</guid>
+      <guid>//localhost:1313/projects/moodle-automation/</guid>
       <description>&lt;p&gt;Reflections on a nodeJS program I wrote to automate marking online attendance.&lt;/p&gt;
 &lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;I used to attend online classes. Sometimes I&amp;rsquo;ll be sleepy or the class may be really boring, but I always used to attend them given a choice. However, at times I used to forget marking the attendance.&lt;/p&gt;
@@ -46,7 +135,7 @@ I had once used it an year before for generating PDFs out of html. &lt;br/&gt;
 Anyways, I created a new nodeJs project, installed puppeteer and added my username and password as environment variables.
 &lt;br&gt;
 I created a file wherein I could add the subjectLinks for which I wanted to automatically mark attendance. I also installed expressJs and created a web UI - something like a dashboard which could show me the stats for various subjects - whether they were marked, when is the next check etc.&lt;/p&gt;
-&lt;img src=&#34;/images/moodle-bot/dashboard.png&#34; width=400 alt=&#34;Dashboard preview&#34;&gt;
+&lt;img src=&#34;//localhost:1313/images/moodle-bot/dashboard.png&#34; width=400 alt=&#34;Dashboard preview&#34;&gt;
 &lt;br/&gt;
 &lt;p&gt;I tested the program a couple of times. Testing was a bit slow because there would be only one slot for me to test in one hour when there is an actual attendance open to automate.&lt;/p&gt;
 &lt;p&gt;Afterwards I installed the awesome &lt;a href=&#34;https://github.com/yagop/node-telegram-bot-api&#34;&gt;node-telegram-bot-api&lt;/a&gt; library for getting notifications through Telegram and also added some control commands as well.
@@ -55,7 +144,7 @@ Anyways, within a few days, I had ironed out the bugs(most of them that is) and 
 This was not acceptable.&lt;/p&gt;
 &lt;p&gt;So I started looking for alternate solutions, and came upon this wonderful &lt;a href=&#34;https://cron-job.org/en/&#34;&gt;site&lt;/a&gt;🤩.My new approach didn&amp;rsquo;t have the cron script in my code. I had an API endpoint which will be called by the cron-job site every 30 minutes from morning to evening. I hosted by code in Heroku and gave the api endpoint url to the cron-job site to ping. Heroku has some serious limitations for free apps which prevents them to be up more than 21 days etc. With my new approach however this was not at all a problem as now my server will be active exactly only when the cron site executes ie. it&amp;rsquo;ll be active only when it is time to mark the attendance. No extra wasted awake time.&lt;/p&gt;
 &lt;p&gt;I hosted the project, and I have to say by the end of semester I had more than 75% of attendance for all subjects. Mind you that I actually did attend all the online classes myself, just that I didn&amp;rsquo;t have to do the boring process of opening Moodle and marking the attendance manually.&lt;/p&gt;
-&lt;img src=&#34;/images/moodle-bot/bot.png&#34; width=400 alt=&#34;bot preview&#34;&gt;
+&lt;img src=&#34;//localhost:1313/images/moodle-bot/bot.png&#34; width=400 alt=&#34;bot preview&#34;&gt;
 &lt;br/&gt;
 &lt;h2 id=&#34;afterthoughts&#34;&gt;Afterthoughts&lt;/h2&gt;
 &lt;p&gt;One doubt I initially had was if this was a good project from an ethical standpoint and whether my code could be used by others for getting attendance without coming to class. Since I was conflicted on this, for over one year, I didn&amp;rsquo;t tell to anyone about this project and kept the code in a private Github repo. However it was only a matter of time before I saw that students were just tired of this stupid process of manually going to moodle and marking their own attendance. I saw over 4 other automation projects for marking attendance, ie students were trying to find a way to get around the broken system;&lt;/p&gt;
@@ -68,12 +157,12 @@ This was not acceptable.&lt;/p&gt;
     
     <item>
       <title>Query Search Bot</title>
-      <link>/projects/query-search-bot/</link>
+      <link>//localhost:1313/projects/query-search-bot/</link>
       <pubDate>Sun, 24 Oct 2021 19:25:18 +0530</pubDate>
       
-      <guid>/projects/query-search-bot/</guid>
+      <guid>//localhost:1313/projects/query-search-bot/</guid>
       <description>&lt;p&gt;I started my experiments with Telegram Bots in the November of 2020 when I wanted an easy way to receive notifications.
-Discord was the first option, but it was just too cumbersome for the simple purpose of receiving notifications. Telegram was much more convenient and easy to use. I used and built various Telegram bots of different complexities during my tenure at TGH Tech. I also used it for my &lt;a href=&#34;/projects/moodle-automation&#34;&gt;Moodle Automation&lt;/a&gt; program as well.&lt;/p&gt;
+Discord was the first option, but it was just too cumbersome for the simple purpose of receiving notifications. Telegram was much more convenient and easy to use. I used and built various Telegram bots of different complexities during my tenure at TGH Tech. I also used it for my &lt;a href=&#34;//localhost:1313/projects/moodle-automation&#34;&gt;Moodle Automation&lt;/a&gt; program as well.&lt;/p&gt;
 &lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;This is one of my first major Telegram bot and was first made to get myself familiar with the functions offered by the &lt;a href=&#34;https://github.com/yagop/node-telegram-bot-api&#34;&gt;node-telegram-bot-api&lt;/a&gt; library. The idea is simple - make Internet queries without leaving telegram.&lt;/p&gt;
 &lt;h2 id=&#34;the-flow&#34;&gt;The flow&lt;/h2&gt;
@@ -122,14 +211,14 @@ Live Demo at &lt;a href=&#34;https://t.me/querySearchBot&#34;&gt;querySearchBot&
     
     <item>
       <title>Love Match Calculator</title>
-      <link>/projects/love-calculator/</link>
+      <link>//localhost:1313/projects/love-calculator/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/projects/love-calculator/</guid>
+      <guid>//localhost:1313/projects/love-calculator/</guid>
       <description>&lt;p&gt;Before reading any further, visit this &lt;a href=&#34;https://aldrinjenson.github.io/Love-Calc/&#34;&gt;link&lt;/a&gt; and follow the instructions.&lt;/p&gt;
 &lt;hr&gt;
 Seriously dude, only continue if you visited the page and followed the instructions.
-&lt;p&gt;This project was inspired by an article written by Subin Siby of Vidhya Institue of Sciences where he mentioned about how we once got pranked by a similar site.
+&lt;p&gt;This project was inspired by an article written by Subin Siby of Vidhya Institute of Sciences where he mentioned about how we once got pranked by a similar site.
 I haven&amp;rsquo;t talked to him directly other than in an online meet when he answered a question I asked in chat, but I&amp;rsquo;ve heard he&amp;rsquo;s a cool dude interested in building cool software. (Wish I could talk to him directly for once🤞).&lt;/p&gt;
 &lt;p&gt;Anyways, On April 1st 2020, I decided to build something since it&amp;rsquo;s April Fool&amp;rsquo;s and all. During those days, some of us in class had created a Whatsapp group for those interested in programming, where we shared different articles, tutorials etc for everyone to pick up and improve. In that group, began a conversation which somehow ended on the topic of compatibility between partners(I know, just the usual typical topic discussed in a programming group.😁). Anyway, I saw this message in the morning and this got me thinking. Since it was April Fool&amp;rsquo;s day, I definitely wanted to do something fun; plus around that time, I had gotten myself pretty familiar with the awesome CSS framework &lt;a href=&#34;https://materializecss.com/&#34;&gt;Materialize-CSS&lt;/a&gt; and I wanted to build something cool with it as well.
 So with all these reasons, I decided to build a Love compatibility calculator(Not an actual one ofc.)&lt;/p&gt;
@@ -155,10 +244,10 @@ Well, a lot of people tried it out and quite a good number of people entered the
     
     <item>
       <title>Sending Whatsapp messages without saving contact</title>
-      <link>/projects/whatsapp-msg-without-save/</link>
+      <link>//localhost:1313/projects/whatsapp-msg-without-save/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/projects/whatsapp-msg-without-save/</guid>
+      <guid>//localhost:1313/projects/whatsapp-msg-without-save/</guid>
       <description>&lt;h3 id=&#34;abstract&#34;&gt;Abstract&lt;/h3&gt;
 &lt;p&gt;An app I made to ensure that you can share links and files really easily to anyone without having to save the contact number of that person by using the already existing most famous digital medium of communication - Whatsapp.&lt;/p&gt;
 &lt;p&gt;Get the code and APK from this &lt;a href=&#34;https://github.com/aldrinjenson/send-whatsapp-msg-without-save&#34;&gt;link&lt;/a&gt;.&lt;/p&gt;
@@ -184,7 +273,7 @@ This is cool and all, but why save someone&amp;rsquo;s contact if it&amp;rsquo; 
 &lt;p&gt;Now, what if there was one app which could automate this even further so that even very common man could use this without having to use a browser to enter a URL each time!&lt;/p&gt;
 &lt;p&gt;Well, that&amp;rsquo;s exactly what I made: An app which behind the scenes, calls the above link with a mobile number accepted as parameter.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s a demo:&lt;/p&gt;
-&lt;img src=&#34;/images/wa_msg_without_save_demo.gif&#34; width=400 alt=&#34;demo workflow gif&#34;&gt;
+&lt;img src=&#34;//localhost:1313/images/wa_msg_without_save_demo.gif&#34; width=400 alt=&#34;demo workflow gif&#34;&gt;
 &lt;br/&gt;
 &lt;h2 id=&#34;code-and-implementation&#34;&gt;Code and implementation&lt;/h2&gt;
 &lt;p&gt;The code is written in Flutter because the main reason for the starting of this project was for me to try out Flutter.&lt;/p&gt;
@@ -195,7 +284,7 @@ This is cool and all, but why save someone&amp;rsquo;s contact if it&amp;rsquo; 
 &lt;p&gt;Most of my projects so far which a lot of people have felt really useful are those which were really simple to implement. Within just 2 months of building this app, I felt myself using this way more than I initially anticipated. An app like this is really useful if you&amp;rsquo;re organizing an event and you&amp;rsquo;d want to just start a conversation with a participant but you know for sure that you won&amp;rsquo;t be contacting them again after this one time event.&lt;/p&gt;
 &lt;p&gt;Also really useful if you started talking to someone at a conference and you want to send them a link about your project.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve also used the app when I&amp;rsquo;ve gone to churches or festivals and have someone send a copy of the notice or brochure but usually folks only know to send via Whatsapp and hence need to save contact number.&lt;/p&gt;
-&lt;p&gt;I found this really useful and when I showed it to a few friends, even they could instantly relate with the problem. I realized that opening up the app and entering a number is waay faster than opening browser, typing wa.me/+91 and then entering the 10 digit phone number. It won&amp;rsquo;t seem obvious until you actually try it out yourself!&lt;/p&gt;
+&lt;p&gt;I found this really useful and when I showed it to a few friends, even they could instantly relate with the problem. I realized that opening up the app and entering a number is way faster than opening browser, typing wa.me/+91 and then entering the 10 digit phone number. It won&amp;rsquo;t seem obvious until you actually try it out yourself!&lt;/p&gt;
 &lt;p&gt;Hey, maybe you can try it out now and see if it&amp;rsquo;s useful to you as well✨.&lt;/p&gt;
 &lt;p&gt;Get the code and APK file from &lt;a href=&#34;https://github.com/aldrinjenson/send-whatsapp-msg-without-save&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
 </description>

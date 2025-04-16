@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>express on Aldrin Jenson</title>
-    <link>/tags/express/</link>
-    <description>Aldrin Jenson (express)</description>
+    <title>Express on Aldrin Jenson</title>
+    <link>//localhost:1313/tags/express/</link>
+    <description>Aldrin Jenson (Express)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 26 Mar 2023 16:04:39 +0000</lastBuildDate>
     
-    <atom:link href="/tags/express/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/express/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>How to deploy an express application to serverless using AWS Lambda</title>
-      <link>/posts/serverless-express-api/</link>
+      <title>How to deploy an express application to serverless with AWS Lambda</title>
+      <link>//localhost:1313/posts/serverless-express-api/</link>
       <pubDate>Sun, 26 Mar 2023 16:04:39 +0000</pubDate>
       
-      <guid>/posts/serverless-express-api/</guid>
+      <guid>//localhost:1313/posts/serverless-express-api/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;AWS Lambda is an easy way to set up APIs which you don&amp;rsquo;t use regularly. The free tier from AWS is very generous (1 million requests per month). I personally found it to be a pain to find an easy way to setup a CI/CD workflow with it. After several hours, here is the approach I made myself to have a super easy way to set up a pipeline to Lambda.&lt;/p&gt;
 &lt;h1 id=&#34;steps&#34;&gt;Steps&lt;/h1&gt;
@@ -76,19 +76,20 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;path&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;/{proxy+}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;method&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ANY&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;cors&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;NOTE: CORS is taken care by in the above yml. If you would require fine grained control, you can add fine-grained and programmatic CORS control using nodeJS middleware to handle it using your preference.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;NOTE: CORS is taken care by default in the above yml. If you would require fine grained control, you can add fine-grained and programmatic CORS control using the nodeJS CORS middleware.&lt;/p&gt;
 &lt;ol start=&#34;6&#34;&gt;
 &lt;li&gt;Deploy the functions&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Deploying to AWS Lambda is super easy and can be done by the &lt;code&gt;serverless&lt;/code&gt; nodejs library.
 Run the following from the root directory of your project.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm i -g serverless
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;serverless config credentials --provider aws --key AWS_ACCESS_KEY_ID --secret  AWS_SECRET_ACCESS_KEY 
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# replace the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY with your own values which can be received from AWS IAM &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;serverless config credentials --provider aws --key AWS_ACCESS_KEY_ID --secret  AWS_SECRET_ACCESS_KEY
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# replace the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY with your own values which can be received from AWS IAM&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;serverless deploy
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;There you go. That&amp;rsquo;s it. The above step may take some time, but with it, you would be able to deploy your express application with AWS Lambda.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For easier way, wake it into a shell alias or add it as a script to do one command deploy as well. You can also try adding it as new workflow in github actions for getting CI/CD.&lt;/p&gt;
+&lt;p&gt;There you go. That&amp;rsquo;s it. The above step may take some time, but with it, you would be able to deploy your express application with AWS Lambda.&lt;/p&gt;
 &lt;h1 id=&#34;bonus&#34;&gt;Bonus&lt;/h1&gt;
-&lt;p&gt;Setting up CI/CD pipeline to deploy from a github repo is super easy as well. It can be achieved by creating a github workflow file like the one below:&lt;/p&gt;
+&lt;p&gt;Setting up CI/CD pipeline to deploy from a github repo is super easy as well.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Place in .github/workflows/deploy.yml&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;deploy to lambda&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -124,6 +125,11 @@ Run the following from the root directory of your project.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;dev&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;isDev=true nodemon index.js&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Just run &lt;code&gt;npm run dev&lt;/code&gt; the next time when developing locally.&lt;/p&gt;
+&lt;p&gt;Now, you can develope the function routes using the normal familiar express way, while also getting the ability to host these functions in a serverless environment on pushing to your VCS.&lt;/p&gt;
+&lt;h2 id=&#34;remarks&#34;&gt;Remarks&lt;/h2&gt;
+&lt;p&gt;I wrote it for IEDC during my tenure as CTO. Once this was made multiple students were using it our projects. We had several serverless functions running for sending emails, doing cleanups, knowing status etc. Everyone who used it really found the benefit of this, especially in such ease of getting started with development.&lt;/p&gt;
+&lt;h3 id=&#34;extra-things-to-keep-in-mind&#34;&gt;Extra things to keep in mind&lt;/h3&gt;
+&lt;p&gt;Do note that while lambda is great, it doesn&amp;rsquo;t usually go too well with things like puppeteer and other automation tools which spins up a full blown browser. You can get around this using special puppeteer packages made specifically for lambda. In our case, we had a small ec2 instance which was free and we just used that to run our puppeteer script quickly; Depending on your use case, you can do it either way✨.&lt;/p&gt;
 &lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/IEDCMEC/lambda-functions&#34;&gt;https://github.com/IEDCMEC/lambda-functions&lt;/a&gt;&lt;/li&gt;

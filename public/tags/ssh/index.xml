@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ssh on Aldrin Jenson</title>
-    <link>/tags/ssh/</link>
-    <description>Aldrin Jenson (ssh)</description>
+    <title>Ssh on Aldrin Jenson</title>
+    <link>//localhost:1313/tags/ssh/</link>
+    <description>Aldrin Jenson (Ssh)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 25 Apr 2023 00:32:13 +0530</lastBuildDate>
     
-    <atom:link href="/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Easy SSH based Continuous delivery pipeline</title>
-      <link>/posts/easy-ssh-deploy/</link>
+      <link>//localhost:1313/posts/easy-ssh-deploy/</link>
       <pubDate>Tue, 25 Apr 2023 00:32:13 +0530</pubDate>
       
-      <guid>/posts/easy-ssh-deploy/</guid>
+      <guid>//localhost:1313/posts/easy-ssh-deploy/</guid>
       <description>&lt;p&gt;If you have a Virtual Private Server(VPS) and want to have the code you push to github/VCS, be deployed in your server, here is a super simple and quick way to do so.&lt;/p&gt;
 &lt;p&gt;It basically involves creating a github action workflow that does the following.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Deploy to Server&lt;/span&gt;
@@ -30,10 +30,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;steps&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Install sshpass&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          sudo apt install sshpass -y&lt;/span&gt;          
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          sudo apt install sshpass -y&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Git pull and Deploy with Docker Compose&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          sshpass -p ${{ secrets.SERVER_PASS }} ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_NAME }} &amp;#34;cd project-folder &amp;amp;&amp;amp; git pull &amp;amp;&amp;amp; docker compose up -d&amp;#34;&lt;/span&gt;          
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          sshpass -p ${{ secrets.SERVER_PASS }} ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_NAME }} &amp;#34;cd project-folder &amp;amp;&amp;amp; git pull &amp;amp;&amp;amp; docker compose up -d&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-Requisites&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Install git and docker on your VM&lt;/li&gt;
@@ -56,15 +56,29 @@
 &lt;li&gt;Currently it&amp;rsquo;s based on docker. But you can easily replace the final command with anything else to build your product (eg: &lt;code&gt;make&lt;/code&gt; or &lt;code&gt;npx serve&lt;/code&gt;)&lt;/li&gt;
 &lt;li&gt;Replace &lt;code&gt;project-folder&lt;/code&gt; with the path to the folder in which you have the project. sshpass will run the command to clone the latest version from VCS to this folder and will run the start/build/serve command.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;limitations&#34;&gt;Limitations&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Currently this script is based on traditional servers which works on the basis of ssh log-in using username and password. If you want to use it to access servers like AWS EC2 which supports only pem file based auth, you&amp;rsquo;d need to modify the workflow.
-&lt;ul&gt;
-&lt;li&gt;You can store the pem file contents in a github secret and then use it inside the sshpass flow indirectly.&lt;/li&gt;
-&lt;li&gt;Or, you can use existing github actions &lt;a href=&#34;https://lightrains.com/blogs/deploy-aws-ec2-using-github-actions&#34;&gt;like this&lt;/a&gt; written specifically for CI/CD with AWS.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2 id=&#34;for-aws-ec2-or-servers-requiring-pem-file-based-auth&#34;&gt;For AWS ec2 or servers requiring pem file based auth&lt;/h2&gt;
+&lt;p&gt;Use the following workflow yaml&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Deploy to AWS EC2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;on&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;push&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;branches&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;jobs&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;deploy&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;runs-on&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ubuntu-latest&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;steps&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Add SSH Key&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;echo &amp;#34;${{ secrets.AWS_SECRET }}&amp;#34; &amp;gt; ssh_key.pem &amp;amp;&amp;amp; chmod 600 ssh_key.pem&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Deploy to AWS EC2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          ssh -i ssh_key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_ADDRESS }} &amp;#34;cd ~/project/ &amp;amp;&amp;amp; git pull origin main &amp;amp;&amp;amp; sudo docker compose restart&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;env&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;PRIVATE_KEY&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;${{ secrets.DEPLOY_KEY }}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Just add the contents of pem file to AWS_SECRET. Then add the username@aws-ip to the EC2_ADDRESS secret as well&lt;/p&gt;
 &lt;h2 id=&#34;how-did-this-come-to-be&#34;&gt;How did this come to be?&lt;/h2&gt;
 &lt;p&gt;It basically started of by thinking about the steps you would do to push your code to production without having to automate it. This would come to have the following steps in a really high level way:&lt;/p&gt;
 &lt;ol&gt;
@@ -95,10 +109,10 @@ sshpass allows you to ssh to a server and run custom commands on it as the user 
     
     <item>
       <title>How to SSH to Termux Shell</title>
-      <link>/posts/ssh-termux/</link>
+      <link>//localhost:1313/posts/ssh-termux/</link>
       <pubDate>Fri, 27 Jan 2023 03:06:56 +0530</pubDate>
       
-      <guid>/posts/ssh-termux/</guid>
+      <guid>//localhost:1313/posts/ssh-termux/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;Easy way to ssh to termux shell running on Android&lt;/p&gt;
 &lt;h1 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h1&gt;
@@ -126,7 +140,7 @@ sshpass allows you to ssh to a server and run custom commands on it as the user 
 &lt;/ol&gt;
 &lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;Tada, You&amp;rsquo;ve successfully done ssh to termux✨&lt;/p&gt;
-&lt;p&gt;Use termux to start webservers (Apache, Nginx etc) just like you would normally do in a Linux machine and you can expose it to the internet using free services like ngrok.&lt;/p&gt;
+&lt;p&gt;Use termux to start web-servers (Apache, Nginx etc) just like you would normally do in a Linux machine and you can expose it to the internet using free services like ngrok.&lt;/p&gt;
 &lt;h2 id=&#34;bonus-tip&#34;&gt;Bonus Tip&lt;/h2&gt;
 &lt;p&gt;replace &lt;code&gt;ssh&lt;/code&gt; in step 5 using &lt;code&gt;sftp&lt;/code&gt; and suddenly you now have an extremely safe and easy way to transfer files to and from your phone. You&amp;rsquo;re welcome😊&lt;/p&gt;
 &lt;h2 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h2&gt;
@@ -136,8 +150,8 @@ sshpass allows you to ssh to a server and run custom commands on it as the user 
 &lt;li&gt;Firewall issues: Make sure that your firewall is not blocking the SSH connection.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;additional-resources&#34;&gt;Additional Resources&lt;/h2&gt;
-&lt;p&gt;-&lt;a href=&#34;https://wiki.termux.com/wiki/Main_Page&#34;&gt;Termux Wiki&lt;/a&gt;
--&lt;a href=&#34;https://www.openssh.com/&#34;&gt;OpenSSH&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;-&lt;a href=&#34;https://wiki.termux.com/wiki/Main_Page&#34;&gt;Termux Wiki&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;-&lt;a href=&#34;https://www.openssh.com/&#34;&gt;OpenSSH&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

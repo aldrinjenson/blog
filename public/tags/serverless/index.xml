@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>serverless on Aldrin Jenson</title>
-    <link>/tags/serverless/</link>
-    <description>Aldrin Jenson (serverless)</description>
+    <title>Serverless on Aldrin Jenson</title>
+    <link>//localhost:1313/tags/serverless/</link>
+    <description>Aldrin Jenson (Serverless)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 26 Mar 2023 16:04:39 +0000</lastBuildDate>
     
-    <atom:link href="/tags/serverless/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/serverless/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>How to deploy an express application to serverless using AWS Lambda</title>
-      <link>/posts/serverless-express-api/</link>
+      <title>How to deploy an express application to serverless with AWS Lambda</title>
+      <link>//localhost:1313/posts/serverless-express-api/</link>
       <pubDate>Sun, 26 Mar 2023 16:04:39 +0000</pubDate>
       
-      <guid>/posts/serverless-express-api/</guid>
+      <guid>//localhost:1313/posts/serverless-express-api/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;AWS Lambda is an easy way to set up APIs which you don&amp;rsquo;t use regularly. The free tier from AWS is very generous (1 million requests per month). I personally found it to be a pain to find an easy way to setup a CI/CD workflow with it. After several hours, here is the approach I made myself to have a super easy way to set up a pipeline to Lambda.&lt;/p&gt;
 &lt;h1 id=&#34;steps&#34;&gt;Steps&lt;/h1&gt;
@@ -76,19 +76,20 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;path&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;/{proxy+}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;method&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ANY&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;cors&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;NOTE: CORS is taken care by in the above yml. If you would require fine grained control, you can add fine-grained and programmatic CORS control using nodeJS middleware to handle it using your preference.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;NOTE: CORS is taken care by default in the above yml. If you would require fine grained control, you can add fine-grained and programmatic CORS control using the nodeJS CORS middleware.&lt;/p&gt;
 &lt;ol start=&#34;6&#34;&gt;
 &lt;li&gt;Deploy the functions&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Deploying to AWS Lambda is super easy and can be done by the &lt;code&gt;serverless&lt;/code&gt; nodejs library.
 Run the following from the root directory of your project.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm i -g serverless
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;serverless config credentials --provider aws --key AWS_ACCESS_KEY_ID --secret  AWS_SECRET_ACCESS_KEY 
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# replace the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY with your own values which can be received from AWS IAM &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;serverless config credentials --provider aws --key AWS_ACCESS_KEY_ID --secret  AWS_SECRET_ACCESS_KEY
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# replace the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY with your own values which can be received from AWS IAM&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;serverless deploy
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;There you go. That&amp;rsquo;s it. The above step may take some time, but with it, you would be able to deploy your express application with AWS Lambda.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For easier way, wake it into a shell alias or add it as a script to do one command deploy as well. You can also try adding it as new workflow in github actions for getting CI/CD.&lt;/p&gt;
+&lt;p&gt;There you go. That&amp;rsquo;s it. The above step may take some time, but with it, you would be able to deploy your express application with AWS Lambda.&lt;/p&gt;
 &lt;h1 id=&#34;bonus&#34;&gt;Bonus&lt;/h1&gt;
-&lt;p&gt;Setting up CI/CD pipeline to deploy from a github repo is super easy as well. It can be achieved by creating a github workflow file like the one below:&lt;/p&gt;
+&lt;p&gt;Setting up CI/CD pipeline to deploy from a github repo is super easy as well.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Place in .github/workflows/deploy.yml&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;deploy to lambda&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -124,6 +125,11 @@ Run the following from the root directory of your project.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;dev&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;isDev=true nodemon index.js&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Just run &lt;code&gt;npm run dev&lt;/code&gt; the next time when developing locally.&lt;/p&gt;
+&lt;p&gt;Now, you can develope the function routes using the normal familiar express way, while also getting the ability to host these functions in a serverless environment on pushing to your VCS.&lt;/p&gt;
+&lt;h2 id=&#34;remarks&#34;&gt;Remarks&lt;/h2&gt;
+&lt;p&gt;I wrote it for IEDC during my tenure as CTO. Once this was made multiple students were using it our projects. We had several serverless functions running for sending emails, doing cleanups, knowing status etc. Everyone who used it really found the benefit of this, especially in such ease of getting started with development.&lt;/p&gt;
+&lt;h3 id=&#34;extra-things-to-keep-in-mind&#34;&gt;Extra things to keep in mind&lt;/h3&gt;
+&lt;p&gt;Do note that while lambda is great, it doesn&amp;rsquo;t usually go too well with things like puppeteer and other automation tools which spins up a full blown browser. You can get around this using special puppeteer packages made specifically for lambda. In our case, we had a small ec2 instance which was free and we just used that to run our puppeteer script quickly; Depending on your use case, you can do it either way✨.&lt;/p&gt;
 &lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/IEDCMEC/lambda-functions&#34;&gt;https://github.com/IEDCMEC/lambda-functions&lt;/a&gt;&lt;/li&gt;
@@ -134,13 +140,68 @@ Run the following from the root directory of your project.&lt;/p&gt;
     </item>
     
     <item>
-      <title>Query Search Bot</title>
-      <link>/projects/query-search-bot/</link>
+      <title>How to deploy a Telegram bot to Serverless</title>
+      <link>//localhost:1313/posts/serverless-bot-deployment/</link>
       <pubDate>Sun, 24 Oct 2021 19:25:18 +0530</pubDate>
       
-      <guid>/projects/query-search-bot/</guid>
+      <guid>//localhost:1313/posts/serverless-bot-deployment/</guid>
+      <description>&lt;p&gt;When I worked as a Product Developer at TGH Tech, I had built multiple Telegram bots in nodeJs. In the inital stages all bots were using the default long polling method which required a server to be constantly running. We ran some bots on AWS ec2 and others using Heroku paid Plan. Keeping the server running all the time wasn&amp;rsquo;t economical for our usecase as there would be long gaps when the users won&amp;rsquo;t be using the bot. Running the server at night time and all hence wasn&amp;rsquo;t economical at all. So I started researching on AWS Lambda and how I could move the bots to serverless. The advantage of AWS Lambda functions is that you are paid only for the usage, as in you are paid only for the server running when a user uses your bot. No money is charged for all the idle time. Once I kinda figured out the steps to modify the code and have the bot deployed to Lambda, I created a document, outlining the process and shared it to many others who successfully managed to deploy their bots on serverless as well. This way we were able to save off a lot of money.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m adding the steps here as well for future references of anyone interested in moving their existing Telegram Bots to AWS Lambda using the &lt;a href=&#34;https://www.serverless.com/&#34;&gt;Serverless Framework&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Read &lt;a href=&#34;https://www.google.com/url?q=https://iamondemand.com/blog/building-your-first-serverless-telegram-bot/&amp;amp;sa=D&amp;amp;source=docs&amp;amp;ust=1643292794318291&amp;amp;usg=AOvVaw245vcHmEft7pWlVi0Muvf2&#34;&gt;this&lt;/a&gt; guide first&lt;/li&gt;
+&lt;li&gt;Skim through &lt;a href=&#34;https://www.google.com/url?q=https://core.telegram.org/bots/webhooks&amp;amp;sa=D&amp;amp;source=docs&amp;amp;ust=1643292815912938&amp;amp;usg=AOvVaw3Qvi7OgCOjGUL7dwHRYa4M&#34;&gt;this official Telegram docs&lt;/a&gt; about webhooks.
+&lt;ul&gt;
+&lt;li&gt;Basically, a webhook is used for getting updates when a user sends a command or a message to the bot.&lt;/li&gt;
+&lt;li&gt;However, in order to set a webhook, telegram requires an HTTPS enabled url to which telegram servers make a POST request on each message input.&lt;/li&gt;
+&lt;li&gt;We create a lambda function, which when deployed, provides us an HTTPS enabled url.&lt;/li&gt;
+&lt;li&gt;We set up the Telegram webhook using the above url to which telegram makes a POST request which contains the message object just as it is received in the msg object.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;bot&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;onText&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;/regex/&lt;/span&gt;, (&lt;span style=&#34;color:#a6e22e&#34;&gt;msg&lt;/span&gt;) =&amp;gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;console&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;msg&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;We can then set up a switch statement or an if-else ladder to evaluate the message text and perform various actions depending on the command entered.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note: It is not necessary that you use the &lt;code&gt;node-telegram-bot-api&lt;/code&gt; library to send a message or get msg input etc. Telegram provides apis which can be used to send messages easily by passing in the chatId, msg-text, keyboardType etc, as seen in the above articles. Msg input can be received using webhooks as well as mentioned in the above paragraph&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a serverless.yml file and define the function with a path similar to the article mentioned above and deploy the function using &lt;code&gt;serverless deploy&lt;/code&gt; to get the url.&lt;/li&gt;
+&lt;li&gt;Set up, remove, get status of webhooks easily using the urls mentioned in &lt;a href=&#34;https://xabaras.medium.com/setting-your-telegram-bot-webhook-the-easy-way-c7577b2d6f72&#34;&gt;this article&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;some-things-to-keep-in-mind&#34;&gt;Some things to keep in mind&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;It is important that you return an object with statusCode 200 so that telegram understands that the query has been successful. (Check the first link above for reference)&lt;/li&gt;
+&lt;li&gt;When you want to send JSON data, ensure that you send it after properly stringifying it first.&lt;/li&gt;
+&lt;li&gt;For sending URLs, sometime you may get the error TypeError: Request path contains unescaped characters which can be fixed by creating a function to format text using &lt;a href=&#34;https://stackoverflow.com/questions/31024779/typeerror-request-path-contains-unescaped-characters-how-can-i-fix-this/62437210#62437210&#34;&gt;this stackoverflow answer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Lambda functions are &lt;span style=&#34;background-color:#717140;padding: 0px 4px;&#34;&gt;stateless&lt;/span&gt;, meaning that you can’t persist variable states in global variables, Each new call will result in a fresh instance being fired upon. This would have implications when storing user keyboard presses in memory. (Some alternative would be storing the button status in a db (too slow) or using some in-memory cache systems like Redis or Memcached (as suggested in the discussion thread by Node-telegram bot api)).&lt;/li&gt;
+&lt;li&gt;Telegram ensures only one way of getting inputs is active at any particular moment. Hence you can’t have polling and webhooks enabled at the same time. Ie. If you use the node-telegram-bot-api and set polling:true and have also enabled a webhook, when you run npm start, the webhook will automatically get disabled.&lt;/li&gt;
+&lt;li&gt;In order to delete pending messages which may get accumulated in case you forgot to return 200 statusCode or for any other reason that could result in same response message being sent by the bot, you can use the following url structure to delete pending updates: &lt;a href=&#34;https://api.telegram.org/bot%7Bmy_bot_token%7D/setWebhook?url=%7Burl_to_send_updates_to%7D&amp;amp;drop_pending_update=true&#34;&gt;https://api.telegram.org/bot{my_bot_token}/setWebhook?url={url_to_send_updates_to}&amp;amp;drop_pending_update=true&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;If you’ve got some extra route defined which accepts a request from a backend and performs an action (eg: ‘/notify’ route which when called sends a telegram notification message to the user), then that function can be exported and defined in the serverless.yml file which will give a new HTTPS url for that function. This can then be called by the backend to invoke that function. The package aws serverless express can be used if the function is complex and would require some expressJs like route handling.&lt;/li&gt;
+&lt;li&gt;Note that you may have environment variables which may be defined in a .env file. This needs to be added to the aws console as well by going to the &lt;code&gt;configuration&lt;/code&gt; tab and selecting &lt;code&gt;environment-variables&lt;/code&gt; section from the left side menu.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;things-which-could-be-explored-and-improved-when-the-need-arises&#34;&gt;Things which could be explored and improved when the need arises&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Use ngrok to expose a local port to the internet, which would provide an HTTPS enabled url which can be used to set up the webhook. This would enable live-reloading whenever a change is made as there would be no more need to deploy the function to AWS to see the changes&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A way to connect a database like MongoDb. This can be done by calling the Mongo connect function in the handler function so as to persist the database connection for some time without having to do a cold start for each invocation like mentioned in this example.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;extra-references&#34;&gt;Extra references&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/TGH-Tech/open-fruit-admin-bot/tree/lambda&#34;&gt;https://github.com/TGH-Tech/open-fruit-admin-bot/tree/lambda&lt;/a&gt;
+&lt;a href=&#34;https://github.com/TGH-Tech/query-search-bot&#34;&gt;https://github.com/TGH-Tech/query-search-bot&lt;/a&gt;
+&lt;a href=&#34;https://github.com/TGH-Tech/open-fruit-seller-bot/tree/test-deployment&#34;&gt;https://github.com/TGH-Tech/open-fruit-seller-bot/tree/test-deployment&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Query Search Bot</title>
+      <link>//localhost:1313/projects/query-search-bot/</link>
+      <pubDate>Sun, 24 Oct 2021 19:25:18 +0530</pubDate>
+      
+      <guid>//localhost:1313/projects/query-search-bot/</guid>
       <description>&lt;p&gt;I started my experiments with Telegram Bots in the November of 2020 when I wanted an easy way to receive notifications.
-Discord was the first option, but it was just too cumbersome for the simple purpose of receiving notifications. Telegram was much more convenient and easy to use. I used and built various Telegram bots of different complexities during my tenure at TGH Tech. I also used it for my &lt;a href=&#34;/projects/moodle-automation&#34;&gt;Moodle Automation&lt;/a&gt; program as well.&lt;/p&gt;
+Discord was the first option, but it was just too cumbersome for the simple purpose of receiving notifications. Telegram was much more convenient and easy to use. I used and built various Telegram bots of different complexities during my tenure at TGH Tech. I also used it for my &lt;a href=&#34;//localhost:1313/projects/moodle-automation&#34;&gt;Moodle Automation&lt;/a&gt; program as well.&lt;/p&gt;
 &lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;This is one of my first major Telegram bot and was first made to get myself familiar with the functions offered by the &lt;a href=&#34;https://github.com/yagop/node-telegram-bot-api&#34;&gt;node-telegram-bot-api&lt;/a&gt; library. The idea is simple - make Internet queries without leaving telegram.&lt;/p&gt;
 &lt;h2 id=&#34;the-flow&#34;&gt;The flow&lt;/h2&gt;

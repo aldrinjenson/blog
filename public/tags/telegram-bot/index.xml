@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Telegram-Bot on Aldrin Jenson</title>
+    <link>//localhost:1313/tags/telegram-bot/</link>
+    <description>Aldrin Jenson (Telegram-Bot)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 14 Feb 2022 22:19:22 +0530</lastBuildDate>
+    
+    <atom:link href="//localhost:1313/tags/telegram-bot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mutual Couple FInder</title>
+      <link>//localhost:1313/projects/mutual-couple-finder/</link>
+      <pubDate>Mon, 14 Feb 2022 22:19:22 +0530</pubDate>
+      
+      <guid>//localhost:1313/projects/mutual-couple-finder/</guid>
+      <description>&lt;h2 id=&#34;links&#34;&gt;Links:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/aldrinjenson/mutual-finder&#34;&gt;https://github.com/aldrinjenson/mutual-finder&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Find out if your crush
+This is good code.&lt;/p&gt;
+&lt;p&gt;lot of memories associated with this.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

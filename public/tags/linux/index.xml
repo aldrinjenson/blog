@@ -1,22 +1,79 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>linux on Aldrin Jenson</title>
-    <link>/tags/linux/</link>
-    <description>Aldrin Jenson (linux)</description>
+    <title>Linux on Aldrin Jenson</title>
+    <link>//localhost:1313/tags/linux/</link>
+    <description>Aldrin Jenson (Linux)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 25 Apr 2023 00:32:13 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 24 Dec 2023 00:45:00 +0530</lastBuildDate>
     
-    <atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Creating and embedding Subtitles for custom videos</title>
+      <link>//localhost:1313/posts/create-subtitles-for-a-video/</link>
+      <pubDate>Sun, 24 Dec 2023 00:45:00 +0530</pubDate>
+      
+      <guid>//localhost:1313/posts/create-subtitles-for-a-video/</guid>
+      <description>&lt;h1 id=&#34;how-to-create-and-add-subtitles-to-your-custom-video&#34;&gt;How to create and add subtitles to your custom video&lt;/h1&gt;
+&lt;p&gt;It consists of the following steps&lt;/p&gt;
+&lt;h2 id=&#34;step-1-have-the-video-be-ready-at-hand&#34;&gt;Step 1: Have the video be ready at hand.&lt;/h2&gt;
+&lt;p&gt;No-brainer. But ensure that you have a video in which there is speech present. You can record the video using any web based recorders if you don&amp;rsquo;t have camera software installed.&lt;/p&gt;
+&lt;p&gt;If you are in Mac, you can also record using QuickTime Player -&amp;gt; File -&amp;gt; New Movie Recording. This way you don&amp;rsquo;t need to use any other extra software than the ones already installed!&lt;/p&gt;
+&lt;p&gt;Linux has a bunch of cli and GUI based free software available that you can use as well.&lt;/p&gt;
+&lt;h2 id=&#34;step-2-download-whisper&#34;&gt;Step 2: Download whisper&lt;/h2&gt;
+&lt;p&gt;Whisper is state of the speech recognition model released by OpenAI.
+There is both the original whisper python package and also &lt;a href=&#34;https://github.com/ggerganov/whisper.cpp&#34;&gt;whisper.cpp&lt;/a&gt;.
+Second one is highly recommended as it&amp;rsquo;s much more faster and optimised(cus it&amp;rsquo;s in C++ 🚀).&lt;/p&gt;
+&lt;p&gt;If you have a good CPU, choose the medium model to begin with.&lt;/p&gt;
+&lt;p&gt;So now,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Just install whisper by following the ReadMe instructions specific to your OS.&lt;/li&gt;
+&lt;li&gt;choose the medium model&lt;/li&gt;
+&lt;li&gt;build the binary by running: &lt;code&gt;make&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;step-3-creating-an-wav-file-from-video&#34;&gt;Step 3: Creating an wav file from video&lt;/h2&gt;
+&lt;p&gt;Now you&amp;rsquo;d need to convert the video file to an audio file to pass it on to &lt;code&gt;whisper&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;As of writing this blog, whisper takes in only 16-bit &lt;code&gt;wav&lt;/code&gt; file as input.&lt;/p&gt;
+&lt;p&gt;Converting the video to .wav is as easy as running this simple &lt;code&gt;ffmpeg&lt;/code&gt; command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ffmpeg -i input.mov -ar &lt;span style=&#34;color:#ae81ff&#34;&gt;16000&lt;/span&gt; -ac &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; -c:a pcm_s16le output.wav
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will create a new file called &lt;code&gt;output.wav&lt;/code&gt; which contains just the audio from your video file.&lt;/p&gt;
+&lt;h2 id=&#34;step-4-generating-an-srt-file-using-whisper&#34;&gt;Step 4: Generating an srt file using whisper&lt;/h2&gt;
+&lt;p&gt;Now,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;pass in this audio file as input and generate subtitles&lt;/li&gt;
+&lt;li&gt;If the subtitles generated are not &lt;em&gt;that&lt;/em&gt; great, just choose a bigger model.&lt;/li&gt;
+&lt;li&gt;pass the &lt;code&gt;-osrt&lt;/code&gt; flag to generate the output as a &lt;code&gt;.srt &lt;/code&gt;file&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This would be the final command to achieve the above:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;./main -m  models/ggml-medium.en.bin ./output2.wav -osrt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will generate subtitles in the file &lt;code&gt;output2.wav.srt&lt;/code&gt; and place it in the same directory.&lt;/p&gt;
+&lt;p&gt;Open this file and do some minor manual editing if necessary.&lt;/p&gt;
+&lt;p&gt;Whisper is pretty good, but in some rare cases like for names, it may need some additional manual corrections.&lt;/p&gt;
+&lt;h2 id=&#34;step-5-encoding-the-subtitle-file-to-the-original-videooptional&#34;&gt;Step 5: Encoding the subtitle file to the original video(optional)&lt;/h2&gt;
+&lt;p&gt;The final step involves creating a video which has the subtitles embedded inside.
+This can be easily achieved using a simple ffmpeg script:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ffmpeg -i input.mov -vf subtitles&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;output2.wav.srt final_with_sub.mp4
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above script uses the &lt;code&gt;-vf&lt;/code&gt; flag to pass in the subtitle file. It generates the final output in a &lt;code&gt;.mp4&lt;/code&gt; format as well.&lt;/p&gt;
+&lt;h2 id=&#34;step-6-boost-the-volume-of-videooptional&#34;&gt;Step 6: Boost the volume of video(optional)&lt;/h2&gt;
+&lt;p&gt;If for some reason, you may want to increase the volume of the audio, you can achieve that also using ffmpeg with the -af param and passing the required audio.&lt;/p&gt;
+&lt;p&gt;eg:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ffmpeg -i input.mov -vf subtitles&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;output2.wav.srt -af &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;volume=1.3&amp;#34;&lt;/span&gt; final_with_sub.mov
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;p&gt;There you go. That&amp;rsquo;s all there is to adding custom subtitles to your videos!&lt;/p&gt;
+&lt;p&gt;No need for any proprietary fancy video editing software.&lt;/p&gt;
+&lt;p&gt;FFMPEG FTW ✨&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Easy SSH based Continuous delivery pipeline</title>
-      <link>/posts/easy-ssh-deploy/</link>
+      <link>//localhost:1313/posts/easy-ssh-deploy/</link>
       <pubDate>Tue, 25 Apr 2023 00:32:13 +0530</pubDate>
       
-      <guid>/posts/easy-ssh-deploy/</guid>
+      <guid>//localhost:1313/posts/easy-ssh-deploy/</guid>
       <description>&lt;p&gt;If you have a Virtual Private Server(VPS) and want to have the code you push to github/VCS, be deployed in your server, here is a super simple and quick way to do so.&lt;/p&gt;
 &lt;p&gt;It basically involves creating a github action workflow that does the following.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Deploy to Server&lt;/span&gt;
@@ -30,10 +87,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;steps&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Install sshpass&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          sudo apt install sshpass -y&lt;/span&gt;          
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          sudo apt install sshpass -y&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Git pull and Deploy with Docker Compose&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          sshpass -p ${{ secrets.SERVER_PASS }} ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_NAME }} &amp;#34;cd project-folder &amp;amp;&amp;amp; git pull &amp;amp;&amp;amp; docker compose up -d&amp;#34;&lt;/span&gt;          
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          sshpass -p ${{ secrets.SERVER_PASS }} ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_NAME }} &amp;#34;cd project-folder &amp;amp;&amp;amp; git pull &amp;amp;&amp;amp; docker compose up -d&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-Requisites&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Install git and docker on your VM&lt;/li&gt;
@@ -56,15 +113,29 @@
 &lt;li&gt;Currently it&amp;rsquo;s based on docker. But you can easily replace the final command with anything else to build your product (eg: &lt;code&gt;make&lt;/code&gt; or &lt;code&gt;npx serve&lt;/code&gt;)&lt;/li&gt;
 &lt;li&gt;Replace &lt;code&gt;project-folder&lt;/code&gt; with the path to the folder in which you have the project. sshpass will run the command to clone the latest version from VCS to this folder and will run the start/build/serve command.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;limitations&#34;&gt;Limitations&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Currently this script is based on traditional servers which works on the basis of ssh log-in using username and password. If you want to use it to access servers like AWS EC2 which supports only pem file based auth, you&amp;rsquo;d need to modify the workflow.
-&lt;ul&gt;
-&lt;li&gt;You can store the pem file contents in a github secret and then use it inside the sshpass flow indirectly.&lt;/li&gt;
-&lt;li&gt;Or, you can use existing github actions &lt;a href=&#34;https://lightrains.com/blogs/deploy-aws-ec2-using-github-actions&#34;&gt;like this&lt;/a&gt; written specifically for CI/CD with AWS.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2 id=&#34;for-aws-ec2-or-servers-requiring-pem-file-based-auth&#34;&gt;For AWS ec2 or servers requiring pem file based auth&lt;/h2&gt;
+&lt;p&gt;Use the following workflow yaml&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Deploy to AWS EC2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;on&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;push&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;branches&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;jobs&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;deploy&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;runs-on&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ubuntu-latest&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;steps&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Add SSH Key&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;echo &amp;#34;${{ secrets.AWS_SECRET }}&amp;#34; &amp;gt; ssh_key.pem &amp;amp;&amp;amp; chmod 600 ssh_key.pem&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Deploy to AWS EC2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          ssh -i ssh_key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_ADDRESS }} &amp;#34;cd ~/project/ &amp;amp;&amp;amp; git pull origin main &amp;amp;&amp;amp; sudo docker compose restart&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;env&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;PRIVATE_KEY&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;${{ secrets.DEPLOY_KEY }}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Just add the contents of pem file to AWS_SECRET. Then add the username@aws-ip to the EC2_ADDRESS secret as well&lt;/p&gt;
 &lt;h2 id=&#34;how-did-this-come-to-be&#34;&gt;How did this come to be?&lt;/h2&gt;
 &lt;p&gt;It basically started of by thinking about the steps you would do to push your code to production without having to automate it. This would come to have the following steps in a really high level way:&lt;/p&gt;
 &lt;ol&gt;
@@ -95,10 +166,10 @@ sshpass allows you to ssh to a server and run custom commands on it as the user 
     
     <item>
       <title>How to SSH to Termux Shell</title>
-      <link>/posts/ssh-termux/</link>
+      <link>//localhost:1313/posts/ssh-termux/</link>
       <pubDate>Fri, 27 Jan 2023 03:06:56 +0530</pubDate>
       
-      <guid>/posts/ssh-termux/</guid>
+      <guid>//localhost:1313/posts/ssh-termux/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;Easy way to ssh to termux shell running on Android&lt;/p&gt;
 &lt;h1 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h1&gt;
@@ -126,7 +197,7 @@ sshpass allows you to ssh to a server and run custom commands on it as the user 
 &lt;/ol&gt;
 &lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;Tada, You&amp;rsquo;ve successfully done ssh to termux✨&lt;/p&gt;
-&lt;p&gt;Use termux to start webservers (Apache, Nginx etc) just like you would normally do in a Linux machine and you can expose it to the internet using free services like ngrok.&lt;/p&gt;
+&lt;p&gt;Use termux to start web-servers (Apache, Nginx etc) just like you would normally do in a Linux machine and you can expose it to the internet using free services like ngrok.&lt;/p&gt;
 &lt;h2 id=&#34;bonus-tip&#34;&gt;Bonus Tip&lt;/h2&gt;
 &lt;p&gt;replace &lt;code&gt;ssh&lt;/code&gt; in step 5 using &lt;code&gt;sftp&lt;/code&gt; and suddenly you now have an extremely safe and easy way to transfer files to and from your phone. You&amp;rsquo;re welcome😊&lt;/p&gt;
 &lt;h2 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h2&gt;
@@ -136,17 +207,17 @@ sshpass allows you to ssh to a server and run custom commands on it as the user 
 &lt;li&gt;Firewall issues: Make sure that your firewall is not blocking the SSH connection.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;additional-resources&#34;&gt;Additional Resources&lt;/h2&gt;
-&lt;p&gt;-&lt;a href=&#34;https://wiki.termux.com/wiki/Main_Page&#34;&gt;Termux Wiki&lt;/a&gt;
--&lt;a href=&#34;https://www.openssh.com/&#34;&gt;OpenSSH&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;-&lt;a href=&#34;https://wiki.termux.com/wiki/Main_Page&#34;&gt;Termux Wiki&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;-&lt;a href=&#34;https://www.openssh.com/&#34;&gt;OpenSSH&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Redirecting Subdomains to docker containers in same server</title>
-      <link>/posts/redirect-subdomains-to-docker/</link>
+      <link>//localhost:1313/posts/redirect-subdomains-to-docker/</link>
       <pubDate>Sun, 25 Dec 2022 18:15:07 +0530</pubDate>
       
-      <guid>/posts/redirect-subdomains-to-docker/</guid>
+      <guid>//localhost:1313/posts/redirect-subdomains-to-docker/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Article on how to have multiple running docker containers (or any other web servers) and have separate subdomains which map to these services.&lt;/p&gt;
 &lt;!-- Bonus tip on how to add https on these as well :) --&gt;
@@ -174,14 +245,14 @@ sshpass allows you to ssh to a server and run custom commands on it as the user 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;Find the port in which your container or services re running. Double check and ensure that the API is working fine in localhost, using the following commands&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ss -lntp &lt;span style=&#34;color:#75715e&#34;&gt;# check that the corredt port is exposed.&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ss -lntp &lt;span style=&#34;color:#75715e&#34;&gt;# check that the correct port is exposed.&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl localhost:PORT &lt;span style=&#34;color:#75715e&#34;&gt;# verify that you get the expected response.&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
 &lt;li&gt;Decide on the subdomains to which you want to route traffic and add them using your dns management console&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Here&amp;rsquo;s an example image using cloudflare&lt;/p&gt;
 &lt;center&gt;
-	&lt;image src=&#34;/images/ssl/cloudflareDns.png&#34; alt=&#34;Cloudflare DNS - Adding new subdomain&#34;&gt;&lt;/image&gt;
+	&lt;image src=&#34;//localhost:1313/images/ssl/cloudflareDns.png&#34; alt=&#34;Cloudflare DNS - Adding new subdomain&#34;&gt;&lt;/image&gt;
 &lt;p class=&#39;caption&#39;&gt;Cloudflare DNS - Adding new subdomain(replace the ip with your server&#39;s public ip)&lt;/p&gt;
 &lt;/center&gt;
 &lt;p&gt;Note: You can get the public IP of your server using the following &lt;code&gt;curl&lt;/code&gt; command&lt;/p&gt;
@@ -216,10 +287,10 @@ sshpass allows you to ssh to a server and run custom commands on it as the user 
     
     <item>
       <title>How to add SSL and make a server https</title>
-      <link>/posts/set-up-ssl/</link>
+      <link>//localhost:1313/posts/set-up-ssl/</link>
       <pubDate>Sun, 25 Dec 2022 18:14:39 +0530</pubDate>
       
-      <guid>/posts/set-up-ssl/</guid>
+      <guid>//localhost:1313/posts/set-up-ssl/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;An easy way to set up Secure Socket Layer (SSL) on a web server without having necessary nginx installation. SSL is a security protocol that encrypts data sent between a client and a server, helping to protect against hacking and other online threats. By enabling SSL on your web server, you can ensure that sensitive data sent to and from your server is protected.&lt;/p&gt;
 &lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;/h2&gt;
@@ -246,7 +317,7 @@ sshpass allows you to ssh to a server and run custom commands on it as the user 
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo certbot certonly --standalone
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;4 b. If you&amp;rsquo;re having nginx already running, then use the following command instead:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo certbot --nginx --domain &amp;lt;your.domain.name&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note: If you get the errror: &lt;code&gt;The requested nginx plugin does not appear to be installed&lt;/code&gt; on running the above command(usually on the first time), just install the cerbot-nginx plugin using the following:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note: If you get the error: &lt;code&gt;The requested nginx plugin does not appear to be installed&lt;/code&gt; on running the above command(usually on the first time), just install the cerbot-nginx plugin using the following:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install python3-certbot-nginx
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
 &lt;li&gt;
@@ -321,17 +392,26 @@ sshpass allows you to ssh to a server and run custom commands on it as the user 
     </item>
     
     <item>
+      <title>Unknown benefit of creating a home partition - Access linux files from Windows</title>
+      <link>//localhost:1313/posts/access-linux-files-from-windows/</link>
+      <pubDate>Sat, 06 Aug 2022 13:47:26 +0530</pubDate>
+      
+      <guid>//localhost:1313/posts/access-linux-files-from-windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>How to Speed up your programming workflow by adding auto-correct in git</title>
-      <link>/posts/git-autocorrect/</link>
+      <link>//localhost:1313/posts/git-autocorrect/</link>
       <pubDate>Sun, 01 Nov 2020 17:07:10 +0530</pubDate>
       
-      <guid>/posts/git-autocorrect/</guid>
+      <guid>//localhost:1313/posts/git-autocorrect/</guid>
       <description>&lt;p&gt;In this short post I would like to share a neat trick I learned which you can use to speed up your development workflow - adding auto-correct to git.&lt;/p&gt;
 &lt;h2 id=&#34;current-scenario&#34;&gt;Current Scenario&lt;/h2&gt;
 &lt;p&gt;Currently, if you have a typo or some small error in your git command, git will automatically suggest the most plausible command corresponding to your keyboard input.
 Majority of the time this suggested command is bound to be the one you were trying to use. However, just suggesting the command is not that helpful since the programmer still has to navigate around and change the typo.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;&lt;img src=&#34;/images/git-autocorrect/image1.png&#34; alt=&#34;image1&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/git-autocorrect/image1.png&#34; alt=&#34;image1&#34;&gt;&lt;/p&gt;
 &lt;p align = &#34;center&#34;&gt;
 Before setting up auto-correct
 &lt;/p&gt;
@@ -344,7 +424,7 @@ Before setting up auto-correct
 &lt;p&gt;Just open your terminal and add the following line&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git config --global help.autocorrect &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Adding the above command in your terminal results in the following :&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/git-autocorrect/image2.png&#34; alt=&#34;image2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/git-autocorrect/image2.png&#34; alt=&#34;image2&#34;&gt;&lt;/p&gt;
 &lt;p align = &#34;center&#34;&gt;
 With auto-correct turned on
 &lt;/p&gt;
@@ -356,7 +436,7 @@ With auto-correct turned on
 &lt;p&gt;This can be achieved by changing the final integer value at the end to a multiple of 10 (say 20 or 30 which corresponds to 2 or 3 seconds respectively).&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git config --global help.autocorrect &lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Adding the above code in your terminal gives the following output when you have another typo in your code.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/git-autocorrect/image3.png&#34; alt=&#34;image3&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/git-autocorrect/image3.png&#34; alt=&#34;image3&#34;&gt;&lt;/p&gt;
 &lt;p align = &#34;center&#34;&gt;
 Executing a git command after 3 seconds
 &lt;/p&gt;
@@ -366,7 +446,7 @@ Executing a git command after 3 seconds
 &lt;p&gt;If for some reason, you want to disable autocorrect feature (though I can’t really imagine why), all you need is to set the final integer to 0.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git config --global help.autocorrect &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will revert back the config settings to the default stage – to how it was before we modified it.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/git-autocorrect/image4.png&#34; alt=&#34;image4&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/git-autocorrect/image4.png&#34; alt=&#34;image4&#34;&gt;&lt;/p&gt;
 &lt;p align = &#34;center&#34;&gt;
 Just like how it was before
 &lt;/p&gt;
@@ -376,7 +456,7 @@ Just like how it was before
 &lt;h3 id=&#34;references&#34;&gt;References:&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration&#34;&gt;Here&lt;/a&gt; is the official git docs in case you have further doubts.&lt;/p&gt;
 &lt;p&gt;P.S. Other than the auto-correct, git has got some other cool features as well. Be sure to check them out too while you are at it :).&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/bg/bg1.jpg&#34; alt=&#34;background image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/bg/bg1.jpg&#34; alt=&#34;background image&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Have a good day!&lt;/p&gt;
 </description>
     </item>

@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>arch-linux on Aldrin Jenson</title>
-    <link>/tags/arch-linux/</link>
-    <description>Aldrin Jenson (arch-linux)</description>
+    <title>Arch-Linux on Aldrin Jenson</title>
+    <link>//localhost:1313/tags/arch-linux/</link>
+    <description>Aldrin Jenson (Arch-Linux)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 26 Jul 2022 19:09:07 +0530</lastBuildDate>
     
-    <atom:link href="/tags/arch-linux/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/arch-linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>I gave a talk at an international conference and Murphy&#39;s law sucks!</title>
-      <link>/posts/i-gave-a-talk/</link>
+      <link>//localhost:1313/posts/i-gave-a-talk/</link>
       <pubDate>Tue, 26 Jul 2022 19:09:07 +0530</pubDate>
       
-      <guid>/posts/i-gave-a-talk/</guid>
+      <guid>//localhost:1313/posts/i-gave-a-talk/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I got an opportunity to do a Flash-Talk for IndiaFoss conference held in Bangalore on 23-24 July 2022 and boy, &lt;a href=&#34;https://en.wikipedia.org/wiki/Murphy&#39;s_law&#34;&gt;Murphy&amp;rsquo;s law&lt;/a&gt; messed up my presentation!&lt;/p&gt;
 &lt;center&gt;
-  &lt;image src=&#34;/images/indiaFoss/indiaFossTalk.jpg&#34; alt=&#34;My talk at IndiaFoss&#34;/&gt;
+  &lt;image src=&#34;//localhost:1313/images/indiaFoss/indiaFossTalk.jpg&#34; alt=&#34;My talk at IndiaFoss&#34;/&gt;
 &lt;p class=&#39;caption&#39;&gt;Excuse the 240p quality please!&lt;/p&gt;
 &lt;/center&gt;
 &lt;p&gt;The topic of my talk was: &lt;strong&gt;How to make sharing of digital assets as easy and accessible as possible.&lt;/strong&gt;
-It was based on &lt;a href=&#34;/projects/whatsapp-msg-without-save/&#34;&gt;an app I had made earlier&lt;/a&gt; to send messages by using the most common app in one&amp;rsquo;s phone - Whatsapp, without having to save anyone&amp;rsquo;s contact number.&lt;/p&gt;
+It was based on &lt;a href=&#34;//localhost:1313/projects/whatsapp-msg-without-save/&#34;&gt;an app I had made earlier&lt;/a&gt; to send messages by using the most common app in one&amp;rsquo;s phone - Whatsapp, without having to save anyone&amp;rsquo;s contact number.&lt;/p&gt;
 &lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
 &lt;p&gt;I was inspired by a talk which I heard over at IndiaFoss from Akash Hamirwasia who made a web-app called &lt;a href=&#34;https://blaze.vercel.app/&#34;&gt;Blaze&lt;/a&gt; for sending files over the internet using a website.
-His project was cool, but to me it seemed like the common man would find it a bit difficult. When I talk about the common man, I&amp;rsquo;m talking about they who doesn&amp;rsquo;t even know to open web browsers(Yes, I&amp;rsquo;ve seen people to whom when I asked to open browser, they have opened settings and searched &amp;ldquo;browser&amp;rdquo; in the settings searchbar. Just know that you are really privileged if you think such people don&amp;rsquo;t exist).&lt;/p&gt;
+His project was cool, but to me it seemed like the common man would find it a bit difficult. When I talk about the common man, I&amp;rsquo;m talking about they who doesn&amp;rsquo;t even know to open web browsers(Yes, I&amp;rsquo;ve seen people to whom when I asked to open browser, they have opened settings and searched &amp;ldquo;browser&amp;rdquo; in the settings search-bar. Just know that you are really privileged if you think such people don&amp;rsquo;t exist).&lt;/p&gt;
 &lt;p&gt;Whatsapp is the app with which people are most comfortable. If only there was a way to send files through whatsapp without having to save the contact number&amp;hellip;&lt;/p&gt;
 &lt;p&gt;Introducing my app which solves exactly this problem. It generates a wa.me link and opens it behind the scenes so as to trigger and open whatsapp chat of the person whose number has just been entered.&lt;/p&gt;
 &lt;h2 id=&#34;about-the-talk&#34;&gt;About the talk&lt;/h2&gt;

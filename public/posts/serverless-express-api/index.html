@@ -2,7 +2,7 @@
 
 
 <html lang="en-us" data-theme="">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     
         
 <meta charset="utf-8">
@@ -10,11 +10,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer-when-downgrade">
 
-<title>How to deploy an express application to serverless using AWS Lambda - Aldrin Jenson</title>
+<title>How to deploy an express application to serverless with AWS Lambda - Aldrin Jenson</title>
 <meta name="description" content="CS undergrad from Kerala, India">
 
-<link rel="icon" type="image/x-icon" href="/%20favicon.ico">
-<link rel="apple-touch-icon-precomposed" href="/%20favicon.png">
+<link rel="icon" type="image/x-icon" href="//localhost:1313/%20favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="//localhost:1313/%20favicon.png">
 
 
 
@@ -26,12 +26,10 @@
 
     
     
-        
-    
     
 
     
-        <link rel="stylesheet" href="/css/style.min.a6f5b3d50adf9432413f07022323f9c27629f1f4b3f8aec4cbedae27f35927c1.css" integrity="sha256-pvWz1QrflDJBPwcCIyP5wnYp8fSz&#43;K7Ey&#43;2uJ/NZJ8E=">
+        <link rel="stylesheet" href="//localhost:1313/css/style.0fa982045c6059926e0da5af4967ddd9f6701bfe66329c6428389898cc8f93d5.css" integrity="sha256-D6mCBFxgWZJuDaWvSWfd2fZwG/5mMpxkKDiYmMyPk9U=">
     
 
 
@@ -39,16 +37,24 @@
 
 
 
-<meta property="og:title" content="How to deploy an express application to serverless using AWS Lambda" />
-<meta property="og:description" content="My easy way to set up a CI/CD pipeline for easily deploying a node Express application to AWS Lambda" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/serverless-express-api/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-03-26T16:04:39+00:00" />
-<meta property="article:modified_time" content="2023-03-26T16:04:39+00:00" />
+<meta property="og:url" content="//localhost:1313/posts/serverless-express-api/">
+  <meta property="og:site_name" content="Aldrin Jenson">
+  <meta property="og:title" content="How to deploy an express application to serverless with AWS Lambda">
+  <meta property="og:description" content="My easy and custom way to set up a CI/CD pipeline for easily deploying a node Express application to AWS Lambda">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-03-26T16:04:39+00:00">
+    <meta property="article:modified_time" content="2023-03-26T16:04:39+00:00">
+    <meta property="article:tag" content="Serverless">
+    <meta property="article:tag" content="Express">
+    <meta property="article:tag" content="Node">
+    <meta property="article:tag" content="AWS">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="How to deploy an express application to serverless using AWS Lambda"/>
-<meta name="twitter:description" content="My easy way to set up a CI/CD pipeline for easily deploying a node Express application to AWS Lambda"/>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="How to deploy an express application to serverless with AWS Lambda">
+  <meta name="twitter:description" content="My easy and custom way to set up a CI/CD pipeline for easily deploying a node Express application to AWS Lambda">
 
 
 
@@ -79,7 +85,7 @@
             
                 <div class="header-top">
     <h1 class="site-title">
-        <a href="/">Aldrin Jenson</a>
+        <a href="//localhost:1313/">Aldrin Jenson</a>
     </h1>
     <ul class="social-icons">
 
@@ -205,11 +211,11 @@
     <nav>
         
         
-        <a class="" href="/" title="Home">Home</a>
+        <a class="" href="//localhost:1313/" title="Home">Home</a>
         
-        <a class="" href="/posts/" title="Posts">Posts</a>
+        <a class="" href="//localhost:1313/posts/" title="Posts">Posts</a>
         
-        <a class="" href="/projects/" title="Projects">Projects</a>
+        <a class="" href="//localhost:1313/projects/" title="Projects">Projects</a>
         
     </nav>
 
@@ -225,8 +231,7 @@
 
     <article class="post h-entry">
         <header class="post-header">
-            <h1 class="p-name post-title">How to deploy an express application to serverless using AWS Lambda</h1>
-
+            <h1 class="p-name post-title">How to deploy an express application to serverless with AWS Lambda</h1>
             
         </header>
         <div class="content e-content">
@@ -289,19 +294,20 @@
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/{proxy+}</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">method</span>: <span style="color:#ae81ff">ANY</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">cors</span>: <span style="color:#66d9ef">true</span>
-</span></span></code></pre></div><p>NOTE: CORS is taken care by in the above yml. If you would require fine grained control, you can add fine-grained and programmatic CORS control using nodeJS middleware to handle it using your preference.</p>
+</span></span></code></pre></div><p>NOTE: CORS is taken care by default in the above yml. If you would require fine grained control, you can add fine-grained and programmatic CORS control using the nodeJS CORS middleware.</p>
 <ol start="6">
 <li>Deploy the functions</li>
 </ol>
 <p>Deploying to AWS Lambda is super easy and can be done by the <code>serverless</code> nodejs library.
 Run the following from the root directory of your project.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm i -g serverless
-</span></span><span style="display:flex;"><span>serverless config credentials --provider aws --key AWS_ACCESS_KEY_ID --secret  AWS_SECRET_ACCESS_KEY 
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># replace the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY with your own values which can be received from AWS IAM </span>
+</span></span><span style="display:flex;"><span>serverless config credentials --provider aws --key AWS_ACCESS_KEY_ID --secret  AWS_SECRET_ACCESS_KEY
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># replace the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY with your own values which can be received from AWS IAM</span>
 </span></span><span style="display:flex;"><span>serverless deploy
-</span></span></code></pre></div><p>There you go. That&rsquo;s it. The above step may take some time, but with it, you would be able to deploy your express application with AWS Lambda.</p>
+</span></span></code></pre></div><p>For easier way, wake it into a shell alias or add it as a script to do one command deploy as well. You can also try adding it as new workflow in github actions for getting CI/CD.</p>
+<p>There you go. That&rsquo;s it. The above step may take some time, but with it, you would be able to deploy your express application with AWS Lambda.</p>
 <h1 id="bonus">Bonus</h1>
-<p>Setting up CI/CD pipeline to deploy from a github repo is super easy as well. It can be achieved by creating a github workflow file like the one below:</p>
+<p>Setting up CI/CD pipeline to deploy from a github repo is super easy as well.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#75715e"># Place in .github/workflows/deploy.yml</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">deploy to lambda</span>
 </span></span><span style="display:flex;"><span>
@@ -337,6 +343,11 @@ Run the following from the root directory of your project.</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;dev&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;isDev=true nodemon index.js&#34;</span>
 </span></span><span style="display:flex;"><span>  }
 </span></span></code></pre></div><p>Just run <code>npm run dev</code> the next time when developing locally.</p>
+<p>Now, you can develope the function routes using the normal familiar express way, while also getting the ability to host these functions in a serverless environment on pushing to your VCS.</p>
+<h2 id="remarks">Remarks</h2>
+<p>I wrote it for IEDC during my tenure as CTO. Once this was made multiple students were using it our projects. We had several serverless functions running for sending emails, doing cleanups, knowing status etc. Everyone who used it really found the benefit of this, especially in such ease of getting started with development.</p>
+<h3 id="extra-things-to-keep-in-mind">Extra things to keep in mind</h3>
+<p>Do note that while lambda is great, it doesn&rsquo;t usually go too well with things like puppeteer and other automation tools which spins up a full blown browser. You can get around this using special puppeteer packages made specifically for lambda. In our case, we had a small ec2 instance which was free and we just used that to run our puppeteer script quickly; Depending on your use case, you can do it either way✨.</p>
 <h1 id="references">References</h1>
 <ul>
 <li><a href="https://github.com/IEDCMEC/lambda-functions">https://github.com/IEDCMEC/lambda-functions</a></li>
@@ -355,8 +366,8 @@ Run the following from the root directory of your project.</p>
         <div class="post-date dt-published">26-03-2023</div>
     
     
-    <a class="post-hidden-url u-url" href="/posts/serverless-express-api/">/posts/serverless-express-api/</a>
-    <a href="/" class="p-name p-author post-hidden-author h-card" rel="me">Aldrin Jenson</a>
+    <a class="post-hidden-url u-url" href="//localhost:1313/posts/serverless-express-api/">//localhost:1313/posts/serverless-express-api/</a>
+    <a href="//localhost:1313/" class="p-name p-author post-hidden-author h-card" rel="me">Aldrin Jenson</a>
 
 
     <div class="post-taxonomies">
@@ -364,13 +375,13 @@ Run the following from the root directory of your project.</p>
             
                 <ul class="post-tags">
                     
-                        <li><a href="/tags/serverless">#serverless</a></li>
+                        <li><a href="//localhost:1313/tags/serverless">#serverless</a></li>
                     
-                        <li><a href="/tags/express">#express</a></li>
+                        <li><a href="//localhost:1313/tags/express">#express</a></li>
                     
-                        <li><a href="/tags/node">#node</a></li>
+                        <li><a href="//localhost:1313/tags/node">#node</a></li>
                     
-                        <li><a href="/tags/aws">#AWS</a></li>
+                        <li><a href="//localhost:1313/tags/aws">#AWS</a></li>
                     
                 </ul>
         
@@ -384,20 +395,18 @@ Run the following from the root directory of your project.</p>
     <div class="pagination post-pagination">
         <div class="left pagination-item ">
             
-                <a href="/posts/easy-ssh-deploy/">Easy SSH based Continuous delivery pipeline</a>
+                <a href="//localhost:1313/posts/easy-ssh-deploy/">Easy SSH based Continuous delivery pipeline</a>
             
         </div>
         <div class="right pagination-item ">
             
-                <a href="/posts/ssh-termux/">How to SSH to Termux Shell</a>
+                <a href="//localhost:1313/posts/organizing-a-hackathon/">Organizing a Hackathon</a>
             
         </div>
     </div>
 
 
 
-
-    
 
     
 
@@ -424,7 +433,6 @@ Run the following from the root directory of your project.</p>
 
     
 
-
         </main>
         
             <footer class="common-footer">
@@ -435,7 +443,7 @@ Run the following from the root directory of your project.</p>
         
         <div class="copyright">
             <p>©  <a href="https://github.com/aldrinjenson/aldrinjenson.github.io"
-                    target="_blank">Aldrin Jenson </a>, 2023<br>
+                    target="_blank">Aldrin Jenson </a>, 2025<br>
                 Powered by <a target="_blank" rel="noopener noreferrer"
                     href="https://gohugo.io/">Hugo</a><br>
                 
@@ -515,7 +523,7 @@ Run the following from the root directory of your project.</p>
 
     <p class="h-card vcard">
 
-    <a href=/ class="p-name u-url url fn" rel="me">Aldrin Jenson</a> 
+    <a href=//localhost:1313/ class="p-name u-url url fn" rel="me">Aldrin Jenson</a> 
 
      
         /
@@ -523,7 +531,7 @@ Run the following from the root directory of your project.</p>
     
 
      
-        <img class="u-photo" src="/images/me.webp" />
+        <img class="u-photo" src="//localhost:1313/images/me.webp" />
     
 </p> 
 </footer>
