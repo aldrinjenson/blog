@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>CS Student | Passionate Developer on Aldrin Jenson</title>
+    <title>Product Engineer | AI Specialist on Aldrin Jenson</title>
     <link>//localhost:1313/</link>
-    <description>Aldrin Jenson (CS Student | Passionate Developer)</description>
+    <description>Aldrin Jenson (Product Engineer | AI Specialist)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Oct 2021 19:19:16 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jul 2024 12:00:00 -0400</lastBuildDate>
     
     <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
@@ -1952,6 +1952,32 @@ Check out the &lt;a href=&#34;https://github.com/aldrinjenson/tg-querySearchBot/
 &lt;p&gt;Check out the project &lt;a href=&#34;https://github.com/aldrinjenson/tg-querySearchBot&#34;&gt;here&lt;/a&gt;.
 &lt;br/&gt;
 Live Demo at &lt;a href=&#34;https://t.me/querySearchBot&#34;&gt;querySearchBot&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>My Bio (Deprecated 2021 Version)</title>
+      <link>//localhost:1313/posts/deprecated-2021-bio/</link>
+      <pubDate>Sun, 17 Oct 2021 19:19:16 +0530</pubDate>
+      
+      <guid>//localhost:1313/posts/deprecated-2021-bio/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This is my old bio from 2021, preserved for archival purposes. For my current information, please see the &lt;a href=&#34;//localhost:1313/&#34;&gt;homepage&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;center&gt;
+  &lt;img src=&#39;//localhost:1313/images/me.webp&#39; width=&#34;60%&#34; height=&#34;auto&#34; alt=&#39;my old photo&#39;&gt;
+  &lt;p class=&#39;caption&#39;&gt;An old photo of mine before I started wearing specs&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;My name is Aldrin Jenson. I&amp;rsquo;m currently a final year student pursuing my Bachelor&amp;rsquo;s degree in Computer Science Engineering from Govt. Model Engineering College Kochi, Kerala.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve been fascinated by computers from a really young age and love tinkering with various softwares and hacks.&lt;/p&gt;
+&lt;p&gt;I consider myself good at programming and I&amp;rsquo;m really passionate about developing software. Tech stack doesn&amp;rsquo;t matter much to my anymore. Most of the projects I now work on is with the language or framework most easy to do the task at hand, or using a language I want to explore more.
+With the amount of information available on the internet, given enough time I believe that we can solve any problem.&lt;/p&gt;
+&lt;p&gt;Other than tinkering with Computers, I also love playing guitar and going out with close friends.&lt;/p&gt;
+&lt;center&gt;
+&lt;img width=&#34;100%&#34; src=&#34;//localhost:1313/images/group.jpg&#34; height=&#34;auto&#34; alt=&#34;me in group photo&#34;&gt;
+&lt;p class=&#34;caption&#34;&gt;Pranav, Nikita, Nayana and me during our first Bangalore trip&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;This blog is an archive of some thoughts, experiences and learnings from my life - Writings which I can look back in a few years and feel &lt;em&gt;cringe&lt;/em&gt;!&lt;/p&gt;
 </description>
     </item>
     
