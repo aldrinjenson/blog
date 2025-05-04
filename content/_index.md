@@ -18,18 +18,18 @@ I'm currently a Product Engineer at [Athena Intelligence](https://athenaintel.co
 
 I've been working at Athena Intelligence for over a year, where we're pioneering the future of AI. Our team recently built what's probably the [world's first multi-agent AI system for Enterprise analysts](https://www.linkedin.com/feed/update/urn:li:activity:7292022273404768257/) - an achievement I'm incredibly proud of.
 
-Before joining Athena Intelligence, I worked at ThoughtWorks Technologies in their R&D team for AI. Following that, I was an AI engineer at a NYC-based company with 100,000 users for their voice-based AI system.
+Before joining Athena Intelligence, I worked at the India head office of [ThoughtWorks Technologies](https://www.thoughtworks.com) - in their R&D team for AI. Following that, I was an AI engineer at a [YC company](https://voicenotes.com/) with 100,000 users for their voice-based AI system.
 
-I've traveled frequently between New York and San Francisco, meeting many interesting people and learning from their diverse stories. These experiences have helped me grow not only as an engineer who thinks, codes, and builds products, but also as someone who appreciates different cultures around the world.
+I've traveled frequently between New York, San Francisco and Bangalore, meeting many interesting people and learning from their diverse stories. These experiences have helped me grow not only as an engineer who thinks, codes, and builds products, but also as someone who appreciates different cultures around the world.
 
 ## Speaking & Mentoring
 
-<center>
 <!-- Photo placeholder for speaking engagements -->
+<!-- <center>
 <div style="border: 2px dashed #ccc; padding: 20px; margin: 20px 0; text-align: center;">
   <p>[Photo placeholder: Speaking at International Conclave on GenAI]</p>
 </div>
-</center>
+</center> -->
 
 I'm passionate about sharing knowledge and contributing to the tech community:
 
@@ -40,33 +40,33 @@ I'm passionate about sharing knowledge and contributing to the tech community:
 
 ## Recognition & Achievements
 
-<center>
 <!-- Photo placeholder for awards -->
+<!-- <center>
 <div style="border: 2px dashed #ccc; padding: 20px; margin: 20px 0; text-align: center;">
   <p>[Photo placeholder: Receiving honors degree from Education Minister]</p>
 </div>
-</center>
+</center> -->
 
 - Received an [honors degree in machine learning](https://til.aldrinjenson.com/proud-memories/honours-degree-from-education-minister) from the Education Minister of Kerala, India
 - Judged multiple hackathons, including [Hack4Tomorrow](https://til.aldrinjenson.com/proud-memories/being-a-judge-at-hack4tomorrow-hackathon)
 - Won several hackathons and technical competitions
 
-<center>
 <!-- Photo placeholder for hackathon judging -->
+<!-- <center>
 <div style="border: 2px dashed #ccc; padding: 20px; margin: 20px 0; text-align: center;">
   <p>[Photo placeholder: Judging hackathons]</p>
 </div>
-</center>
+</center> -->
 
 ## Personal Life
 
-I still love tinkering with computers and exploring new technologies. When I'm not coding, you can find me enjoying the vibrant life that Manhattan has to offer.
+I still love tinkering with computers and exploring new technologies. When I'm not coding, you can find me enjoying books and the vibrant life NYC has to offer.
 
-<center>
 <!-- Photo placeholder for NYC life -->
+<!-- <center>
 <div style="border: 2px dashed #ccc; padding: 20px; margin: 20px 0; text-align: center;">
   <p>[Photo placeholder: Life in NYC]</p>
 </div>
-</center>
+</center> -->
 
 This blog contains my thoughts, experiences, and learnings - both technical and personal - that I've gathered throughout my journey.

@@ -1,6 +1,6 @@
 ---
 title: "My Bio (Deprecated 2021 Version)"
-date: 2021-10-17T19:19:16+05:30
+date: 2025-05-17T19:19:16+05:30
 draft: false
 description: "Archived bio from 2021 - Personal blog of Aldrin Jenson"
 ---
