@@ -6,8 +6,8 @@ description: "Personal blog of Aldrin Jenson, Product Engineer at Athena Intelli
 ---
 
 <center>
-  <img src='/images/me.webp' width="60%" height="auto" alt='my photo'>
-  <p class='caption'>Me</p>
+  <img src='/images/aldrin_in_boston_park.jpg' width="60%" height="auto" alt='my photo'>
+  <!-- <p class='caption'>Boston</p> -->
 </center>
 
 # Hello, I'm Aldrin Jenson
