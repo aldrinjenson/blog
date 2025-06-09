@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>//localhost:1313/posts/deprecated-2021-bio/</loc>
+    <lastmod>2025-05-17T19:19:16+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/</loc>
+    <lastmod>2025-05-17T19:19:16+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/</loc>
+    <lastmod>2024-07-01T12:00:00-04:00</lastmod>
+  </url><url>
     <loc>//localhost:1313/tags/ai-agents/</loc>
     <lastmod>2024-03-24T00:00:00+00:00</lastmod>
   </url><url>
@@ -14,9 +23,6 @@
     <loc>//localhost:1313/posts/essential-components-for-human-like-ai-assistants/</loc>
     <lastmod>2024-03-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/posts/</loc>
-    <lastmod>2024-03-24T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//localhost:1313/tags/</loc>
     <lastmod>2024-03-24T00:00:00+00:00</lastmod>
   </url><url>
@@ -26,10 +32,10 @@
     <loc>//localhost:1313/personal/great-people/</loc>
     <lastmod>2023-12-25T00:45:00+05:30</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/personal/</loc>
+    <loc>//localhost:1313/personal/</loc>
     <lastmod>2023-12-25T00:45:00+05:30</lastmod>
   </url><url>
-    <loc>//localhost:1313/personal/</loc>
+    <loc>//localhost:1313/tags/personal/</loc>
     <lastmod>2023-12-25T00:45:00+05:30</lastmod>
   </url><url>
     <loc>//localhost:1313/tags/thoughts/</loc>
@@ -298,9 +304,6 @@
   </url><url>
     <loc>//localhost:1313/projects/query-search-bot/</loc>
     <lastmod>2021-10-24T19:25:18+05:30</lastmod>
-  </url><url>
-    <loc>//localhost:1313/</loc>
-    <lastmod>2021-10-17T19:19:16+05:30</lastmod>
   </url><url>
     <loc>//localhost:1313/posts/git-autocorrect/</loc>
     <lastmod>2020-11-01T17:07:10+05:30</lastmod>

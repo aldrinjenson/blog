@@ -43,8 +43,7 @@
 &lt;p&gt;Now after being satisfied, towards the end of my final year project, I went to Titty Sir(bless him for being so awesome) and showed him the UI. He was impressed and liked the idea. He was cool with opening it to the public. I was happy too, though after having explored the models quite well, I was aware that this could be well misused as well. The stable diffusion webui involved a section where you can just use just your text to manipulate existing images - similar to using PhotoShop / Adobe Firefly.&lt;/p&gt;
 &lt;p&gt;But then I went with the flow, because I remembered the quote which is associated with Linux and Mac:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Mac is not idiot proof, it is smart people proof.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Mac is not idiot proof, it is smart people proof.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Most people would just want something that works, but there would be a few people. Few tinkerers who really want to explore and do great things. Craftsmen - tinkerers who would think about taking existing pices and thinking ho they could bbe crafted upon in great creative ways. For them, I felt the extra features would be super useful.&lt;/p&gt;
 &lt;h2 id=&#34;thoughts&#34;&gt;Thoughts&lt;/h2&gt;
 &lt;ul&gt;
@@ -79,7 +78,7 @@ Well, that&amp;rsquo;s exactly what I did.&lt;/p&gt;
       <guid>//localhost:1313/projects/recreating-teachable-machine/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;Google&amp;rsquo;s Teachable machine is pretty cool for training a quick model with images received from a webcam. However, it&amp;rsquo;s very limited if, as a developer you want to update the pre-trained model and add extra data into it. I faced this issue when working on a &lt;a href=&#34;memoria&#34;&gt;project&lt;/a&gt; wherein I had to train an Image classification ML model and when new training data is received, retrain the model such that the new data is incorporated as well.&lt;/p&gt;
-&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;/h2&gt;
 </description>
     </item>
     
@@ -262,12 +261,10 @@ This is cool and all, but why save someone&amp;rsquo;s contact if it&amp;rsquo; 
 &lt;p&gt;Whatsapp have this public api which can be used to open the Whatsapp chat of a user by passing in the mobile number as parameter.&lt;/p&gt;
 &lt;p&gt;It&amp;rsquo;s of this form:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://api.whatsapp.com/send&#34;&gt;https://api.whatsapp.com/send&lt;/a&gt;?&amp;lt;mobile-number&amp;gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://api.whatsapp.com/send&#34;&gt;https://api.whatsapp.com/send&lt;/a&gt;?&amp;lt;mobile-number&amp;gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;This is nice if you&amp;rsquo;re a techie as this is way better than actually having to save a contact number. However, it&amp;rsquo;s still clumsy as you&amp;rsquo;d have to enter this long URL each time you want to text someone on Whatsapp. Aha, I know what you&amp;rsquo;re thinking, what if me pass this to a url shortener like bit.ly&amp;hellip; Well, you&amp;rsquo;re right, an even easier way would be to have the url of the form:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;wa.me/&amp;lt;mobile-number&amp;gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;wa.me/&amp;lt;mobile-number&amp;gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;I&amp;rsquo;ve been using this above URL method for months and it works flawlessly.&lt;/p&gt;
 &lt;h2 id=&#34;even-better-solution&#34;&gt;Even better solution&lt;/h2&gt;
 &lt;p&gt;Now, what if there was one app which could automate this even further so that even very common man could use this without having to use a browser to enter a URL each time!&lt;/p&gt;

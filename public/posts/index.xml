@@ -6,10 +6,35 @@
     <description>Aldrin Jenson (Posts)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 17 May 2025 19:19:16 +0530</lastBuildDate>
     
     <atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My Bio (Deprecated 2021 Version)</title>
+      <link>//localhost:1313/posts/deprecated-2021-bio/</link>
+      <pubDate>Sat, 17 May 2025 19:19:16 +0530</pubDate>
+      
+      <guid>//localhost:1313/posts/deprecated-2021-bio/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This is my old bio from 2021, preserved for archival purposes. For my current information, please see the &lt;a href=&#34;//localhost:1313/&#34;&gt;homepage&lt;/a&gt;.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;center&gt;
+  &lt;img src=&#39;//localhost:1313/images/me.webp&#39; width=&#34;60%&#34; height=&#34;auto&#34; alt=&#39;my old photo&#39;&gt;
+  &lt;p class=&#39;caption&#39;&gt;An old photo of mine before I started wearing specs&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;My name is Aldrin Jenson. I&amp;rsquo;m currently a final year student pursuing my Bachelor&amp;rsquo;s degree in Computer Science Engineering from Govt. Model Engineering College Kochi, Kerala.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve been fascinated by computers from a really young age and love tinkering with various softwares and hacks.&lt;/p&gt;
+&lt;p&gt;I consider myself good at programming and I&amp;rsquo;m really passionate about developing software. Tech stack doesn&amp;rsquo;t matter much to my anymore. Most of the projects I now work on is with the language or framework most easy to do the task at hand, or using a language I want to explore more.
+With the amount of information available on the internet, given enough time I believe that we can solve any problem.&lt;/p&gt;
+&lt;p&gt;Other than tinkering with Computers, I also love playing guitar and going out with close friends.&lt;/p&gt;
+&lt;center&gt;
+&lt;img width=&#34;100%&#34; src=&#34;//localhost:1313/images/group.jpg&#34; height=&#34;auto&#34; alt=&#34;me in group photo&#34;&gt;
+&lt;p class=&#34;caption&#34;&gt;Pranav, Nikita, Nayana and me during our first Bangalore trip&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;This blog is an archive of some thoughts, experiences and learnings from my life - Writings which I can look back in a few years and feel &lt;em&gt;cringe&lt;/em&gt;!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Essential Components for Building Human-Like AI Assistants</title>
@@ -443,13 +468,11 @@ No good has ever come up by arguing. Sure you should explain your point of view.
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It&amp;rsquo;s a short about the fleeting momentary thing in life, proving that in the end everything is fleeting, so why care so much about anything in particular.&lt;/p&gt;
 &lt;p&gt;Now, after a few hours, I randomly thought, why don&amp;rsquo;t I just put it into chatGPT and see if it can improve. This was the prompt:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;This is a short poem I wrote in less than a minute about the fleeting momentary feelings of life, proving that in the end everything is fleeting, so why care so much about others. What do you think? How to improve? [Paste poem here]&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;This is a short poem I wrote in less than a minute about the fleeting momentary feelings of life, proving that in the end everything is fleeting, so why care so much about others. What do you think? How to improve? [Paste poem here]&lt;/p&gt;&lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;p&gt;This was the response:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Your poem captures the essence of fleeting emotions and the transient nature of life. Here are a few suggestions to enhance it:&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Your poem captures the essence of fleeting emotions and the transient nature of life. Here are a few suggestions to enhance it:&lt;/p&gt;&lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Oh, what is love,
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;but a fleeting dance of hearts
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Oh, what is anger,
@@ -913,8 +936,7 @@ Run the following from the root directory of your project.&lt;/p&gt;
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Use the infamous &lt;a href=&#34;https://github.com/ohmybahgosh/RockYou2021.txt&#34;&gt;RockYou.txt&lt;/a&gt; password list containing 14 million used passwords to brute force the user passwords in almost any system you&amp;rsquo;ve got&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Your computer is not safe, make your password stronger&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Your computer is not safe, make your password stronger&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;boot into the system using kali live usb&lt;/li&gt;
@@ -933,8 +955,7 @@ Run the following from the root directory of your project.&lt;/p&gt;
 &lt;li&gt;Navigate to etc from /mnt and create hash out of shadow and password file using the &lt;code&gt;unshadow&lt;/code&gt; util of kali linux. Save this in the home directory&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
-&lt;p&gt;In linux, the passwords of all users are stored as a hash in a /etc/shadow file. The corresponding names can be taken from &lt;code&gt;/etc/password&lt;/code&gt; file&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;In linux, the passwords of all users are stored as a hash in a /etc/shadow file. The corresponding names can be taken from &lt;code&gt;/etc/password&lt;/code&gt; file&lt;/p&gt;&lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo unshadow /etc/passwd /etc/shadow &amp;gt; ~/shadowhash &lt;span style=&#34;color:#75715e&#34;&gt;#storing the unshadowed file in home directory&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
 &lt;li&gt;Crack this using tools like &lt;a href=&#34;https://www.openwall.com/john/&#34;&gt;john-the-ripper&lt;/a&gt;. Pass in a wordlist if the password may be complex.&lt;/li&gt;
@@ -1486,8 +1507,7 @@ I was scared to still delete windows asnd of&lt;/p&gt;
       
       <guid>//localhost:1313/posts/ancients-werent-morons/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;NOTE: This is a personal opinion at this point in time and is subject to change with time and the constructive criticism I receive. :)&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;NOTE: This is a personal opinion at this point in time and is subject to change with time and the constructive criticism I receive. :)&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Nowadays most zoomers I&amp;rsquo;ve known both in college groups and in various online forums have this notion that the ancients especially in India were kinda primitive to the current generation and culture.&lt;/p&gt;
 &lt;p&gt;I would like to gently disagree. It&amp;rsquo;s time to acknowledge that while we&amp;rsquo;re standing on top of giants, this doesn&amp;rsquo;t necessarily make us any taller than any one of the previous generation.&lt;/p&gt;
 &lt;hr&gt;
@@ -1501,8 +1521,7 @@ As a result, it were the men were sent to wars - They had to pledge the loyalty 
 See, this is the cause of Sati.. in ancient India, what happened to women after a kingdom lost a war was often worse than death.&lt;/p&gt;
 &lt;p&gt;The point I am trying to make is that, in order for any custom or practice or tradition to continue for a reasonable good amount of time, there would have been a very good cause for it. Without properly understanding what that cause was, if you try to call the people who practiced it as stupid, just because you think their practices were irrational, then it is you who is a dork.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;TODO: Search about the actual cause for the origination of Sati and the reason it was continued for so long.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;TODO: Search about the actual cause for the origination of Sati and the reason it was continued for so long.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Let&amp;rsquo;s consider another example: In traditional Hindu homes, in the evening, there would be an oil lamp lit in front of the door. This practice has come down a lot and only very few Hindu homes still practice this and even recite ramaNama in the evening sitting near the lamp. According to the common genZ culture where one is free to choose any belief and religious practice of one&amp;rsquo;s liking, this may seems pointless and olden. Even from the last few decades, where being an atheist was somehow considered cool, this may seem&lt;/p&gt;
 </description>
     </item>
@@ -1580,8 +1599,7 @@ Before setting up auto-correct
 &lt;br/&gt;
 &lt;p&gt;According to the official git &lt;a href=&#34;https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_code_help_autocorrect_code&#34;&gt;docs&lt;/a&gt;,&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Git helpfully tries to figure out what you meant, but it still refuses to do it. If you set help.autocorrect to 1, Git will actually run this command for you&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Git helpfully tries to figure out what you meant, but it still refuses to do it. If you set help.autocorrect to 1, Git will actually run this command for you&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;solution&#34;&gt;Solution:&lt;/h2&gt;
 &lt;p&gt;Just open your terminal and add the following line&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git config --global help.autocorrect &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
@@ -1630,12 +1648,10 @@ Just like how it was before
       
       <guid>//localhost:1313/posts/add-splash-screen-in-react-native-app/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;Note: This article was initially written in &lt;a href=&#34;https://medium.com/swlh/the-easiest-way-to-add-a-splash-screen-to-your-react-native-app-2d36bee3117b&#34;&gt;Medium&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Note: This article was initially written in &lt;a href=&#34;https://medium.com/swlh/the-easiest-way-to-add-a-splash-screen-to-your-react-native-app-2d36bee3117b&#34;&gt;Medium&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Hi, this article is a result of me spending a hell lot of time to figure out the best and easiest way to solve the above problem of adding a splash screen to a React-native app. Almost all the tutorials available as of when this post is being written (2020 June) have at least some part of the code outdated and so if you are lazy and tries to copy-paste all the code mentioned in them, your gradle config will break some way or the other and its total frustration.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Note: If you are building your app using the awesome expo-cli, then you don’t need to go through the below tutorial, adding a splash screen to an expo app is as simple as replacing the default splash image in assets folder with your own custom image and then renaming it as ‘splash.png’.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Note: If you are building your app using the awesome expo-cli, then you don’t need to go through the below tutorial, adding a splash screen to an expo app is as simple as replacing the default splash image in assets folder with your own custom image and then renaming it as ‘splash.png’.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Now, for those of us who have built the app with the good-old react-native init, adding a splash screen consists of the following 4 steps:&lt;/p&gt;
 &lt;h2 id=&#34;step-0-get-the-splash-image-ready&#34;&gt;Step 0: Get the splash image ready!&lt;/h2&gt;
 &lt;p&gt;I know, this is a no-brainier. But hey, do you exactly have the splash image in 6 different dimensions? No? Well guess what, you actually do need the same image in 6 dimensions! So how will you manage to make-do with just one image if that’s all what you got?&lt;/p&gt;
@@ -1648,8 +1664,7 @@ Just like how it was before
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or using yarn,&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;yarn add react-native-splash-screen
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;Note: if your react-native cli version is below 0.6, don’t forget to link the above package using: &lt;code&gt;react-native link react-native-splash-screen&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Note: if your react-native cli version is below 0.6, don’t forget to link the above package using: &lt;code&gt;react-native link react-native-splash-screen&lt;/code&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;step-2-configuration&#34;&gt;Step 2: Configuration&lt;/h2&gt;
 &lt;h3 id=&#34;android&#34;&gt;Android:&lt;/h3&gt;
 &lt;p&gt;You have got to update the MainActivity.java file (located at &lt;code&gt;android/app/src/main/java/com/your_project_name&lt;/code&gt; folder) in order to use react-native-splash-screen in your project. Just make changes to the file like given below:&lt;/p&gt;

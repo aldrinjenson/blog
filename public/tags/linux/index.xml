@@ -418,8 +418,7 @@ Before setting up auto-correct
 &lt;br/&gt;
 &lt;p&gt;According to the official git &lt;a href=&#34;https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_code_help_autocorrect_code&#34;&gt;docs&lt;/a&gt;,&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Git helpfully tries to figure out what you meant, but it still refuses to do it. If you set help.autocorrect to 1, Git will actually run this command for you&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Git helpfully tries to figure out what you meant, but it still refuses to do it. If you set help.autocorrect to 1, Git will actually run this command for you&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;solution&#34;&gt;Solution:&lt;/h2&gt;
 &lt;p&gt;Just open your terminal and add the following line&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git config --global help.autocorrect &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;

@@ -20,8 +20,7 @@
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Use the infamous &lt;a href=&#34;https://github.com/ohmybahgosh/RockYou2021.txt&#34;&gt;RockYou.txt&lt;/a&gt; password list containing 14 million used passwords to brute force the user passwords in almost any system you&amp;rsquo;ve got&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Your computer is not safe, make your password stronger&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Your computer is not safe, make your password stronger&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;boot into the system using kali live usb&lt;/li&gt;
@@ -40,8 +39,7 @@
 &lt;li&gt;Navigate to etc from /mnt and create hash out of shadow and password file using the &lt;code&gt;unshadow&lt;/code&gt; util of kali linux. Save this in the home directory&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
-&lt;p&gt;In linux, the passwords of all users are stored as a hash in a /etc/shadow file. The corresponding names can be taken from &lt;code&gt;/etc/password&lt;/code&gt; file&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;In linux, the passwords of all users are stored as a hash in a /etc/shadow file. The corresponding names can be taken from &lt;code&gt;/etc/password&lt;/code&gt; file&lt;/p&gt;&lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo unshadow /etc/passwd /etc/shadow &amp;gt; ~/shadowhash &lt;span style=&#34;color:#75715e&#34;&gt;#storing the unshadowed file in home directory&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
 &lt;li&gt;Crack this using tools like &lt;a href=&#34;https://www.openwall.com/john/&#34;&gt;john-the-ripper&lt;/a&gt;. Pass in a wordlist if the password may be complex.&lt;/li&gt;

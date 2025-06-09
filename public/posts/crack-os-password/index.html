@@ -236,8 +236,7 @@
             <h2 id="introduction">Introduction</h2>
 <p>Use the infamous <a href="https://github.com/ohmybahgosh/RockYou2021.txt">RockYou.txt</a> password list containing 14 million used passwords to brute force the user passwords in almost any system you&rsquo;ve got</p>
 <blockquote>
-<p>Your computer is not safe, make your password stronger</p>
-</blockquote>
+<p>Your computer is not safe, make your password stronger</p></blockquote>
 <h2 id="overview">Overview</h2>
 <ul>
 <li>boot into the system using kali live usb</li>
@@ -256,8 +255,7 @@
 <li>Navigate to etc from /mnt and create hash out of shadow and password file using the <code>unshadow</code> util of kali linux. Save this in the home directory</li>
 </ol>
 <blockquote>
-<p>In linux, the passwords of all users are stored as a hash in a /etc/shadow file. The corresponding names can be taken from <code>/etc/password</code> file</p>
-</blockquote>
+<p>In linux, the passwords of all users are stored as a hash in a /etc/shadow file. The corresponding names can be taken from <code>/etc/password</code> file</p></blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo unshadow /etc/passwd /etc/shadow &gt; ~/shadowhash <span style="color:#75715e">#storing the unshadowed file in home directory</span>
 </span></span></code></pre></div><ol start="5">
 <li>Crack this using tools like <a href="https://www.openwall.com/john/">john-the-ripper</a>. Pass in a wordlist if the password may be complex.</li>

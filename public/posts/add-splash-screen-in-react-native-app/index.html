@@ -234,12 +234,10 @@
         </header>
         <div class="content e-content">
             <blockquote>
-<p>Note: This article was initially written in <a href="https://medium.com/swlh/the-easiest-way-to-add-a-splash-screen-to-your-react-native-app-2d36bee3117b">Medium</a></p>
-</blockquote>
+<p>Note: This article was initially written in <a href="https://medium.com/swlh/the-easiest-way-to-add-a-splash-screen-to-your-react-native-app-2d36bee3117b">Medium</a></p></blockquote>
 <p>Hi, this article is a result of me spending a hell lot of time to figure out the best and easiest way to solve the above problem of adding a splash screen to a React-native app. Almost all the tutorials available as of when this post is being written (2020 June) have at least some part of the code outdated and so if you are lazy and tries to copy-paste all the code mentioned in them, your gradle config will break some way or the other and its total frustration.</p>
 <blockquote>
-<p>Note: If you are building your app using the awesome expo-cli, then you don’t need to go through the below tutorial, adding a splash screen to an expo app is as simple as replacing the default splash image in assets folder with your own custom image and then renaming it as ‘splash.png’.</p>
-</blockquote>
+<p>Note: If you are building your app using the awesome expo-cli, then you don’t need to go through the below tutorial, adding a splash screen to an expo app is as simple as replacing the default splash image in assets folder with your own custom image and then renaming it as ‘splash.png’.</p></blockquote>
 <p>Now, for those of us who have built the app with the good-old react-native init, adding a splash screen consists of the following 4 steps:</p>
 <h2 id="step-0-get-the-splash-image-ready">Step 0: Get the splash image ready!</h2>
 <p>I know, this is a no-brainier. But hey, do you exactly have the splash image in 6 different dimensions? No? Well guess what, you actually do need the same image in 6 dimensions! So how will you manage to make-do with just one image if that’s all what you got?</p>
@@ -252,8 +250,7 @@
 </span></span></code></pre></div><p>or using yarn,</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>yarn add react-native-splash-screen
 </span></span></code></pre></div><blockquote>
-<p>Note: if your react-native cli version is below 0.6, don’t forget to link the above package using: <code>react-native link react-native-splash-screen</code></p>
-</blockquote>
+<p>Note: if your react-native cli version is below 0.6, don’t forget to link the above package using: <code>react-native link react-native-splash-screen</code></p></blockquote>
 <h2 id="step-2-configuration">Step 2: Configuration</h2>
 <h3 id="android">Android:</h3>
 <p>You have got to update the MainActivity.java file (located at <code>android/app/src/main/java/com/your_project_name</code> folder) in order to use react-native-splash-screen in your project. Just make changes to the file like given below:</p>
