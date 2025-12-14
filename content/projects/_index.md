@@ -12,6 +12,23 @@ Showcasing some projects i'm proud of
 
 <div class="featured-projects">
 
+### Multi-Agent Analyst AI System at Athena Intelligence
+**World's first multi-agent system for analysts** — a network of AI agents that collaborate to perform data analysis tasks around the clock.
+- 🤖 Coordinated LLM-based agents working in parallel
+- 📊 Automated analytical workflows that run 24/7
+- 🧠 Digests complex data and produces insights continuously
+- 🎬 [Demo Video](https://twitter.com/BrendonGeils/status/1886253538663387550)
+
+---
+
+<!-- ### Paula – AI Fashion Assistant
+**Your personal AI stylist** — an experimental chatbot that suggests outfits and fashion advice based on your preferences.
+- 👗 Understands style preferences and occasions
+- 💬 Conversational interface for outfit recommendations
+- 🎨 Like chatting with a fashion-savvy friend
+
+--- -->
+
 ### [aJent](https://github.com/aldrinjenson/aJent)
 **Personal AI agent with real capabilities** — not just chat, but actual file system manipulation and browser history access.
 - 🔧 LangChain + function/tool calling architecture
@@ -58,6 +75,10 @@ Showcasing some projects i'm proud of
 ## 💼 More Projects
 
 Strong builds that shipped — from Obsidian plugins to hackathon prototypes.
+
+### AI & Creative Experiments
+
+- **[Handpose Interactive Demo](https://twitter.com/aldrinjenson/status/1806362698315132981)** — Browser-based hand tracking using TensorFlow.js + p5.js. Control visualizations with hand gestures in real-time. #MadeWithTFJS
 
 ### Tools & Plugins
 
