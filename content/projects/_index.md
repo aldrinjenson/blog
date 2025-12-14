@@ -21,13 +21,23 @@ Showcasing some projects i'm proud of
 
 ---
 
-<!-- ### Paula – AI Fashion Assistant
-**Your personal AI stylist** — an experimental chatbot that suggests outfits and fashion advice based on your preferences.
-- 👗 Understands style preferences and occasions
-- 💬 Conversational interface for outfit recommendations
-- 🎨 Like chatting with a fashion-savvy friend
+### [Paula](https://github.com/aldrinjenson/paula)
+**Real-time AI companion with ultra-low latency voice interactions** — a virtual companion designed to be a supportive, empathetic presence.
+- 🎤 Real-time voice conversations powered by VAPI
+- 💬 Empathetic AI using GPT-3.5 with therapeutic persona
+- 🔊 Natural voice synthesis with ElevenLabs
+- 🎬 [Demo Video](https://x.com/aldrinjenson/status/1773643579140760053)
 
---- -->
+---
+
+### [Sophie (Fashion Agent)](https://github.com/aldrinjenson/fashion-agent)
+**AI-powered fashion assistant with real-time voice interactions** — voice-enabled shopping assistant that helps you explore fashion items and make purchase decisions.
+- 🎤 Voice-first shopping experience
+- 👗 Smart recommendations based on category & budget
+- 🛒 End-to-end purchase flow via conversation
+- 🎬 [Demo Video](https://x.com/aldrinjenson/status/1797706930372407734)
+
+---
 
 ### [aJent](https://github.com/aldrinjenson/aJent)
 **Personal AI agent with real capabilities** — not just chat, but actual file system manipulation and browser history access.
@@ -78,6 +88,10 @@ Strong builds that shipped — from Obsidian plugins to hackathon prototypes.
 
 ### AI & Creative Experiments
 
+- **[Whisperly](https://github.com/aldrinjenson/whisperly)** — Voice-to-text transcription app with AI-powered text formatting. Record audio, get transcriptions via OpenAI Whisper, and format output for emails/Slack/grammar. React Native + FastAPI.
+
+- **[Mind Castle](https://github.com/aldrinjenson/mind-castle)** — Your personal knowledge vault. Capture URLs, voice notes, and screen activity. AI-powered summarization, semantic search with Qdrant, and one-click Obsidian export.
+
 - **[Handpose Interactive Demo](https://twitter.com/aldrinjenson/status/1806362698315132981)** — Browser-based hand tracking using TensorFlow.js + p5.js. Control visualizations with hand gestures in real-time. #MadeWithTFJS
 
 ### Tools & Plugins
@@ -113,3 +127,10 @@ Quick experiments that demonstrate breadth — small but mighty.
 
 These have blog-style write-ups with the full backstory.
 
+- **[Moodle Automation]({{< ref "projects/moodle-automation.md" >}})** — Node.js program to automate attendance marking in Moodle Classroom using Telegram bot
+- **[Query Search Bot]({{< ref "projects/query-search-bot.md" >}})** — Telegram bot to make internet queries directly from Telegram, deployed serverless
+- **[Simple Stable Diffusion]({{< ref "projects/simple-stable-diffusion.md" >}})** — Custom Stable Diffusion project with Streamlit UI
+- **[Recreating Teachable Machine]({{< ref "projects/recreating-teachable-machine.md" >}})** — General purpose ML model trainer for vision data using PyTorch & FastAI
+- **[WhatsApp Message Without Save]({{< ref "projects/whatsapp-msg-without-save.md" >}})** — Flutter app to send WhatsApp messages without saving contacts
+- **[Love Calculator]({{< ref "projects/love-calculator.md" >}})** — Fun web app to find love compatibility percentage
+- **[Mutual Couple Finder]({{< ref "projects/mutual-couple-finder.md" >}})** — Telegram bot to find mutual connections (draft)
