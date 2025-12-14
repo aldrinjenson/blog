@@ -73,10 +73,6 @@ Strong builds that shipped — from Obsidian plugins to hackathon prototypes.
 
 - **[Node-Balancer](https://github.com/aldrinjenson/node-balancer)** — Distributed worker system for load balancing. Shows systems/infra thinking.
 
-### Hackathon Projects
-
-- **[Ledom](https://github.com/aldrinjenson/Ledom)** — Anti-misinformation decentralized chat concept. Built during a hackathon to combat fake news forwarding.
-
 ---
 
 ## ⚡ Mini Builds & Weekend Projects
@@ -86,7 +82,6 @@ Quick experiments that demonstrate breadth — small but mighty.
 | Project | What it does |
 |---------|--------------|
 | [YouTube Transcript Formatter](https://til.aldrinjenson.com/minimum-effort/youtube-transcript-formatter) | Turn any video into an LLM-ready prompt |
-| [YouTube Transcript Extractor (Gist)](https://gist.github.com/aldrinjenson/6777f7bb8864ff5003b399d1f730c656) | Bash script to download transcripts |
 | [Whisper Subtitles](https://til.aldrinjenson.com/generate-subtitles-locally-using-whisper) | Generate subtitles locally using OpenAI Whisper |
 | [Parallel Ollama Inference](https://til.aldrinjenson.com/running-parallel-ollama-inference) | Scale local LLM inference with multiple Ollama instances |
 | [Virtual AI Companion](https://til.aldrinjenson.com/minimum-effort/virtual-gf) | Talking AI companion concept with demo |
