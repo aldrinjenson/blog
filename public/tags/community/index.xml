@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Community on Aldrin Jenson</title>
+    <link>//localhost:1313/tags/community/</link>
+    <description>Aldrin Jenson (Community)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 20 Mar 2023 00:43:55 +0530</lastBuildDate>
+    
+    <atom:link href="//localhost:1313/tags/community/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Organizing a Hackathon</title>
+      <link>//localhost:1313/posts/organizing-a-hackathon/</link>
+      <pubDate>Mon, 20 Mar 2023 00:43:55 +0530</pubDate>
+      
+      <guid>//localhost:1313/posts/organizing-a-hackathon/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;My thoughts after being an organizer for Technohack 2023&lt;/p&gt;
+&lt;h2 id=&#34;lets-begin&#34;&gt;Let&amp;rsquo;s begin&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;When the situation demands it, I can be a natural leader&lt;/li&gt;
+&lt;li&gt;I find that it&amp;rsquo;s always waaay easier to assign it to others and provide them with helpful suggestions&lt;/li&gt;
+&lt;li&gt;When stressed, call for help&lt;/li&gt;
+&lt;li&gt;Sometimes, you just need to take a decision and move forward&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;backdrop&#34;&gt;Backdrop&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Technohack was really good withe constraints&lt;/li&gt;
+&lt;li&gt;It was done because of good managements and clear work distribution&lt;/li&gt;
+&lt;li&gt;Events team is really useful&lt;/li&gt;
+&lt;li&gt;Not getting stressed is really important&lt;/li&gt;
+&lt;li&gt;Just approach everything with a sense of calmness&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

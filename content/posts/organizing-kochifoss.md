@@ -3,7 +3,8 @@ title: "Organizing KochiFOSS 2022"
 date: 2022-10-03
 draft: true
 description: "My experience as an organizer for KochiFOSS 2022"
-tags: ["foss", "leadership", "management", "awe", "learning"]
+tags: ["foss", "leadership", "management", "community", "events", "open-source"]
+categories: ["Personal"]
 ---
 
 KochiFOSS 2022 conference was held on 15th October 2022 and from the participant's responses, the conference was a huge success. I was lucky to be a part of the core organizing team. Jotting down my experiences and the lessons learned.

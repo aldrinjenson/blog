@@ -2,7 +2,8 @@
 title: "I gave a talk at an international conference and Murphy's law sucks!"
 date: 2022-07-26T19:09:07+05:30
 description: "How my faith in Arch Linux was may be a bit too much🥲"
-tags: [indiaFoss, FOSS, arch-linux, talk]
+tags: ["indiafoss", "foss", "arch-linux", "talk", "public-speaking", "community", "linux"]
+categories: ["Personal"]
 draft: false
 ---
 

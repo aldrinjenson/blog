@@ -3,7 +3,8 @@ title: "Moodle Automation"
 date: 2022-01-19T19:25:18+05:30
 draft: false
 description: "NodeJs program to automate the attendance marking in Moodle Classroom "
-tags: [tech, telegram, nodeJs]
+tags: ["tech", "telegram", "nodejs", "automation", "puppeteer", "web-scraping"]
+categories: ["Automation"]
 ---
 
 Reflections on a nodeJS program I wrote to automate marking online attendance.

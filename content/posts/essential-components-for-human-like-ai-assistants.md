@@ -2,8 +2,8 @@
 title: "Essential Components for Building Human-Like AI Assistants"
 date: 2024-03-24
 draft: false
-tags: ["Ai Agents"]
-categories: ["Technology", "Artificial Intelligence"]
+tags: ["ai-agents", "llm", "langchain", "voice-ai", "prompt-engineering"]
+categories: ["AI & LLM"]
 ---
 
 In this article, I'll explore the key components that I believe are essential for current Large Language Models (LLMs) to function effectively as AI assistants or agents. Based on my analysis, there are five core elements, plus one bonus feature, that bring us really close to creating truly human-like AI assistants.

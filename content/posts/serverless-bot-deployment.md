@@ -3,7 +3,8 @@ title: "How to deploy a Telegram bot to Serverless"
 date: 2021-10-24T19:25:18+05:30
 draft: true
 description: "Documenting the steps on how we moved our Telegram Bot servers to AWS Lambda and saved tons of money in the process"
-tags: [tech, telegram, serverless, AWS]
+tags: ["tech", "telegram", "serverless", "aws", "lambda", "nodejs", "automation", "telegram-bot"]
+categories: ["Automation", "Infrastructure"]
 ---
 
 When I worked as a Product Developer at TGH Tech, I had built multiple Telegram bots in nodeJs. In the inital stages all bots were using the default long polling method which required a server to be constantly running. We ran some bots on AWS ec2 and others using Heroku paid Plan. Keeping the server running all the time wasn't economical for our usecase as there would be long gaps when the users won't be using the bot. Running the server at night time and all hence wasn't economical at all. So I started researching on AWS Lambda and how I could move the bots to serverless. The advantage of AWS Lambda functions is that you are paid only for the usage, as in you are paid only for the server running when a user uses your bot. No money is charged for all the idle time. Once I kinda figured out the steps to modify the code and have the bot deployed to Lambda, I created a document, outlining the process and shared it to many others who successfully managed to deploy their bots on serverless as well. This way we were able to save off a lot of money.

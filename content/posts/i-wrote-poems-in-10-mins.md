@@ -3,7 +3,8 @@ title: "I wrote a poem in 10 minutes!"
 date: 2023-07-03T21:56:59+05:30
 draft: false
 description: "Why I think AI can seriously improve the creative abilities of us regular humans!"
-tags: ["gpt", "ai", "creativity"]
+tags: ["gpt", "ai", "creativity", "llm", "chatgpt", "prompt-engineering"]
+categories: ["AI & LLM"]
 ---
 
 Yes chatGPT is involved. But way lesser than you think.

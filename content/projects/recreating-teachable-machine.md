@@ -3,7 +3,8 @@ title: "I recreated Google's Teachable Machine and made it better!"
 date: 2022-10-03T11:20:30
 draft: true
 description: "How I made a general purpose ML model trainer for vision data"
-tags: ["ML", "PyTorch", "FastAI"]
+tags: ["ml", "pytorch", "fastai", "computer-vision", "image-classification", "python"]
+categories: ["AI & LLM"]
 ---
 
 # Introduction

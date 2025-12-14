@@ -3,7 +3,8 @@ title: "Redirecting Subdomains to docker containers in same server"
 date: 2022-12-25T18:15:07+05:30
 draft: false
 description: "How to create subdomains and have them point to different services running in the same machine"
-tags: ["infra", "docker", "backend", "nginx", "linux"]
+tags: ["infrastructure", "docker", "backend", "nginx", "linux", "devops", "self-hosting"]
+categories: ["Infrastructure"]
 ---
 
 ## Introduction

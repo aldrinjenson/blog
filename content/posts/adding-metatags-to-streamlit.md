@@ -3,7 +3,8 @@ title: "How to add meta tags to a Streamlit app"
 date: 2023-08-27T07:00:55
 draft: false
 description: "Workaround to adding meta tags in a Streamlit app which does not support doing this out of the box"
-tags: [tech, python, docker, hack]
+tags: ["tech", "python", "docker", "streamlit", "seo", "web-dev"]
+categories: ["Tools"]
 ---
 
 ## Introduction

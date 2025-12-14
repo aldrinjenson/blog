@@ -3,7 +3,8 @@ title: "Easy SSH based Continuous delivery pipeline"
 date: 2023-04-25T00:32:13+05:30
 draft: false
 description: "Super simple way to set up a deployment pipeline to a Linux server"
-tags: [linux, ssh, devops]
+tags: ["linux", "ssh", "devops", "cicd", "automation", "self-hosting"]
+categories: ["Infrastructure"]
 ---
 
 If you have a Virtual Private Server(VPS) and want to have the code you push to github/VCS, be deployed in your server, here is a super simple and quick way to do so.

@@ -3,7 +3,8 @@ title: "How to crack almost any OS password "
 date: 2023-01-16T02:33:48+05:30
 draft: false
 description: "use john-the-ripper to actually crack the login passwords of almost any computer"
-tags: [kali, cybersecurity]
+tags: ["kali", "cybersecurity", "linux", "hacking", "security", "password-cracking"]
+categories: ["Experiments"]
 ---
 
 ## Introduction

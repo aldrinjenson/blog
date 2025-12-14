@@ -3,7 +3,8 @@ title: "Query Search Bot"
 date: 2021-10-24T19:25:18+05:30
 draft: false
 description: "A telegram bot I made to make the internet queries directly from telegram"
-tags: [tech, telegram, serverless, AWS]
+tags: ["tech", "telegram", "serverless", "aws", "automation", "telegram-bot", "nodejs"]
+categories: ["Automation", "Tools"]
 ---
 
 I started my experiments with Telegram Bots in the November of 2020 when I wanted an easy way to receive notifications.

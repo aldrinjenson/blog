@@ -3,7 +3,8 @@ title: "My Two Cents on Scaling"
 date: 2023-03-01T10:29:22+05:30
 draft: true
 description: "As a young developer, a few thoughts I've learned about scaling over the years"
-tags: ["scaling", backend]
+tags: ["scaling", "backend", "architecture", "infrastructure", "devops"]
+categories: ["Infrastructure"]
 ---
 
 

@@ -3,7 +3,8 @@ title: My Linux Journey
 date: 2022-01-30 02:33:33
 draft: true
 description: An ode to my 10 year old laptop
-tags: [tech, personal, reflection]
+tags: ["tech", "personal", "reflection", "linux", "arch-linux", "i3wm"]
+categories: ["Personal"]
 ---
 
 I use Arch Linux with i3 tiling window manager. I've been using the same laptop for the last 11 years. It's been an eventful journey and was filled with a lot of learnings and grit.

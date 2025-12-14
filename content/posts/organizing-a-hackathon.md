@@ -2,8 +2,9 @@
 title: "Organizing a Hackathon"
 date: 2023-03-20T00:43:55+05:30
 draft: true
-description: ""
-tags: []
+description: "My thoughts after being an organizer for Technohack 2023"
+tags: ["hackathon", "leadership", "management", "events", "community"]
+categories: ["Personal"]
 ---
 
 

@@ -1,9 +1,10 @@
 ---
-title: "Mutual Couple FInder"
+title: "Mutual Couple Finder"
 date: 2022-02-14T22:19:22+05:30
 draft: true
 description: "Find out if your crush has a thing for you as well!"
-tags: [tech, telegram-bot]
+tags: ["tech", "telegram-bot", "fun", "python", "side-project"]
+categories: ["Experiments"]
 ---
 
 ## Links:

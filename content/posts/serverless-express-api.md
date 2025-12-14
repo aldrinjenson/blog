@@ -3,7 +3,8 @@ title: "How to deploy an express application to serverless with AWS Lambda"
 date: 2023-03-26T16:04:39
 draft: false
 description: "My easy and custom way to set up a CI/CD pipeline for easily deploying a node Express application to AWS Lambda"
-tags: ["serverless", "express", "node", "AWS"]
+tags: ["serverless", "express", "nodejs", "aws", "lambda", "cicd", "devops"]
+categories: ["Infrastructure"]
 ---
 
 # Introduction

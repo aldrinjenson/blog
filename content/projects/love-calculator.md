@@ -3,7 +3,8 @@ title: "Love Match Calculator"
 # date: 2022-1-23T19:25:18+05:30
 draft: false
 description: "My version of the Love Calculator. Use this to find the % love compatibility with your crush😉"
-tags: [fun, firebase, ethics]
+tags: ["fun", "firebase", "ethics", "javascript", "prank", "web-dev"]
+categories: ["Experiments"]
 ---
 
 Before reading any further, visit this [link](https://aldrinjenson.github.io/Love-Calc/) and follow the instructions.

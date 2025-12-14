@@ -3,7 +3,8 @@ title: "How to add SSL and make a server https"
 date: 2022-12-25T18:14:39+05:30
 draft: false
 description: "How to set up ssl in a server using letsencrypt without even using nginx"
-tags: ["infra", "ssl", "backend", "nginx", "linux"]
+tags: ["infrastructure", "ssl", "backend", "nginx", "linux", "devops", "security", "self-hosting"]
+categories: ["Infrastructure"]
 ---
 
 ## Introduction
