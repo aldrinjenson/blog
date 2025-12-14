@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Streamlit on Aldrin Jenson</title>
+    <link>//localhost:1313/tags/streamlit/</link>
+    <description>Aldrin Jenson (Streamlit)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 14 Dec 2024 10:00:00 +0530</lastBuildDate>
+    
+    <atom:link href="//localhost:1313/tags/streamlit/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Street View to Video - Virtual Road Trip Generator 🎬</title>
+      <link>//localhost:1313/projects/street-view-to-video/</link>
+      <pubDate>Sat, 14 Dec 2024 10:00:00 +0530</pubDate>
+      
+      <guid>//localhost:1313/projects/street-view-to-video/</guid>
+      <description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/aldrinjenson/street-view-to-video&#34;&gt;GitHub Repo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://street-view-to-video.streamlit.app&#34;&gt;Live Demo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;project-abstract&#34;&gt;Project Abstract&lt;/h2&gt;
+&lt;p&gt;Ever wanted to take a virtual walk through the streets of Rome, Paris, or Tokyo without leaving your desk? This project does exactly that! Enter a start and end location, and the app creates a smooth video by stitching together Google Street View images along the entire path - like a cinematic road trip generated from Street View data.&lt;/p&gt;
+&lt;h2 id=&#34;tech-stack&#34;&gt;Tech Stack&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Python&lt;/strong&gt; - Core logic&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Streamlit&lt;/strong&gt; - Web UI framework (love how fast you can build things with this!)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Google APIs&lt;/strong&gt; - Geocoding, Directions, Street View Static, and Places API&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FFmpeg&lt;/strong&gt; - Video generation and audio mixing&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MoviePy&lt;/strong&gt; - Video processing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
+&lt;p&gt;The app turned out quite feature-rich:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;🗺️ &lt;strong&gt;Interactive Map Preview&lt;/strong&gt; - See your route before generating&lt;/li&gt;
+&lt;li&gt;📍 &lt;strong&gt;Place Autocomplete&lt;/strong&gt; - Smart search powered by Google Places&lt;/li&gt;
+&lt;li&gt;🧭 &lt;strong&gt;Direction Compass&lt;/strong&gt; - Shows heading direction overlaid on each frame&lt;/li&gt;
+&lt;li&gt;🎵 &lt;strong&gt;Background Music&lt;/strong&gt; - Add ambient music to your videos&lt;/li&gt;
+&lt;li&gt;🎚️ &lt;strong&gt;Customizable&lt;/strong&gt; - Adjust FPS, capture interval, FOV, camera pitch&lt;/li&gt;
+&lt;li&gt;💰 &lt;strong&gt;Cost Tracking&lt;/strong&gt; - Know your API costs upfront (important since Street View API isn&amp;rsquo;t free!)&lt;/li&gt;
+&lt;li&gt;📁 &lt;strong&gt;Project Gallery&lt;/strong&gt; - View and manage all your generated videos&lt;/li&gt;
+&lt;li&gt;🌍 &lt;strong&gt;20+ Preset Routes&lt;/strong&gt; - Famous walking tours worldwide (Times Square to Central Park, Colosseum to Trevi Fountain, etc.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;how-it-came-to-be&#34;&gt;How it came to be&lt;/h2&gt;
+&lt;p&gt;I was watching some &amp;ldquo;walking tour&amp;rdquo; videos on YouTube - you know, those relaxing videos where someone just walks through a city with a camera? They&amp;rsquo;re oddly satisfying to watch. Then I thought - Google Street View has imagery of almost every street in major cities. What if I could stitch those images together into a video?&lt;/p&gt;
+&lt;p&gt;The core idea was simple:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Get a route between two points using Google Directions API&lt;/li&gt;
+&lt;li&gt;Sample points along that route at regular intervals&lt;/li&gt;
+&lt;li&gt;Fetch Street View images at each point, oriented in the direction of travel&lt;/li&gt;
+&lt;li&gt;Stitch them into a video&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The execution involved some interesting challenges:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Calculating heading&lt;/strong&gt; - Each frame needs to &amp;ldquo;look&amp;rdquo; in the right direction. Had to calculate bearing between consecutive points using spherical trigonometry.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Smooth transitions&lt;/strong&gt; - Too few frames = choppy video. Too many = expensive API costs. Found 10-15 meter intervals work well.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Street View coverage gaps&lt;/strong&gt; - Not every location has imagery. Had to handle this gracefully.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cost optimization&lt;/strong&gt; - Street View API costs $7 per 1000 requests. Added cost estimation before generation so users know what they&amp;rsquo;re getting into.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;thoughts&#34;&gt;Thoughts&lt;/h2&gt;
+&lt;p&gt;The project scratched a creative itch. There&amp;rsquo;s something magical about virtually &amp;ldquo;driving&amp;rdquo; through streets you&amp;rsquo;ve never visited. I&amp;rsquo;ve generated videos of routes in cities I&amp;rsquo;ve always wanted to visit - the walk from Colosseum to Trevi Fountain in Rome, strolling down Las Ramblas in Barcelona, or crossing the East Side Gallery to Alexanderplatz in Berlin.&lt;/p&gt;
+&lt;p&gt;Some interesting observations:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Street View coverage is incredibly comprehensive in touristy areas, but gets sparse quickly in residential zones&lt;/li&gt;
+&lt;li&gt;The video quality is limited to 640x640 (Street View API limit), but it&amp;rsquo;s good enough for the vibe&lt;/li&gt;
+&lt;li&gt;Adding background music really transforms the experience - a calm ambient track makes it feel like a proper travel video&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The Streamlit deployment was smooth. The app runs on Streamlit Cloud with just a Google API key secret. Though videos are temporary there - gotta download them before they disappear!&lt;/p&gt;
+&lt;p&gt;This was a fun weekend project that actually turned out useful. Sometimes the simple ideas are the best ones. 🙂&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

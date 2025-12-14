@@ -10,11 +10,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer-when-downgrade">
 
-<title>Projects - Aldrin Jenson</title>
+<title>Street View to Video - Virtual Road Trip Generator 🎬 - Aldrin Jenson</title>
 <meta name="description" content="CS undergrad from Kerala, India">
 
-
-<link rel="alternate" type="application/rss+xml" href="//localhost:1313/projects/index.xml" title="Aldrin Jenson" />
 <link rel="icon" type="image/x-icon" href="//localhost:1313/%20favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="//localhost:1313/%20favicon.png">
 
@@ -39,19 +37,25 @@
 
 
 
-<meta property="og:url" content="//localhost:1313/projects/">
+<meta property="og:url" content="//localhost:1313/projects/street-view-to-video/">
   <meta property="og:site_name" content="Aldrin Jenson">
-  <meta property="og:title" content="Projects">
-  <meta property="og:description" content="Most of the projects I did have some interesting stories or memories associated with them. Mentioning a few here which I really want to remember and reflect on in the future.
-Quick Links Street View to Video - Generate cinematic videos from Google Street View by entering any two locations, with preset tours like Times Square → Central Park.">
+  <meta property="og:title" content="Street View to Video - Virtual Road Trip Generator 🎬">
+  <meta property="og:description" content="A Streamlit app that transforms any route into a cinematic journey by stitching Google Street View images into smooth videos">
   <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2024-12-14T10:00:00+05:30">
+    <meta property="article:modified_time" content="2024-12-14T10:00:00+05:30">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Streamlit">
+    <meta property="article:tag" content="Google APIs">
+    <meta property="article:tag" content="Video Generation">
+    <meta property="article:tag" content="Side Project">
 
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Projects">
-  <meta name="twitter:description" content="Most of the projects I did have some interesting stories or memories associated with them. Mentioning a few here which I really want to remember and reflect on in the future.
-Quick Links Street View to Video - Generate cinematic videos from Google Street View by entering any two locations, with preset tours like Times Square → Central Park.">
+  <meta name="twitter:title" content="Street View to Video - Virtual Road Trip Generator 🎬">
+  <meta name="twitter:description" content="A Streamlit app that transforms any route into a cinematic journey by stitching Google Street View images into smooth videos">
 
 
 
@@ -224,333 +228,145 @@ Quick Links Street View to Video - Generate cinematic videos from Google Street 
         </header>
         <main id="main" tabindex="-1"> 
             
-
-
-
-
-
-<main>
-  <article>
-    <header>
-      <h1>Projects</h1>
-    </header>
     
-    <h2><!-- note: _index.md is the content which will be taken by list templates in folders and then shown at the top just before  a list template --></h2>
-<p>Most of the projects I did have some interesting stories or memories associated with them. Mentioning a few here which I really want to remember and reflect on in the future.</p>
-<h3 id="quick-links">Quick Links</h3>
+
+    <article class="post h-entry">
+        <header class="post-header">
+            <h1 class="p-name post-title">Street View to Video - Virtual Road Trip Generator 🎬</h1>
+            
+        </header>
+        <div class="content e-content">
+            <h2 id="links">Links</h2>
 <ul>
-<li>
-<p><strong><a href="https://github.com/aldrinjenson/street-view-to-video" target="_blank">Street View to Video</a></strong> - Generate cinematic videos from Google Street View by entering any two locations, with preset tours like Times Square → Central Park.</p>
-</li>
-<li>
-<p><strong><a href="https://github.com/aldrinjenson/obsidian-camera" target="_blank">Obsidian Camera</a></strong> <em>(36⭐)</em> - Camera plugin for Obsidian that lets you capture photos/videos and auto-inserts them into your notes.</p>
-</li>
-<li>
-<p><strong><a href="https://github.com/aldrinjenson/simple-stream" target="_blank">Simple Stream</a></strong> - React Native music app with offline downloads, playlists, lyrics, and custom themes.</p>
-</li>
+<li><a href="https://github.com/aldrinjenson/street-view-to-video">GitHub Repo</a></li>
+<li><a href="https://street-view-to-video.streamlit.app">Live Demo</a></li>
 </ul>
-<hr>
-<h3 id="projects-with-stories">Projects with Stories</h3>
+<h2 id="project-abstract">Project Abstract</h2>
+<p>Ever wanted to take a virtual walk through the streets of Rome, Paris, or Tokyo without leaving your desk? This project does exactly that! Enter a start and end location, and the app creates a smooth video by stitching together Google Street View images along the entire path - like a cinematic road trip generated from Street View data.</p>
+<h2 id="tech-stack">Tech Stack</h2>
+<ul>
+<li><strong>Python</strong> - Core logic</li>
+<li><strong>Streamlit</strong> - Web UI framework (love how fast you can build things with this!)</li>
+<li><strong>Google APIs</strong> - Geocoding, Directions, Street View Static, and Places API</li>
+<li><strong>FFmpeg</strong> - Video generation and audio mixing</li>
+<li><strong>MoviePy</strong> - Video processing</li>
+</ul>
+<h2 id="features">Features</h2>
+<p>The app turned out quite feature-rich:</p>
+<ul>
+<li>🗺️ <strong>Interactive Map Preview</strong> - See your route before generating</li>
+<li>📍 <strong>Place Autocomplete</strong> - Smart search powered by Google Places</li>
+<li>🧭 <strong>Direction Compass</strong> - Shows heading direction overlaid on each frame</li>
+<li>🎵 <strong>Background Music</strong> - Add ambient music to your videos</li>
+<li>🎚️ <strong>Customizable</strong> - Adjust FPS, capture interval, FOV, camera pitch</li>
+<li>💰 <strong>Cost Tracking</strong> - Know your API costs upfront (important since Street View API isn&rsquo;t free!)</li>
+<li>📁 <strong>Project Gallery</strong> - View and manage all your generated videos</li>
+<li>🌍 <strong>20+ Preset Routes</strong> - Famous walking tours worldwide (Times Square to Central Park, Colosseum to Trevi Fountain, etc.)</li>
+</ul>
+<h2 id="how-it-came-to-be">How it came to be</h2>
+<p>I was watching some &ldquo;walking tour&rdquo; videos on YouTube - you know, those relaxing videos where someone just walks through a city with a camera? They&rsquo;re oddly satisfying to watch. Then I thought - Google Street View has imagery of almost every street in major cities. What if I could stitch those images together into a video?</p>
+<p>The core idea was simple:</p>
+<ol>
+<li>Get a route between two points using Google Directions API</li>
+<li>Sample points along that route at regular intervals</li>
+<li>Fetch Street View images at each point, oriented in the direction of travel</li>
+<li>Stitch them into a video</li>
+</ol>
+<p>The execution involved some interesting challenges:</p>
+<ul>
+<li><strong>Calculating heading</strong> - Each frame needs to &ldquo;look&rdquo; in the right direction. Had to calculate bearing between consecutive points using spherical trigonometry.</li>
+<li><strong>Smooth transitions</strong> - Too few frames = choppy video. Too many = expensive API costs. Found 10-15 meter intervals work well.</li>
+<li><strong>Street View coverage gaps</strong> - Not every location has imagery. Had to handle this gracefully.</li>
+<li><strong>Cost optimization</strong> - Street View API costs $7 per 1000 requests. Added cost estimation before generation so users know what they&rsquo;re getting into.</li>
+</ul>
+<h2 id="thoughts">Thoughts</h2>
+<p>The project scratched a creative itch. There&rsquo;s something magical about virtually &ldquo;driving&rdquo; through streets you&rsquo;ve never visited. I&rsquo;ve generated videos of routes in cities I&rsquo;ve always wanted to visit - the walk from Colosseum to Trevi Fountain in Rome, strolling down Las Ramblas in Barcelona, or crossing the East Side Gallery to Alexanderplatz in Berlin.</p>
+<p>Some interesting observations:</p>
+<ul>
+<li>Street View coverage is incredibly comprehensive in touristy areas, but gets sparse quickly in residential zones</li>
+<li>The video quality is limited to 640x640 (Street View API limit), but it&rsquo;s good enough for the vibe</li>
+<li>Adding background music really transforms the experience - a calm ambient track makes it feel like a proper travel video</li>
+</ul>
+<p>The Streamlit deployment was smooth. The app runs on Streamlit Cloud with just a Google API key secret. Though videos are temporary there - gotta download them before they disappear!</p>
+<p>This was a fun weekend project that actually turned out useful. Sometimes the simple ideas are the best ones. 🙂</p>
 
-  </article>
-
-  <div class="articles h-feed">
-    <ol>
-      
-      
-      
-
-
-
-
-<li>
-  <article class="post-list h-feed">
-    <header class="post-header">
-      <h1 class="p-name post-title">
-        <a href="//localhost:1313/projects/simple-stable-diffusion/" class="u-url"> Custom Stable Diffusion; uncensored, but without NSFW 🙂  </a>
-      </h1>
-    </header>
-    <div class="content post-summary p-summary">How a Stable Diffusion project I created was used for NSFW purposes by the public and finally had to rewrite cuz it was hosted in College server🙂</div>
-    <div class="post-info">
-      
-      <div class="post-date dt-published">23-07-2023</div>
-      
-
-      <a class="post-hidden-url u-url" href="//localhost:1313/projects/simple-stable-diffusion/">//localhost:1313/projects/simple-stable-diffusion/</a>
-      <a href="//localhost:1313/" class="p-name p-author post-hidden-author h-card" rel="me">Aldrin Jenson</a>
-
-      <div class="post-taxonomies">
+        </div>
         
+
+    
+
+
+<div class="post-info">
+    
+        <div class="post-date dt-published">14-12-2024</div>
+    
+    
+    <a class="post-hidden-url u-url" href="//localhost:1313/projects/street-view-to-video/">//localhost:1313/projects/street-view-to-video/</a>
+    <a href="//localhost:1313/" class="p-name p-author post-hidden-author h-card" rel="me">Aldrin Jenson</a>
+
+
+    <div class="post-taxonomies">
         
-      </div>
+            
+                <ul class="post-tags">
+                    
+                        <li><a href="//localhost:1313/tags/python">#Python</a></li>
+                    
+                        <li><a href="//localhost:1313/tags/streamlit">#Streamlit</a></li>
+                    
+                        <li><a href="//localhost:1313/tags/google-apis">#Google APIs</a></li>
+                    
+                        <li><a href="//localhost:1313/tags/video-generation">#Video Generation</a></li>
+                    
+                        <li><a href="//localhost:1313/tags/side-project">#Side Project</a></li>
+                    
+                </ul>
+        
     </div>
-  </article>
-</li>
+</div>
 
-      
-      
-      
+    </article>
 
-
-
-
-<li>
-  <article class="post-list h-feed">
-    <header class="post-header">
-      <h1 class="p-name post-title">
-        <a href="//localhost:1313/projects/recreating-teachable-machine/" class="u-url"> I recreated Google&#39;s Teachable Machine and made it better! </a>
-      </h1>
-    </header>
-    <div class="content post-summary p-summary">How I made a general purpose ML model trainer for vision data</div>
-    <div class="post-info">
-      
-      <div class="post-date dt-published">03-10-2022</div>
-      
-
-      <a class="post-hidden-url u-url" href="//localhost:1313/projects/recreating-teachable-machine/">//localhost:1313/projects/recreating-teachable-machine/</a>
-      <a href="//localhost:1313/" class="p-name p-author post-hidden-author h-card" rel="me">Aldrin Jenson</a>
-
-      <div class="post-taxonomies">
+    
         
-        
-        <ul class="post-tags">
-          
-          <li><a href="//localhost:1313/tags/ml">#ML</a></li>
-          
-          
-          <li><a href="//localhost:1313/tags/pytorch">#PyTorch</a></li>
-          
-          
-          <li><a href="//localhost:1313/tags/fastai">#FastAI</a></li>
-          
-          
-        </ul>
-        
-      </div>
+    <div class="pagination post-pagination">
+        <div class="left pagination-item disabled">
+            
+        </div>
+        <div class="right pagination-item ">
+            
+                <a href="//localhost:1313/projects/simple-stable-diffusion/">Custom Stable Diffusion; uncensored, but without NSFW 🙂 </a>
+            
+        </div>
     </div>
-  </article>
-</li>
-
-      
-      
-      
 
 
 
 
-<li>
-  <article class="post-list h-feed">
-    <header class="post-header">
-      <h1 class="p-name post-title">
-        <a href="//localhost:1313/projects/mutual-couple-finder/" class="u-url"> Mutual Couple FInder </a>
-      </h1>
-    </header>
-    <div class="content post-summary p-summary">Find out if your crush has a thing for you as well!</div>
-    <div class="post-info">
-      
-      <div class="post-date dt-published">14-02-2022</div>
-      
+    
 
-      <a class="post-hidden-url u-url" href="//localhost:1313/projects/mutual-couple-finder/">//localhost:1313/projects/mutual-couple-finder/</a>
-      <a href="//localhost:1313/" class="p-name p-author post-hidden-author h-card" rel="me">Aldrin Jenson</a>
+    
+        
 
-      <div class="post-taxonomies">
+
+
         
         
-        <ul class="post-tags">
-          
-          <li><a href="//localhost:1313/tags/tech">#tech</a></li>
-          
-          
-          <li><a href="//localhost:1313/tags/telegram-bot">#telegram-bot</a></li>
-          
-          
-        </ul>
-        
-      </div>
-    </div>
-  </article>
-</li>
-
-      
-      
-      
-
-
-
-
-<li>
-  <article class="post-list h-feed">
-    <header class="post-header">
-      <h1 class="p-name post-title">
-        <a href="//localhost:1313/projects/moodle-automation/" class="u-url"> Moodle Automation </a>
-      </h1>
-    </header>
-    <div class="content post-summary p-summary">NodeJs program to automate the attendance marking in Moodle Classroom </div>
-    <div class="post-info">
-      
-      <div class="post-date dt-published">19-01-2022</div>
-      
-
-      <a class="post-hidden-url u-url" href="//localhost:1313/projects/moodle-automation/">//localhost:1313/projects/moodle-automation/</a>
-      <a href="//localhost:1313/" class="p-name p-author post-hidden-author h-card" rel="me">Aldrin Jenson</a>
-
-      <div class="post-taxonomies">
         
         
-        <ul class="post-tags">
-          
-          <li><a href="//localhost:1313/tags/tech">#tech</a></li>
-          
-          
-          <li><a href="//localhost:1313/tags/telegram">#telegram</a></li>
-          
-          
-          <li><a href="//localhost:1313/tags/nodejs">#nodeJs</a></li>
-          
-          
-        </ul>
-        
-      </div>
-    </div>
-  </article>
-</li>
-
-      
-      
-      
-
-
-
-
-<li>
-  <article class="post-list h-feed">
-    <header class="post-header">
-      <h1 class="p-name post-title">
-        <a href="//localhost:1313/projects/query-search-bot/" class="u-url"> Query Search Bot </a>
-      </h1>
-    </header>
-    <div class="content post-summary p-summary">A telegram bot I made to make the internet queries directly from telegram</div>
-    <div class="post-info">
-      
-      <div class="post-date dt-published">24-10-2021</div>
-      
-
-      <a class="post-hidden-url u-url" href="//localhost:1313/projects/query-search-bot/">//localhost:1313/projects/query-search-bot/</a>
-      <a href="//localhost:1313/" class="p-name p-author post-hidden-author h-card" rel="me">Aldrin Jenson</a>
-
-      <div class="post-taxonomies">
         
         
-        <ul class="post-tags">
-          
-          <li><a href="//localhost:1313/tags/tech">#tech</a></li>
-          
-          
-          <li><a href="//localhost:1313/tags/telegram">#telegram</a></li>
-          
-          
-          <li><a href="//localhost:1313/tags/serverless">#serverless</a></li>
-          
-          
-          <li><a href="//localhost:1313/tags/aws">#AWS</a></li>
-          
-          
-        </ul>
-        
-      </div>
-    </div>
-  </article>
-</li>
 
-      
-      
-      
+<script src="https://utteranc.es/client.js"
+        repo="aldrinjenson/aldrinjenson.github.io"
+        issue-term="pathname"
+        label="comment"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async>
+</script>
 
-
-
-
-<li>
-  <article class="post-list h-feed">
-    <header class="post-header">
-      <h1 class="p-name post-title">
-        <a href="//localhost:1313/projects/love-calculator/" class="u-url"> Love Match Calculator </a>
-      </h1>
-    </header>
-    <div class="content post-summary p-summary">My version of the Love Calculator. Use this to find the % love compatibility with your crush😉</div>
-    <div class="post-info">
-      
-
-      <a class="post-hidden-url u-url" href="//localhost:1313/projects/love-calculator/">//localhost:1313/projects/love-calculator/</a>
-      <a href="//localhost:1313/" class="p-name p-author post-hidden-author h-card" rel="me">Aldrin Jenson</a>
-
-      <div class="post-taxonomies">
-        
-        
-        <ul class="post-tags">
-          
-          <li><a href="//localhost:1313/tags/fun">#fun</a></li>
-          
-          
-          <li><a href="//localhost:1313/tags/firebase">#firebase</a></li>
-          
-          
-          <li><a href="//localhost:1313/tags/ethics">#ethics</a></li>
-          
-          
-        </ul>
-        
-      </div>
-    </div>
-  </article>
-</li>
-
-      
-      
-      
-
-
-
-
-<li>
-  <article class="post-list h-feed">
-    <header class="post-header">
-      <h1 class="p-name post-title">
-        <a href="//localhost:1313/projects/whatsapp-msg-without-save/" class="u-url"> Sending Whatsapp messages without saving contact </a>
-      </h1>
-    </header>
-    <div class="content post-summary p-summary">An app I  to make the sharing of digital assets as easy and accessible as possible</div>
-    <div class="post-info">
-      
-
-      <a class="post-hidden-url u-url" href="//localhost:1313/projects/whatsapp-msg-without-save/">//localhost:1313/projects/whatsapp-msg-without-save/</a>
-      <a href="//localhost:1313/" class="p-name p-author post-hidden-author h-card" rel="me">Aldrin Jenson</a>
-
-      <div class="post-taxonomies">
-        
-        
-        <ul class="post-tags">
-          
-          <li><a href="//localhost:1313/tags/whatsapp">#whatsapp</a></li>
-          
-          
-          <li><a href="//localhost:1313/tags/flutter">#flutter</a></li>
-          
-          
-          <li><a href="//localhost:1313/tags/global-good">#global-good</a></li>
-          
-          
-        </ul>
-        
-      </div>
-    </div>
-  </article>
-</li>
-
-      
-    </ol>
-  </div>
-</main>
+    
 
         </main>
         
