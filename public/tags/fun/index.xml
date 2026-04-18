@@ -53,14 +53,7 @@ Simple script to loop over a set of ips and execute a bash command.
 &lt;p&gt;Now, even though we demoed using a rick roll, just know that if one could do this much, really dangerous stuff can be done once access to these many computers are granted. Stuff can range from crypto-mining to running keyloggers for accessing passwords of students.&lt;/p&gt;
 &lt;p&gt;This worked perfectly in our case because the passwords of all the computers were same. In little more stricter scenarios, the passwords being same are rare and hence you&amp;rsquo;d need to create separate files to map the ips to passwords before looping through.&lt;/p&gt;
 &lt;p&gt;Finally, we were able to pull this off only because the staff in CS Lab were kind and understanding of the student&amp;rsquo;s curiosity and interest to explore stuff.✨&lt;/p&gt;
-&lt;p&gt;I suppose I should mention that this is a powerful method and you should use it only with care respecting privacy of others in the network.🙂&lt;/p&gt;</description></item><item><title>Mutual Couple Finder</title><link>/projects/mutual-couple-finder/</link><pubDate>Mon, 14 Feb 2022 22:19:22 +0530</pubDate><guid>/projects/mutual-couple-finder/</guid><description>&lt;h2 id="links"&gt;Links:&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://github.com/aldrinjenson/mutual-finder"&gt;https://github.com/aldrinjenson/mutual-finder&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;Find out if your crush
-This is good code.&lt;/p&gt;
-&lt;p&gt;lot of memories associated with this.&lt;/p&gt;</description></item><item><title>Love Match Calculator</title><link>/projects/love-calculator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/projects/love-calculator/</guid><description>&lt;p&gt;Before reading any further, visit this &lt;a href="https://aldrinjenson.github.io/Love-Calc/"&gt;link&lt;/a&gt; and follow the instructions.&lt;/p&gt;
+&lt;p&gt;I suppose I should mention that this is a powerful method and you should use it only with care respecting privacy of others in the network.🙂&lt;/p&gt;</description></item><item><title>Love Match Calculator</title><link>/projects/love-calculator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/projects/love-calculator/</guid><description>&lt;p&gt;Before reading any further, visit this &lt;a href="https://aldrinjenson.github.io/Love-Calc/"&gt;link&lt;/a&gt; and follow the instructions.&lt;/p&gt;
 &lt;hr&gt;
 Seriously dude, only continue if you visited the page and followed the instructions.
 &lt;p&gt;This project was inspired by an article written by Subin Siby of Vidhya Institute of Sciences where he mentioned about how we once got pranked by a similar site.

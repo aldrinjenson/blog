@@ -5,6 +5,8 @@ theme: "anubis"
 enableRobotsTXT: true
 googleAnalytics: "G-75EZN9Q628"
 
+refLinksErrorLevel: "WARNING"
+
 pagination:
   pagerSize: 25
 

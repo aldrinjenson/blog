@@ -58,54 +58,6 @@
 &lt;li&gt;&lt;strong&gt;Enterprise AI is less about models and more about plumbing.&lt;/strong&gt; Orchestration, governance, semantic layers, agent identity — that&amp;rsquo;s where the next two years of enterprise value get captured. The companies that win the application layer will be the ones that thought hardest about the boring parts.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Customer feedback is a product.&lt;/strong&gt; The CAB itself is an artifact of IBM treating customer voice as something you invest in deliberately — not something that happens by accident. Most startups (including the ones I&amp;rsquo;ve worked at) underinvest here.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Showing up counts.&lt;/strong&gt; I nearly hesitated on the trip because of imposter-flavored anxiety. I&amp;rsquo;m glad I didn&amp;rsquo;t. You learn more in one day of being in the room than in six months of reading about what happens in the room.&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Organizing a Hackathon</title><link>/posts/organizing-a-hackathon/</link><pubDate>Mon, 20 Mar 2023 00:43:55 +0530</pubDate><guid>/posts/organizing-a-hackathon/</guid><description>&lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;My thoughts after being an organizer for Technohack 2023&lt;/p&gt;
-&lt;h2 id="lets-begin"&gt;Let&amp;rsquo;s begin&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;When the situation demands it, I can be a natural leader&lt;/li&gt;
-&lt;li&gt;I find that it&amp;rsquo;s always waaay easier to assign it to others and provide them with helpful suggestions&lt;/li&gt;
-&lt;li&gt;When stressed, call for help&lt;/li&gt;
-&lt;li&gt;Sometimes, you just need to take a decision and move forward&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="backdrop"&gt;Backdrop&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Technohack was really good withe constraints&lt;/li&gt;
-&lt;li&gt;It was done because of good managements and clear work distribution&lt;/li&gt;
-&lt;li&gt;Events team is really useful&lt;/li&gt;
-&lt;li&gt;Not getting stressed is really important&lt;/li&gt;
-&lt;li&gt;Just approach everything with a sense of calmness&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Organizing KochiFOSS 2022</title><link>/posts/organizing-kochifoss/</link><pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate><guid>/posts/organizing-kochifoss/</guid><description>&lt;p&gt;KochiFOSS 2022 conference was held on 15th October 2022 and from the participant&amp;rsquo;s responses, the conference was a huge success. I was lucky to be a part of the core organizing team. Jotting down my experiences and the lessons learned.&lt;/p&gt;
-&lt;h2 id="my-experiences"&gt;My experiences&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;I worked on the KochiFOSS website&lt;/li&gt;
-&lt;li&gt;Used Frappe framework
-&lt;ul&gt;
-&lt;li&gt;was a pain to get started&lt;/li&gt;
-&lt;li&gt;But once the pattern was understood, then the future works were easy to manage&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Tried bringing in a new guy from the tech team, but he had to suddenly leave which forced me to find a replacment quickly.&lt;/li&gt;
-&lt;li&gt;I had placments the two weeks before and after KochiFOSS
-&lt;ul&gt;
-&lt;li&gt;Adithya offerred to help out for a couple of days&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;I handled Twitter posts as well&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="lessons-learned"&gt;Lessons learned&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;There&amp;rsquo;ll be times when it&amp;rsquo;s better and safer to take a decision and go with the flow ASAP rather than taking time to analyze and think of all the pros and cons for taking a decision,&lt;/li&gt;
-&lt;li&gt;There&amp;rsquo;ll be people from va&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="doubts-and-questions-i-have"&gt;Doubts and questions I have&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Why do people volunteer?&lt;/li&gt;
-&lt;li&gt;How being able to multi-task can be really useful at times&lt;/li&gt;
-&lt;li&gt;The skill of management - keeping people happy and getting things done without hurting anyone&amp;rsquo;s ego.
-&lt;ul&gt;
-&lt;li&gt;Adi&amp;rsquo;s message&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
 &lt;/ul&gt;</description></item><item><title>I gave a talk at an international conference and Murphy's law sucks!</title><link>/posts/i-gave-a-talk/</link><pubDate>Tue, 26 Jul 2022 19:09:07 +0530</pubDate><guid>/posts/i-gave-a-talk/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I got an opportunity to do a Flash-Talk for IndiaFoss conference held in Bangalore on 23-24 July 2022 and boy, &lt;a href="https://en.wikipedia.org/wiki/Murphy's_law"&gt;Murphy&amp;rsquo;s law&lt;/a&gt; messed up my presentation!&lt;/p&gt;
 &lt;center&gt;
@@ -132,28 +84,4 @@ His project was cool, but to me it seemed like the common man would find it a bi
 &lt;p&gt;Before I even left the hall, 3 people came near me and asked if I could build for iOS as well. I mean this is something magical about giving a talk I think. People know about your project and you get feedback instantly! I was happy to realize that the problem I solved was worthwhile and that many people found the solution good enough to be used!&lt;/p&gt;
 &lt;h3 id="final-thoughts"&gt;Final Thoughts&lt;/h3&gt;
 &lt;p&gt;This was the first time I was speaking at such a large conference and it certainly gave a whole different feel. While I was sad that I couldn&amp;rsquo;t demo the presentation, I was happy that this would lead more people to benefit from my project.✨&lt;/p&gt;
-&lt;p&gt;EDIT: Whatsapp recently introduced a click to chat feature recently which would replicate the functionality of my app. You just have to pasta an unsaved number to some chat and then click it again within whatsapp to take you to the whatsapp chat of that person.&lt;/p&gt;</description></item><item><title>My Linux Journey</title><link>/posts/my-linux-journey/</link><pubDate>Sun, 30 Jan 2022 02:33:33 +0000</pubDate><guid>/posts/my-linux-journey/</guid><description>&lt;p&gt;I use Arch Linux with i3 tiling window manager. I&amp;rsquo;ve been using the same laptop for the last 11 years. It&amp;rsquo;s been an eventful journey and was filled with a lot of learnings and grit.&lt;/p&gt;
-&lt;p&gt;If you&amp;rsquo;re someone who have used windows and then gradually switched to Linux by installing the distro yourself and fixing the issues yourself, you&amp;rsquo;ll be able to relate a lot better than someone who got everything done to them.&lt;/p&gt;
-&lt;h2 id="the-beginning"&gt;The beginning&lt;/h2&gt;
-&lt;p&gt;In 7th grade, I had to have surgery on my right knee. While I was in the hospital, my aunt came to visit me and gave me her old laptop to keep me entertained while I was laid up. It was a Dell Inspiron n4050 with both Windows 7 and Ubuntu pre-installed.&lt;/p&gt;
-&lt;p&gt;At the time, I was pretty used to downloading English movies via torrent and watching them on my phone, so having a laptop was really convenient as I could transfer the movies and watch them on a bigger screen.&lt;/p&gt;
-&lt;p&gt;I tried using Ubuntu a few times, but I couldn&amp;rsquo;t really find anything appealing about it. I couldn&amp;rsquo;t even open any of my games on it.&lt;/p&gt;
-&lt;h2 id="high-school"&gt;High School&lt;/h2&gt;
-&lt;p&gt;In high school, I became even more interested in computers. We didn&amp;rsquo;t have regular internet access, so I had to use a net-setter to get online, but it was expensive and we could only afford to use it sparingly. I remember finding an app called NCERT solutions, which provided answers to questions in NCERT textbooks, and using it while in 8th grade. I also used to save APKs, ISO files, and web pages (by right-clicking and selecting &amp;ldquo;save as&amp;rdquo;) because of my limited internet access.&lt;/p&gt;
-&lt;p&gt;As I got older, I started using my computer to create cool art and designs. At the time, I was really into Jarvis from Iron Man and I remember customizing my Windows 7 to look like Iron Man&amp;rsquo;s interface using RainMeter themes.&lt;/p&gt;
-&lt;p&gt;During this time, I tried to delete Ubuntu from my system because I felt like it was taking up valuable space and I didn&amp;rsquo;t want to have to press enter to select Windows from the dual-boot grub menu every time I wanted to use my computer. I was pretty comfortable with Windows and was familiar with system management (right-clicking on &amp;ldquo;My Computer&amp;rdquo; and selecting options). In the program, I saw that there were 70 gigs of space that were not being used by Windows. I thought this would be easy to fix, so I right-clicked on the partition and deleted it, then extended the Windows drive (C) to use the newly-created free space. Success! I thought, as I checked the properties of the C drive and saw that it had expanded.&lt;/p&gt;
-&lt;p&gt;But the next day, when I tried to turn on my computer, I was greeted with a terrible grub error message. I had no idea what to do, since I couldn&amp;rsquo;t log into Windows anymore because deleting Ubuntu had broken something. I was really confused, because I had been able to fix any issues I had with Windows in the past, but this wasn&amp;rsquo;t Windows. This black screen with white letters seemed like something only hackers or coders could fix, right&amp;hellip;? And that&amp;rsquo;s where I would have given up. I asked my dad to take my laptop to a shop to be repaired, but he didn&amp;rsquo;t think laptops were that important for kids and told me to fix it myself since I was the one who broke it in the first place.&lt;/p&gt;
-&lt;center&gt;
-&lt;image src="/images/linuxJourney/grubError.jpg" alt="The grub boot error message"&gt;&lt;/image&gt;
-&lt;p class='caption'&gt;The infamous Grub rescue error&lt;/p&gt;
-&lt;/center&gt;
-&lt;p&gt;Without my laptop, I was bored out of my mind, so I really wanted to fix it. We had an old Windows XP PC at home that was never used. I connected my dad&amp;rsquo;s phone to the PC, turned on USB tethering, and used that internet connection to search for solutions. After some searching, I found a way to fix it. Since I didn&amp;rsquo;t have a Windows 7 installation disk (since the laptop was a gift), I downloaded Hiren&amp;rsquo;s boot CD and, after 30 minutes of struggling, managed to get everything working again. Whew! I decided then and there that I would never use Ubuntu again.&lt;/p&gt;
-&lt;p&gt;Even during my 11th and 12th grade, I did all my C++ coding in Windows with Borland TurboC++.&lt;/p&gt;
-&lt;h2 id="college-life"&gt;College Life&lt;/h2&gt;
-&lt;p&gt;The major change began in my College life. During this time, Windows began really pushing and promoting Windows 10 a lot. I got free offers and tried installing on my Laptop, but then quickly had to uninstll them due to the computer being so slow.&lt;/p&gt;
-&lt;p&gt;By the time I reached college, Microsoft stopped supporting Windows 7 and urged everyone to move to Windows 10. Due to my slowness, I wanted to find a better alternative. . There was a FOSS club in our college which was very active and a senior over there suggested me to switch to Ubuntu (again) in my first year. I was reluctant,, but then agreed and tried installing it myself. I got it to work well, but the issue was slowness. I couldn&amp;rsquo;t really find much better performance with the Ubuntu Gnome than Windows.&lt;/p&gt;
-&lt;p&gt;I was feeling down and started looking at ways to speed up my system. This led me to a rabbit hole of exploring differrent Linux distros and seeing how I could get the best performance from my system.
-Finally I settled on Xubuntu, a distro very similar to Ubuntu, but with XFCE as desktop environment. Now this was great for me. My RAM usage came to only 700-800 MBs in most idle times. I was happy.&lt;/p&gt;
-&lt;h2 id="transitioning"&gt;Transitioning&lt;/h2&gt;
-&lt;p&gt;I got introduced to the FOSS aspect a lot in my first year and i tried exploring them a lot and wanted to find foss alternatives to popular proprietirary windows softwre. and all of this took place in my first year.
-I was scared to still delete windows asnd of&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;EDIT: Whatsapp recently introduced a click to chat feature recently which would replicate the functionality of my app. You just have to pasta an unsaved number to some chat and then click it again within whatsapp to take you to the whatsapp chat of that person.&lt;/p&gt;</description></item></channel></rss>
