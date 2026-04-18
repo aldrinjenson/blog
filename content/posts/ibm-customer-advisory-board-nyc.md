@@ -4,7 +4,7 @@ date: 2026-03-31T18:00:00-04:00
 description: "A day at IBM's Customer Advisory Board as the solo Athena rep — and what enterprise AI actually looks like from the inside of that room."
 tags: ["ibm", "athena", "enterprise-ai", "nyc", "advisory-board", "agents", "public-speaking"]
 categories: ["Personal"]
-draft: false
+draft: true
 ---
 
 <center>
