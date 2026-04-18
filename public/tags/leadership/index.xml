@@ -1,21 +1,50 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Leadership on Aldrin Jenson</title><link>/tags/leadership/</link><description>Aldrin Jenson (Leadership)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 20 Mar 2023 00:43:55 +0530</lastBuildDate><atom:link href="/tags/leadership/index.xml" rel="self" type="application/rss+xml"/><item><title>Organizing a Hackathon</title><link>/posts/organizing-a-hackathon/</link><pubDate>Mon, 20 Mar 2023 00:43:55 +0530</pubDate><guid>/posts/organizing-a-hackathon/</guid><description>&lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Leadership on Aldrin Jenson</title>
+    <link>//localhost:1313/tags/leadership/</link>
+    <description>Aldrin Jenson (Leadership)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 20 Mar 2023 00:43:55 +0530</lastBuildDate>
+    
+    <atom:link href="//localhost:1313/tags/leadership/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Organizing a Hackathon</title>
+      <link>//localhost:1313/posts/organizing-a-hackathon/</link>
+      <pubDate>Mon, 20 Mar 2023 00:43:55 +0530</pubDate>
+      
+      <guid>//localhost:1313/posts/organizing-a-hackathon/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;My thoughts after being an organizer for Technohack 2023&lt;/p&gt;
-&lt;h2 id="lets-begin"&gt;Let&amp;rsquo;s begin&lt;/h2&gt;
+&lt;h2 id=&#34;lets-begin&#34;&gt;Let&amp;rsquo;s begin&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;When the situation demands it, I can be a natural leader&lt;/li&gt;
 &lt;li&gt;I find that it&amp;rsquo;s always waaay easier to assign it to others and provide them with helpful suggestions&lt;/li&gt;
 &lt;li&gt;When stressed, call for help&lt;/li&gt;
 &lt;li&gt;Sometimes, you just need to take a decision and move forward&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="backdrop"&gt;Backdrop&lt;/h2&gt;
+&lt;h2 id=&#34;backdrop&#34;&gt;Backdrop&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Technohack was really good withe constraints&lt;/li&gt;
 &lt;li&gt;It was done because of good managements and clear work distribution&lt;/li&gt;
 &lt;li&gt;Events team is really useful&lt;/li&gt;
 &lt;li&gt;Not getting stressed is really important&lt;/li&gt;
 &lt;li&gt;Just approach everything with a sense of calmness&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Organizing KochiFOSS 2022</title><link>/posts/organizing-kochifoss/</link><pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate><guid>/posts/organizing-kochifoss/</guid><description>&lt;p&gt;KochiFOSS 2022 conference was held on 15th October 2022 and from the participant&amp;rsquo;s responses, the conference was a huge success. I was lucky to be a part of the core organizing team. Jotting down my experiences and the lessons learned.&lt;/p&gt;
-&lt;h2 id="my-experiences"&gt;My experiences&lt;/h2&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Organizing KochiFOSS 2022</title>
+      <link>//localhost:1313/posts/organizing-kochifoss/</link>
+      <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/posts/organizing-kochifoss/</guid>
+      <description>&lt;p&gt;KochiFOSS 2022 conference was held on 15th October 2022 and from the participant&amp;rsquo;s responses, the conference was a huge success. I was lucky to be a part of the core organizing team. Jotting down my experiences and the lessons learned.&lt;/p&gt;
+&lt;h2 id=&#34;my-experiences&#34;&gt;My experiences&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;I worked on the KochiFOSS website&lt;/li&gt;
 &lt;li&gt;Used Frappe framework
@@ -32,12 +61,12 @@
 &lt;/li&gt;
 &lt;li&gt;I handled Twitter posts as well&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="lessons-learned"&gt;Lessons learned&lt;/h2&gt;
+&lt;h2 id=&#34;lessons-learned&#34;&gt;Lessons learned&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;There&amp;rsquo;ll be times when it&amp;rsquo;s better and safer to take a decision and go with the flow ASAP rather than taking time to analyze and think of all the pros and cons for taking a decision,&lt;/li&gt;
 &lt;li&gt;There&amp;rsquo;ll be people from va&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="doubts-and-questions-i-have"&gt;Doubts and questions I have&lt;/h2&gt;
+&lt;h2 id=&#34;doubts-and-questions-i-have&#34;&gt;Doubts and questions I have&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Why do people volunteer?&lt;/li&gt;
 &lt;li&gt;How being able to multi-task can be really useful at times&lt;/li&gt;
@@ -46,4 +75,9 @@
 &lt;li&gt;Adi&amp;rsquo;s message&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description></item></channel></rss>
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
