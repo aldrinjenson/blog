@@ -40,14 +40,14 @@ Even during my 11th and 12th grade, I did all my C++ coding in Windows with Borl
 
 ## College Life
 
-The major change began in my College life. During this time, Windows began really pushing and promoting Windows 10 a lot. I got free offers and tried installing on my Laptop, but then quickly had to uninstll them due to the computer being so slow.
+The major change began in my College life. During this time, Windows began really pushing and promoting Windows 10 a lot. I got free offers and tried installing on my Laptop, but then quickly had to uninstall them due to the computer being so slow.
 
-By the time I reached college, Microsoft stopped supporting Windows 7 and urged everyone to move to Windows 10. Due to my slowness, I wanted to find a better alternative. . There was a FOSS club in our college which was very active and a senior over there suggested me to switch to Ubuntu (again) in my first year. I was reluctant,, but then agreed and tried installing it myself. I got it to work well, but the issue was slowness. I couldn't really find much better performance with the Ubuntu Gnome than Windows.
+By the time I reached college, Microsoft stopped supporting Windows 7 and urged everyone to move to Windows 10. Due to my slowness, I wanted to find a better alternative. . There was a FOSS club in our college which was very active and a senior over there suggested I switch to Ubuntu (again) in my first year. I was reluctant, but then agreed and tried installing it myself. I got it to work well, but the issue was slowness. I couldn't really find much better performance with the Ubuntu Gnome than Windows.
 
-I was feeling down and started looking at ways to speed up my system. This led me to a rabbit hole of exploring differrent Linux distros and seeing how I could get the best performance from my system.
+I was feeling down and started looking at ways to speed up my system. This led me to a rabbit hole of exploring different Linux distros and seeing how I could get the best performance from my system.
 Finally I settled on Xubuntu, a distro very similar to Ubuntu, but with XFCE as desktop environment. Now this was great for me. My RAM usage came to only 700-800 MBs in most idle times. I was happy.
 
 ## Transitioning
 
-I got introduced to the FOSS aspect a lot in my first year and i tried exploring them a lot and wanted to find foss alternatives to popular proprietirary windows softwre. and all of this took place in my first year.
+I got introduced to the FOSS aspect a lot in my first year and I tried exploring them a lot and wanted to find FOSS alternatives to popular proprietary Windows software. All of this took place in my first year.
 I was scared to still delete windows asnd of

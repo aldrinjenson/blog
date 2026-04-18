@@ -6,7 +6,7 @@ tags: [reflection, personal]
 draft: true
 ---
 
-I had an exam today. It wak okay, but that's not what this post is about. This post is about the world we live in. Not the physical one with houses, trees, buildings and college, but the one which is more subtle and often times a bit hard to identify, the one filled with people, friends, laughter, rainbows and dewdrops.
+I had an exam today. It was okay, but that's not what this post is about. This post is about the world we live in. Not the physical one with houses, trees, buildings and college, but the one which is more subtle and often times a bit hard to identify, the one filled with people, friends, laughter, rainbows and dewdrops.
 
 I want to say about some people whose actions have really had a deep impact in me, because I couldn't fathom why these people do the stuff they do when they don't get any benefit out of them.
 
@@ -21,4 +21,4 @@ The Lord is great, This world is great, the people are great. I'm gonna start pa
 
 Most of the times when I call someone after a good time, I usually ask them how they are and how they've been maintaining connections with their friends. The usual reply I get is that they sometime text each other, but other than that not much contact, so don't know how things are going with each other. So this will prompt me to ask them to have a call and the response I get back almost always is about how they think they are not having anything to talk about, little knowing the fact that the call they've being doing with me for the past hour or so started with "hey, class okke engane pokunnu uvu"
 
-I don't know if this calling people to talk really count as a selfless activity because these talks usually are fun and I like talking with people as well. One thing I've observed is that usually there are a lot of people who would be having a lot to talk about and you'd not be expecting these at all becuase they are usually so silent in class, but I've been at a lot of times, a listener for people to rant. And I don't mean rant as in a bad kinda way, but in a way where people could just vent out their bottled up feelings freely without feeling that the other person(me in this case) would be judging them. Wow I'm lucky I think to have people trust me this m
+I don't know if this calling people to talk really count as a selfless activity because these talks usually are fun and I like talking with people as well. One thing I've observed is that usually there are a lot of people who would be having a lot to talk about and you'd not be expecting these at all because they are usually so silent in class, but I've been at a lot of times, a listener for people to rant. And I don't mean rant as in a bad kinda way, but in a way where people could just vent out their bottled up feelings freely without feeling that the other person(me in this case) would be judging them. Wow I'm lucky I think to have people trust me this m

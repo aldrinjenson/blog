@@ -5,13 +5,13 @@ draft: true
 description: Stuff I have done and haven't done. What I'm proud of and my regrets.
 ---
 
-This is a self reflective post. In my 20 years, I've had some experiences. However limited they be, I've been able to learn fro them. Hopefully as I grow older, I've also become a bit wiser. Here's my background.
+This is a self reflective post. In my 20 years, I've had some experiences. However limited they be, I've been able to learn from them. Hopefully as I grow older, I've also become a bit wiser. Here's my background.
 
 I suffer from Imposter Syndrome. I've always been worried about posting anything on Social Media. But here am I listing out some my bg.
 
 I am well aware that my experience is very limited, but with whatever awareness I'm having at the moment, here I am listing out stuff about me.
 
-I've created softwares - big and small for personal joy or for startups and companies all using various languages ans stacks like:
+I've created software — big and small — for personal joy or for startups and companies, using various languages and stacks like:
 
 - C/C++
 
@@ -52,7 +52,7 @@ I've created softwares - big and small for personal joy or for startups and comp
 
 - Java
   - Learned in College. We had a whole semester of Object Oriented Programming with Java.
-  - Some of my friends had huge distate towards the languge, but I thought it was okay.
+  - Some of my friends had huge distaste towards the language, but I thought it was okay.
   - Loved the memes as well ;)
   - (I also used to joke around mimicking in Pirate voice: "Public static void main _AAAARGHSS_)
   - Made GUI apps using Swing, but didn't like the styling aspect of it much. Realized that JavaFX may be the way to go for building GUI stuff.

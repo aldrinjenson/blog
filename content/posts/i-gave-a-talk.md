@@ -54,4 +54,4 @@ Before I even left the hall, 3 people came near me and asked if I could build fo
 
 This was the first time I was speaking at such a large conference and it certainly gave a whole different feel. While I was sad that I couldn't demo the presentation, I was happy that this would lead more people to benefit from my project.✨
 
-EDIT: Whatsapp recently introduced a click to chat feature recently which would replicate the functionality of my app. You just have to pasta an unsaved number to some chat and then click it again within whatsapp to take you to the whatsapp chat of that person.
+EDIT: Whatsapp recently introduced a click to chat feature recently which would replicate the functionality of my app. You just have to paste an unsaved number to some chat and then click it again within whatsapp to take you to the whatsapp chat of that person.
