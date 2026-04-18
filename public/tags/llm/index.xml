@@ -1,46 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Llm on Aldrin Jenson</title>
-    <link>//localhost:1313/tags/llm/</link>
-    <description>Aldrin Jenson (Llm)</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 24 Mar 2024 00:00:00 +0000</lastBuildDate>
-    
-    <atom:link href="//localhost:1313/tags/llm/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Essential Components for Building Human-Like AI Assistants</title>
-      <link>//localhost:1313/posts/essential-components-for-human-like-ai-assistants/</link>
-      <pubDate>Sun, 24 Mar 2024 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/posts/essential-components-for-human-like-ai-assistants/</guid>
-      <description>&lt;p&gt;In this article, I&amp;rsquo;ll explore the key components that I believe are essential for current Large Language Models (LLMs) to function effectively as AI assistants or agents. Based on my analysis, there are five core elements, plus one bonus feature, that bring us really close to creating truly human-like AI assistants.&lt;/p&gt;
-&lt;h3 id=&#34;core-components&#34;&gt;Core Components&lt;/h3&gt;
-&lt;h3 id=&#34;1-computer-interaction-capabilities&#34;&gt;1. Computer Interaction Capabilities&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Llm on Aldrin Jenson</title><link>/tags/llm/</link><description>Aldrin Jenson (Llm)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 24 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="/tags/llm/index.xml" rel="self" type="application/rss+xml"/><item><title>Essential Components for Building Human-Like AI Assistants</title><link>/posts/essential-components-for-human-like-ai-assistants/</link><pubDate>Sun, 24 Mar 2024 00:00:00 +0000</pubDate><guid>/posts/essential-components-for-human-like-ai-assistants/</guid><description>&lt;p&gt;In this article, I&amp;rsquo;ll explore the key components that I believe are essential for current Large Language Models (LLMs) to function effectively as AI assistants or agents. Based on my analysis, there are five core elements, plus one bonus feature, that bring us really close to creating truly human-like AI assistants.&lt;/p&gt;
+&lt;h3 id="core-components"&gt;Core Components&lt;/h3&gt;
+&lt;h3 id="1-computer-interaction-capabilities"&gt;1. Computer Interaction Capabilities&lt;/h3&gt;
 &lt;p&gt;The LLM should be able to navigate computers and browsers just as a human would. This fundamental ability enables the AI to interact with digital interfaces naturally and effectively.&lt;/p&gt;
-&lt;p&gt;Ref: &lt;a href=&#34;https://openai.com/index/introducing-operator/&#34;&gt;OpenAI operator&lt;/a&gt;, &lt;a href=&#34;https://www.hyperbrowser.ai/&#34;&gt;Hyperbrowser&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;2-robust-coding-environment&#34;&gt;2. Robust Coding Environment&lt;/h3&gt;
+&lt;p&gt;Ref: &lt;a href="https://openai.com/index/introducing-operator/"&gt;OpenAI operator&lt;/a&gt;, &lt;a href="https://www.hyperbrowser.ai/"&gt;Hyperbrowser&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="2-robust-coding-environment"&gt;2. Robust Coding Environment&lt;/h3&gt;
 &lt;p&gt;Rather than judging an AI assistant by its pre-built tools, we should evaluate its ability to create tools in real-time using a coding environment like Python. This environment should enable the AI to write functions for specific tasks, such as making API calls to fetch data, and create reusable tools as needed.&lt;/p&gt;
-&lt;p&gt;Ref: &lt;a href=&#34;https://resources.athenaintel.com/docs/task-studio/task-builder&#34;&gt;Task builder&lt;/a&gt; in Athena Intelligence which lets the AI write code to save new tools that it can use&lt;/p&gt;
-&lt;h3 id=&#34;3-voice-communication&#34;&gt;3. Voice Communication&lt;/h3&gt;
+&lt;p&gt;Ref: &lt;a href="https://resources.athenaintel.com/docs/task-studio/task-builder"&gt;Task builder&lt;/a&gt; in Athena Intelligence which lets the AI write code to save new tools that it can use&lt;/p&gt;
+&lt;h3 id="3-voice-communication"&gt;3. Voice Communication&lt;/h3&gt;
 &lt;p&gt;An ideal AI assistant shouldn&amp;rsquo;t be limited to text-based interactions. Like a human executive assistant, it should be capable of natural and efficient voice communication, making interactions more intuitive and accessible.&lt;/p&gt;
 &lt;p&gt;Ref: OpenAIs real-time Voice mode&lt;/p&gt;
-&lt;h3 id=&#34;4-context-awareness-and-memory&#34;&gt;4. Context Awareness and Memory&lt;/h3&gt;
+&lt;h3 id="4-context-awareness-and-memory"&gt;4. Context Awareness and Memory&lt;/h3&gt;
 &lt;p&gt;Personalization is crucial for an effective AI assistant. The system should maintain context through vector embeddings of past interactions and user preferences, allowing it to learn from experience and apply this knowledge in future sessions.&lt;/p&gt;
-&lt;p&gt;Ref: &lt;a href=&#34;https://github.com/getzep/graphiti&#34;&gt;Graphiti&lt;/a&gt; by Zep or normal RAG of learnings -&amp;gt; with memories injected to context for every new human message.&lt;/p&gt;
+&lt;p&gt;Ref: &lt;a href="https://github.com/getzep/graphiti"&gt;Graphiti&lt;/a&gt; by Zep or normal RAG of learnings -&amp;gt; with memories injected to context for every new human message.&lt;/p&gt;
 &lt;p&gt;Ideally there should be a tool the agent can call to save learnings to the graph or Embedding space whenever required. I think for every human message, the right memories are fetched from the vector space and given as probable context.&lt;/p&gt;
-&lt;h3 id=&#34;5-real-time-feedback-loop&#34;&gt;5. Real-time Feedback Loop&lt;/h3&gt;
+&lt;h3 id="5-real-time-feedback-loop"&gt;5. Real-time Feedback Loop&lt;/h3&gt;
 &lt;p&gt;For managing long-running tasks, a robust feedback system is essential. The LangChain framework demonstrates this well with its messaging system. When handling extended tasks, the tool should:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Provide immediate acknowledgment (e.g., &amp;ldquo;Task initiated&amp;rdquo;) by yielding a Tool Response Msg&lt;/li&gt;
 &lt;li&gt;Offer a function handler/listener for progress monitoring — that the agent can call at any later time to check progress&lt;/li&gt;
 &lt;li&gt;Once the long-running task is done, inject the output as a ToolResponse message — The llms with their increasingly large context windows would be smart enough to associate the responce with the originally called tool.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Ref: &lt;a href=&#34;https://python.langchain.com/api_reference/core/messages/langchain_core.messages.tool.ToolMessage.html&#34;&gt;Langchain&amp;rsquo;s ToolResponse&lt;/a&gt; message&lt;/p&gt;
-&lt;h3 id=&#34;bonus-feature-task-branching&#34;&gt;Bonus Feature: Task Branching&lt;/h3&gt;
+&lt;p&gt;Ref: &lt;a href="https://python.langchain.com/api_reference/core/messages/langchain_core.messages.tool.ToolMessage.html"&gt;Langchain&amp;rsquo;s ToolResponse&lt;/a&gt; message&lt;/p&gt;
+&lt;h3 id="bonus-feature-task-branching"&gt;Bonus Feature: Task Branching&lt;/h3&gt;
 &lt;p&gt;An additional powerful capability would be task branching or forking. This feature would allow the agent to:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Create separate execution threads while maintaining full context&lt;/li&gt;
@@ -50,10 +31,113 @@
 &lt;/ul&gt;
 &lt;p&gt;This mirrors how a human team member might take on an assigned task, work independently, and report back upon completion.&lt;/p&gt;
 &lt;p&gt;These components, when implemented effectively, bring us much closer to creating AI assistants that can truly emulate human-like capabilities and interactions.&lt;/p&gt;
-&lt;p&gt;I strongly feel that the system built and improved at &lt;a href=&#34;https://athenaintel.com/&#34;&gt;Athena Intelligence&lt;/a&gt; will be one of the first ones that can truly achieve the incredible feat of making a near identical AI assistant.&lt;/p&gt;
-&lt;p&gt;Credits: The AI system — Winston from the novel &lt;a href=&#34;https://en.wikipedia.org/wiki/Origin_(Brown_novel)&#34;&gt;Origin&lt;/a&gt;, by Dan Brown&lt;/p&gt;
-</description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;p&gt;I strongly feel that the system built and improved at &lt;a href="https://athenaintel.com/"&gt;Athena Intelligence&lt;/a&gt; will be one of the first ones that can truly achieve the incredible feat of making a near identical AI assistant.&lt;/p&gt;
+&lt;p&gt;Credits: The AI system — Winston from the novel &lt;a href="https://en.wikipedia.org/wiki/Origin_(Brown_novel)"&gt;Origin&lt;/a&gt;, by Dan Brown&lt;/p&gt;</description></item><item><title>I wrote a poem in 10 minutes!</title><link>/posts/i-wrote-poems-in-10-mins/</link><pubDate>Mon, 03 Jul 2023 21:56:59 +0530</pubDate><guid>/posts/i-wrote-poems-in-10-mins/</guid><description>&lt;p&gt;Yes chatGPT is involved. But way lesser than you think.&lt;/p&gt;
+&lt;h2 id="what-happened"&gt;What happened&lt;/h2&gt;
+&lt;p&gt;Inspiration randomly stuck and I wrote this poem within 2-3 minutes (Yes, I noted the time. It&amp;rsquo;s definitely lesser than 4 minutes).&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-md" data-lang="md"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Oh what is love,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;but a fleeting romance
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Oh, what is anger,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;but a fleeting moment of rage..
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Oh what is passion,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;but a fleeting glimpse of action
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Oh what is disgust,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;but a fleeting moment of distate
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Oh, in this world, what is real
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;but not a fleeting moment of emotion
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Oh why do we care so much
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;for something that is fleeting..
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Oh, for validation and appreciation
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;isn&amp;#39;t worth the subjugation
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Oh, for anger and annoyance,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;isn&amp;#39;t worth the pain
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Everything is temporary
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Everything is fleeting
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Why hurt yourself
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Trying so hard
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;in this fleeting world..
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It&amp;rsquo;s a short about the fleeting momentary thing in life, proving that in the end everything is fleeting, so why care so much about anything in particular.&lt;/p&gt;
+&lt;p&gt;Now, after a few hours, I randomly thought, why don&amp;rsquo;t I just put it into chatGPT and see if it can improve. This was the prompt:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is a short poem I wrote in less than a minute about the fleeting momentary feelings of life, proving that in the end everything is fleeting, so why care so much about others. What do you think? How to improve? [Paste poem here]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;This was the response:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Your poem captures the essence of fleeting emotions and the transient nature of life. Here are a few suggestions to enhance it:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-md" data-lang="md"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Oh, what is love,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;but a fleeting dance of hearts
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Oh, what is anger,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;but a fleeting storm that departs
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Oh, what is passion,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;but a fleeting flame that ignites
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Oh, what is disgust,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;but a fleeting shadow that bites
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;In this vast world, what is real,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;but fleeting moments we borrow
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Why then obsess and cling,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;to what brings only sorrow
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Validation and appreciation,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;not worth sacrificing our worth
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Anger and annoyance,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;not worth the pain we unearth
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Everything in life is transient,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;like ripples in the wind
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Why exhaust ourselves chasing,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;what soon begins to rescind
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Embrace the fleeting nature,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;with a heart light and free
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;For in acceptance we find solace,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;and true contentment shall be.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="mind--blown"&gt;Mind = Blown🤯&lt;/h2&gt;
+&lt;p&gt;I was blown away by the response. It rightly added rhyming schemes while correctly keeping the message of the poem.&lt;/p&gt;
+&lt;p&gt;I tried one more variation that was okayish, but nothing too spectacular as this one.&lt;/p&gt;
+&lt;p&gt;So I then took parts from both and rewrote some lines myself to finally I have this final piece that took all around 10 minutes in total, right from the writing phase. Here goes:&lt;/p&gt;
+&lt;h2 id="fleeting"&gt;Fleeting&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-md" data-lang="md"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Oh, what is love,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;but a fleeting dance of hearts
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Oh, what is anger,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;but a fleeting storm that departs
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Oh, what is passion,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;but a fleeting flame that ignites
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Oh, what is disgust,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;but a fleeting shadow that bites
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;In this vast world, what is real,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;but fleeting moments we borrow
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Why then hold on so tightly,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;to what slips away so fast?
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Validation and appreciation,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mere whispers in the breeze
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Anger and annoyance,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;like waves upon the seas
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Everything in life is transient,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;like ripples in the wind
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Why exhaust ourselves chasing,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;what soon begins to rescind
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;So embrace the fleeting nature,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;with a heart light and free
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;For in acceptance we find solace,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;and contentment shall ours be.
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;-&lt;/span&gt; Aldrin Jenson and ChatGPT
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="afterthoughts"&gt;Afterthoughts&lt;/h2&gt;
+&lt;p&gt;I think this revolution of AI tools going on right now is awesome. I have never studied any formal music or song writing. In fact I have ever written only a handful of writings that can even borderline be close to a poem.&lt;/p&gt;
+&lt;p&gt;But now, I was able to jot down my ideas and chatGPT gave me a piece of writing that I am quite happy to share with others and convey the same feelings and ideas I wanted to convey with them.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;I asked chatGPT in a fresh chat instance to write a poem about: &lt;code&gt;the fleeting momentary feelings of life proving that in the end everything is fleeting, so why care so much about others&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;But this one turned out to be extremely different from the key aspects I came up with. Thus, my point being is that, with AI tools like chatGPT, the common man can now do things like an average trained person. Of course chatGPT can never make me a professional song writer (yet🤞). There may be people who are more capable, but maybe chatGPT can give me average performance to proudly share my ideas as a poem or a literature work without being too embarrassed about conveying the idea through a poem at all due to the fear of being judged at the poor writing skills? Maybe, whatever teh case, I think this is a win for a poem written in just 10 minutes :)&lt;/p&gt;</description></item></channel></rss>

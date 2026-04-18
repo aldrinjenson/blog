@@ -1,23 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Personal on Aldrin Jenson</title>
-    <link>//localhost:1313/personal/</link>
-    <description>Aldrin Jenson (Personal)</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 25 Dec 2023 00:45:00 +0530</lastBuildDate>
-    
-    <atom:link href="//localhost:1313/personal/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>People I think highly of</title>
-      <link>//localhost:1313/personal/great-people/</link>
-      <pubDate>Mon, 25 Dec 2023 00:45:00 +0530</pubDate>
-      
-      <guid>//localhost:1313/personal/great-people/</guid>
-      <description>&lt;p&gt;A list of people whose selflessness and kindness has left a deep impact in my mind. These people never had to, bu still they took the effort to go the extra mile to do something for me. And it&amp;rsquo;s never about me. They would have done it eitherways to any single person.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Personal on Aldrin Jenson</title><link>/personal/</link><description>Aldrin Jenson (Personal)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 25 Dec 2023 00:45:00 +0530</lastBuildDate><atom:link href="/personal/index.xml" rel="self" type="application/rss+xml"/><item><title>People I think highly of</title><link>/personal/great-people/</link><pubDate>Mon, 25 Dec 2023 00:45:00 +0530</pubDate><guid>/personal/great-people/</guid><description>&lt;p&gt;A list of people whose selflessness and kindness has left a deep impact in my mind. These people never had to, bu still they took the effort to go the extra mile to do something for me. And it&amp;rsquo;s never about me. They would have done it eitherways to any single person.
 In this world where everything is being more and more transactionary, I am grateful to have met these few people who have shown so much kindness and selflessness.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -39,39 +20,10 @@ Nithyalakshmi P (aka NP)&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;Gokulnath M. Prabhu&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>My Principles</title>
-      <link>//localhost:1313/personal/principles/</link>
-      <pubDate>Thu, 22 Sep 2022 23:59:39 +0000</pubDate>
-      
-      <guid>//localhost:1313/personal/principles/</guid>
-      <description>&lt;ul&gt;
+&lt;/ol&gt;</description></item><item><title>My Principles</title><link>/personal/principles/</link><pubDate>Thu, 22 Sep 2022 23:59:39 +0000</pubDate><guid>/personal/principles/</guid><description>&lt;ul&gt;
 &lt;li&gt;If you are doing something, do it well, else don&amp;rsquo;t commit&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Tech experiences</title>
-      <link>//localhost:1313/personal/tech-stuff/</link>
-      <pubDate>Thu, 22 Sep 2022 23:57:30 +0000</pubDate>
-      
-      <guid>//localhost:1313/personal/tech-stuff/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gratitude Journal</title>
-      <link>//localhost:1313/personal/gratitude/</link>
-      <pubDate>Mon, 20 Dec 2021 00:38:05 +0530</pubDate>
-      
-      <guid>//localhost:1313/personal/gratitude/</guid>
-      <description>&lt;p&gt;There are thing I have and there are things I don&amp;rsquo;t. But the fact that I am here typing this out means I&amp;rsquo;m privileged. If you can read this in an electronic device, you&amp;rsquo;re privileged too.&lt;/p&gt;
-&lt;h2 id=&#34;stuff-im-grateful-for&#34;&gt;Stuff I&amp;rsquo;m grateful for&lt;/h2&gt;
+&lt;/ul&gt;</description></item><item><title>Tech experiences</title><link>/personal/tech-stuff/</link><pubDate>Thu, 22 Sep 2022 23:57:30 +0000</pubDate><guid>/personal/tech-stuff/</guid><description/></item><item><title>Gratitude Journal</title><link>/personal/gratitude/</link><pubDate>Mon, 20 Dec 2021 00:38:05 +0530</pubDate><guid>/personal/gratitude/</guid><description>&lt;p&gt;There are thing I have and there are things I don&amp;rsquo;t. But the fact that I am here typing this out means I&amp;rsquo;m privileged. If you can read this in an electronic device, you&amp;rsquo;re privileged too.&lt;/p&gt;
+&lt;h2 id="stuff-im-grateful-for"&gt;Stuff I&amp;rsquo;m grateful for&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;To be typing this out in a house on my own personal laptop&lt;/li&gt;
 &lt;li&gt;To get loving and caring parents to whom I could turn to in times of confusion, worry and sadness.&lt;/li&gt;
@@ -84,17 +36,8 @@ Nithyalakshmi P (aka NP)&lt;/p&gt;
 &lt;p&gt;I think I have achieved a few things, but whatever I have it&amp;rsquo;s all because of the one who strengthens me.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;I can do all things through Christ which strengthens me.&lt;/p&gt;
-&lt;p&gt;Phillippians 4:13&lt;/p&gt;&lt;/blockquote&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>My Background</title>
-      <link>//localhost:1313/personal/my-bg/</link>
-      <pubDate>Mon, 20 Dec 2021 00:38:05 +0530</pubDate>
-      
-      <guid>//localhost:1313/personal/my-bg/</guid>
-      <description>&lt;p&gt;This is a self reflective post. In my 20 years, I&amp;rsquo;ve had some experiences. However limited they be, I&amp;rsquo;ve been able to learn fro them. Hopefully as I grow older, I&amp;rsquo;ve also become a bit wiser. Here&amp;rsquo;s my background.&lt;/p&gt;
+&lt;p&gt;Phillippians 4:13&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>My Background</title><link>/personal/my-bg/</link><pubDate>Mon, 20 Dec 2021 00:38:05 +0530</pubDate><guid>/personal/my-bg/</guid><description>&lt;p&gt;This is a self reflective post. In my 20 years, I&amp;rsquo;ve had some experiences. However limited they be, I&amp;rsquo;ve been able to learn fro them. Hopefully as I grow older, I&amp;rsquo;ve also become a bit wiser. Here&amp;rsquo;s my background.&lt;/p&gt;
 &lt;p&gt;I suffer from Imposter Syndrome. I&amp;rsquo;ve always been worried about posting anything on Social Media. But here am I listing out some my bg.&lt;/p&gt;
 &lt;p&gt;I am well aware that my experience is very limited, but with whatever awareness I&amp;rsquo;m having at the moment, here I am listing out stuff about me.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve created softwares - big and small for personal joy or for startups and companies all using various languages ans stacks like:&lt;/p&gt;
@@ -146,7 +89,7 @@ Have made only few CLI apps with it, but I want to one day be a part of some sta
 &lt;li&gt;
 &lt;p&gt;React Native&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Built several apps, &lt;a href=&#34;https://github.com/aldrinjenson/simple-stream&#34;&gt;one of which&lt;/a&gt; took several months, but is one I&amp;rsquo;m most proud of&lt;/li&gt;
+&lt;li&gt;Built several apps, &lt;a href="https://github.com/aldrinjenson/simple-stream"&gt;one of which&lt;/a&gt; took several months, but is one I&amp;rsquo;m most proud of&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -167,7 +110,7 @@ Have made only few CLI apps with it, but I want to one day be a part of some sta
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Bash&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;ve been using Linux for 4 years. Bash has been essential for a lot of &lt;a href=&#34;https://github.com/aldrinjenson/scripts&#34;&gt;automation scripts I&amp;rsquo;ve made&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve been using Linux for 4 years. Bash has been essential for a lot of &lt;a href="https://github.com/aldrinjenson/scripts"&gt;automation scripts I&amp;rsquo;ve made&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Awk&lt;/p&gt;
@@ -192,9 +135,4 @@ Have made only few CLI apps with it, but I want to one day be a part of some sta
 &lt;li&gt;Foundation CSS&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;/ul&gt;</description></item></channel></rss>
