@@ -1,24 +1,56 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>hack on Aldrin Jenson</title>
-    <link>https://aldrinjenson.me/tags/hack/</link>
-    <description>Aldrin Jenson (hack)</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 06 Aug 2022 13:47:26 +0530</lastBuildDate>
-    
-    <atom:link href="https://aldrinjenson.me/tags/hack/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Unknown benefit of creating a home partition - Access linux files from Windows</title>
-      <link>https://aldrinjenson.me/posts/access-linux-files-from-windows/</link>
-      <pubDate>Sat, 06 Aug 2022 13:47:26 +0530</pubDate>
-      
-      <guid>https://aldrinjenson.me/posts/access-linux-files-from-windows/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hack on Aldrin Jenson</title><link>/tags/hack/</link><description>Aldrin Jenson (Hack)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 06 Aug 2022 13:47:26 +0530</lastBuildDate><atom:link href="/tags/hack/index.xml" rel="self" type="application/rss+xml"/><item><title>Unknown benefit of creating a home partition - Access linux files from Windows</title><link>/posts/access-linux-files-from-windows/</link><pubDate>Sat, 06 Aug 2022 13:47:26 +0530</pubDate><guid>/posts/access-linux-files-from-windows/</guid><description/></item><item><title>How we hacked an entire computer lab✨</title><link>/posts/hacking-cs-lab/</link><pubDate>Tue, 26 Jul 2022 19:09:07 +0530</pubDate><guid>/posts/hacking-cs-lab/</guid><description>&lt;p&gt;Linux is cool.&lt;/p&gt;
+&lt;p&gt;Computer Networks is cool.&lt;/p&gt;
+&lt;p&gt;Rick roll is cool.&lt;/p&gt;
+&lt;p&gt;Our lab teacher - Titty sir, is definitely cool.&lt;/p&gt;
+&lt;p&gt;So, hacking all the computers over there, should be cool too.?🙂&lt;/p&gt;
+&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Short write up of how I wrote a script to play rick roll in all computers in our lab. 🙂&lt;/p&gt;
+&lt;center&gt;
+&lt;video alt="demo of us rick-rolling" src="/videos/hackCSLab.mp4" controls muted poster="/thumbs/hackCSLab.jpg" &gt;&lt;/video&gt;
+&lt;p class='caption'&gt;In hindsight, should have added the --fullscreen flag to the browser as well!&lt;/p&gt;
+&lt;/center&gt;
+&lt;ol&gt;
+&lt;li&gt;find your ip address using&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip a | grep 192.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;center&gt;
+&lt;image src="/images/hackCsLab/ipGrep.jpg" alt="ip grep image"&gt;&lt;/image&gt;
+&lt;p class='caption'&gt;
+If the computer is connected to two or more networks(ethernet and wifi for example) the above would result in more than one entries.
+Note that the address ending with 255 is for broadcast and hence should not be used.
+&lt;/p&gt;
+&lt;/center&gt;
+&lt;ol start="2"&gt;
+&lt;li&gt;Get the list of all devices connected to your network using the &lt;strong&gt;nmap&lt;/strong&gt; tool&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo nmap -sn 192.168.143.0-255
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo nmap -sn 192.168.143.0-255 &amp;gt; ips.txt &lt;span style="color:#75715e"&gt;# to store output to a file&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="3"&gt;
+&lt;li&gt;Install &lt;a href="https://man.archlinux.org/man/sshpass.1"&gt;sshpass&lt;/a&gt; on your host machine&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt install sshpass
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="4"&gt;
+&lt;li&gt;(i) Create simple bash script to ssh into one file and remotely execute a command&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;
+&lt;image src="/images/hackCsLab/remoteExec.jpg" alt="Remote exec sample script"&gt;&lt;/image&gt;
+&lt;p class='caption'&gt;
+Simple script to remotely execute a command in a single client machine in network using sshpass.
+&lt;/p&gt;
+&lt;/center&gt;
+&lt;ol start="4"&gt;
+&lt;li&gt;(ii) Create script to loop through the script and remotely execute a command.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;
+&lt;image src="/images/hackCsLab/loopIpScript.jpg" alt="sample script for looping over ips and executing a bash command"&gt;&lt;/image&gt;
+&lt;p class='caption'&gt;
+Simple script to loop over a set of ips and execute a bash command.
+&lt;/p&gt;
+&lt;/center&gt;
+&lt;h2 id="afterthoughts"&gt;Afterthoughts&lt;/h2&gt;
+&lt;p&gt;There you go. This script should let you run a command remotely in all the devices in your network.&lt;/p&gt;
+&lt;p&gt;I used this only once for playing rickRoll in all the computers in our lab just as a proof of concept.&lt;/p&gt;
+&lt;p&gt;Now, even though we demoed using a rick roll, just know that if one could do this much, really dangerous stuff can be done once access to these many computers are granted. Stuff can range from crypto-mining to running keyloggers for accessing passwords of students.&lt;/p&gt;
+&lt;p&gt;This worked perfectly in our case because the passwords of all the computers were same. In little more stricter scenarios, the passwords being same are rare and hence you&amp;rsquo;d need to create separate files to map the ips to passwords before looping through.&lt;/p&gt;
+&lt;p&gt;Finally, we were able to pull this off only because the staff in CS Lab were kind and understanding of the student&amp;rsquo;s curiosity and interest to explore stuff.✨&lt;/p&gt;
+&lt;p&gt;I suppose I should mention that this is a powerful method and you should use it only with care respecting privacy of others in the network.🙂&lt;/p&gt;</description></item></channel></rss>

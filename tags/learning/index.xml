@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>learning on Aldrin Jenson</title>
-    <link>https://aldrinjenson.me/tags/learning/</link>
-    <description>Aldrin Jenson (learning)</description>
+    <title>Learning on Aldrin Jenson</title>
+    <link>//localhost:1313/tags/learning/</link>
+    <description>Aldrin Jenson (Learning)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 03 Oct 2022 00:00:00 +0000</lastBuildDate>
     
-    <atom:link href="https://aldrinjenson.me/tags/learning/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/learning/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Organizing KochiFOSS 2022</title>
-      <link>https://aldrinjenson.me/posts/organizing-kochifoss/</link>
+      <link>//localhost:1313/posts/organizing-kochifoss/</link>
       <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://aldrinjenson.me/posts/organizing-kochifoss/</guid>
+      <guid>//localhost:1313/posts/organizing-kochifoss/</guid>
       <description>&lt;p&gt;KochiFOSS 2022 conference was held on 15th October 2022 and from the participant&amp;rsquo;s responses, the conference was a huge success. I was lucky to be a part of the core organizing team. Jotting down my experiences and the lessons learned.&lt;/p&gt;
 &lt;h2 id=&#34;my-experiences&#34;&gt;My experiences&lt;/h2&gt;
 &lt;ul&gt;

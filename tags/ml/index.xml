@@ -1,27 +1,53 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>ML on Aldrin Jenson</title>
-    <link>https://aldrinjenson.me/tags/ml/</link>
-    <description>Aldrin Jenson (ML)</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 03 Oct 2022 11:20:30 +0000</lastBuildDate>
-    
-    <atom:link href="https://aldrinjenson.me/tags/ml/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>I recreated Google&#39;s Teachable Machine and made it better!</title>
-      <link>https://aldrinjenson.me/posts/recreating-teachable-machine/</link>
-      <pubDate>Mon, 03 Oct 2022 11:20:30 +0000</pubDate>
-      
-      <guid>https://aldrinjenson.me/posts/recreating-teachable-machine/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;Google&amp;rsquo;s Teachable machine is pretty cool for training a quick model with images received from a webcam. However, it&amp;rsquo;s very limited if, as a developer you want to update the pre-trained model and add extra data into it. I faced this issue when working on a &lt;a href=&#34;memoria&#34;&gt;project&lt;/a&gt; wherein I had to train an Image classification ML model and when new training data is received, retrain the model such that the new data is incorporated as well.&lt;/p&gt;
-&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
-</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ml on Aldrin Jenson</title><link>/tags/ml/</link><description>Aldrin Jenson (Ml)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 23 Jul 2023 19:25:18 +0530</lastBuildDate><atom:link href="/tags/ml/index.xml" rel="self" type="application/rss+xml"/><item><title>Custom Stable Diffusion; uncensored, but without NSFW 🙂</title><link>/projects/simple-stable-diffusion/</link><pubDate>Sun, 23 Jul 2023 19:25:18 +0530</pubDate><guid>/projects/simple-stable-diffusion/</guid><description>&lt;h2 id="links"&gt;Links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://diffusion.mec.ac.in/"&gt;http://diffusion.mec.ac.in/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="project-abstract"&gt;Project Abstract&lt;/h2&gt;
+&lt;p&gt;A minimalist and opinionated web user interface (UI) for AI based image generation using the open source Stable Diffusion models.&lt;/p&gt;
+&lt;h2 id="tech-stack"&gt;Tech Stack&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Python/Streamlit(awesome framework)&lt;/li&gt;
+&lt;li&gt;Stable diffusion webUI by Automatic1111&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="how-it-came-to-be"&gt;How it came to be&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;I got admitted into Govt. Model Engineering College&lt;/li&gt;
+&lt;li&gt;The final year project our team worked on required GPU resources&lt;/li&gt;
+&lt;li&gt;Titty sir and CS department was kind and considerate to give access to a GPU server from MEC&lt;/li&gt;
+&lt;li&gt;I was so happy with getting access to a server that I tried out lot of cool ML models that I may not have been able to try out otherwise on my laptop🙂&lt;/li&gt;
+&lt;li&gt;I was lucky enough to get access during the time when stable diffusion and LLMs were beginning to be in the hype. After Facebook&amp;rsquo;s LLama model weights were made public,lot of development in the Open Source LLMs were being done, leading to lot of cool tools and projects to explore&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Discovered stable diffusion from the internet and explored it extensively - from generating character based images using LoRa to creating AI QR codes using ControlNet.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There was this awesome open-source project called stable-diffusion-webui by a person called Automatic1111(props to him for the great open source work he has done). I was doing all my image generation on his project. I tested out a lot of different models starting from the base stable-diffusion 1.5 to a wide variety of others ranging from generating comic book style versions to super ultra realistic portraits of Humans. Lot of time was spent on reading blogs, watching Youtube videos exploring various models etc to try this out. His software requires a good GPU and could only be run in the college Server with 8 GB GPU.&lt;/p&gt;
+&lt;p&gt;Now after being satisfied, towards the end of my final year project, I went to Titty Sir(bless him for being so awesome) and showed him the UI. He was impressed and liked the idea. He was cool with opening it to the public. I was happy too, though after having explored the models quite well, I was aware that this could be well misused as well. The stable diffusion webui involved a section where you can just use just your text to manipulate existing images - similar to using PhotoShop / Adobe Firefly.&lt;/p&gt;
+&lt;p&gt;But then I went with the flow, because I remembered the quote which is associated with Linux and Mac:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Mac is not idiot proof, it is smart people proof.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Most people would just want something that works, but there would be a few people. Few tinkerers who really want to explore and do great things. Craftsmen - tinkerers who would think about taking existing pices and thinking ho they could bbe crafted upon in great creative ways. For them, I felt the extra features would be super useful.&lt;/p&gt;
+&lt;h2 id="thoughts"&gt;Thoughts&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;I initially hosted the Stable-Diffusion-webUI by Automatic11111 directly in our servers.&lt;/li&gt;
+&lt;li&gt;Showed it to Titty Sir and he liked it and was cool to make it public. Titty sir is a good person.&lt;/li&gt;
+&lt;li&gt;Anyways, we did it so and then people strated using it for NSFW images because the model used was uncensored🙂&lt;/li&gt;
+&lt;li&gt;uncensored models are usually way powerful and really good at generating realistic faces and hyper realistic natural bodies, but yeah they can be used for nsfw content too.&lt;/li&gt;
+&lt;li&gt;By default the Automatic1111 webui used to save all images generated in the db. Surprised to find the patter that, the common themes were: celebrities, Gods, random descriptions of art copied from midjourney and then nsfw content.&lt;/li&gt;
+&lt;li&gt;Very few people tried generating nsfw, but those that did, actually tried generating a lot!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="issues-with-automatic1111"&gt;Issues with Automatic1111&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Was too complex for most people.&lt;/li&gt;
+&lt;li&gt;Many people used it for generating images with their names. They didn&amp;rsquo;t really understand the power and potential of such project&lt;/li&gt;
+&lt;li&gt;So many feature, with little to no description on hwo to use them!(In the project&amp;rsquo;s defence, it was meant for people who were already familiar with stable diffusion concepts). Hence wasn&amp;rsquo;t suitable for a lot of people because they find it too hard to use&lt;/li&gt;
+&lt;li&gt;Had a bug where if you hit the Generate button without any prompt, then by default it generates random images and multiple of these were NSFW.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="so"&gt;So,&lt;/h2&gt;
+&lt;p&gt;The model I used was one called Deliberate. It was the most rated and downloaded model in civitai during that time. It was really good at generating faces and any general purpose art for that matter. This is the model which caused issues:)&lt;/p&gt;
+&lt;p&gt;As soon as a friend called me up and informed about the bug, I called up Titty sir, told him as well and we decided to replace deliberate with a pixar based model. This model works, but was definitiely less impressive. Almost like how chatGPT got nerfed out, this one was weak, but yes no more NSFW content.&lt;/p&gt;
+&lt;p&gt;But now there&amp;rsquo;s the issue of the ui being complex.&lt;/p&gt;
+&lt;p&gt;The solution was simple. Build something new from scratch.
+Well, that&amp;rsquo;s exactly what I did.&lt;/p&gt;</description></item><item><title>I recreated Google's Teachable Machine and made it better!</title><link>/projects/recreating-teachable-machine/</link><pubDate>Mon, 03 Oct 2022 11:20:30 +0000</pubDate><guid>/projects/recreating-teachable-machine/</guid><description>&lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Google&amp;rsquo;s Teachable machine is pretty cool for training a quick model with images received from a webcam. However, it&amp;rsquo;s very limited if, as a developer you want to update the pre-trained model and add extra data into it. I faced this issue when working on a &lt;a href="memoria"&gt;project&lt;/a&gt; wherein I had to train an Image classification ML model and when new training data is received, retrain the model such that the new data is incorporated as well.&lt;/p&gt;
+&lt;h2&gt;&lt;/h2&gt;</description></item></channel></rss>

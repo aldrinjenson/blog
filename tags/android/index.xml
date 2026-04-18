@@ -1,39 +1,77 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>android on Aldrin Jenson</title><link>/tags/android/</link><description>Aldrin Jenson (android)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 27 Jan 2023 03:06:56 +0530</lastBuildDate><atom:link href="/tags/android/index.xml" rel="self" type="application/rss+xml"/><item><title>How to SSH to Termux Shell</title><link>/posts/ssh-termux/</link><pubDate>Fri, 27 Jan 2023 03:06:56 +0530</pubDate><guid>/posts/ssh-termux/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
-&lt;p>Easy way to ssh to termux shell running on Android&lt;/p>
-&lt;h1 id="prerequisites">Prerequisites&lt;/h1>
-&lt;ul>
-&lt;li>A device running Android with Termux installed&lt;/li>
-&lt;li>A Linux machine with OpenSSH installed&lt;/li>
-&lt;/ul>
-&lt;h2 id="steps">Steps&lt;/h2>
-&lt;ol>
-&lt;li>Find the IP address of termux using the following command&lt;/li>
-&lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ip addr | grep &lt;span style="color:#ae81ff">192&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
-&lt;li>install open ssh&lt;/li>
-&lt;li>start ssh service using the following&lt;/li>
-&lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sshd
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="4">
-&lt;li>Find hostname of termux machine using &lt;code>hostname&lt;/code> command&lt;/li>
-&lt;li>From host machine, perform ssh using the following command&lt;/li>
-&lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span> ssh -p &lt;span style="color:#ae81ff">8022&lt;/span> $hostname@$phoneIp
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="6">
-&lt;li>The END&lt;/li>
-&lt;/ol>
-&lt;h2 id="conclusion">Conclusion&lt;/h2>
-&lt;p>Tada, You&amp;rsquo;ve successfully done ssh to termux✨&lt;/p>
-&lt;p>Use termux to start webservers (Apache, Nginx etc) just like you would normally do in a Linux machine and you can expose it to the internet using free services like ngrok.&lt;/p>
-&lt;h2 id="bonus-tip">Bonus Tip&lt;/h2>
-&lt;p>replace &lt;code>ssh&lt;/code> in step 5 using &lt;code>sftp&lt;/code> and suddenly you now have an extremely safe and easy way to transfer files to and from your phone. You&amp;rsquo;re welcome😊&lt;/p>
-&lt;h2 id="troubleshooting">Troubleshooting&lt;/h2>
-&lt;ul>
-&lt;li>Connection refused: Make sure that your device is connected to the same network as your Linux machine and that the SSH service is running on Termux.&lt;/li>
-&lt;li>Incorrect IP address: Double-check that you have the correct IP address of your device.&lt;/li>
-&lt;li>Firewall issues: Make sure that your firewall is not blocking the SSH connection.&lt;/li>
-&lt;/ul>
-&lt;h2 id="additional-resources">Additional Resources&lt;/h2>
-&lt;p>-&lt;a href="https://wiki.termux.com/wiki/Main_Page">Termux Wiki&lt;/a>
--&lt;a href="https://www.openssh.com/">OpenSSH&lt;/a>&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Android on Aldrin Jenson</title><link>/tags/android/</link><description>Aldrin Jenson (Android)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 27 Jan 2023 03:06:56 +0530</lastBuildDate><atom:link href="/tags/android/index.xml" rel="self" type="application/rss+xml"/><item><title>How to SSH to Termux Shell</title><link>/posts/ssh-termux/</link><pubDate>Fri, 27 Jan 2023 03:06:56 +0530</pubDate><guid>/posts/ssh-termux/</guid><description>&lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Easy way to ssh to termux shell running on Android&lt;/p&gt;
+&lt;h1 id="prerequisites"&gt;Prerequisites&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;A device running Android with Termux installed&lt;/li&gt;
+&lt;li&gt;A Linux machine with OpenSSH installed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="steps"&gt;Steps&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Find the IP address of termux using the following command&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip addr | grep &lt;span style="color:#ae81ff"&gt;192&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="2"&gt;
+&lt;li&gt;install open ssh&lt;/li&gt;
+&lt;li&gt;start ssh service using the following&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sshd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="4"&gt;
+&lt;li&gt;Find hostname of termux machine using &lt;code&gt;hostname&lt;/code&gt; command&lt;/li&gt;
+&lt;li&gt;From host machine, perform ssh using the following command&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ssh -p &lt;span style="color:#ae81ff"&gt;8022&lt;/span&gt; $hostname@$phoneIp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="6"&gt;
+&lt;li&gt;The END&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Tada, You&amp;rsquo;ve successfully done ssh to termux✨&lt;/p&gt;
+&lt;p&gt;Use termux to start web-servers (Apache, Nginx etc) just like you would normally do in a Linux machine and you can expose it to the internet using free services like ngrok.&lt;/p&gt;
+&lt;h2 id="bonus-tip"&gt;Bonus Tip&lt;/h2&gt;
+&lt;p&gt;replace &lt;code&gt;ssh&lt;/code&gt; in step 5 using &lt;code&gt;sftp&lt;/code&gt; and suddenly you now have an extremely safe and easy way to transfer files to and from your phone. You&amp;rsquo;re welcome😊&lt;/p&gt;
+&lt;h2 id="troubleshooting"&gt;Troubleshooting&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Connection refused: Make sure that your device is connected to the same network as your Linux machine and that the SSH service is running on Termux.&lt;/li&gt;
+&lt;li&gt;Incorrect IP address: Double-check that you have the correct IP address of your device.&lt;/li&gt;
+&lt;li&gt;Firewall issues: Make sure that your firewall is not blocking the SSH connection.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="additional-resources"&gt;Additional Resources&lt;/h2&gt;
+&lt;p&gt;-&lt;a href="https://wiki.termux.com/wiki/Main_Page"&gt;Termux Wiki&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;-&lt;a href="https://www.openssh.com/"&gt;OpenSSH&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Sending Whatsapp messages without saving contact</title><link>/projects/whatsapp-msg-without-save/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/projects/whatsapp-msg-without-save/</guid><description>&lt;h3 id="abstract"&gt;Abstract&lt;/h3&gt;
+&lt;p&gt;An app I made to ensure that you can share links and files really easily to anyone without having to save the contact number of that person by using the already existing most famous digital medium of communication - Whatsapp.&lt;/p&gt;
+&lt;p&gt;Get the code and APK from this &lt;a href="https://github.com/aldrinjenson/send-whatsapp-msg-without-save"&gt;link&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;I had to learn flutter for a mini-project in my college. I wanted to build something to try out and this is regarding a very simple Flutter app I made which I believe solves a great problem in the lives of the common people.&lt;/p&gt;
+&lt;h1 id="the-problem"&gt;The Problem&lt;/h1&gt;
+&lt;p&gt;For a common person, the most familiar app in their phone is Whatsapp. All the controls for texting and sending files are so familiar to them. When they see someone new and have to send something to them, what they usually do is to save the contact number and then searches whatsapp to locate their chat and send the file or link.
+This is cool and all, but why save someone&amp;rsquo;s contact if it&amp;rsquo; going to be a one time file sharing..&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve faced this dilemma before as well when I&amp;rsquo;m part of the organizing team for some event and often times we may have to message the participants regarding some important announcement or even Google Meet links. E-mails cannot be relied upon for short term reminders while Whatsapp messages would be an excellent way.&lt;/p&gt;
+&lt;p&gt;If only there was some way to send messages and files through whatsapp without having to save contact&amp;hellip;.&lt;/p&gt;
+&lt;h2 id="the-solution"&gt;The Solution&lt;/h2&gt;
+&lt;p&gt;Whatsapp have this public api which can be used to open the Whatsapp chat of a user by passing in the mobile number as parameter.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s of this form:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://api.whatsapp.com/send"&gt;https://api.whatsapp.com/send&lt;/a&gt;?&amp;lt;mobile-number&amp;gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This is nice if you&amp;rsquo;re a techie as this is way better than actually having to save a contact number. However, it&amp;rsquo;s still clumsy as you&amp;rsquo;d have to enter this long URL each time you want to text someone on Whatsapp. Aha, I know what you&amp;rsquo;re thinking, what if me pass this to a url shortener like bit.ly&amp;hellip; Well, you&amp;rsquo;re right, an even easier way would be to have the url of the form:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;wa.me/&amp;lt;mobile-number&amp;gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I&amp;rsquo;ve been using this above URL method for months and it works flawlessly.&lt;/p&gt;
+&lt;h2 id="even-better-solution"&gt;Even better solution&lt;/h2&gt;
+&lt;p&gt;Now, what if there was one app which could automate this even further so that even very common man could use this without having to use a browser to enter a URL each time!&lt;/p&gt;
+&lt;p&gt;Well, that&amp;rsquo;s exactly what I made: An app which behind the scenes, calls the above link with a mobile number accepted as parameter.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s a demo:&lt;/p&gt;
+&lt;img src="/images/wa_msg_without_save_demo.gif" width=400 alt="demo workflow gif"&gt;
+&lt;br/&gt;
+&lt;h2 id="code-and-implementation"&gt;Code and implementation&lt;/h2&gt;
+&lt;p&gt;The code is written in Flutter because the main reason for the starting of this project was for me to try out Flutter.&lt;/p&gt;
+&lt;p&gt;Right now, it&amp;rsquo;s built only for Android as I don&amp;rsquo;t have access to a Macbook.&lt;/p&gt;
+&lt;p&gt;The implementation part is very simple with just one class and one dart file.&lt;/p&gt;
+&lt;p&gt;The code can be found in this Github repo: &lt;a href="https://github.com/aldrinjenson/send-whatsapp-msg-without-save"&gt;aldrinjenson/send-whatsapp-msg-without-save&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="conclusion-and-afterthoughts"&gt;Conclusion and afterthoughts&lt;/h2&gt;
+&lt;p&gt;Most of my projects so far which a lot of people have felt really useful are those which were really simple to implement. Within just 2 months of building this app, I felt myself using this way more than I initially anticipated. An app like this is really useful if you&amp;rsquo;re organizing an event and you&amp;rsquo;d want to just start a conversation with a participant but you know for sure that you won&amp;rsquo;t be contacting them again after this one time event.&lt;/p&gt;
+&lt;p&gt;Also really useful if you started talking to someone at a conference and you want to send them a link about your project.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve also used the app when I&amp;rsquo;ve gone to churches or festivals and have someone send a copy of the notice or brochure but usually folks only know to send via Whatsapp and hence need to save contact number.&lt;/p&gt;
+&lt;p&gt;I found this really useful and when I showed it to a few friends, even they could instantly relate with the problem. I realized that opening up the app and entering a number is way faster than opening browser, typing wa.me/+91 and then entering the 10 digit phone number. It won&amp;rsquo;t seem obvious until you actually try it out yourself!&lt;/p&gt;
+&lt;p&gt;Hey, maybe you can try it out now and see if it&amp;rsquo;s useful to you as well✨.&lt;/p&gt;
+&lt;p&gt;Get the code and APK file from &lt;a href="https://github.com/aldrinjenson/send-whatsapp-msg-without-save"&gt;here&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>

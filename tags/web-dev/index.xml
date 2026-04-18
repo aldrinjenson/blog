@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Web-Dev on Aldrin Jenson</title><link>/tags/web-dev/</link><description>Aldrin Jenson (Web-Dev)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 27 Aug 2023 07:00:55 +0000</lastBuildDate><atom:link href="/tags/web-dev/index.xml" rel="self" type="application/rss+xml"/><item><title>How to add meta tags to a Streamlit app</title><link>/posts/adding-metatags-to-streamlit/</link><pubDate>Sun, 27 Aug 2023 07:00:55 +0000</pubDate><guid>/posts/adding-metatags-to-streamlit/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Streamlit is a cool Python library to build GUIs for python based web-apps&lt;/li&gt;
+&lt;li&gt;It doesn&amp;rsquo;t support the feature to provide custom meta-tags for the apps you make and instead always have the default streamlit-tags instead&lt;/li&gt;
+&lt;li&gt;The following steps is based on deploying a streamlit app bundled as a docker which you can deploy in your VPS.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="workaround-tldr"&gt;Workaround tl;dr&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Replace the default index file used by streamlit with our custom file containing meta tags of our own&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="pre-requisites"&gt;Pre-requisites&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Ensure docker/docker-compose is installed on your VPS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="steps"&gt;Steps&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Create an index.html in the src directory with similar contents:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#f92672"&gt;html&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;lang&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;en&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;&lt;span style="color:#f92672"&gt;head&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;&lt;span style="color:#f92672"&gt;meta&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;charset&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;UTF-8&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;&lt;span style="color:#f92672"&gt;link&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;rel&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;shortcut icon&amp;#34;&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;href&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;./favicon.png&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;&lt;span style="color:#f92672"&gt;title&lt;/span&gt;&amp;gt;Your Site Name&amp;lt;/&lt;span style="color:#f92672"&gt;title&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; window.&lt;span style="color:#a6e22e"&gt;prerenderReady&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#f92672"&gt;!&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;/&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;&amp;lt;!-- changes to be made here --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;&lt;span style="color:#f92672"&gt;script&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;defer&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;defer&amp;#34;&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;src&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;./static/js/main.dccfd6b5.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;&lt;span style="color:#f92672"&gt;link&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;href&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;./static/css/main.f4a8738f.css&amp;#34;&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;rel&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;&amp;lt;!-- changes to be made above this --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;&lt;span style="color:#f92672"&gt;meta&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;name&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;title&amp;#34;&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;content&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;Custom Title&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;/&lt;span style="color:#f92672"&gt;head&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;&lt;span style="color:#f92672"&gt;body&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;&lt;span style="color:#f92672"&gt;noscript&lt;/span&gt;&amp;gt;You need to enable JavaScript to run this app.&amp;lt;/&lt;span style="color:#f92672"&gt;noscript&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;&lt;span style="color:#f92672"&gt;div&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;id&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;root&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style="color:#f92672"&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;/&lt;span style="color:#f92672"&gt;body&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;/&lt;span style="color:#f92672"&gt;html&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Feel free to add in more meta tags of your choice.&lt;/p&gt;
+&lt;ol start="2"&gt;
+&lt;li&gt;Update your dockerfile to have a line like the following:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-dockerfile" data-lang="dockerfile"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;FROM&lt;/span&gt; &lt;span style="color:#e6db74"&gt;python:3.9&lt;/span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;WORKDIR&lt;/span&gt; &lt;span style="color:#e6db74"&gt;/app&lt;/span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;COPY&lt;/span&gt; requirements.txt .&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;RUN&lt;/span&gt; pip install --no-cache-dir -r requirements.txt&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# important line for adding custom metatags&lt;/span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;COPY&lt;/span&gt; src/index.html /usr/local/lib/python3.9/site-packages/streamlit/static/index.html&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# ensure that the above line is present in your dockerfile&lt;/span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;COPY&lt;/span&gt; . .&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;CMD&lt;/span&gt; [&lt;span style="color:#e6db74"&gt;&amp;#34;streamlit&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;run&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;Home.py&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;--server.headless&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;true&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;--server.fileWatcherType&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;none&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;--browser.gatherUsageStats=False&amp;#34;&lt;/span&gt;]&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Basically we&amp;rsquo;re copying the index file to replace the streamlit default index.html inside the docker container.&lt;/p&gt;
+&lt;ol start="2"&gt;
+&lt;li&gt;Start the container. eg: &lt;code&gt;docker-compose up&lt;/code&gt;
+You&amp;rsquo;ll notice that what you get is just a white screen in the streamlit app endpoint. This is because the javascript is not loaded yet.&lt;/li&gt;
+&lt;li&gt;Find the pid of the container(&lt;code&gt;docker ps&lt;/code&gt;) and exec into it to run bash&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker exec -it &amp;lt;pid&amp;gt; bash
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This basically lets you go inside the running container and inspect it using bash. Replace the PID with the PID of your container&lt;/p&gt;
+&lt;ol start="4"&gt;
+&lt;li&gt;
+&lt;p&gt;Go to the path &lt;code&gt;/usr/local/lib/python3.9/site-packages/streamlit/static/static/js&lt;/code&gt; inside the interactive bash shell inside container.
+Note that the python3.9 may be different in your case. In that case, just let &lt;code&gt;cd&lt;/code&gt; + &lt;code&gt;tab&lt;/code&gt; autocomplete the path for you based on the python version you have installed.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Now do an &lt;code&gt;ls&lt;/code&gt; like the following:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ls main*.js
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="6"&gt;
+&lt;li&gt;Copy the full filename of this file and replace it in the script tag of the index.html file we created earlier.&lt;/li&gt;
+&lt;li&gt;Restart the container.(rebuild if necessary too).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This should let the javascript load correctly and have your project be loaded fine with custom meta tags.&lt;/p&gt;
+&lt;p&gt;If you note that somehow css seems to have broken, then just &lt;code&gt;cd&lt;/code&gt; to &lt;code&gt;/usr/local/lib/python3.9/site-packages/streamlit/static/static/css&lt;/code&gt; inside the container and do an ls like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ls main.*.css
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once you identify the the main css file, replace main.f4a8738f.css in the index.html file with this one.&lt;/p&gt;
+&lt;p&gt;Essentially, we&amp;rsquo;re replacing the basic html file from streamlit with our custom file and then loading the streamlit libraries(js and css) from their path inside the docker container.&lt;/p&gt;
+&lt;p&gt;Alright, with these steps, you should easily be able to create a streamlit application with custom Meta-tags.&lt;/p&gt;
+&lt;h2 id="bonus-tip"&gt;Bonus tip&lt;/h2&gt;
+&lt;p&gt;Maybe you are already aware of this, but to get meta images freely hosted, just paste your images to postimg.cc site. Upload the image and then paste the url to the meta image tag as the following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#f92672"&gt;meta&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;property&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;og:image&amp;#34;&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;content&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;https://i.postimg.cc/&amp;lt;code&amp;gt;/image.png&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#f92672"&gt;meta&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;property&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;twitter:image&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;content&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;https://i.postimg.cc/&amp;lt;code&amp;gt;/image.png&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Tada✨&lt;/p&gt;</description></item><item><title>Love Match Calculator</title><link>/projects/love-calculator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/projects/love-calculator/</guid><description>&lt;p&gt;Before reading any further, visit this &lt;a href="https://aldrinjenson.github.io/Love-Calc/"&gt;link&lt;/a&gt; and follow the instructions.&lt;/p&gt;
+&lt;hr&gt;
+Seriously dude, only continue if you visited the page and followed the instructions.
+&lt;p&gt;This project was inspired by an article written by Subin Siby of Vidhya Institute of Sciences where he mentioned about how we once got pranked by a similar site.
+I haven&amp;rsquo;t talked to him directly other than in an online meet when he answered a question I asked in chat, but I&amp;rsquo;ve heard he&amp;rsquo;s a cool dude interested in building cool software. (Wish I could talk to him directly for once🤞).&lt;/p&gt;
+&lt;p&gt;Anyways, On April 1st 2020, I decided to build something since it&amp;rsquo;s April Fool&amp;rsquo;s and all. During those days, some of us in class had created a Whatsapp group for those interested in programming, where we shared different articles, tutorials etc for everyone to pick up and improve. In that group, began a conversation which somehow ended on the topic of compatibility between partners(I know, just the usual typical topic discussed in a programming group.😁). Anyway, I saw this message in the morning and this got me thinking. Since it was April Fool&amp;rsquo;s day, I definitely wanted to do something fun; plus around that time, I had gotten myself pretty familiar with the awesome CSS framework &lt;a href="https://materializecss.com/"&gt;Materialize-CSS&lt;/a&gt; and I wanted to build something cool with it as well.
+So with all these reasons, I decided to build a Love compatibility calculator(Not an actual one ofc.)&lt;/p&gt;
+&lt;h2 id="the-idea"&gt;The Idea&lt;/h2&gt;
+&lt;p&gt;The idea was simple - prank folks by asking them to enter the details of their crush for finding the percentage of love compatibility between them. What&amp;rsquo;s the prank in this you ask? Well, once they details are submitted, instead of the data gets stored in a db and instead of a percentage value, the users get &lt;a href="https://en.wikipedia.org/wiki/Rickrolling"&gt;Rick Rolled&lt;/a&gt;😇.&lt;/p&gt;
+&lt;h2 id="implementation"&gt;Implementation&lt;/h2&gt;
+&lt;p&gt;The project was built fairly quickly. I started working on it in the afternoon and by evening the whole project was pretty much completed.
+The site was built using just HTML, Materialize-CSS and vanilla Javascript.
+I used firebase as the database since it was super quick to set up.&lt;/p&gt;
+&lt;p&gt;Basically once the user filled the form with details, a POST request is made and a new record is created in the firebase DB.
+The coding part was hence fairly easy. I added some GIFs and Mr.Been Youtube video as well.
+Sadly though, I wasn&amp;rsquo;t able to figure out how to autoplay Youtube videos in HTML at that time.&lt;/p&gt;
+&lt;h2 id="aftermath"&gt;Aftermath&lt;/h2&gt;
+&lt;p&gt;I hosted the site using Netlify and put the link in the above mentioned Whatsapp group.
+Well, a lot of people tried it out and quite a good number of people entered the names of their actual crush. When they found out at the end that it was a prank, well some took the joke lightly while others it seemed were quite anxious🙈.&lt;/p&gt;
+&lt;p&gt;I was actually very excited about this nice joke and had sent the link to 2 seniors from my college as well without much thinking. One chechi(elder sister) who was 3 years senior to me, sent me just one message after a while: &lt;code&gt;&amp;quot;Why?&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;All the excitement and pride of having built something cool suddenly drained out of me. I didn&amp;rsquo;t know how to reply. After a while I took down the site, cleared the database and apologized. She was cool about my innocent joke though, as she later told me that she had a hunch about this being some sort of phishing website, so it was cool and all. But I was very much shaken. At that time, I didn&amp;rsquo;t even know about the concept of phishing. On that day, I suddenly became very much aware of powers a programmer or a tech person holds. It&amp;rsquo;s easy to trick people with innocent looking sites and apps. as much cliché as it may sound, with great power, comes great responsibility. It is not that difficult even for a single person to create a make believe site and ask people to enter sensitive information in the promise of some great reward. The collected information could then be used to blackmail the user and collect money or whatever.&lt;/p&gt;
+&lt;p&gt;This project hence, even though was a small one(only a few hours worth of work), it was an important one in my programming life. I realized that whatever you create could technically be used with a wrong intention as well which could result in major loss and sadness for people.&lt;/p&gt;
+&lt;p&gt;The main site was took down, and I had removed the firebase Db connections. What you might have already seen contains just the UI. So no data is sent to anyone in case you actually entered any sensitive information when you visited the above site. But of-course, you were smart and you didn&amp;rsquo;t enter any actual details right?🌝&lt;/p&gt;
+&lt;p&gt;Check out the project code &lt;a href="https://github.com/aldrinjenson/Love-Calc"&gt;here&lt;/a&gt;!&lt;/p&gt;</description></item></channel></rss>
