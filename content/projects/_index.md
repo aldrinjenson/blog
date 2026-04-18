@@ -8,7 +8,7 @@ Most of the projects I did have some interesting stories or memories associated 
 
 ## 🚀 Featured Projects
 
-Showcasing some projects i'm proud of
+Showcasing some projects I'm proud of
 
 <div class="featured-projects">
 
@@ -119,7 +119,7 @@ Quick experiments that demonstrate breadth — small but mighty.
 | [YouTube Transcript Formatter](https://til.aldrinjenson.com/minimum-effort/youtube-transcript-formatter) | Turn any video into an LLM-ready prompt |
 | [Whisper Subtitles](https://til.aldrinjenson.com/generate-subtitles-locally-using-whisper) | Generate subtitles locally using OpenAI Whisper |
 | [Parallel Ollama Inference](https://til.aldrinjenson.com/running-parallel-ollama-inference) | Scale local LLM inference with multiple Ollama instances |
-| [Virtual AI Companion](https://til.aldrinjenson.com/minimum-effort/virtual-gf) | Talking AI companion concept with demo |
+| [Talking AI Companion](https://til.aldrinjenson.com/minimum-effort/talking-ai-companion) | Voice-based AI companion concept with demo |
 
 ---
 
