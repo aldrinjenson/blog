@@ -127,6 +127,7 @@ Quick experiments that demonstrate breadth — small but mighty.
 
 These have blog-style write-ups with the full backstory.
 
+- **[NYCGuessr]({{< ref "projects/nycguessr.md" >}})** — GeoGuessr-style game using 960 live NYC traffic camera feeds. Vanilla JS, no build step, one Vercel proxy route. Story includes a silent geo-block bug discovered via friends in India.
 - **[Moodle Automation]({{< ref "projects/moodle-automation.md" >}})** — Node.js program to automate attendance marking in Moodle Classroom using Telegram bot
 - **[Query Search Bot]({{< ref "projects/query-search-bot.md" >}})** — Telegram bot to make internet queries directly from Telegram, deployed serverless
 - **[Simple Stable Diffusion]({{< ref "projects/simple-stable-diffusion.md" >}})** — Custom Stable Diffusion project with Streamlit UI
