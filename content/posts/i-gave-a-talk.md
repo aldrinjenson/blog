@@ -1,7 +1,7 @@
 ---
-title: "I gave a talk at an international conference and Murphy's law sucks!"
+title: "Speaking at IndiaFOSS 2.0 — and how Murphy's Law made it interesting"
 date: 2022-07-26T19:09:07+05:30
-description: "How my faith in Arch Linux was may be a bit too much🥲"
+description: "Notes from giving my first international conference talk at IndiaFOSS 2.0, July 23–24, 2022 at NIMHANS, Bengaluru — and what happened when Arch Linux let me down on stage."
 tags: ["indiafoss", "foss", "arch-linux", "talk", "public-speaking", "community", "linux"]
 categories: ["Personal"]
 draft: false
@@ -9,49 +9,47 @@ draft: false
 
 ## Introduction
 
-I got an opportunity to do a Flash-Talk for IndiaFoss conference held in Bangalore on 23-24 July 2022 and boy, [Murphy's law](https://en.wikipedia.org/wiki/Murphy's_law) messed up my presentation!
+I was selected to deliver a Flash Talk at **IndiaFOSS 2.0**, held on **July 23–24, 2022 at the NIMHANS Convention Centre in Bengaluru**. IndiaFOSS is the flagship annual Free and Open Source Software conference organised by the [FOSS United Foundation](https://fossunited.org/), and the 2.0 edition received approximately 122 talk submissions of which around 30 were selected through peer review — about a 25% acceptance rate. This was my first time speaking at a conference of this scale, and as it turned out, [Murphy's Law](https://en.wikipedia.org/wiki/Murphy's_law) had plans of its own.
 
 <center>
-  <image src="/images/indiaFoss/indiaFossTalk.jpg" alt="My talk at IndiaFoss"/>
-<p class='caption'>Excuse the 240p quality please!</p>
+  <image src="/images/indiaFoss/indiaFossTalk.jpg" alt="Speaking at IndiaFOSS 2.0, NIMHANS Convention Centre, Bengaluru — July 2022"/>
+<p class='caption'>On stage at IndiaFOSS 2.0, NIMHANS Convention Centre, Bengaluru. (Excuse the 240p quality!)</p>
 </center>
 
-The topic of my talk was: **How to make sharing of digital assets as easy and accessible as possible.**
-It was based on [an app I had made earlier]({{<ref "projects/whatsapp-msg-without-save.md" >}}) to send messages by using the most common app in one's phone - Whatsapp, without having to save anyone's contact number.
+## The talk
 
-## Background
+**Title:** *How to make sharing of digital assets as easy and accessible as possible.*
 
-I was inspired by a talk which I heard over at IndiaFoss from Akash Hamirwasia who made a web-app called [Blaze](https://blaze.vercel.app/) for sending files over the internet using a website.
-His project was cool, but to me it seemed like the common man would find it a bit difficult. When I talk about the common man, I'm talking about they who doesn't even know to open web browsers(Yes, I've seen people to whom when I asked to open browser, they have opened settings and searched "browser" in the settings search-bar. Just know that you are really privileged if you think such people don't exist).
+The talk was built around [a small open-source app I had shipped earlier]({{<ref "projects/whatsapp-msg-without-save.md" >}}) that lets you send a WhatsApp message to any phone number *without first having to save the contact* — by generating a `wa.me` link in the background and triggering the WhatsApp chat directly.
 
-Whatsapp is the app with which people are most comfortable. If only there was a way to send files through whatsapp without having to save the contact number...
+## Why I built the project
 
-Introducing my app which solves exactly this problem. It generates a wa.me link and opens it behind the scenes so as to trigger and open whatsapp chat of the person whose number has just been entered.
+The inspiration came from a previous IndiaFOSS talk by Akash Hamirwasia, who built [Blaze](https://blaze.vercel.app/) — a web app for sending files peer-to-peer over the internet. Blaze is a beautiful piece of engineering, but I kept thinking about the user I most wanted to reach: not the developer, not the early adopter, but the everyday person who is more comfortable inside WhatsApp than inside any web browser.
 
-## About the talk
+Anyone who has helped a parent or a grandparent open a browser knows what I mean. WhatsApp is the one app almost everyone in India is fluent in. So I built the smallest possible tool that meets people where they already are: enter a number, hit send, and you're inside a WhatsApp chat — no contact saved, no friction.
 
-So being inspired by Mr.Akash, I submitted my presentation and was selected to speak. I had been using Arch Linux for a while now and recently got a new laptop, but I was unsure if it would be able to connect to the HDMI port for the presentation. I saw others with ThinkPads easily connecting their laptops and presenting, so I thought Linux's plug and play support would have me covered. Unfortunately, I was mistaken.
+## And then Arch Linux happened
 
-I was given slot number 8 out of the 9 available slots, but by the time it was my turn, the participants had taken up more time than allotted and the event was running behind schedule.
+I had been daily-driving Arch Linux for a while and had recently switched to a new laptop. I'd seen ThinkPad-wielding speakers connect to the projector with no fuss all morning, so I assumed Linux's plug-and-play would have me covered. I was, in retrospect, perhaps a bit too confident.
 
-## Et tu Arch..
+I had been given slot 8 of 9, and by the time my name was called the schedule had slipped. I walked up, plugged in the HDMI cable, and… nothing on the projector. I'd intended to check the display setup during one of the breaks, but another speaker had grabbed the stage to test theirs and time had run out.
 
-My name got called, I went up and connected my laptop to HDMI cable only to find nothing being presented🥲.
+So there I was, in front of the room, with no slides and no demo.
 
-Apparently my faith in Arch linux may have been a bit too much because had I bothered to check the status during some break maybe I wouldn't have to face the difficulty.(Well technically, I tried doing that but then another speaker beat me to it and took a long time that I had to leave.. still..).
+I started talking anyway. I didn't want to delay the program any further, so I described the problem, walked through the solution, and explained how the app worked — without the live demo I'd planned (the one where I'd call up someone in the audience and send them a "hi" on WhatsApp without ever saving their number). I shared a `bit.ly` link to the demo and the GitHub repo so people could try it later.
 
-So here I was in front of the stage with my laptop not being able to present and the schedule already really late for me to get another's laptop.
+## What happened afterwards
 
-Well, I started speaking. I didn't want to take up more time and delay the program. So I talked about the problem, about my solution and about my app. I had this cool demo planned where I would call up someone from the audience and will send them a hi over Whatsapp without having to save their contact information, but couldn't do it without being able to present. Still I talked and shared my idea. I had a bit.ly link which I asked everyone to enter to see a demo and url of github repo so that people could check out the project later as well.
+The reaction surprised me. Before I'd even left the hall, three people had come up to ask whether I could ship an iOS version. I had to explain that the project was built in Flutter and I didn't have a Mac at the time to compile and sign the iOS build.
 
-## Afterwords
+That moment is when I understood something about giving a talk that you can't really get from shipping code into a repository. People learn about your project, give you feedback in real time, and tell you — to your face — whether the problem you solved actually mattered to them. It's a much faster signal than waiting on GitHub stars.
 
-Right after I finished the talk and went to sit, a guy near me asked if I could make something similar for iOS as well to which I had to reply by saying that I'm not having a macBook at present to compile and build for iOS even though I used Flutter to build the project.
+## Final thoughts
 
-Before I even left the hall, 3 people came near me and asked if I could build for iOS as well. I mean this is something magical about giving a talk I think. People know about your project and you get feedback instantly! I was happy to realize that the problem I solved was worthwhile and that many people found the solution good enough to be used!
+Speaking at a conference of this scale was a different kind of experience entirely. I went in expecting to deliver a clean demo and instead delivered an unscheduled lesson in resilience. The slides didn't survive contact with the projector, but the idea did, and that turned out to be the part that mattered.
 
-### Final Thoughts
+If you're considering submitting to a community-organised FOSS conference for the first time: do it. The selection process is open, the audience is generous, and the worst that can happen — your laptop doesn't connect — is the kind of thing you'll be writing about years later anyway.
 
-This was the first time I was speaking at such a large conference and it certainly gave a whole different feel. While I was sad that I couldn't demo the presentation, I was happy that this would lead more people to benefit from my project.✨
+---
 
-EDIT: Whatsapp recently introduced a click to chat feature recently which would replicate the functionality of my app. You just have to paste an unsaved number to some chat and then click it again within whatsapp to take you to the whatsapp chat of that person.
+**EDIT (post-publication):** WhatsApp has since introduced a click-to-chat feature that replicates the core functionality of this app — paste an unsaved number into any chat, click it, and you're taken to a WhatsApp conversation with that number. The problem the project was built to solve has now been solved upstream by WhatsApp itself, which is, in its own way, the best outcome an open-source side project can hope for.
