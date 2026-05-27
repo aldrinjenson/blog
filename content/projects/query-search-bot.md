@@ -1,5 +1,6 @@
 ---
 title: "Query Search Bot"
+weight: 60
 date: 2021-10-24T19:25:18+05:30
 draft: false
 description: "A telegram bot I made to make the internet queries directly from telegram"

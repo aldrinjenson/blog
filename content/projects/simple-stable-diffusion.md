@@ -1,5 +1,6 @@
 ---
 title: "Custom Stable Diffusion; uncensored, but without NSFW 🙂 "
+weight: 20
 date: 2023-07-23T19:25:18+05:30
 draft: true
 description: "How a Stable Diffusion project I created was used for NSFW purposes by the public and finally had to rewrite cuz it was hosted in College server🙂"

@@ -1,5 +1,6 @@
 ---
 title: "Sending Whatsapp messages without saving contact"
+weight: 70
 # date: 2022-6-23T19:25:18+05:30
 draft: false
 description: "An app I built to make the sharing of digital assets as easy and accessible as possible"

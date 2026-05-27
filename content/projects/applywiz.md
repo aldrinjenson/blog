@@ -1,6 +1,7 @@
 ---
 title: "ApplyWiz — auto-applying to LinkedIn Easy Apply jobs while you watch"
-date: 2026-05-26T21:00:00-04:00
+weight: 999
+date: 2023-08-17T12:00:00-04:00
 draft: false
 description: "The story of ApplyWiz — a Chrome extension that automated LinkedIn's Easy Apply flow end to end. A Manifest-V3 automation engine, a Next.js + Stripe + Supabase web app, and a lot of DOM choreography to make an undocumented, ever-shifting modal behave deterministically. Launched on Product Hunt in Aug 2023."
 tags: ["tech", "typescript", "chrome-extension", "automation", "web-scraping", "nextjs", "supabase", "stripe", "side-project", "launch"]

@@ -1,5 +1,6 @@
 ---
 title: "Moodle Automation"
+weight: 50
 date: 2022-01-19T19:25:18+05:30
 draft: false
 description: "NodeJs program to automate the attendance marking in Moodle Classroom "

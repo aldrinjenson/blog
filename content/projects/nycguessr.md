@@ -1,5 +1,6 @@
 ---
 title: "NYCGuessr — GeoGuessr with 960 live NYC traffic cameras"
+weight: 10
 date: 2026-04-19T21:00:00-04:00
 draft: false
 description: "Built a GeoGuessr-style game using NYC DOT's 960 live traffic camera feeds. Shipped in an evening, got removed from r/nyc despite 77 upvotes, found a silent geo-block bug thanks to a friend in India, and learned a lot about distribution along the way."
