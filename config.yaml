@@ -27,11 +27,16 @@ menu:
       title: Projects
       url: /projects/
       weight: 2
+    - identifier: travel
+      name: Travel
+      title: Travel
+      url: /travel/
+      weight: 3
     - identifier: til
       name: TIL
       title: Today I Learned
       url: https://til.aldrinjenson.com/
-      weight: 3
+      weight: 4
     # - identifier: Talks
     #   name: Talks
     #   title: Talks
