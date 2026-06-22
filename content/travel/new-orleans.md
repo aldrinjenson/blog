@@ -43,7 +43,7 @@ For lunch (well, late lunch) I ate at **Napoleon House**, a roughly 200-year-old
 
 ### Preservation Hall
 
-The evening was the surprise of the day. I went to a set at **Preservation Hall** — $28 for a standing ticket, about 45 minutes — with basically no idea what to expect. I'm not someone who knows jazz. But it was *wonderful*. At one point I closed my eyes and just listened to the instruments chime in one by one: a big upright bass, a keyboard, and three wind instruments — clarinet, trombone, and one more — carrying the melody between them. Totally worth it.
+The evening was the surprise of the day. I went to a set at **Preservation Hall** — $28 for a standing ticket, about 45 minutes — with basically no idea what to expect. I'm not someone who knows jazz. But it was *wonderful*. At one point I closed my eyes and just listened to the instruments chime in one by one: a big upright bass, a keyboard, and three wind instruments — clarinet, trombone, and one more — carrying the melody between them. Totally worth it. (I had no cash on me to tip the band that night — so I came back on Sunday, when I had some, and dropped a bit in.)
 
 <img src="/images/new-orleans/preservation-hall-exterior.jpg" width=700 alt="The weathered exterior of Preservation Hall in the French Quarter, a crowd gathered outside under a mural reading 'KEEP YOUR HEAD UP'">
 
@@ -136,15 +136,17 @@ If there's one thing that defines New Orleans more than the food or the history,
 
 *Street jazz in the French Quarter — this kind of thing is happening on half the corners.*
 
-## A city built by immigrants
+## By the river
 
-Down by the river I came across the **Monument to the Immigrant** — a marble statue of a family stepping off the boat, dedicated in 1995 by the Italian American Marching Club. It stuck with me more than I expected.
+It was down on the bank of the **Mississippi** that I came across the **Monument to the Immigrant** — a white marble statue of a family stepping off the boat, dedicated in 1995 by the Italian American Marching Club. It stuck with me more than I expected.
 
 <img src="/images/new-orleans/immigrant-monument.png" width=700 alt="The Monument to the Immigrant in New Orleans — a white marble statue of an immigrant family on a pedestal beside the Mississippi River">
 
 *The Monument to the Immigrant, on the bank of the Mississippi.*
 
-So much of what's interesting about America was built by people who came from somewhere else. Here it was the **French and the Spanish**, and then the **Sicilian Italians** who arrived later for work. Standing in front of that monument, I realised it rhymed with two places I'd visited recently back in New York — the **[Museum at Eldridge Street](https://www.eldridgestreet.org/)**, a beautifully restored synagogue that tells the story of Jewish immigration, and the **Tenement Museum** on the Lower East Side, where Italian and Jewish families were packed into a single building. Finding the same story of arrival here, at the other end of the country, drove home how much of America is really just that: a story of people who left somewhere and showed up to build something new.
+It got me thinking about how much of America is a story of people arriving from somewhere else — though it's worth being precise about *who*. The **French and Spanish** who founded and ruled New Orleans in the 1700s were really **colonists**, establishing colonial rule rather than immigrating to a country that already existed. Much of the city was then physically **built by enslaved Africans**, brought here by force — not immigrants in any sense, but central to what the place became. It was only later, in the 1800s, that the genuine waves of **immigrants** — Sicilian Italians, Irish, Germans — arrived through the port to settle and work. That last wave is what the Monument to the Immigrant honours, and it's what rhymed with two places I'd visited recently back in New York: the **[Museum at Eldridge Street](https://www.eldridgestreet.org/)**, a beautifully restored synagogue that tells the story of Jewish immigration, and the **Tenement Museum** on the Lower East Side, where Italian and Jewish families were packed into a single building. Different city, same story of arrival.
+
+The river itself is worth a pause. The Mississippi is a mighty thing to stand beside, even if it's not the cleanest water you'll ever see — one of my guides told me flatly that you can't swim in it. He talked about the city's endless fight with water: New Orleans sits low and floods easily, so the river is held back by **levees** (the raised embankments built up along the banks), and about **Hurricane Katrina** in 2005, when those defences failed and much of the city went under. It's a reminder that this lovely place lives in a slightly precarious truce with the water around it.
 
 ## The food
 
@@ -185,7 +187,7 @@ For anyone planning their own New Orleans weekend:
 
 **Where I stayed.** The **Arts / Warehouse District** — walkable to both the French Quarter and the WWII Museum, and quieter than staying right on Bourbon Street.
 
-**Carry cash.** I lost a beignet run and couldn't tip a couple of times because I only had cards. Lots of the small, good experiences here run smoother with cash on hand.
+**Carry cash.** A few things here are effectively cash-only — I got caught out with only cards and had to come back the next day for my Café du Monde beignets and to tip the Preservation Hall band. Bring some cash and you won't have to backtrack.
 
 **Eat real meals.** The food is half the reason to come — don't try to power through the day on snacks like I did.
 
@@ -201,7 +203,3 @@ For anyone planning their own New Orleans weekend:
 **Getting around.** The French Quarter is very walkable. The **St. Charles Avenue streetcar** is both transport and an attraction — take it out to the **Garden District**.
 
 **Don't miss:** Café du Monde beignets (the Jackson Square stand runs ~24h), St. Louis Cathedral on Jackson Square, and a Garden District walk.
-
----
-
-*This is the first post in a new travel section of the blog — I'm planning to write up the places I've been across the US, India and beyond. If you've got a New Orleans recommendation I missed, I'd love to hear it.*
