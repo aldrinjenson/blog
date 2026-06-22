@@ -22,7 +22,7 @@ This is how it went, what I ate, and the things I learned along the way — incl
 
 I almost missed my flight (a story for another day), but I made it, and by early afternoon I was walking from my hotel toward the French Quarter. The first thing New Orleans gives you in June is **the humidity**. I was sweating within minutes of stepping outside — it was somewhere around a 110°F "feels-like" with a heat advisory in effect. The first thing I bought in the city was a **straw hat**.
 
-The Quarter itself is wonderful to walk through. It reminded me, oddly, a little of Bangalore at first, and then it settled into something more Caribbean — colour everywhere, wrought-iron balconies, people out eating and laughing and putting on a show. It's a place that wears its character openly.
+The Quarter itself is wonderful to walk through. It reminded me, oddly, a little of Bangalore at first, and then it settled into something more Caribbean — colour everywhere, wrought-iron balconies, people out eating and laughing and putting on a show. It's a place that wears its character openly. Bordering the Quarter is **Canal Street**, the wide downtown boulevard, where I was amused to spot a **Caesars casino** — the same brand I'd walked past in Las Vegas only the month before.
 
 I stayed in the **Arts / Warehouse District**, a short walk from the Quarter and, as it happened, right near the museum that would become the highlight of the trip.
 
@@ -39,7 +39,7 @@ I'd booked a **walking history tour of the French Quarter** for the afternoon. H
 
 *St. Louis Cathedral, framed by Jackson Square and the Andrew Jackson statue. It was closed by the time my tour finished on Friday — I'd have to come back for it.*
 
-For lunch (well, late lunch) I ate at **Napoleon House**, a roughly 200-year-old landmark, where I had Creole **jambalaya** and tried their famous **muffuletta**. More on the food below — there's a lot of it.
+For lunch (well, late lunch) I ate at **Napoleon House**, a roughly 200-year-old landmark, where I had Creole **jambalaya**. More on the food below — there's a lot of it.
 
 ### Preservation Hall
 
@@ -109,7 +109,7 @@ My last morning was deliberately unhurried. I left the hotel late, wandered back
 
 *Inside St. Louis Cathedral during Sunday Mass. The flags down the nave represent the nations whose flags once flew over New Orleans — France, Spain, Britain and the US among them.*
 
-Then the part of the day I'd most been looking forward to: **breakfast at Café du Monde**. I'd actually tried to go on Friday and been defeated by not carrying cash (a recurring theme — more on that below), but the main Jackson Square stand runs basically around the clock, so I came back for it. **Beignets and a café au lait** — powdered sugar everywhere, exactly as advertised. I wandered the **French Market** alongside it.
+Then the part of the day I'd most been looking forward to: **breakfast at Café du Monde**. I'd actually tried to go on Friday and been defeated by not carrying cash (a recurring theme — more on that below), but the main Jackson Square stand runs basically around the clock, so I came back for it. **Beignets and a café au lait** — powdered sugar everywhere, exactly as advertised. They were fine, honestly — pleasant rather than mind-blowing — but it's one of those things you do for the ritual as much as the pastry. I wandered the **French Market** alongside it.
 
 <img src="/images/new-orleans/cafe-du-monde-beignets.jpg" width=700 alt="A plate of beignets dusted with powdered sugar and a café au lait at Café du Monde, New Orleans">
 
@@ -153,12 +153,12 @@ The river itself is worth a pause. The Mississippi is a mighty thing to stand be
 New Orleans food deserves its own section. Over three days I worked my way through most of the classics:
 
 - **Jambalaya** — a rice dish with meat cooked in; mine was Creole-style at Napoleon House. Hearty, a little sweet.
-- **Muffuletta** — the famous New Orleans sandwich, stacked with cured meats, cheese and olive salad. Napoleon House is one of the landmark spots for it.
+- **Muffuletta** — the famous New Orleans sandwich, stacked with cured meats, cheese and an olive salad. I had mine at **Café Beignet** on Canal Street.
 - **Gumbo** — a thick stew over rice; I had a bowl with a chicory coffee.
 - **Fried alligator** — yes, really, at Cochon. Tastes a bit like firm chicken.
 - **Wood-fired oysters** — also at Cochon, smoky and rich.
 - **Cochon** — the slow-cooked pork dish the restaurant is named after, with cracklins.
-- **Beignets and café au lait** at Café du Monde — the sweet finale.
+- **Beignets and café au lait** at Café du Monde — the iconic finale. I'll be honest: the beignets were *okay*, pleasant rather than a revelation. The ritual is half the point.
 - **Chicory coffee** — the local style, coffee cut with roasted chicory root; worth trying at least once.
 
 <img src="/images/new-orleans/nola-food.jpg" width=700 alt="Three scoops of New Orleans jambalaya — rice cooked with meat — served with crusty bread and a pat of butter">
@@ -171,7 +171,7 @@ Honestly, it was a good trip and I'm glad I went. It was humid, and I walked a *
 
 The people were what I remember most. Every guide I had — the French Quarter history walk, the Garden District tour, the swamp tour — was warm and genuinely good company. That's not a given, and it coloured the whole trip.
 
-One small surprise: it wasn't cheap. I'd assumed a Southern city would be a fair bit cheaper than New York, and it really wasn't — not by much. But the things worth doing were worth the money. If I were advising someone, I'd say **skip the big riverboat cruise and do the swamp tour instead**, and **spend an evening at Preservation Hall for the jazz** — those were the right calls. And just sitting by the water for a while was lovely in its own quiet way.
+On cost: it was a little cheaper than New York, but not by as much as I'd expected. I'd assumed a Southern city would be a fair bit easier on the wallet, and it was only marginally so. Still, the things worth doing were worth the money. If I were advising someone, I'd say **skip the big riverboat cruise and do the swamp tour instead**, and **spend an evening at Preservation Hall for the jazz** — those were the right calls. And just sitting by the water for a while was lovely in its own quiet way.
 
 The best thing, by some distance, was the **National WWII Museum**. I came away having genuinely learned — about the war, and about the French and Spanish layers of the city's own history. That's exactly what I want from travel: to come home knowing more than I did, and to have it stick.
 
