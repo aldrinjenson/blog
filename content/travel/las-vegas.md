@@ -63,7 +63,7 @@ And then you see it.
 
 <img src="/images/las-vegas/grand-canyon-rim-me.jpg" width=700 alt="Aldrin standing on the rocks at the Grand Canyon's edge, arms spread wide, silhouetted against the rising sun">
 
-*Sunrise at the rim. I stood there with my arms out like an idiot because that's genuinely how it makes you feel.* The single thought that struck me, standing there, was just: **it was so big.** Pictures genuinely don't prepare you for the scale. It was majestic in a way I wasn't ready for — I felt like I **could sit there and stare at it for hours.** Standing at the edge I said a very small, quiet prayer — just *"this is impressive, and thank you for showing me this."* It felt like the right response to something that big.
+*Sunrise at the rim. I stood there with my arms out because that's genuinely how it makes you feel.* The single thought that struck me, standing there, was just: **it was so big.** Pictures genuinely don't prepare you for the scale. It was majestic in a way I wasn't ready for — I felt like I **could sit there and stare at it for hours.** Standing at the edge I said a very small, quiet prayer — just *"this is impressive, and thank you for showing me this."* It felt like the right response to something that big.
 
 The one thing I'd change: **time.** The tour had a lot of ground to cover, so I got maybe **ten or twelve minutes at the rim** before it was time for the group photos and back to the van. I left wanting much more, and I have a real feeling I'll **come back someday and spend a proper amount of time there.** If the Grand Canyon portion had been twice as long, the trip would have been perfect.
 
