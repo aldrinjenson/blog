@@ -2,21 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Github-Action on Aldrin Jenson</title>
-    <link>//localhost:1313/tags/github-action/</link>
+    <link>http://localhost:1313/tags/github-action/</link>
     <description>Aldrin Jenson (Github-Action)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>aldrinjenson@gmail.com (Aldrin Jenson)</managingEditor>
+    <webMaster>aldrinjenson@gmail.com (Aldrin Jenson)</webMaster>
     <lastBuildDate>Wed, 20 Sep 2023 14:42:38 +0530</lastBuildDate>
     
-    <atom:link href="//localhost:1313/tags/github-action/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/github-action/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Github release workflow for Rust projects</title>
-      <link>//localhost:1313/posts/gh-action-for-rust-build/</link>
+      <link>http://localhost:1313/posts/gh-action-for-rust-build/</link>
       <pubDate>Wed, 20 Sep 2023 14:42:38 +0530</pubDate>
-      
-      <guid>//localhost:1313/posts/gh-action-for-rust-build/</guid>
+      <author>aldrinjenson@gmail.com (Aldrin Jenson)</author>
+      <guid>http://localhost:1313/posts/gh-action-for-rust-build/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;This is a github workflow I wrote for Parsable&amp;rsquo;s release system&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Release builds for Mac(64bit, Arm), Windows and Linux(64 bit, Arm)&lt;/span&gt;

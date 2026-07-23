@@ -1,22 +1,43 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Personal on Aldrin Jenson</title><link>/categories/personal/</link><description>Aldrin Jenson (Personal)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 31 Mar 2026 18:00:00 -0400</lastBuildDate><atom:link href="/categories/personal/index.xml" rel="self" type="application/rss+xml"/><item><title>A day at IBM in New York</title><link>/posts/ibm-customer-advisory-board-nyc/</link><pubDate>Tue, 31 Mar 2026 18:00:00 -0400</pubDate><guid>/posts/ibm-customer-advisory-board-nyc/</guid><description>&lt;center&gt;
-&lt;image src="/images/ibm-cab/cab-sign-full.jpg" alt="Outside IBM HQ in NYC"/&gt;
-&lt;p class='caption'&gt;IBM HQ, NYC — March 31, 2026&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Personal on Aldrin Jenson</title>
+    <link>/categories/personal/</link>
+    <description>Aldrin Jenson (Personal)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>aldrinjenson@gmail.com (Aldrin Jenson)</managingEditor>
+    <webMaster>aldrinjenson@gmail.com (Aldrin Jenson)</webMaster>
+    <lastBuildDate>Tue, 31 Mar 2026 18:00:00 -0400</lastBuildDate>
+    
+    <atom:link href="/categories/personal/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A day at IBM in New York</title>
+      <link>/posts/ibm-customer-advisory-board-nyc/</link>
+      <pubDate>Tue, 31 Mar 2026 18:00:00 -0400</pubDate>
+      <author>aldrinjenson@gmail.com (Aldrin Jenson)</author>
+      <guid>/posts/ibm-customer-advisory-board-nyc/</guid>
+      <description>&lt;center&gt;
+  &lt;image src=&#34;/images/ibm-cab/cab-sign-full.jpg&#34; alt=&#34;Outside IBM HQ in NYC&#34;/&gt;
+  &lt;p class=&#39;caption&#39;&gt;IBM HQ, NYC — March 31, 2026&lt;/p&gt;
 &lt;/center&gt;
-&lt;h2 id="a-small-note-before-i-begin"&gt;A small note before I begin&lt;/h2&gt;
+&lt;h2 id=&#34;a-small-note-before-i-begin&#34;&gt;A small note before I begin&lt;/h2&gt;
 &lt;p&gt;This is a personal reflection, not a recap. I&amp;rsquo;m deliberately not writing about the sessions, the content, or the specifics of what was discussed — those belong to their owners, not to me. Think of this as a journal entry from a day that meant something, not a newsletter about the day&amp;rsquo;s substance.&lt;/p&gt;
-&lt;h2 id="how-i-got-here"&gt;How I got here&lt;/h2&gt;
-&lt;p&gt;About two years ago I was a fresh graduate from Model Engineering College in Kerala, writing far too many late-night side projects, organizing hackathons with my friends, and giving FOSS talks in college auditoriums. The company I work at now, &lt;a href="https://athenaintelligence.ai/"&gt;Athena Intelligence&lt;/a&gt;, didn&amp;rsquo;t really exist for me yet. The skyline of New York existed only in YouTube vlogs.&lt;/p&gt;
+&lt;h2 id=&#34;how-i-got-here&#34;&gt;How I got here&lt;/h2&gt;
+&lt;p&gt;About two years ago I was a fresh graduate from Model Engineering College in Kerala, writing far too many late-night side projects, organizing hackathons with my friends, and giving FOSS talks in college auditoriums. The company I work at now, &lt;a href=&#34;https://athenaintelligence.ai/&#34;&gt;Athena Intelligence&lt;/a&gt;, didn&amp;rsquo;t really exist for me yet. The skyline of New York existed only in YouTube vlogs.&lt;/p&gt;
 &lt;p&gt;On March 31st, I spent the day at IBM in New York representing Athena. It&amp;rsquo;s hard to express how far that sentence would&amp;rsquo;ve been from plausible, even two years ago.&lt;/p&gt;
-&lt;p&gt;The building is at &lt;a href="https://www.onemadison.com/"&gt;One Madison Avenue&lt;/a&gt; — the Flatiron district, right across from the old Met Life Clocktower. The lobby is all polished stone and sharp angles; the elevators are so quiet they feel architectural. I went up the escalator to the 10th floor with a visitor badge clipped to my jacket, took the turn they told me to take, and suddenly I was in a room with twenty-something enterprise leaders.&lt;/p&gt;
+&lt;p&gt;The building is at &lt;a href=&#34;https://www.onemadison.com/&#34;&gt;One Madison Avenue&lt;/a&gt; — the Flatiron district, right across from the old Met Life Clocktower. The lobby is all polished stone and sharp angles; the elevators are so quiet they feel architectural. I went up the escalator to the 10th floor with a visitor badge clipped to my jacket, took the turn they told me to take, and suddenly I was in a room with twenty-something enterprise leaders.&lt;/p&gt;
 &lt;p&gt;I was genuinely nervous.&lt;/p&gt;
-&lt;h2 id="the-moleskine-moment"&gt;The Moleskine moment&lt;/h2&gt;
+&lt;h2 id=&#34;the-moleskine-moment&#34;&gt;The Moleskine moment&lt;/h2&gt;
 &lt;p&gt;I arrived early. Found my name on the table. Sat down. Briefly stared.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Aldrin Jenson · Athena Intelligence.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;I wasn&amp;rsquo;t prepared to be affected by something as small as seeing my name on a printed placeholder. But I was. For a few seconds it felt strangely weighty — &lt;em&gt;this is the job, this is the life, you are the person holding this seat today, whether or not the voice in your head agrees.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;I didn&amp;rsquo;t say anything. I just breathed and opened the Moleskine they&amp;rsquo;d left at each seat.&lt;/p&gt;
 &lt;p&gt;I took more notes that day than I did in all of my final year of college combined. Not necessarily because the content was transformative — I can&amp;rsquo;t talk about that anyway — but because the writing itself was a way to stay present. Every time the imposter voice showed up, I just wrote another line. The Moleskine was armour.&lt;/p&gt;
-&lt;h2 id="what-i-was-thinking-about"&gt;What I was thinking about&lt;/h2&gt;
-&lt;p&gt;In quiet moments between conversations, I kept coming back to the same question I&amp;rsquo;ve been sitting with at &lt;a href="https://athenaintelligence.ai/"&gt;Athena&lt;/a&gt; for a while now: &lt;em&gt;what do enterprises actually want from AI right now?&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;what-i-was-thinking-about&#34;&gt;What I was thinking about&lt;/h2&gt;
+&lt;p&gt;In quiet moments between conversations, I kept coming back to the same question I&amp;rsquo;ve been sitting with at &lt;a href=&#34;https://athenaintelligence.ai/&#34;&gt;Athena&lt;/a&gt; for a while now: &lt;em&gt;what do enterprises actually want from AI right now?&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;My honest answer, from what I see every day in our customer conversations:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;They don&amp;rsquo;t want more tooling.&lt;/strong&gt; They want fewer surfaces that do more. The CTO who gave me the clearest articulation of this at Athena said: &lt;em&gt;&amp;ldquo;I have ten AI vendors. I don&amp;rsquo;t need an eleventh. I need one of them to actually work.&amp;rdquo;&lt;/em&gt;&lt;/li&gt;
@@ -24,16 +45,16 @@
 &lt;li&gt;&lt;strong&gt;They don&amp;rsquo;t want autonomy.&lt;/strong&gt; They want accountability. Autonomy without accountability is a liability. The interesting design problem is giving agents real latitude while keeping the audit trail a human can actually reason about.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;None of this is radical. It&amp;rsquo;s just the stuff I see every week. It was interesting to sit in a room where versions of the same questions were being asked at much bigger scale than Athena&amp;rsquo;s customer base.&lt;/p&gt;
-&lt;h2 id="talking-about-athena"&gt;Talking about Athena&lt;/h2&gt;
-&lt;p&gt;I didn&amp;rsquo;t do a live demo, but I got to talk about what we&amp;rsquo;re building in several smaller conversations. The piece I came back to most often was our &lt;strong&gt;spreadsheet agent&lt;/strong&gt; — the part of &lt;a href="https://athenaintelligence.ai/"&gt;Athena&lt;/a&gt; that writes real formulas, respects existing formatting, and produces multiple document artifacts from a single input.&lt;/p&gt;
+&lt;h2 id=&#34;talking-about-athena&#34;&gt;Talking about Athena&lt;/h2&gt;
+&lt;p&gt;I didn&amp;rsquo;t do a live demo, but I got to talk about what we&amp;rsquo;re building in several smaller conversations. The piece I came back to most often was our &lt;strong&gt;spreadsheet agent&lt;/strong&gt; — the part of &lt;a href=&#34;https://athenaintelligence.ai/&#34;&gt;Athena&lt;/a&gt; that writes real formulas, respects existing formatting, and produces multiple document artifacts from a single input.&lt;/p&gt;
 &lt;p&gt;The shape that seemed to land in every conversation:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;Describe what you need in one place. Let the agent produce the five artifacts downstream.&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;That framing is the whole bet, in a sentence. Instead of humans producing a spreadsheet → humans producing a slide → humans producing a memo → humans reconciling all three, the humans describe the intent once and the agent emits the consistent set of downstream outputs. It sounds small. It isn&amp;rsquo;t. Ask any CFO team how much time they spend reconciling four versions of the same number.&lt;/p&gt;
-&lt;p&gt;I also mentioned our &lt;a href="https://twitter.com/BrendonGeils/status/1886253538663387550"&gt;multi-agent analyst system&lt;/a&gt; — coordinated LLM-based agents working in parallel on analytical workflows around the clock. That&amp;rsquo;s the product I&amp;rsquo;ve spent most of the past year on. It&amp;rsquo;s public, it&amp;rsquo;s been demoed on Twitter, and it&amp;rsquo;s been publicly endorsed by &lt;a href="https://assistant-ui.com/"&gt;AssistantUI&lt;/a&gt; — but saying it to someone face-to-face in a room like that one has a different quality than posting about it.&lt;/p&gt;
+&lt;p&gt;I also mentioned our &lt;a href=&#34;https://twitter.com/BrendonGeils/status/1886253538663387550&#34;&gt;multi-agent analyst system&lt;/a&gt; — coordinated LLM-based agents working in parallel on analytical workflows around the clock. That&amp;rsquo;s the product I&amp;rsquo;ve spent most of the past year on. It&amp;rsquo;s public, it&amp;rsquo;s been demoed on Twitter, and it&amp;rsquo;s been publicly endorsed by &lt;a href=&#34;https://assistant-ui.com/&#34;&gt;AssistantUI&lt;/a&gt; — but saying it to someone face-to-face in a room like that one has a different quality than posting about it.&lt;/p&gt;
 &lt;p&gt;I had the quiet thought: &lt;em&gt;the product you made. The product other companies are paying for. You are the one representing it today.&lt;/em&gt; That&amp;rsquo;s a small sentence that takes years to earn the right to think about yourself.&lt;/p&gt;
-&lt;h2 id="going-solo"&gt;Going solo&lt;/h2&gt;
+&lt;h2 id=&#34;going-solo&#34;&gt;Going solo&lt;/h2&gt;
 &lt;p&gt;The most unexpected thing wasn&amp;rsquo;t the content — it was the feeling. Walking in alone, as the only Athena person in the room. Realizing for one full day that &amp;ldquo;the company&amp;rdquo; in the room was me.&lt;/p&gt;
 &lt;p&gt;A few times, someone asked me a question I couldn&amp;rsquo;t answer. I said:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -43,50 +64,63 @@
 &lt;p&gt;I think the biggest internal shift for me during the day wasn&amp;rsquo;t about IBM, or Athena, or the market. It was noticing that the difference between me in that room and the more senior people around me was almost entirely &lt;strong&gt;composure&lt;/strong&gt; — not capability. Capability they had, but so did I (for the things in my lane). What they had more of was the &lt;em&gt;willingness to not pretend&lt;/em&gt;. To say &amp;ldquo;I don&amp;rsquo;t know&amp;rdquo; without panicking. To ask a dumb-sounding question that turned out to be the exact right one.&lt;/p&gt;
 &lt;p&gt;That&amp;rsquo;s the real senior move, I think. Not knowing more. Being okay with not knowing.&lt;/p&gt;
 &lt;center&gt;
-&lt;image src="/images/ibm-cab/cab-sign-selfie.jpg" alt="Quiet selfie in the IBM lobby"/&gt;
-&lt;p class='caption'&gt;Small quiet moment of "okay, this is actually happening."&lt;/p&gt;
+  &lt;image src=&#34;/images/ibm-cab/cab-sign-selfie.jpg&#34; alt=&#34;Quiet selfie in the IBM lobby&#34;/&gt;
+  &lt;p class=&#39;caption&#39;&gt;Small quiet moment of &#34;okay, this is actually happening.&#34;&lt;/p&gt;
 &lt;/center&gt;
-&lt;h2 id="meeting-chad"&gt;Meeting Chad&lt;/h2&gt;
+&lt;h2 id=&#34;meeting-chad&#34;&gt;Meeting Chad&lt;/h2&gt;
 &lt;center&gt;
-&lt;image src="/images/ibm-cab/cab-with-chad.jpg" alt="With Chad Jennings"/&gt;
-&lt;p class='caption'&gt;With Chad Jennings — warm, generous, and very good at making a first-timer feel less like a first-timer.&lt;/p&gt;
+  &lt;image src=&#34;/images/ibm-cab/cab-with-chad.jpg&#34; alt=&#34;With Chad Jennings&#34;/&gt;
+  &lt;p class=&#39;caption&#39;&gt;With Chad Jennings — warm, generous, and very good at making a first-timer feel less like a first-timer.&lt;/p&gt;
 &lt;/center&gt;
 &lt;p&gt;One of the quiet highlights of the day was finally meeting &lt;strong&gt;Chad Jennings&lt;/strong&gt; in person. Chad was generous with his time, thoughtful in his questions, and made it easy for me to stop being nervous. I don&amp;rsquo;t remember much of what I &lt;em&gt;said&lt;/em&gt; in those few minutes, but I remember the feeling of &lt;em&gt;being listened to carefully by someone who didn&amp;rsquo;t need to&lt;/em&gt;. That&amp;rsquo;s a small thing and also a large thing.&lt;/p&gt;
-&lt;h2 id="the-walk-home"&gt;The walk home&lt;/h2&gt;
-&lt;p&gt;We ended the day with a team dinner at the &lt;a href="https://www.theclocktowernyc.com/"&gt;Clocktower&lt;/a&gt; — a beautiful restaurant inside the old Met Life tower, right across from the IBM building. I watched the sun set over Madison Square Park, listened to conversations about markets and models and mortgages in no particular order, and quietly realized I wasn&amp;rsquo;t as nervous as I&amp;rsquo;d been in the morning.&lt;/p&gt;
+&lt;h2 id=&#34;the-walk-home&#34;&gt;The walk home&lt;/h2&gt;
+&lt;p&gt;We ended the day with a team dinner at the &lt;a href=&#34;https://www.theclocktowernyc.com/&#34;&gt;Clocktower&lt;/a&gt; — a beautiful restaurant inside the old Met Life tower, right across from the IBM building. I watched the sun set over Madison Square Park, listened to conversations about markets and models and mortgages in no particular order, and quietly realized I wasn&amp;rsquo;t as nervous as I&amp;rsquo;d been in the morning.&lt;/p&gt;
 &lt;p&gt;The walk back to my apartment afterwards was slow. NYC in early April is cold enough to notice but mild enough that you don&amp;rsquo;t mind walking. I had the kind of quiet that comes after something you were dreading turned out to be good.&lt;/p&gt;
-&lt;h2 id="afterthoughts"&gt;Afterthoughts&lt;/h2&gt;
+&lt;h2 id=&#34;afterthoughts&#34;&gt;Afterthoughts&lt;/h2&gt;
 &lt;p&gt;A few things I was sitting with:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Showing up is most of it.&lt;/strong&gt; I nearly let imposter anxiety talk me out of being fully present. I&amp;rsquo;m glad I didn&amp;rsquo;t. You learn more in one day of being in a room than in six months of reading about what happens in the room.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;My job is a privilege.&lt;/strong&gt; Not every early-career engineer gets to represent a company at a place like this. I want to remember that instead of only the stress of it. There&amp;rsquo;s a version of me from two years ago who would&amp;rsquo;ve given anything to sit in that chair, and I owe him the gratitude.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Capability is the floor; composure is the ceiling.&lt;/strong&gt; Technical skill gets you in the room. What gets you &lt;em&gt;useful&lt;/em&gt; in the room is the willingness to be honest about what you don&amp;rsquo;t know and keep listening anyway.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Gratitude to IBM&lt;/strong&gt; for the generous welcome — and to &lt;a href="https://x.com/BrendonGeils"&gt;Brendon&lt;/a&gt; and the rest of the Athena team for the trust. It matters more than I&amp;rsquo;d say out loud.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gratitude to IBM&lt;/strong&gt; for the generous welcome — and to &lt;a href=&#34;https://x.com/BrendonGeils&#34;&gt;Brendon&lt;/a&gt; and the rest of the Athena team for the trust. It matters more than I&amp;rsquo;d say out loud.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;That&amp;rsquo;s the post. No hot takes, no listicle of insights. Just a good day in New York I wanted to remember.&lt;/p&gt;</description></item><item><title>I gave a talk at an international conference and Murphy's law sucks!</title><link>/posts/i-gave-a-talk/</link><pubDate>Tue, 26 Jul 2022 19:09:07 +0530</pubDate><guid>/posts/i-gave-a-talk/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;I got an opportunity to do a Flash-Talk for IndiaFoss conference held in Bangalore on 23-24 July 2022 and boy, &lt;a href="https://en.wikipedia.org/wiki/Murphy's_law"&gt;Murphy&amp;rsquo;s law&lt;/a&gt; messed up my presentation!&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s the post. No hot takes, no listicle of insights. Just a good day in New York I wanted to remember.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Speaking at IndiaFOSS 2.0 — and how Murphy&#39;s Law made it interesting</title>
+      <link>/posts/i-gave-a-talk/</link>
+      <pubDate>Tue, 26 Jul 2022 19:09:07 +0530</pubDate>
+      <author>aldrinjenson@gmail.com (Aldrin Jenson)</author>
+      <guid>/posts/i-gave-a-talk/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;I was selected to deliver a Flash Talk at &lt;strong&gt;IndiaFOSS 2.0&lt;/strong&gt;, held on &lt;strong&gt;July 23–24, 2022 at the NIMHANS Convention Centre in Bengaluru&lt;/strong&gt;. IndiaFOSS is the flagship annual Free and Open Source Software conference organised by the &lt;a href=&#34;https://fossunited.org/&#34;&gt;FOSS United Foundation&lt;/a&gt;, and the 2.0 edition received approximately 122 talk submissions of which around 30 were selected through peer review — about a 25% acceptance rate. This was my first time speaking at a conference of this scale, and as it turned out, &lt;a href=&#34;https://en.wikipedia.org/wiki/Murphy&#39;s_law&#34;&gt;Murphy&amp;rsquo;s Law&lt;/a&gt; had plans of its own.&lt;/p&gt;
 &lt;center&gt;
-&lt;image src="/images/indiaFoss/indiaFossTalk.jpg" alt="My talk at IndiaFoss"/&gt;
-&lt;p class='caption'&gt;Excuse the 240p quality please!&lt;/p&gt;
+  &lt;image src=&#34;/images/indiaFoss/indiaFossTalk.jpg&#34; alt=&#34;Speaking at IndiaFOSS 2.0, NIMHANS Convention Centre, Bengaluru — July 2022&#34;/&gt;
+&lt;p class=&#39;caption&#39;&gt;On stage at IndiaFOSS 2.0, NIMHANS Convention Centre, Bengaluru. (Excuse the 240p quality!)&lt;/p&gt;
 &lt;/center&gt;
-&lt;p&gt;The topic of my talk was: &lt;strong&gt;How to make sharing of digital assets as easy and accessible as possible.&lt;/strong&gt;
-It was based on &lt;a href="/projects/whatsapp-msg-without-save/"&gt;an app I had made earlier&lt;/a&gt; to send messages by using the most common app in one&amp;rsquo;s phone - Whatsapp, without having to save anyone&amp;rsquo;s contact number.&lt;/p&gt;
-&lt;h2 id="background"&gt;Background&lt;/h2&gt;
-&lt;p&gt;I was inspired by a talk which I heard over at IndiaFoss from Akash Hamirwasia who made a web-app called &lt;a href="https://blaze.vercel.app/"&gt;Blaze&lt;/a&gt; for sending files over the internet using a website.
-His project was cool, but to me it seemed like the common man would find it a bit difficult. When I talk about the common man, I&amp;rsquo;m talking about they who doesn&amp;rsquo;t even know to open web browsers(Yes, I&amp;rsquo;ve seen people to whom when I asked to open browser, they have opened settings and searched &amp;ldquo;browser&amp;rdquo; in the settings search-bar. Just know that you are really privileged if you think such people don&amp;rsquo;t exist).&lt;/p&gt;
-&lt;p&gt;Whatsapp is the app with which people are most comfortable. If only there was a way to send files through whatsapp without having to save the contact number&amp;hellip;&lt;/p&gt;
-&lt;p&gt;Introducing my app which solves exactly this problem. It generates a wa.me link and opens it behind the scenes so as to trigger and open whatsapp chat of the person whose number has just been entered.&lt;/p&gt;
-&lt;h2 id="about-the-talk"&gt;About the talk&lt;/h2&gt;
-&lt;p&gt;So being inspired by Mr.Akash, I submitted my presentation and was selected to speak. I had been using Arch Linux for a while now and recently got a new laptop, but I was unsure if it would be able to connect to the HDMI port for the presentation. I saw others with ThinkPads easily connecting their laptops and presenting, so I thought Linux&amp;rsquo;s plug and play support would have me covered. Unfortunately, I was mistaken.&lt;/p&gt;
-&lt;p&gt;I was given slot number 8 out of the 9 available slots, but by the time it was my turn, the participants had taken up more time than allotted and the event was running behind schedule.&lt;/p&gt;
-&lt;h2 id="et-tu-arch"&gt;Et tu Arch..&lt;/h2&gt;
-&lt;p&gt;My name got called, I went up and connected my laptop to HDMI cable only to find nothing being presented🥲.&lt;/p&gt;
-&lt;p&gt;Apparently my faith in Arch linux may have been a bit too much because had I bothered to check the status during some break maybe I wouldn&amp;rsquo;t have to face the difficulty.(Well technically, I tried doing that but then another speaker beat me to it and took a long time that I had to leave.. still..).&lt;/p&gt;
-&lt;p&gt;So here I was in front of the stage with my laptop not being able to present and the schedule already really late for me to get another&amp;rsquo;s laptop.&lt;/p&gt;
-&lt;p&gt;Well, I started speaking. I didn&amp;rsquo;t want to take up more time and delay the program. So I talked about the problem, about my solution and about my app. I had this cool demo planned where I would call up someone from the audience and will send them a hi over Whatsapp without having to save their contact information, but couldn&amp;rsquo;t do it without being able to present. Still I talked and shared my idea. I had a bit.ly link which I asked everyone to enter to see a demo and url of github repo so that people could check out the project later as well.&lt;/p&gt;
-&lt;h2 id="afterwords"&gt;Afterwords&lt;/h2&gt;
-&lt;p&gt;Right after I finished the talk and went to sit, a guy near me asked if I could make something similar for iOS as well to which I had to reply by saying that I&amp;rsquo;m not having a macBook at present to compile and build for iOS even though I used Flutter to build the project.&lt;/p&gt;
-&lt;p&gt;Before I even left the hall, 3 people came near me and asked if I could build for iOS as well. I mean this is something magical about giving a talk I think. People know about your project and you get feedback instantly! I was happy to realize that the problem I solved was worthwhile and that many people found the solution good enough to be used!&lt;/p&gt;
-&lt;h3 id="final-thoughts"&gt;Final Thoughts&lt;/h3&gt;
-&lt;p&gt;This was the first time I was speaking at such a large conference and it certainly gave a whole different feel. While I was sad that I couldn&amp;rsquo;t demo the presentation, I was happy that this would lead more people to benefit from my project.✨&lt;/p&gt;
-&lt;p&gt;EDIT: Whatsapp recently introduced a click to chat feature recently which would replicate the functionality of my app. You just have to paste an unsaved number to some chat and then click it again within whatsapp to take you to the whatsapp chat of that person.&lt;/p&gt;</description></item></channel></rss>
+&lt;h2 id=&#34;the-talk&#34;&gt;The talk&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Title:&lt;/strong&gt; &lt;em&gt;How to make sharing of digital assets as easy and accessible as possible.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The talk was built around &lt;a href=&#34;/projects/whatsapp-msg-without-save/&#34;&gt;a small open-source app I had shipped earlier&lt;/a&gt; that lets you send a WhatsApp message to any phone number &lt;em&gt;without first having to save the contact&lt;/em&gt; — by generating a &lt;code&gt;wa.me&lt;/code&gt; link in the background and triggering the WhatsApp chat directly.&lt;/p&gt;
+&lt;h2 id=&#34;why-i-built-the-project&#34;&gt;Why I built the project&lt;/h2&gt;
+&lt;p&gt;The inspiration came from a previous IndiaFOSS talk by Akash Hamirwasia, who built &lt;a href=&#34;https://blaze.vercel.app/&#34;&gt;Blaze&lt;/a&gt; — a web app for sending files peer-to-peer over the internet. Blaze is a beautiful piece of engineering, but I kept thinking about the user I most wanted to reach: not the developer, not the early adopter, but the everyday person who is more comfortable inside WhatsApp than inside any web browser.&lt;/p&gt;
+&lt;p&gt;Anyone who has helped a parent or a grandparent open a browser knows what I mean. WhatsApp is the one app almost everyone in India is fluent in. So I built the smallest possible tool that meets people where they already are: enter a number, hit send, and you&amp;rsquo;re inside a WhatsApp chat — no contact saved, no friction.&lt;/p&gt;
+&lt;h2 id=&#34;and-then-arch-linux-happened&#34;&gt;And then Arch Linux happened&lt;/h2&gt;
+&lt;p&gt;I had been daily-driving Arch Linux for a while and had recently switched to a new laptop. I&amp;rsquo;d seen ThinkPad-wielding speakers connect to the projector with no fuss all morning, so I assumed Linux&amp;rsquo;s plug-and-play would have me covered. I was, in retrospect, perhaps a bit too confident.&lt;/p&gt;
+&lt;p&gt;I had been given slot 8 of 9, and by the time my name was called the schedule had slipped. I walked up, plugged in the HDMI cable, and… nothing on the projector. I&amp;rsquo;d intended to check the display setup during one of the breaks, but another speaker had grabbed the stage to test theirs and time had run out.&lt;/p&gt;
+&lt;p&gt;So there I was, in front of the room, with no slides and no demo.&lt;/p&gt;
+&lt;p&gt;I started talking anyway. I didn&amp;rsquo;t want to delay the program any further, so I described the problem, walked through the solution, and explained how the app worked — without the live demo I&amp;rsquo;d planned (the one where I&amp;rsquo;d call up someone in the audience and send them a &amp;ldquo;hi&amp;rdquo; on WhatsApp without ever saving their number). I shared a &lt;code&gt;bit.ly&lt;/code&gt; link to the demo and the GitHub repo so people could try it later.&lt;/p&gt;
+&lt;h2 id=&#34;what-happened-afterwards&#34;&gt;What happened afterwards&lt;/h2&gt;
+&lt;p&gt;The reaction surprised me. Before I&amp;rsquo;d even left the hall, three people had come up to ask whether I could ship an iOS version. I had to explain that the project was built in Flutter and I didn&amp;rsquo;t have a Mac at the time to compile and sign the iOS build.&lt;/p&gt;
+&lt;p&gt;That moment is when I understood something about giving a talk that you can&amp;rsquo;t really get from shipping code into a repository. People learn about your project, give you feedback in real time, and tell you — to your face — whether the problem you solved actually mattered to them. It&amp;rsquo;s a much faster signal than waiting on GitHub stars.&lt;/p&gt;
+&lt;h2 id=&#34;final-thoughts&#34;&gt;Final thoughts&lt;/h2&gt;
+&lt;p&gt;Speaking at a conference of this scale was a different kind of experience entirely. I went in expecting to deliver a clean demo and instead delivered an unscheduled lesson in resilience. The slides didn&amp;rsquo;t survive contact with the projector, but the idea did, and that turned out to be the part that mattered.&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;re considering submitting to a community-organised FOSS conference for the first time: do it. The selection process is open, the audience is generous, and the worst that can happen — your laptop doesn&amp;rsquo;t connect — is the kind of thing you&amp;rsquo;ll be writing about years later anyway.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;EDIT (post-publication):&lt;/strong&gt; WhatsApp has since introduced a click-to-chat feature that replicates the core functionality of this app — paste an unsaved number into any chat, click it, and you&amp;rsquo;re taken to a WhatsApp conversation with that number. The problem the project was built to solve has now been solved upstream by WhatsApp itself, which is, in its own way, the best outcome an open-source side project can hope for.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

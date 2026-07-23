@@ -2,21 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Thoughts on Aldrin Jenson</title>
-    <link>//localhost:1313/tags/thoughts/</link>
+    <link>http://localhost:1313/tags/thoughts/</link>
     <description>Aldrin Jenson (Thoughts)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>aldrinjenson@gmail.com (Aldrin Jenson)</managingEditor>
+    <webMaster>aldrinjenson@gmail.com (Aldrin Jenson)</webMaster>
     <lastBuildDate>Mon, 25 Dec 2023 00:45:00 +0530</lastBuildDate>
     
-    <atom:link href="//localhost:1313/tags/thoughts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/thoughts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>People I think highly of</title>
-      <link>//localhost:1313/personal/great-people/</link>
+      <link>http://localhost:1313/personal/great-people/</link>
       <pubDate>Mon, 25 Dec 2023 00:45:00 +0530</pubDate>
-      
-      <guid>//localhost:1313/personal/great-people/</guid>
+      <author>aldrinjenson@gmail.com (Aldrin Jenson)</author>
+      <guid>http://localhost:1313/personal/great-people/</guid>
       <description>&lt;p&gt;A list of people whose selflessness and kindness has left a deep impact in my mind. These people never had to, bu still they took the effort to go the extra mile to do something for me. And it&amp;rsquo;s never about me. They would have done it eitherways to any single person.
 In this world where everything is being more and more transactionary, I am grateful to have met these few people who have shown so much kindness and selflessness.&lt;/p&gt;
 &lt;ol&gt;
@@ -45,10 +47,10 @@ Nithyalakshmi P (aka NP)&lt;/p&gt;
     
     <item>
       <title>There are no bad People in this world</title>
-      <link>//localhost:1313/posts/no-bad-people/</link>
+      <link>http://localhost:1313/posts/no-bad-people/</link>
       <pubDate>Sun, 23 Jul 2023 06:16:19 +0000</pubDate>
-      
-      <guid>//localhost:1313/posts/no-bad-people/</guid>
+      <author>aldrinjenson@gmail.com (Aldrin Jenson)</author>
+      <guid>http://localhost:1313/posts/no-bad-people/</guid>
       <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;I used to be someone who considers people as black and white - good and bad.
 There are good people who are kind, helpful and overall nice. Then there are bad people who are the opposite.&lt;/p&gt;
@@ -89,10 +91,10 @@ No good has ever come up by arguing. Sure you should explain your point of view.
     
     <item>
       <title>Everything on the internet Is Fake</title>
-      <link>//localhost:1313/posts/everyone-is-fake/</link>
+      <link>http://localhost:1313/posts/everyone-is-fake/</link>
       <pubDate>Sun, 11 Sep 2022 22:35:06 +0530</pubDate>
-      
-      <guid>//localhost:1313/posts/everyone-is-fake/</guid>
+      <author>aldrinjenson@gmail.com (Aldrin Jenson)</author>
+      <guid>http://localhost:1313/posts/everyone-is-fake/</guid>
       <description>&lt;p&gt;When was the last time you admitted that you were an asshole?
 Oh wait, you don&amp;rsquo;t even think that you were such a person&lt;/p&gt;
 &lt;h1 id=&#34;the-people-are-fake-and-the-world-is-unkind&#34;&gt;The people are fake and the world is unkind&lt;/h1&gt;
@@ -107,10 +109,10 @@ Sure sometimes a few people may be kind to others by helping them in times of ne
     
     <item>
       <title>Why the ancients weren&#39;t morons</title>
-      <link>//localhost:1313/posts/ancients-werent-morons/</link>
+      <link>http://localhost:1313/posts/ancients-werent-morons/</link>
       <pubDate>Sun, 24 Oct 2021 19:27:40 +0530</pubDate>
-      
-      <guid>//localhost:1313/posts/ancients-werent-morons/</guid>
+      <author>aldrinjenson@gmail.com (Aldrin Jenson)</author>
+      <guid>http://localhost:1313/posts/ancients-werent-morons/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;NOTE: This is a personal opinion at this point in time and is subject to change with time and the constructive criticism I receive. :)&lt;/p&gt;
 &lt;/blockquote&gt;

@@ -1,18 +1,39 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nyc on Aldrin Jenson</title><link>/tags/nyc/</link><description>Aldrin Jenson (Nyc)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 19 Apr 2026 21:00:00 -0400</lastBuildDate><atom:link href="/tags/nyc/index.xml" rel="self" type="application/rss+xml"/><item><title>NYCGuessr — GeoGuessr with 960 live NYC traffic cameras</title><link>/projects/nycguessr/</link><pubDate>Sun, 19 Apr 2026 21:00:00 -0400</pubDate><guid>/projects/nycguessr/</guid><description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Live:&lt;/strong&gt; &lt;a href="https://nycguessr.vercel.app"&gt;nycguessr.vercel.app&lt;/a&gt; · &lt;strong&gt;Code:&lt;/strong&gt; &lt;a href="https://github.com/aldrinjenson/nycguessr"&gt;github.com/aldrinjenson/nycguessr&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nyc on Aldrin Jenson</title>
+    <link>/tags/nyc/</link>
+    <description>Aldrin Jenson (Nyc)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>aldrinjenson@gmail.com (Aldrin Jenson)</managingEditor>
+    <webMaster>aldrinjenson@gmail.com (Aldrin Jenson)</webMaster>
+    <lastBuildDate>Sun, 19 Apr 2026 21:00:00 -0400</lastBuildDate>
+    
+    <atom:link href="/tags/nyc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>NYCGuessr — GeoGuessr with 960 live NYC traffic cameras</title>
+      <link>/projects/nycguessr/</link>
+      <pubDate>Sun, 19 Apr 2026 21:00:00 -0400</pubDate>
+      <author>aldrinjenson@gmail.com (Aldrin Jenson)</author>
+      <guid>/projects/nycguessr/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Live:&lt;/strong&gt; &lt;a href=&#34;https://nycguessr.vercel.app&#34;&gt;nycguessr.vercel.app&lt;/a&gt; · &lt;strong&gt;Code:&lt;/strong&gt; &lt;a href=&#34;https://github.com/aldrinjenson/nycguessr&#34;&gt;github.com/aldrinjenson/nycguessr&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;img src="/images/nycguessr/og.png" width=700 alt="NYCGuessr social preview card — yellow on black, taxi-cab aesthetic"&gt;
+&lt;img src=&#34;/images/nycguessr/og.png&#34; width=700 alt=&#34;NYCGuessr social preview card — yellow on black, taxi-cab aesthetic&#34;&gt;
 &lt;p&gt;A GeoGuessr-style game using 960 live NYC DOT traffic cameras. You see a real-time feed, drop a pin on the map where you think it is, closer guesses score more. 5 rounds, 40 seconds each.&lt;/p&gt;
 &lt;p&gt;The magic is that the feeds are genuinely live — every round has different cars, different weather, different pedestrians. A round at 3 AM looks nothing like rush hour. The halal cart you see on-screen might still be parked there when you look out the window.&lt;/p&gt;
 &lt;p&gt;This is the full story of how it got built, how it launched, how it broke, and how it got patched up.&lt;/p&gt;
-&lt;h2 id="the-spark"&gt;The spark&lt;/h2&gt;
-&lt;p&gt;A few days before I built this, I was looking for something else entirely. I vaguely remembered a site that let you &amp;ldquo;take a photo from any NYC traffic light&amp;rdquo; and went searching for it. What I found was &lt;a href="https://trafficcamphotobooth.com"&gt;Traffic Cam Photobooth&lt;/a&gt; by &lt;a href="https://wttdotm.com"&gt;Morry Kolman&lt;/a&gt; — a static site that turns NYC DOT&amp;rsquo;s public traffic camera feeds into a personal photo booth. 900+ cameras, a map, one-tap snapshots.&lt;/p&gt;
+&lt;h2 id=&#34;the-spark&#34;&gt;The spark&lt;/h2&gt;
+&lt;p&gt;A few days before I built this, I was looking for something else entirely. I vaguely remembered a site that let you &amp;ldquo;take a photo from any NYC traffic light&amp;rdquo; and went searching for it. What I found was &lt;a href=&#34;https://trafficcamphotobooth.com&#34;&gt;Traffic Cam Photobooth&lt;/a&gt; by &lt;a href=&#34;https://wttdotm.com&#34;&gt;Morry Kolman&lt;/a&gt; — a static site that turns NYC DOT&amp;rsquo;s public traffic camera feeds into a personal photo booth. 900+ cameras, a map, one-tap snapshots.&lt;/p&gt;
 &lt;p&gt;Playing with it, the obvious question was &lt;em&gt;how on earth does this work?&lt;/em&gt; Poking at the page with Chrome dev tools turned up the answer: &lt;strong&gt;there&amp;rsquo;s no special API&lt;/strong&gt;. The page hits an unauthenticated endpoint on &lt;code&gt;webcams.nyctmc.org&lt;/code&gt; that returns a JSON list of cameras and then loads individual JPEGs by UUID. The feeds themselves are served by NYC DOT as part of their civic-information mandate — the same feeds that run on NYC cable Channel 72.&lt;/p&gt;
 &lt;p&gt;That realization reframed 960 traffic cameras from &amp;ldquo;infrastructure you can&amp;rsquo;t access&amp;rdquo; to &amp;ldquo;JSON file + plain &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; tags.&amp;rdquo; A free substrate to build on.&lt;/p&gt;
-&lt;p&gt;(I only learned later that Morry had &lt;a href="https://wttdotm.com/blog/tcpb_part_2.html"&gt;written up the same discovery in detail&lt;/a&gt; — which is a much better explanation than this blog post. If you&amp;rsquo;re interested in the mechanics, read his post.)&lt;/p&gt;
+&lt;p&gt;(I only learned later that Morry had &lt;a href=&#34;https://wttdotm.com/blog/tcpb_part_2.html&#34;&gt;written up the same discovery in detail&lt;/a&gt; — which is a much better explanation than this blog post. If you&amp;rsquo;re interested in the mechanics, read his post.)&lt;/p&gt;
 &lt;p&gt;I brainstormed what else could live on top of it. An Obsidian plugin that auto-captures the nearest-intersection camera view into today&amp;rsquo;s note. A 900-camera video wall as a screensaver. A commute predictor that reads multiple cameras on a route to detect congestion 2-3 minutes before Google Maps reacts. A YOLO-powered pedestrian counter for &amp;ldquo;which intersection is busiest at 3 AM?&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;But the cleanest idea was &lt;strong&gt;GeoGuessr for NYC&lt;/strong&gt;. Camera gives you the image. Map is the input surface. Distance is the score. And the live feed is the magic — every round is unreproducible because the world is changing in real time.&lt;/p&gt;
-&lt;h2 id="the-build--one-evening"&gt;The build — one evening&lt;/h2&gt;
+&lt;h2 id=&#34;the-build--one-evening&#34;&gt;The build — one evening&lt;/h2&gt;
 &lt;p&gt;I opened Claude Code and started with a single &lt;code&gt;index.html&lt;/code&gt;. No framework, no build step, no backend. The whole thing is Leaflet for the map, vanilla JS for the game loop, the browser&amp;rsquo;s Web Audio API for sound effects, and one big &lt;code&gt;cameras.js&lt;/code&gt; (164 KB) with all 960 locations and their image URLs.&lt;/p&gt;
 &lt;p&gt;The camera list gets scraped once from &lt;code&gt;webcams.nyctmc.org/api/cameras&lt;/code&gt; — CORS blocks that fetch in the browser, but I don&amp;rsquo;t need to do it in the browser. I pull the list once, commit it to the repo as a &lt;code&gt;window.CAMERAS = [...]&lt;/code&gt; blob, and the game just iterates it. Individual camera images come via &lt;code&gt;webcams.nyctmc.org/api/cameras/{uuid}/image&lt;/code&gt; — CORS doesn&amp;rsquo;t apply to plain &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; loads, so the browser can fetch them directly.&lt;/p&gt;
 &lt;p&gt;The gameplay loop:&lt;/p&gt;
@@ -23,69 +44,79 @@
 &lt;li&gt;Score with &lt;code&gt;5000 × exp(-distance_m / 1200)&lt;/code&gt; — so 100m off gets you ~4800 points, 1km gets ~2100, 5km gets basically nothing.&lt;/li&gt;
 &lt;li&gt;Show the truth location with a line connecting it to the guess. Do it five times. Sum.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;img src="/images/nycguessr/gameplay.png" width=700 alt="NYCGuessr mid-round — live traffic camera feed on the left shows a night-time Manhattan street with headlights and a 'Facing North' overlay; the right half is a dark map with a blue guess-pin dropped in Manhattan"&gt;
+&lt;img src=&#34;/images/nycguessr/gameplay.png&#34; width=700 alt=&#34;NYCGuessr mid-round — live traffic camera feed on the left shows a night-time Manhattan street with headlights and a &#39;Facing North&#39; overlay; the right half is a dark map with a blue guess-pin dropped in Manhattan&#34;&gt;
 &lt;p&gt;&lt;em&gt;A round in progress. The left half is the live camera feed (NYC DOT&amp;rsquo;s own timestamp overlay visible); the right half is the guessing map with my pin dropped mid-Manhattan.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;For sound I used Web Audio API oscillators — no audio files bundled. Tones for pin drop, guess submit, &amp;ldquo;nice guess&amp;rdquo; chime, &amp;ldquo;bad guess&amp;rdquo; thunk, countdown ticks, end-game fanfare. The whole SFX layer is ~30 lines of code.&lt;/p&gt;
 &lt;p&gt;One detail I&amp;rsquo;m proud of: a 1200×630 PNG &lt;strong&gt;share card&lt;/strong&gt; generated on the fly in &lt;code&gt;&amp;lt;canvas&amp;gt;&lt;/code&gt; at game-end. Yellow accent bar, player name, huge score, colored dot-circles for the 5 rounds, &amp;ldquo;close guesses&amp;rdquo; MTA-style bullet badges, URL footer. &lt;code&gt;canvas.toBlob()&lt;/code&gt; produces a &lt;code&gt;Blob&lt;/code&gt; that gets fed to &lt;code&gt;navigator.share({files:[file]})&lt;/code&gt; on mobile (the native share sheet attaches the image to whatever app the user picks) or &lt;code&gt;ClipboardItem&lt;/code&gt; with &lt;code&gt;image/png&lt;/code&gt; on desktop. No backend, no image server, entirely runtime.&lt;/p&gt;
 &lt;p&gt;A surprise during development: ~148 of the 960 cameras have NYC DOT internal route codes as names instead of human intersections — things like &lt;code&gt;C1-MDE-12-SB_at_Heath_Ave-Ex9&lt;/code&gt;. I wrote a small lookup table covering ~35 highway/bridge codes (BQE, LIE, MDE, FDR, HHP, etc.) and a prettifier that turns that into &lt;strong&gt;&amp;ldquo;Major Deegan Expwy · SB @ Heath Ave · Exit 9&amp;rdquo;&lt;/strong&gt;. Cameras with plain names (&lt;code&gt;&amp;quot;Hillside Ave @ Little Neck Pkwy&amp;quot;&lt;/code&gt;) pass through untouched.&lt;/p&gt;
 &lt;p&gt;The whole app came out to roughly 1,100 lines of HTML + CSS + JS, one CDN dependency (Leaflet), one JSON file. No build step. Deployed it with a single &lt;code&gt;vercel --prod --yes&lt;/code&gt;, then wired GitHub auto-deploy so every &lt;code&gt;git push origin main&lt;/code&gt; ships to &lt;code&gt;nycguessr.vercel.app&lt;/code&gt; in about 15 seconds.&lt;/p&gt;
-&lt;h2 id="the-launch--a-mod-takedown-with-hundreds-of-visitors-trailing-behind"&gt;The launch — a mod takedown with hundreds of visitors trailing behind&lt;/h2&gt;
+&lt;h2 id=&#34;the-launch--a-mod-takedown-with-hundreds-of-visitors-trailing-behind&#34;&gt;The launch — a mod takedown with hundreds of visitors trailing behind&lt;/h2&gt;
 &lt;p&gt;I posted to r/nyc. Honest title: &lt;em&gt;&amp;ldquo;I made a game where you guess the NYC intersection from a live traffic camera.&amp;rdquo;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;It landed. 77 upvotes, 17 comments in a few hours. People were genuinely into it — one person wondered if &amp;ldquo;it&amp;rsquo;ll be easier tomorrow when it&amp;rsquo;s not raining&amp;rdquo; (confirming the live-feed thesis was working). Others asked for a thicker reveal line à la GeoGuessr. Someone wanted the timer to be more visible. Someone else hit a &amp;ldquo;This Camera Is Being Serviced&amp;rdquo; placeholder screen. Another asked for miles/blocks instead of meters — and suggested &lt;em&gt;&amp;ldquo;even better: measure it in city blocks.&amp;rdquo;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Then the post got removed. &amp;ldquo;Sorry, this post has been removed by the moderators of r/nyc.&amp;rdquo; Classic r/nyc anti-self-promo policy — it doesn&amp;rsquo;t matter how much the community is enjoying your thing, if you made it and linked to it, it&amp;rsquo;s out.&lt;/p&gt;
 &lt;p&gt;But — and this is the funny part — the post did its job in the window it had. The first ~20 hours after launch brought &lt;strong&gt;713 unique visitors, 1,113 page views, and 421 of those referrals came from various Reddit domains&lt;/strong&gt; (reddit.com, out.reddit.com, old.reddit.com, com.reddit.frontpage) before and after the takedown. Mobile was 87% of traffic, iOS 64%, Android 23% — matching NYC demographics almost exactly.&lt;/p&gt;
 &lt;p&gt;A surprise in the referrer list: &lt;strong&gt;11 visitors from news.ycombinator.com.&lt;/strong&gt; I hadn&amp;rsquo;t posted to HN yet, so someone else had surfaced it there. A small number, but a real signal that the kind of audience I&amp;rsquo;d been drafting for had found it organically before I got around to the formal Show HN.&lt;/p&gt;
 &lt;p&gt;Reddit&amp;rsquo;s own &amp;ldquo;suggested alternative communities&amp;rdquo; helpfully pointed me at r/WebGames and r/IndieGaming (subs explicitly built for this) which I hadn&amp;rsquo;t considered. In retrospect, the takedown was a gift — it redirected me toward the audiences that actually wanted this kind of post.&lt;/p&gt;
-&lt;h2 id="the-bug-i-couldnt-have-found-myself"&gt;The bug I couldn&amp;rsquo;t have found myself&lt;/h2&gt;
+&lt;h2 id=&#34;the-bug-i-couldnt-have-found-myself&#34;&gt;The bug I couldn&amp;rsquo;t have found myself&lt;/h2&gt;
 &lt;p&gt;Within 24 hours, some friends in India messaged me saying the game didn&amp;rsquo;t work — the cameras weren&amp;rsquo;t loading.&lt;/p&gt;
 &lt;p&gt;I tested on my laptop. Worked fine. I tested on cellular. Worked fine. Everything worked from New York.&lt;/p&gt;
 &lt;p&gt;Then I opened Firefox dev tools on a friend&amp;rsquo;s VPN routed to Beijing and watched the network panel fill up with &lt;code&gt;NS_BINDING_ABORTED&lt;/code&gt; entries for every &lt;code&gt;webcams.nyctmc.org&lt;/code&gt; request. The Vercel-hosted HTML loaded. The Carto basemap tiles loaded. But every camera image request died silently — 0 bytes transferred, TLS connection reset.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;NYC DOT geo-blocks the camera endpoint.&lt;/strong&gt; Not a CDN policy. Not rate limiting. A hard US-only policy, enforced by the TLS layer, with no error message. My site was quietly broken for every international player.&lt;/p&gt;
 &lt;p&gt;I fixed it with a 15-line Vercel serverless function at &lt;code&gt;/api/cam/[uuid].js&lt;/code&gt; that fetches the image server-side (Vercel egresses from a US IP, so the geo-block doesn&amp;rsquo;t apply) and streams the JPEG back. The client-side URL got rewritten from &lt;code&gt;webcams.nyctmc.org/api/cameras/{uuid}/image&lt;/code&gt; to &lt;code&gt;/api/cam/{uuid}&lt;/code&gt; at runtime — &lt;code&gt;cameras.js&lt;/code&gt; stayed untouched.&lt;/p&gt;
-&lt;p&gt;One detail matters here: the original code appended &lt;code&gt;?t=' + Date.now()&lt;/code&gt; to bust the browser&amp;rsquo;s image cache. If I&amp;rsquo;d left that through the proxy naively, every user&amp;rsquo;s every refresh would invoke the function and hammer NYC DOT — wasting bandwidth and making a much bigger footprint than the old direct-hit pattern. The fix is to &lt;strong&gt;quantize the timestamp&lt;/strong&gt; to the refresh window: &lt;code&gt;?t=' + Math.floor(Date.now() / REFRESH_MS)&lt;/code&gt;. Now all viewers of the same camera within the same 2-second window request an identical URL, Vercel&amp;rsquo;s edge CDN serves a cached response, and only &lt;em&gt;one&lt;/em&gt; NYC DOT fetch happens per camera per 2s regardless of concurrent player count.&lt;/p&gt;
+&lt;p&gt;One detail matters here: the original code appended &lt;code&gt;?t=&#39; + Date.now()&lt;/code&gt; to bust the browser&amp;rsquo;s image cache. If I&amp;rsquo;d left that through the proxy naively, every user&amp;rsquo;s every refresh would invoke the function and hammer NYC DOT — wasting bandwidth and making a much bigger footprint than the old direct-hit pattern. The fix is to &lt;strong&gt;quantize the timestamp&lt;/strong&gt; to the refresh window: &lt;code&gt;?t=&#39; + Math.floor(Date.now() / REFRESH_MS)&lt;/code&gt;. Now all viewers of the same camera within the same 2-second window request an identical URL, Vercel&amp;rsquo;s edge CDN serves a cached response, and only &lt;em&gt;one&lt;/em&gt; NYC DOT fetch happens per camera per 2s regardless of concurrent player count.&lt;/p&gt;
 &lt;p&gt;I don&amp;rsquo;t think I would have found this bug on my own. The only thing that surfaced it was a real player saying &amp;ldquo;this doesn&amp;rsquo;t work.&amp;rdquo; A reminder that launches benefit from people outside your testing context even when — especially when — they break things.&lt;/p&gt;
-&lt;h2 id="patching-up-the-game-from-reddit-feedback"&gt;Patching up the game from Reddit feedback&lt;/h2&gt;
+&lt;h2 id=&#34;patching-up-the-game-from-reddit-feedback&#34;&gt;Patching up the game from Reddit feedback&lt;/h2&gt;
 &lt;p&gt;The Reddit thread was a goldmine. After the takedown I went through every comment and sorted them by upvotes. A weekend&amp;rsquo;s worth of polish fell out:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;The reveal screen was hidden.&lt;/strong&gt; Three independent complaints: &amp;ldquo;should show the line between guess &amp;amp; actual&amp;rdquo; / &amp;ldquo;kinda does but it&amp;rsquo;s in the background and blurred, near useless&amp;rdquo; / &amp;ldquo;can&amp;rsquo;t see where my guess is in relation.&amp;rdquo; GeoGuessr&amp;rsquo;s line-to-truth reveal is the iconic dopamine moment. I&amp;rsquo;d built it and hidden it. Fix: full split-screen reveal with the map on top (GeoGuessr-style), thicker yellow dashed line, pins bumped from 18px to 22px with floating &amp;ldquo;YOU&amp;rdquo; and &amp;ldquo;ACTUAL&amp;rdquo; labels above each one.&lt;/p&gt;
-&lt;img src="/images/nycguessr/reveal.png" width=700 alt="Reveal screen — top half is a dark map showing a yellow dashed line connecting a blue 'YOU' pin in midtown Manhattan to a yellow 'ACTUAL' pin further uptown near the river; bottom panel shows '1.48 mi away', '2 Ave @ 58 St', '+685 points', and a 'Next round' button"&gt;
+&lt;img src=&#34;/images/nycguessr/reveal.png&#34; width=700 alt=&#34;Reveal screen — top half is a dark map showing a yellow dashed line connecting a blue &#39;YOU&#39; pin in midtown Manhattan to a yellow &#39;ACTUAL&#39; pin further uptown near the river; bottom panel shows &#39;1.48 mi away&#39;, &#39;2 Ave @ 58 St&#39;, &#39;+685 points&#39;, and a &#39;Next round&#39; button&#34;&gt;
 &lt;p&gt;&lt;em&gt;Reveal after a round — the dashed yellow line shows the distance between where I dropped my pin and where the camera actually was.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;The timer was invisible until too late.&lt;/strong&gt; One commenter lost points from not realizing time was running out. I rewrote the timer to pulse from second one, with three tiers: yellow default (&amp;gt;15s), amber faster-pulse warn (≤15s), flashing red with a lower-tone sound at the critical tier (≤5s). Also bumped round length from 30s → 40s so mobile players who need to zoom/pan have more breathing room.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Meters and kilometers were wrong for the audience.&lt;/strong&gt; The right fallback here is feet and miles, not meters. I almost got clever and tried to add NYC-blocks as a unit, but that rabbit hole turned out deeper than expected. Manhattan&amp;rsquo;s grid is tilted ~29° from true north. Short blocks (N-S) are ~80m but avenue blocks (E-W) range from 600 to 900 feet depending on where you are. Heuristic decomposition can&amp;rsquo;t match the navigational count a local does in their head (&amp;ldquo;2 streets south + 1 avenue west = 3 blocks&amp;rdquo;) without genuine grid-walking logic, which is out of scope. Settled on miles + feet — clear, correct, universally understood.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Dead cameras were ruining rounds.&lt;/strong&gt; One commenter hit the NYC DOT &amp;ldquo;This Camera Is Being Serviced&amp;rdquo; placeholder and lost points on it. No flag in the API response says &amp;ldquo;this is a placeholder.&amp;rdquo; I had to detect it client-side. The approach I landed on: sample the first loaded frame into a tiny 30×30 offscreen canvas, measure RGB variance across the pixels. Real feeds have lots of color variation from cars, buildings, sky, people — they routinely score between 3,000 and 30,000. Flat service screens are near-monochrome and score under 700. If a camera trips the threshold, I blacklist its UUID in &lt;code&gt;localStorage&lt;/code&gt; and swap in a fresh camera mid-round. The blacklist persists across sessions, so a player never sees the same dead feed twice.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Tap-to-zoom on the camera feed.&lt;/strong&gt; Someone wanted higher resolution for distant bus numbers and street signs. I can&amp;rsquo;t upscale what NYC DOT gives me, but I can let you zoom into it — click anywhere on the camera pane, it scales 2.2× centered on the click point. Click again to reset.&lt;/p&gt;
 &lt;p&gt;The polish pass was ~316 lines of diff — about 4 hours of work.&lt;/p&gt;
-&lt;h2 id="what-i-learned-about-distribution"&gt;What I learned about distribution&lt;/h2&gt;
+&lt;h2 id=&#34;what-i-learned-about-distribution&#34;&gt;What I learned about distribution&lt;/h2&gt;
 &lt;p&gt;After the r/nyc takedown I drafted reposts to the subs Reddit actually pointed me at — r/WebGames, r/IndieGaming, r/newyorkcity, r/InternetIsBeautiful, r/webdev, Show HN, Twitter.&lt;/p&gt;
 &lt;p&gt;A surprisingly large number of them have automatic filters that catch what appear to be self-promo patterns. r/newyorkcity&amp;rsquo;s AI pre-check caught even a carefully-worded text post where the URL was deferred to the first comment. r/InternetIsBeautiful — which I thought was an obvious fit — turns out to have an explicit &lt;strong&gt;Rule 3: No Webgames.&lt;/strong&gt; They removed that category from the sub after the Wordle-clone flood years ago.&lt;/p&gt;
 &lt;p&gt;Both of those turned into useful data. The lesson I took away: a sub&amp;rsquo;s &lt;strong&gt;stated&lt;/strong&gt; rules are a small fraction of its &lt;strong&gt;enforced&lt;/strong&gt; rules, and automated filters now do most of the enforcement. Fighting through them is low-ROI when there are other subs whose charter explicitly matches your thing.&lt;/p&gt;
 &lt;p&gt;Where you post matters more than how you frame it.&lt;/p&gt;
-&lt;h2 id="where-things-stand"&gt;Where things stand&lt;/h2&gt;
-&lt;img src="/images/nycguessr/gameover.png" width=600 alt="Game-over screen showing 1,180 out of 25,000 points, a per-round breakdown with distances and points, and an auto-generated share card with circles indicating round quality plus Share / Download PNG / Twitter / Reddit / Copy buttons"&gt;
+&lt;h2 id=&#34;where-things-stand&#34;&gt;Where things stand&lt;/h2&gt;
+&lt;img src=&#34;/images/nycguessr/gameover.png&#34; width=600 alt=&#34;Game-over screen showing 1,180 out of 25,000 points, a per-round breakdown with distances and points, and an auto-generated share card with circles indicating round quality plus Share / Download PNG / Twitter / Reddit / Copy buttons&#34;&gt;
 &lt;p&gt;&lt;em&gt;Final screen — round breakdown, auto-generated PNG share card, and share buttons. The card below the score is what gets posted when you tap Share.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;The game is live. Live feeds work in every country now. The reveal screen is actually legible. The timer is hard to miss. Dead cameras auto-swap. Tap-to-zoom works.&lt;/p&gt;
 &lt;p&gt;Twitter post shipped. r/webdev shipped. Show HN drafted (someone else got there first organically, but a formal Show HN is still worth posting during a weekday-morning slot). r/WebGames still on the to-do.&lt;/p&gt;
 &lt;p&gt;Honestly, even if the game doesn&amp;rsquo;t get another burst of traffic, the experience has already been worth it. Started from Morry&amp;rsquo;s blog post, ended with working infrastructure I understand top to bottom: a live-image pipeline through a Vercel proxy, a variance-based placeholder detector, a canvas-generated share card, and 900-ish lines of browser code that doesn&amp;rsquo;t need npm to run. Plus concrete lessons about launch mechanics that I wouldn&amp;rsquo;t have gotten from reading about them.&lt;/p&gt;
 &lt;p&gt;If you play it and your score feels bad, borough-filter to your home turf and try again. Cabbies and lifers should clean up. The rest of us get to learn just how similar a random BQE stretch looks to a random Queens boulevard.&lt;/p&gt;
-&lt;p&gt;Code&amp;rsquo;s open at &lt;a href="https://github.com/aldrinjenson/nycguessr"&gt;github.com/aldrinjenson/nycguessr&lt;/a&gt;. PRs welcome, especially for the dead-camera variance threshold and the route-code prettifier.&lt;/p&gt;
-&lt;p&gt;Huge thanks to &lt;a href="https://wttdotm.com"&gt;Morry Kolman&lt;/a&gt; for both the original Traffic Cam Photobooth and the write-up that showed me how it worked. Without that blog post this wouldn&amp;rsquo;t exist.&lt;/p&gt;</description></item><item><title>A day at IBM in New York</title><link>/posts/ibm-customer-advisory-board-nyc/</link><pubDate>Tue, 31 Mar 2026 18:00:00 -0400</pubDate><guid>/posts/ibm-customer-advisory-board-nyc/</guid><description>&lt;center&gt;
-&lt;image src="/images/ibm-cab/cab-sign-full.jpg" alt="Outside IBM HQ in NYC"/&gt;
-&lt;p class='caption'&gt;IBM HQ, NYC — March 31, 2026&lt;/p&gt;
+&lt;p&gt;Code&amp;rsquo;s open at &lt;a href=&#34;https://github.com/aldrinjenson/nycguessr&#34;&gt;github.com/aldrinjenson/nycguessr&lt;/a&gt;. PRs welcome, especially for the dead-camera variance threshold and the route-code prettifier.&lt;/p&gt;
+&lt;p&gt;Huge thanks to &lt;a href=&#34;https://wttdotm.com&#34;&gt;Morry Kolman&lt;/a&gt; for both the original Traffic Cam Photobooth and the write-up that showed me how it worked. Without that blog post this wouldn&amp;rsquo;t exist.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A day at IBM in New York</title>
+      <link>/posts/ibm-customer-advisory-board-nyc/</link>
+      <pubDate>Tue, 31 Mar 2026 18:00:00 -0400</pubDate>
+      <author>aldrinjenson@gmail.com (Aldrin Jenson)</author>
+      <guid>/posts/ibm-customer-advisory-board-nyc/</guid>
+      <description>&lt;center&gt;
+  &lt;image src=&#34;/images/ibm-cab/cab-sign-full.jpg&#34; alt=&#34;Outside IBM HQ in NYC&#34;/&gt;
+  &lt;p class=&#39;caption&#39;&gt;IBM HQ, NYC — March 31, 2026&lt;/p&gt;
 &lt;/center&gt;
-&lt;h2 id="a-small-note-before-i-begin"&gt;A small note before I begin&lt;/h2&gt;
+&lt;h2 id=&#34;a-small-note-before-i-begin&#34;&gt;A small note before I begin&lt;/h2&gt;
 &lt;p&gt;This is a personal reflection, not a recap. I&amp;rsquo;m deliberately not writing about the sessions, the content, or the specifics of what was discussed — those belong to their owners, not to me. Think of this as a journal entry from a day that meant something, not a newsletter about the day&amp;rsquo;s substance.&lt;/p&gt;
-&lt;h2 id="how-i-got-here"&gt;How I got here&lt;/h2&gt;
-&lt;p&gt;About two years ago I was a fresh graduate from Model Engineering College in Kerala, writing far too many late-night side projects, organizing hackathons with my friends, and giving FOSS talks in college auditoriums. The company I work at now, &lt;a href="https://athenaintelligence.ai/"&gt;Athena Intelligence&lt;/a&gt;, didn&amp;rsquo;t really exist for me yet. The skyline of New York existed only in YouTube vlogs.&lt;/p&gt;
+&lt;h2 id=&#34;how-i-got-here&#34;&gt;How I got here&lt;/h2&gt;
+&lt;p&gt;About two years ago I was a fresh graduate from Model Engineering College in Kerala, writing far too many late-night side projects, organizing hackathons with my friends, and giving FOSS talks in college auditoriums. The company I work at now, &lt;a href=&#34;https://athenaintelligence.ai/&#34;&gt;Athena Intelligence&lt;/a&gt;, didn&amp;rsquo;t really exist for me yet. The skyline of New York existed only in YouTube vlogs.&lt;/p&gt;
 &lt;p&gt;On March 31st, I spent the day at IBM in New York representing Athena. It&amp;rsquo;s hard to express how far that sentence would&amp;rsquo;ve been from plausible, even two years ago.&lt;/p&gt;
-&lt;p&gt;The building is at &lt;a href="https://www.onemadison.com/"&gt;One Madison Avenue&lt;/a&gt; — the Flatiron district, right across from the old Met Life Clocktower. The lobby is all polished stone and sharp angles; the elevators are so quiet they feel architectural. I went up the escalator to the 10th floor with a visitor badge clipped to my jacket, took the turn they told me to take, and suddenly I was in a room with twenty-something enterprise leaders.&lt;/p&gt;
+&lt;p&gt;The building is at &lt;a href=&#34;https://www.onemadison.com/&#34;&gt;One Madison Avenue&lt;/a&gt; — the Flatiron district, right across from the old Met Life Clocktower. The lobby is all polished stone and sharp angles; the elevators are so quiet they feel architectural. I went up the escalator to the 10th floor with a visitor badge clipped to my jacket, took the turn they told me to take, and suddenly I was in a room with twenty-something enterprise leaders.&lt;/p&gt;
 &lt;p&gt;I was genuinely nervous.&lt;/p&gt;
-&lt;h2 id="the-moleskine-moment"&gt;The Moleskine moment&lt;/h2&gt;
+&lt;h2 id=&#34;the-moleskine-moment&#34;&gt;The Moleskine moment&lt;/h2&gt;
 &lt;p&gt;I arrived early. Found my name on the table. Sat down. Briefly stared.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Aldrin Jenson · Athena Intelligence.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;I wasn&amp;rsquo;t prepared to be affected by something as small as seeing my name on a printed placeholder. But I was. For a few seconds it felt strangely weighty — &lt;em&gt;this is the job, this is the life, you are the person holding this seat today, whether or not the voice in your head agrees.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;I didn&amp;rsquo;t say anything. I just breathed and opened the Moleskine they&amp;rsquo;d left at each seat.&lt;/p&gt;
 &lt;p&gt;I took more notes that day than I did in all of my final year of college combined. Not necessarily because the content was transformative — I can&amp;rsquo;t talk about that anyway — but because the writing itself was a way to stay present. Every time the imposter voice showed up, I just wrote another line. The Moleskine was armour.&lt;/p&gt;
-&lt;h2 id="what-i-was-thinking-about"&gt;What I was thinking about&lt;/h2&gt;
-&lt;p&gt;In quiet moments between conversations, I kept coming back to the same question I&amp;rsquo;ve been sitting with at &lt;a href="https://athenaintelligence.ai/"&gt;Athena&lt;/a&gt; for a while now: &lt;em&gt;what do enterprises actually want from AI right now?&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;what-i-was-thinking-about&#34;&gt;What I was thinking about&lt;/h2&gt;
+&lt;p&gt;In quiet moments between conversations, I kept coming back to the same question I&amp;rsquo;ve been sitting with at &lt;a href=&#34;https://athenaintelligence.ai/&#34;&gt;Athena&lt;/a&gt; for a while now: &lt;em&gt;what do enterprises actually want from AI right now?&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;My honest answer, from what I see every day in our customer conversations:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;They don&amp;rsquo;t want more tooling.&lt;/strong&gt; They want fewer surfaces that do more. The CTO who gave me the clearest articulation of this at Athena said: &lt;em&gt;&amp;ldquo;I have ten AI vendors. I don&amp;rsquo;t need an eleventh. I need one of them to actually work.&amp;rdquo;&lt;/em&gt;&lt;/li&gt;
@@ -93,16 +124,16 @@
 &lt;li&gt;&lt;strong&gt;They don&amp;rsquo;t want autonomy.&lt;/strong&gt; They want accountability. Autonomy without accountability is a liability. The interesting design problem is giving agents real latitude while keeping the audit trail a human can actually reason about.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;None of this is radical. It&amp;rsquo;s just the stuff I see every week. It was interesting to sit in a room where versions of the same questions were being asked at much bigger scale than Athena&amp;rsquo;s customer base.&lt;/p&gt;
-&lt;h2 id="talking-about-athena"&gt;Talking about Athena&lt;/h2&gt;
-&lt;p&gt;I didn&amp;rsquo;t do a live demo, but I got to talk about what we&amp;rsquo;re building in several smaller conversations. The piece I came back to most often was our &lt;strong&gt;spreadsheet agent&lt;/strong&gt; — the part of &lt;a href="https://athenaintelligence.ai/"&gt;Athena&lt;/a&gt; that writes real formulas, respects existing formatting, and produces multiple document artifacts from a single input.&lt;/p&gt;
+&lt;h2 id=&#34;talking-about-athena&#34;&gt;Talking about Athena&lt;/h2&gt;
+&lt;p&gt;I didn&amp;rsquo;t do a live demo, but I got to talk about what we&amp;rsquo;re building in several smaller conversations. The piece I came back to most often was our &lt;strong&gt;spreadsheet agent&lt;/strong&gt; — the part of &lt;a href=&#34;https://athenaintelligence.ai/&#34;&gt;Athena&lt;/a&gt; that writes real formulas, respects existing formatting, and produces multiple document artifacts from a single input.&lt;/p&gt;
 &lt;p&gt;The shape that seemed to land in every conversation:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;Describe what you need in one place. Let the agent produce the five artifacts downstream.&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;That framing is the whole bet, in a sentence. Instead of humans producing a spreadsheet → humans producing a slide → humans producing a memo → humans reconciling all three, the humans describe the intent once and the agent emits the consistent set of downstream outputs. It sounds small. It isn&amp;rsquo;t. Ask any CFO team how much time they spend reconciling four versions of the same number.&lt;/p&gt;
-&lt;p&gt;I also mentioned our &lt;a href="https://twitter.com/BrendonGeils/status/1886253538663387550"&gt;multi-agent analyst system&lt;/a&gt; — coordinated LLM-based agents working in parallel on analytical workflows around the clock. That&amp;rsquo;s the product I&amp;rsquo;ve spent most of the past year on. It&amp;rsquo;s public, it&amp;rsquo;s been demoed on Twitter, and it&amp;rsquo;s been publicly endorsed by &lt;a href="https://assistant-ui.com/"&gt;AssistantUI&lt;/a&gt; — but saying it to someone face-to-face in a room like that one has a different quality than posting about it.&lt;/p&gt;
+&lt;p&gt;I also mentioned our &lt;a href=&#34;https://twitter.com/BrendonGeils/status/1886253538663387550&#34;&gt;multi-agent analyst system&lt;/a&gt; — coordinated LLM-based agents working in parallel on analytical workflows around the clock. That&amp;rsquo;s the product I&amp;rsquo;ve spent most of the past year on. It&amp;rsquo;s public, it&amp;rsquo;s been demoed on Twitter, and it&amp;rsquo;s been publicly endorsed by &lt;a href=&#34;https://assistant-ui.com/&#34;&gt;AssistantUI&lt;/a&gt; — but saying it to someone face-to-face in a room like that one has a different quality than posting about it.&lt;/p&gt;
 &lt;p&gt;I had the quiet thought: &lt;em&gt;the product you made. The product other companies are paying for. You are the one representing it today.&lt;/em&gt; That&amp;rsquo;s a small sentence that takes years to earn the right to think about yourself.&lt;/p&gt;
-&lt;h2 id="going-solo"&gt;Going solo&lt;/h2&gt;
+&lt;h2 id=&#34;going-solo&#34;&gt;Going solo&lt;/h2&gt;
 &lt;p&gt;The most unexpected thing wasn&amp;rsquo;t the content — it was the feeling. Walking in alone, as the only Athena person in the room. Realizing for one full day that &amp;ldquo;the company&amp;rdquo; in the room was me.&lt;/p&gt;
 &lt;p&gt;A few times, someone asked me a question I couldn&amp;rsquo;t answer. I said:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -112,24 +143,29 @@
 &lt;p&gt;I think the biggest internal shift for me during the day wasn&amp;rsquo;t about IBM, or Athena, or the market. It was noticing that the difference between me in that room and the more senior people around me was almost entirely &lt;strong&gt;composure&lt;/strong&gt; — not capability. Capability they had, but so did I (for the things in my lane). What they had more of was the &lt;em&gt;willingness to not pretend&lt;/em&gt;. To say &amp;ldquo;I don&amp;rsquo;t know&amp;rdquo; without panicking. To ask a dumb-sounding question that turned out to be the exact right one.&lt;/p&gt;
 &lt;p&gt;That&amp;rsquo;s the real senior move, I think. Not knowing more. Being okay with not knowing.&lt;/p&gt;
 &lt;center&gt;
-&lt;image src="/images/ibm-cab/cab-sign-selfie.jpg" alt="Quiet selfie in the IBM lobby"/&gt;
-&lt;p class='caption'&gt;Small quiet moment of "okay, this is actually happening."&lt;/p&gt;
+  &lt;image src=&#34;/images/ibm-cab/cab-sign-selfie.jpg&#34; alt=&#34;Quiet selfie in the IBM lobby&#34;/&gt;
+  &lt;p class=&#39;caption&#39;&gt;Small quiet moment of &#34;okay, this is actually happening.&#34;&lt;/p&gt;
 &lt;/center&gt;
-&lt;h2 id="meeting-chad"&gt;Meeting Chad&lt;/h2&gt;
+&lt;h2 id=&#34;meeting-chad&#34;&gt;Meeting Chad&lt;/h2&gt;
 &lt;center&gt;
-&lt;image src="/images/ibm-cab/cab-with-chad.jpg" alt="With Chad Jennings"/&gt;
-&lt;p class='caption'&gt;With Chad Jennings — warm, generous, and very good at making a first-timer feel less like a first-timer.&lt;/p&gt;
+  &lt;image src=&#34;/images/ibm-cab/cab-with-chad.jpg&#34; alt=&#34;With Chad Jennings&#34;/&gt;
+  &lt;p class=&#39;caption&#39;&gt;With Chad Jennings — warm, generous, and very good at making a first-timer feel less like a first-timer.&lt;/p&gt;
 &lt;/center&gt;
 &lt;p&gt;One of the quiet highlights of the day was finally meeting &lt;strong&gt;Chad Jennings&lt;/strong&gt; in person. Chad was generous with his time, thoughtful in his questions, and made it easy for me to stop being nervous. I don&amp;rsquo;t remember much of what I &lt;em&gt;said&lt;/em&gt; in those few minutes, but I remember the feeling of &lt;em&gt;being listened to carefully by someone who didn&amp;rsquo;t need to&lt;/em&gt;. That&amp;rsquo;s a small thing and also a large thing.&lt;/p&gt;
-&lt;h2 id="the-walk-home"&gt;The walk home&lt;/h2&gt;
-&lt;p&gt;We ended the day with a team dinner at the &lt;a href="https://www.theclocktowernyc.com/"&gt;Clocktower&lt;/a&gt; — a beautiful restaurant inside the old Met Life tower, right across from the IBM building. I watched the sun set over Madison Square Park, listened to conversations about markets and models and mortgages in no particular order, and quietly realized I wasn&amp;rsquo;t as nervous as I&amp;rsquo;d been in the morning.&lt;/p&gt;
+&lt;h2 id=&#34;the-walk-home&#34;&gt;The walk home&lt;/h2&gt;
+&lt;p&gt;We ended the day with a team dinner at the &lt;a href=&#34;https://www.theclocktowernyc.com/&#34;&gt;Clocktower&lt;/a&gt; — a beautiful restaurant inside the old Met Life tower, right across from the IBM building. I watched the sun set over Madison Square Park, listened to conversations about markets and models and mortgages in no particular order, and quietly realized I wasn&amp;rsquo;t as nervous as I&amp;rsquo;d been in the morning.&lt;/p&gt;
 &lt;p&gt;The walk back to my apartment afterwards was slow. NYC in early April is cold enough to notice but mild enough that you don&amp;rsquo;t mind walking. I had the kind of quiet that comes after something you were dreading turned out to be good.&lt;/p&gt;
-&lt;h2 id="afterthoughts"&gt;Afterthoughts&lt;/h2&gt;
+&lt;h2 id=&#34;afterthoughts&#34;&gt;Afterthoughts&lt;/h2&gt;
 &lt;p&gt;A few things I was sitting with:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Showing up is most of it.&lt;/strong&gt; I nearly let imposter anxiety talk me out of being fully present. I&amp;rsquo;m glad I didn&amp;rsquo;t. You learn more in one day of being in a room than in six months of reading about what happens in the room.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;My job is a privilege.&lt;/strong&gt; Not every early-career engineer gets to represent a company at a place like this. I want to remember that instead of only the stress of it. There&amp;rsquo;s a version of me from two years ago who would&amp;rsquo;ve given anything to sit in that chair, and I owe him the gratitude.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Capability is the floor; composure is the ceiling.&lt;/strong&gt; Technical skill gets you in the room. What gets you &lt;em&gt;useful&lt;/em&gt; in the room is the willingness to be honest about what you don&amp;rsquo;t know and keep listening anyway.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Gratitude to IBM&lt;/strong&gt; for the generous welcome — and to &lt;a href="https://x.com/BrendonGeils"&gt;Brendon&lt;/a&gt; and the rest of the Athena team for the trust. It matters more than I&amp;rsquo;d say out loud.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gratitude to IBM&lt;/strong&gt; for the generous welcome — and to &lt;a href=&#34;https://x.com/BrendonGeils&#34;&gt;Brendon&lt;/a&gt; and the rest of the Athena team for the trust. It matters more than I&amp;rsquo;d say out loud.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;That&amp;rsquo;s the post. No hot takes, no listicle of insights. Just a good day in New York I wanted to remember.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;That&amp;rsquo;s the post. No hot takes, no listicle of insights. Just a good day in New York I wanted to remember.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

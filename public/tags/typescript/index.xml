@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Typescript on Aldrin Jenson</title>
+    <link>/tags/typescript/</link>
+    <description>Aldrin Jenson (Typescript)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>aldrinjenson@gmail.com (Aldrin Jenson)</managingEditor>
+    <webMaster>aldrinjenson@gmail.com (Aldrin Jenson)</webMaster>
+    <lastBuildDate>Thu, 17 Aug 2023 12:00:00 -0400</lastBuildDate>
+    
+    <atom:link href="/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ApplyWiz — auto-applying to LinkedIn Easy Apply jobs while you watch</title>
+      <link>/projects/applywiz/</link>
+      <pubDate>Thu, 17 Aug 2023 12:00:00 -0400</pubDate>
+      <author>aldrinjenson@gmail.com (Aldrin Jenson)</author>
+      <guid>/projects/applywiz/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Code:&lt;/strong&gt; &lt;a href=&#34;https://github.com/aldrinjenson/applywiz-chrome-extension&#34;&gt;github.com/aldrinjenson/applywiz-chrome-extension&lt;/a&gt; · &lt;strong&gt;Launched:&lt;/strong&gt; Product Hunt, Aug 17 2023&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;ApplyWiz auto-applies to LinkedIn &amp;ldquo;Easy Apply&amp;rdquo; jobs while you watch. You open a job search, hit go, and the extension walks through the listings one by one — opening each job, stepping through the multi-page application modal, filling the fields, and submitting — while you sit back and watch the counter climb. This is the story of building it, and of the one hard problem that made the whole thing interesting.&lt;/p&gt;
+&lt;p&gt;One honest note up front: this automated LinkedIn, which is against their Terms of Service. I&amp;rsquo;m writing it up as a past technical project, not a product I&amp;rsquo;d point people at today. The repo is public now, and the engineering is the part worth keeping.&lt;/p&gt;
+&lt;h2 id=&#34;three-moving-parts&#34;&gt;Three moving parts&lt;/h2&gt;
+&lt;p&gt;ApplyWiz was three pieces that had to work together:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A &lt;strong&gt;Manifest-V3 Chrome extension&lt;/strong&gt; — the actual automation engine that drives the browser.&lt;/li&gt;
+&lt;li&gt;A &lt;strong&gt;Next.js web app&lt;/strong&gt; — auth, the dashboard, Stripe subscriptions, and the analytics that showed you how many jobs you&amp;rsquo;d applied to.&lt;/li&gt;
+&lt;li&gt;A &lt;strong&gt;Supabase Postgres backend&lt;/strong&gt; — the data layer tying users, subscriptions, and stats together.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The web app was the boring-but-necessary scaffolding: Chakra/Tailwind on the front, Stripe for the subscription billing, Supabase holding state. Standard stuff, and it shipped. The interesting part lived in the extension.&lt;/p&gt;
+&lt;h2 id=&#34;the-hard-part-choreographing-a-ui-that-fights-back&#34;&gt;The hard part: choreographing a UI that fights back&lt;/h2&gt;
+&lt;p&gt;LinkedIn&amp;rsquo;s Easy Apply has no API. There&amp;rsquo;s no documented endpoint you can POST an application to. All you get is a multi-step modal — Continue, then maybe a few question pages, then Review, then Submit — rendered by a single-page app that lazily injects DOM nodes whenever it feels like it. And LinkedIn changes that markup constantly. So the entire automation is &lt;strong&gt;DOM choreography&lt;/strong&gt;: pretend to be a human, but reliably, thousands of times.&lt;/p&gt;
+&lt;p&gt;The foundation is a tiny &lt;code&gt;waitForElement&lt;/code&gt; primitive that polls the DOM every &lt;strong&gt;75ms&lt;/strong&gt; until a selector shows up (or times out). Because the SPA renders lazily, you can&amp;rsquo;t assume anything is on screen when you look for it — you have to wait for it the way a human&amp;rsquo;s eyes wait for the page to settle. Everything else is built on top of this.&lt;/p&gt;
+&lt;p&gt;On top of that sits the real engine: a &lt;strong&gt;multi-step modal state machine&lt;/strong&gt; (&lt;code&gt;applyToJobs&lt;/code&gt;). The modal doesn&amp;rsquo;t tell you what state it&amp;rsquo;s in, so the machine infers it from the buttons present — distinguishing &lt;strong&gt;Continue&lt;/strong&gt; vs. &lt;strong&gt;Review&lt;/strong&gt; vs. &lt;strong&gt;Submit&lt;/strong&gt; by their &lt;code&gt;aria-label&lt;/code&gt;. To detect when a form is stuck or looping (you hit Continue and nothing advances), it reads LinkedIn&amp;rsquo;s own &lt;strong&gt;completeness progress meter&lt;/strong&gt; — the little &amp;ldquo;your application is 60% complete&amp;rdquo; indicator — and bails out of jobs that aren&amp;rsquo;t making forward progress instead of spinning forever.&lt;/p&gt;
+&lt;p&gt;The cleverest piece is the autofill. When a step has unanswered required fields, an &lt;strong&gt;intelligent autofill cascade&lt;/strong&gt; (&lt;code&gt;handleAnyUnfilledColumns&lt;/code&gt;) kicks in. It finds the error-flagged fields, reads each field&amp;rsquo;s label, and tries to fill it through a priority order:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;An &lt;strong&gt;experience-by-skill map&lt;/strong&gt; — if the question is &amp;ldquo;how many years of React?&amp;rdquo;, it looks up React.&lt;/li&gt;
+&lt;li&gt;The user&amp;rsquo;s &lt;strong&gt;&amp;ldquo;advanced tags&amp;rdquo;&lt;/strong&gt; — custom answers the user pre-configured.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Generic profile keys&lt;/strong&gt; — name, phone, the usual.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dropdown / checkbox fallbacks&lt;/strong&gt; for anything that&amp;rsquo;s a select or a yes/no.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Crucially, it dispatches &lt;strong&gt;React-friendly &lt;code&gt;input&lt;/code&gt; and &lt;code&gt;change&lt;/code&gt; events&lt;/strong&gt; after setting values — because just setting &lt;code&gt;.value&lt;/code&gt; doesn&amp;rsquo;t register with React&amp;rsquo;s controlled inputs; the framework needs to see the event to update its own state. And if a field genuinely can&amp;rsquo;t be answered honestly — a question the cascade has no real answer for — it &lt;strong&gt;gracefully discards the job&lt;/strong&gt; rather than submitting a made-up answer. That restraint mattered to me. The tool shouldn&amp;rsquo;t lie on your behalf.&lt;/p&gt;
+&lt;p&gt;Around all of that is the unglamorous robustness work that makes an automation actually survive a real session: lazy-load scrolling to force listings to render, pagination to walk through pages of results, error-toast detection with retry, already-applied detection so it skips jobs you&amp;rsquo;ve done, and resume selection.&lt;/p&gt;
+&lt;p&gt;The whole extension was TypeScript on Webpack 5, MV3, styled with Sass, tested with Mocha and c8 coverage, and built in CI with GitHub Actions.&lt;/p&gt;
+&lt;h2 id=&#34;what-i-took-away-from-it&#34;&gt;What I took away from it&lt;/h2&gt;
+&lt;p&gt;This was one of the most complex solo automation builds I&amp;rsquo;ve done. Not because any single piece was hard, but because the target actively resisted being automated — an undocumented, lazily-rendered, frequently-changing UI with no contract you could rely on. The real lesson was about &lt;strong&gt;making an unreliable, undocumented UI behave deterministically&lt;/strong&gt;: poll instead of assume, infer state from observable signals instead of trusting the page to tell you, and always have a graceful exit for the cases you can&amp;rsquo;t handle honestly.&lt;/p&gt;
+&lt;p&gt;That mindset — treat the messy interface as the thing you have, not the thing you wish you had, and build certainty on top of it — is something I&amp;rsquo;ve carried into everything I&amp;rsquo;ve built since.&lt;/p&gt;
+&lt;p&gt;Code&amp;rsquo;s open at &lt;a href=&#34;https://github.com/aldrinjenson/applywiz-chrome-extension&#34;&gt;github.com/aldrinjenson/applywiz-chrome-extension&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

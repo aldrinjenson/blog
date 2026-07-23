@@ -2,21 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rant on Aldrin Jenson</title>
-    <link>//localhost:1313/tags/rant/</link>
+    <link>http://localhost:1313/tags/rant/</link>
     <description>Aldrin Jenson (Rant)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>aldrinjenson@gmail.com (Aldrin Jenson)</managingEditor>
+    <webMaster>aldrinjenson@gmail.com (Aldrin Jenson)</webMaster>
     <lastBuildDate>Sun, 24 Oct 2021 19:27:40 +0530</lastBuildDate>
     
-    <atom:link href="//localhost:1313/tags/rant/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/rant/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Why the ancients weren&#39;t morons</title>
-      <link>//localhost:1313/posts/ancients-werent-morons/</link>
+      <link>http://localhost:1313/posts/ancients-werent-morons/</link>
       <pubDate>Sun, 24 Oct 2021 19:27:40 +0530</pubDate>
-      
-      <guid>//localhost:1313/posts/ancients-werent-morons/</guid>
+      <author>aldrinjenson@gmail.com (Aldrin Jenson)</author>
+      <guid>http://localhost:1313/posts/ancients-werent-morons/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;NOTE: This is a personal opinion at this point in time and is subject to change with time and the constructive criticism I receive. :)&lt;/p&gt;
 &lt;/blockquote&gt;

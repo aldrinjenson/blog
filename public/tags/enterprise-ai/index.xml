@@ -1,22 +1,43 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Enterprise-Ai on Aldrin Jenson</title><link>/tags/enterprise-ai/</link><description>Aldrin Jenson (Enterprise-Ai)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 31 Mar 2026 18:00:00 -0400</lastBuildDate><atom:link href="/tags/enterprise-ai/index.xml" rel="self" type="application/rss+xml"/><item><title>A day at IBM in New York</title><link>/posts/ibm-customer-advisory-board-nyc/</link><pubDate>Tue, 31 Mar 2026 18:00:00 -0400</pubDate><guid>/posts/ibm-customer-advisory-board-nyc/</guid><description>&lt;center&gt;
-&lt;image src="/images/ibm-cab/cab-sign-full.jpg" alt="Outside IBM HQ in NYC"/&gt;
-&lt;p class='caption'&gt;IBM HQ, NYC — March 31, 2026&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Enterprise-Ai on Aldrin Jenson</title>
+    <link>/tags/enterprise-ai/</link>
+    <description>Aldrin Jenson (Enterprise-Ai)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>aldrinjenson@gmail.com (Aldrin Jenson)</managingEditor>
+    <webMaster>aldrinjenson@gmail.com (Aldrin Jenson)</webMaster>
+    <lastBuildDate>Tue, 31 Mar 2026 18:00:00 -0400</lastBuildDate>
+    
+    <atom:link href="/tags/enterprise-ai/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A day at IBM in New York</title>
+      <link>/posts/ibm-customer-advisory-board-nyc/</link>
+      <pubDate>Tue, 31 Mar 2026 18:00:00 -0400</pubDate>
+      <author>aldrinjenson@gmail.com (Aldrin Jenson)</author>
+      <guid>/posts/ibm-customer-advisory-board-nyc/</guid>
+      <description>&lt;center&gt;
+  &lt;image src=&#34;/images/ibm-cab/cab-sign-full.jpg&#34; alt=&#34;Outside IBM HQ in NYC&#34;/&gt;
+  &lt;p class=&#39;caption&#39;&gt;IBM HQ, NYC — March 31, 2026&lt;/p&gt;
 &lt;/center&gt;
-&lt;h2 id="a-small-note-before-i-begin"&gt;A small note before I begin&lt;/h2&gt;
+&lt;h2 id=&#34;a-small-note-before-i-begin&#34;&gt;A small note before I begin&lt;/h2&gt;
 &lt;p&gt;This is a personal reflection, not a recap. I&amp;rsquo;m deliberately not writing about the sessions, the content, or the specifics of what was discussed — those belong to their owners, not to me. Think of this as a journal entry from a day that meant something, not a newsletter about the day&amp;rsquo;s substance.&lt;/p&gt;
-&lt;h2 id="how-i-got-here"&gt;How I got here&lt;/h2&gt;
-&lt;p&gt;About two years ago I was a fresh graduate from Model Engineering College in Kerala, writing far too many late-night side projects, organizing hackathons with my friends, and giving FOSS talks in college auditoriums. The company I work at now, &lt;a href="https://athenaintelligence.ai/"&gt;Athena Intelligence&lt;/a&gt;, didn&amp;rsquo;t really exist for me yet. The skyline of New York existed only in YouTube vlogs.&lt;/p&gt;
+&lt;h2 id=&#34;how-i-got-here&#34;&gt;How I got here&lt;/h2&gt;
+&lt;p&gt;About two years ago I was a fresh graduate from Model Engineering College in Kerala, writing far too many late-night side projects, organizing hackathons with my friends, and giving FOSS talks in college auditoriums. The company I work at now, &lt;a href=&#34;https://athenaintelligence.ai/&#34;&gt;Athena Intelligence&lt;/a&gt;, didn&amp;rsquo;t really exist for me yet. The skyline of New York existed only in YouTube vlogs.&lt;/p&gt;
 &lt;p&gt;On March 31st, I spent the day at IBM in New York representing Athena. It&amp;rsquo;s hard to express how far that sentence would&amp;rsquo;ve been from plausible, even two years ago.&lt;/p&gt;
-&lt;p&gt;The building is at &lt;a href="https://www.onemadison.com/"&gt;One Madison Avenue&lt;/a&gt; — the Flatiron district, right across from the old Met Life Clocktower. The lobby is all polished stone and sharp angles; the elevators are so quiet they feel architectural. I went up the escalator to the 10th floor with a visitor badge clipped to my jacket, took the turn they told me to take, and suddenly I was in a room with twenty-something enterprise leaders.&lt;/p&gt;
+&lt;p&gt;The building is at &lt;a href=&#34;https://www.onemadison.com/&#34;&gt;One Madison Avenue&lt;/a&gt; — the Flatiron district, right across from the old Met Life Clocktower. The lobby is all polished stone and sharp angles; the elevators are so quiet they feel architectural. I went up the escalator to the 10th floor with a visitor badge clipped to my jacket, took the turn they told me to take, and suddenly I was in a room with twenty-something enterprise leaders.&lt;/p&gt;
 &lt;p&gt;I was genuinely nervous.&lt;/p&gt;
-&lt;h2 id="the-moleskine-moment"&gt;The Moleskine moment&lt;/h2&gt;
+&lt;h2 id=&#34;the-moleskine-moment&#34;&gt;The Moleskine moment&lt;/h2&gt;
 &lt;p&gt;I arrived early. Found my name on the table. Sat down. Briefly stared.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Aldrin Jenson · Athena Intelligence.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;I wasn&amp;rsquo;t prepared to be affected by something as small as seeing my name on a printed placeholder. But I was. For a few seconds it felt strangely weighty — &lt;em&gt;this is the job, this is the life, you are the person holding this seat today, whether or not the voice in your head agrees.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;I didn&amp;rsquo;t say anything. I just breathed and opened the Moleskine they&amp;rsquo;d left at each seat.&lt;/p&gt;
 &lt;p&gt;I took more notes that day than I did in all of my final year of college combined. Not necessarily because the content was transformative — I can&amp;rsquo;t talk about that anyway — but because the writing itself was a way to stay present. Every time the imposter voice showed up, I just wrote another line. The Moleskine was armour.&lt;/p&gt;
-&lt;h2 id="what-i-was-thinking-about"&gt;What I was thinking about&lt;/h2&gt;
-&lt;p&gt;In quiet moments between conversations, I kept coming back to the same question I&amp;rsquo;ve been sitting with at &lt;a href="https://athenaintelligence.ai/"&gt;Athena&lt;/a&gt; for a while now: &lt;em&gt;what do enterprises actually want from AI right now?&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;what-i-was-thinking-about&#34;&gt;What I was thinking about&lt;/h2&gt;
+&lt;p&gt;In quiet moments between conversations, I kept coming back to the same question I&amp;rsquo;ve been sitting with at &lt;a href=&#34;https://athenaintelligence.ai/&#34;&gt;Athena&lt;/a&gt; for a while now: &lt;em&gt;what do enterprises actually want from AI right now?&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;My honest answer, from what I see every day in our customer conversations:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;They don&amp;rsquo;t want more tooling.&lt;/strong&gt; They want fewer surfaces that do more. The CTO who gave me the clearest articulation of this at Athena said: &lt;em&gt;&amp;ldquo;I have ten AI vendors. I don&amp;rsquo;t need an eleventh. I need one of them to actually work.&amp;rdquo;&lt;/em&gt;&lt;/li&gt;
@@ -24,16 +45,16 @@
 &lt;li&gt;&lt;strong&gt;They don&amp;rsquo;t want autonomy.&lt;/strong&gt; They want accountability. Autonomy without accountability is a liability. The interesting design problem is giving agents real latitude while keeping the audit trail a human can actually reason about.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;None of this is radical. It&amp;rsquo;s just the stuff I see every week. It was interesting to sit in a room where versions of the same questions were being asked at much bigger scale than Athena&amp;rsquo;s customer base.&lt;/p&gt;
-&lt;h2 id="talking-about-athena"&gt;Talking about Athena&lt;/h2&gt;
-&lt;p&gt;I didn&amp;rsquo;t do a live demo, but I got to talk about what we&amp;rsquo;re building in several smaller conversations. The piece I came back to most often was our &lt;strong&gt;spreadsheet agent&lt;/strong&gt; — the part of &lt;a href="https://athenaintelligence.ai/"&gt;Athena&lt;/a&gt; that writes real formulas, respects existing formatting, and produces multiple document artifacts from a single input.&lt;/p&gt;
+&lt;h2 id=&#34;talking-about-athena&#34;&gt;Talking about Athena&lt;/h2&gt;
+&lt;p&gt;I didn&amp;rsquo;t do a live demo, but I got to talk about what we&amp;rsquo;re building in several smaller conversations. The piece I came back to most often was our &lt;strong&gt;spreadsheet agent&lt;/strong&gt; — the part of &lt;a href=&#34;https://athenaintelligence.ai/&#34;&gt;Athena&lt;/a&gt; that writes real formulas, respects existing formatting, and produces multiple document artifacts from a single input.&lt;/p&gt;
 &lt;p&gt;The shape that seemed to land in every conversation:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;Describe what you need in one place. Let the agent produce the five artifacts downstream.&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;That framing is the whole bet, in a sentence. Instead of humans producing a spreadsheet → humans producing a slide → humans producing a memo → humans reconciling all three, the humans describe the intent once and the agent emits the consistent set of downstream outputs. It sounds small. It isn&amp;rsquo;t. Ask any CFO team how much time they spend reconciling four versions of the same number.&lt;/p&gt;
-&lt;p&gt;I also mentioned our &lt;a href="https://twitter.com/BrendonGeils/status/1886253538663387550"&gt;multi-agent analyst system&lt;/a&gt; — coordinated LLM-based agents working in parallel on analytical workflows around the clock. That&amp;rsquo;s the product I&amp;rsquo;ve spent most of the past year on. It&amp;rsquo;s public, it&amp;rsquo;s been demoed on Twitter, and it&amp;rsquo;s been publicly endorsed by &lt;a href="https://assistant-ui.com/"&gt;AssistantUI&lt;/a&gt; — but saying it to someone face-to-face in a room like that one has a different quality than posting about it.&lt;/p&gt;
+&lt;p&gt;I also mentioned our &lt;a href=&#34;https://twitter.com/BrendonGeils/status/1886253538663387550&#34;&gt;multi-agent analyst system&lt;/a&gt; — coordinated LLM-based agents working in parallel on analytical workflows around the clock. That&amp;rsquo;s the product I&amp;rsquo;ve spent most of the past year on. It&amp;rsquo;s public, it&amp;rsquo;s been demoed on Twitter, and it&amp;rsquo;s been publicly endorsed by &lt;a href=&#34;https://assistant-ui.com/&#34;&gt;AssistantUI&lt;/a&gt; — but saying it to someone face-to-face in a room like that one has a different quality than posting about it.&lt;/p&gt;
 &lt;p&gt;I had the quiet thought: &lt;em&gt;the product you made. The product other companies are paying for. You are the one representing it today.&lt;/em&gt; That&amp;rsquo;s a small sentence that takes years to earn the right to think about yourself.&lt;/p&gt;
-&lt;h2 id="going-solo"&gt;Going solo&lt;/h2&gt;
+&lt;h2 id=&#34;going-solo&#34;&gt;Going solo&lt;/h2&gt;
 &lt;p&gt;The most unexpected thing wasn&amp;rsquo;t the content — it was the feeling. Walking in alone, as the only Athena person in the room. Realizing for one full day that &amp;ldquo;the company&amp;rdquo; in the room was me.&lt;/p&gt;
 &lt;p&gt;A few times, someone asked me a question I couldn&amp;rsquo;t answer. I said:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -43,24 +64,29 @@
 &lt;p&gt;I think the biggest internal shift for me during the day wasn&amp;rsquo;t about IBM, or Athena, or the market. It was noticing that the difference between me in that room and the more senior people around me was almost entirely &lt;strong&gt;composure&lt;/strong&gt; — not capability. Capability they had, but so did I (for the things in my lane). What they had more of was the &lt;em&gt;willingness to not pretend&lt;/em&gt;. To say &amp;ldquo;I don&amp;rsquo;t know&amp;rdquo; without panicking. To ask a dumb-sounding question that turned out to be the exact right one.&lt;/p&gt;
 &lt;p&gt;That&amp;rsquo;s the real senior move, I think. Not knowing more. Being okay with not knowing.&lt;/p&gt;
 &lt;center&gt;
-&lt;image src="/images/ibm-cab/cab-sign-selfie.jpg" alt="Quiet selfie in the IBM lobby"/&gt;
-&lt;p class='caption'&gt;Small quiet moment of "okay, this is actually happening."&lt;/p&gt;
+  &lt;image src=&#34;/images/ibm-cab/cab-sign-selfie.jpg&#34; alt=&#34;Quiet selfie in the IBM lobby&#34;/&gt;
+  &lt;p class=&#39;caption&#39;&gt;Small quiet moment of &#34;okay, this is actually happening.&#34;&lt;/p&gt;
 &lt;/center&gt;
-&lt;h2 id="meeting-chad"&gt;Meeting Chad&lt;/h2&gt;
+&lt;h2 id=&#34;meeting-chad&#34;&gt;Meeting Chad&lt;/h2&gt;
 &lt;center&gt;
-&lt;image src="/images/ibm-cab/cab-with-chad.jpg" alt="With Chad Jennings"/&gt;
-&lt;p class='caption'&gt;With Chad Jennings — warm, generous, and very good at making a first-timer feel less like a first-timer.&lt;/p&gt;
+  &lt;image src=&#34;/images/ibm-cab/cab-with-chad.jpg&#34; alt=&#34;With Chad Jennings&#34;/&gt;
+  &lt;p class=&#39;caption&#39;&gt;With Chad Jennings — warm, generous, and very good at making a first-timer feel less like a first-timer.&lt;/p&gt;
 &lt;/center&gt;
 &lt;p&gt;One of the quiet highlights of the day was finally meeting &lt;strong&gt;Chad Jennings&lt;/strong&gt; in person. Chad was generous with his time, thoughtful in his questions, and made it easy for me to stop being nervous. I don&amp;rsquo;t remember much of what I &lt;em&gt;said&lt;/em&gt; in those few minutes, but I remember the feeling of &lt;em&gt;being listened to carefully by someone who didn&amp;rsquo;t need to&lt;/em&gt;. That&amp;rsquo;s a small thing and also a large thing.&lt;/p&gt;
-&lt;h2 id="the-walk-home"&gt;The walk home&lt;/h2&gt;
-&lt;p&gt;We ended the day with a team dinner at the &lt;a href="https://www.theclocktowernyc.com/"&gt;Clocktower&lt;/a&gt; — a beautiful restaurant inside the old Met Life tower, right across from the IBM building. I watched the sun set over Madison Square Park, listened to conversations about markets and models and mortgages in no particular order, and quietly realized I wasn&amp;rsquo;t as nervous as I&amp;rsquo;d been in the morning.&lt;/p&gt;
+&lt;h2 id=&#34;the-walk-home&#34;&gt;The walk home&lt;/h2&gt;
+&lt;p&gt;We ended the day with a team dinner at the &lt;a href=&#34;https://www.theclocktowernyc.com/&#34;&gt;Clocktower&lt;/a&gt; — a beautiful restaurant inside the old Met Life tower, right across from the IBM building. I watched the sun set over Madison Square Park, listened to conversations about markets and models and mortgages in no particular order, and quietly realized I wasn&amp;rsquo;t as nervous as I&amp;rsquo;d been in the morning.&lt;/p&gt;
 &lt;p&gt;The walk back to my apartment afterwards was slow. NYC in early April is cold enough to notice but mild enough that you don&amp;rsquo;t mind walking. I had the kind of quiet that comes after something you were dreading turned out to be good.&lt;/p&gt;
-&lt;h2 id="afterthoughts"&gt;Afterthoughts&lt;/h2&gt;
+&lt;h2 id=&#34;afterthoughts&#34;&gt;Afterthoughts&lt;/h2&gt;
 &lt;p&gt;A few things I was sitting with:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Showing up is most of it.&lt;/strong&gt; I nearly let imposter anxiety talk me out of being fully present. I&amp;rsquo;m glad I didn&amp;rsquo;t. You learn more in one day of being in a room than in six months of reading about what happens in the room.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;My job is a privilege.&lt;/strong&gt; Not every early-career engineer gets to represent a company at a place like this. I want to remember that instead of only the stress of it. There&amp;rsquo;s a version of me from two years ago who would&amp;rsquo;ve given anything to sit in that chair, and I owe him the gratitude.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Capability is the floor; composure is the ceiling.&lt;/strong&gt; Technical skill gets you in the room. What gets you &lt;em&gt;useful&lt;/em&gt; in the room is the willingness to be honest about what you don&amp;rsquo;t know and keep listening anyway.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Gratitude to IBM&lt;/strong&gt; for the generous welcome — and to &lt;a href="https://x.com/BrendonGeils"&gt;Brendon&lt;/a&gt; and the rest of the Athena team for the trust. It matters more than I&amp;rsquo;d say out loud.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gratitude to IBM&lt;/strong&gt; for the generous welcome — and to &lt;a href=&#34;https://x.com/BrendonGeils&#34;&gt;Brendon&lt;/a&gt; and the rest of the Athena team for the trust. It matters more than I&amp;rsquo;d say out loud.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;That&amp;rsquo;s the post. No hot takes, no listicle of insights. Just a good day in New York I wanted to remember.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;That&amp;rsquo;s the post. No hot takes, no listicle of insights. Just a good day in New York I wanted to remember.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

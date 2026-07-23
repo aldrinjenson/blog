@@ -1,9 +1,514 @@
-<!doctype html><html lang=en-us data-theme><head><meta charset=utf-8><meta name=HandheldFriendly content="True"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=referrer content="no-referrer-when-downgrade"><title>NYCGuessr — GeoGuessr with 960 live NYC traffic cameras - Aldrin Jenson</title><meta name=description content="CS undergrad from Kerala, India"><link rel=icon type=image/x-icon href=/%20favicon.ico><link rel=apple-touch-icon-precomposed href=/%20favicon.png><link rel=stylesheet href=/css/style.min.a6f5b3d50adf9432413f07022323f9c27629f1f4b3f8aec4cbedae27f35927c1.css integrity="sha256-pvWz1QrflDJBPwcCIyP5wnYp8fSz+K7Ey+2uJ/NZJ8E="><meta property="og:url" content="/projects/nycguessr/"><meta property="og:site_name" content="Aldrin Jenson"><meta property="og:title" content="NYCGuessr — GeoGuessr with 960 live NYC traffic cameras"><meta property="og:description" content="Built a GeoGuessr-style game using NYC DOT's 960 live traffic camera feeds. Shipped in an evening, got removed from r/nyc despite 77 upvotes, found a silent geo-block bug thanks to a friend in India, and learned a lot about distribution along the way."><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="projects"><meta property="article:published_time" content="2026-04-19T21:00:00-04:00"><meta property="article:modified_time" content="2026-04-19T21:00:00-04:00"><meta property="article:tag" content="Tech"><meta property="article:tag" content="Javascript"><meta property="article:tag" content="Web-Dev"><meta property="article:tag" content="Nyc"><meta property="article:tag" content="Launch"><meta property="article:tag" content="Side-Project"><meta name=twitter:card content="summary"><meta name=twitter:title content="NYCGuessr — GeoGuessr with 960 live NYC traffic cameras"><meta name=twitter:description content="Built a GeoGuessr-style game using NYC DOT's 960 live traffic camera feeds. Shipped in an evening, got removed from r/nyc despite 77 upvotes, found a silent geo-block bug thanks to a friend in India, and learned a lot about distribution along the way."><script async defer src="https://www.googletagmanager.com/gtag/js?id=G-75EZN9Q628"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-75EZN9Q628")</script></head><body><a class=skip-main href=#main>Skip to main content</a><div class=container><header class=common-header><div class=header-top><h1 class=site-title><a href=/>Aldrin Jenson</a></h1><ul class=social-icons><li><a href=https://github.com/aldrinjenson title=Github rel=me><span class=inline-svg><svg viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6.0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6.0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3.0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1.0-6.2-.3-40.4-.3-61.4.0.0-70 15-84.7-29.8.0.0-11.4-29.1-27.8-36.6.0.0-22.9-15.7 1.6-15.4.0.0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5.0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9.0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4.0 33.7-.3 75.4-.3 83.6.0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6.0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9.0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span></a></li><li><a href=https://www.linkedin.com/in/aldrinjenson title=Linkedin rel=me><span class=inline-svg><svg viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5.0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6.0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3.0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2.0 38.5 17.3 38.5 38.5.0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6.0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2.0 79.7 44.3 79.7 101.9V416z"/></svg></span></a></li><li><a href=https://twitter.com/aldrinjenson title=Twitter rel=me><span class=inline-svg><svg viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645.0 138.72-105.583 298.558-298.558 298.558-59.452.0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055.0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421.0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391.0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04.0-57.828 46.782-104.934 104.934-104.934 30.213.0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></span></a></li><li><a href=https://medium.com/@aldrinjenson title=Medium rel=me><span class=inline-svg><svg aria-hidden="true" class="svg-inline--fa fa-medium" data-icon="medium" data-prefix="fab" focusable="false" role="img" viewBox="0 0 640 512"><path fill="currentColor" fill="currentColor" d="M180.5 74.26C80.81 74.26.0 155.6.0 256S80.82 437.7 180.5 437.7 361 356.4 361 256 280.2 74.26 180.5 74.26zm288.3 10.65c-49.85.0-90.25 76.62-90.25 171.1s40.41 171.1 90.25 171.1 90.25-76.62 90.25-171.1H559c0-94.51-40.4-171.1-90.2-171.1zm139.5 17.82c-17.53.0-31.74 68.63-31.74 153.3s14.2 153.3 31.74 153.3S640 340.6 640 256c0-84.6-14.2-153.3-31.7-153.3z"/></svg></span></a></li><li><a href=https://www.youtube.com/aldrinjenson title=Youtube rel=me><span class=inline-svg><svg viewBox="0 0 576 512"><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78.0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg></span></a></li><li><a href=https://aldrinjenson.github.io/index.xml title=Rss rel=me><span class=inline-svg><svg viewBox="0 0 448 512"><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328.0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765.0 183.105.0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686.0 38.981.0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"/></svg></span></a></li></ul></div><nav><a href=/ title=Home>Home</a>
-<a href=/posts/ title=Posts>Posts</a>
-<a href=/projects/ title=Projects>Projects</a>
-<a href=https://til.aldrinjenson.com/ title="Today I Learned">TIL</a></nav></header><main id=main tabindex=-1><article class="post h-entry"><header class=post-header><h1 class="p-name post-title">NYCGuessr — GeoGuessr with 960 live NYC traffic cameras</h1></header><div class="content e-content"><blockquote><p><strong>Live:</strong> <a href=https://nycguessr.vercel.app>nycguessr.vercel.app</a> · <strong>Code:</strong> <a href=https://github.com/aldrinjenson/nycguessr>github.com/aldrinjenson/nycguessr</a></p></blockquote><img src=/images/nycguessr/og.png width=700 alt="NYCGuessr social preview card — yellow on black, taxi-cab aesthetic"><p>A GeoGuessr-style game using 960 live NYC DOT traffic cameras. You see a real-time feed, drop a pin on the map where you think it is, closer guesses score more. 5 rounds, 40 seconds each.</p><p>The magic is that the feeds are genuinely live — every round has different cars, different weather, different pedestrians. A round at 3 AM looks nothing like rush hour. The halal cart you see on-screen might still be parked there when you look out the window.</p><p>This is the full story of how it got built, how it launched, how it broke, and how it got patched up.</p><h2 id=the-spark>The spark</h2><p>A few days before I built this, I was looking for something else entirely. I vaguely remembered a site that let you &ldquo;take a photo from any NYC traffic light&rdquo; and went searching for it. What I found was <a href=https://trafficcamphotobooth.com>Traffic Cam Photobooth</a> by <a href=https://wttdotm.com>Morry Kolman</a> — a static site that turns NYC DOT&rsquo;s public traffic camera feeds into a personal photo booth. 900+ cameras, a map, one-tap snapshots.</p><p>Playing with it, the obvious question was <em>how on earth does this work?</em> Poking at the page with Chrome dev tools turned up the answer: <strong>there&rsquo;s no special API</strong>. The page hits an unauthenticated endpoint on <code>webcams.nyctmc.org</code> that returns a JSON list of cameras and then loads individual JPEGs by UUID. The feeds themselves are served by NYC DOT as part of their civic-information mandate — the same feeds that run on NYC cable Channel 72.</p><p>That realization reframed 960 traffic cameras from &ldquo;infrastructure you can&rsquo;t access&rdquo; to &ldquo;JSON file + plain <code>&lt;img></code> tags.&rdquo; A free substrate to build on.</p><p>(I only learned later that Morry had <a href=https://wttdotm.com/blog/tcpb_part_2.html>written up the same discovery in detail</a> — which is a much better explanation than this blog post. If you&rsquo;re interested in the mechanics, read his post.)</p><p>I brainstormed what else could live on top of it. An Obsidian plugin that auto-captures the nearest-intersection camera view into today&rsquo;s note. A 900-camera video wall as a screensaver. A commute predictor that reads multiple cameras on a route to detect congestion 2-3 minutes before Google Maps reacts. A YOLO-powered pedestrian counter for &ldquo;which intersection is busiest at 3 AM?&rdquo;</p><p>But the cleanest idea was <strong>GeoGuessr for NYC</strong>. Camera gives you the image. Map is the input surface. Distance is the score. And the live feed is the magic — every round is unreproducible because the world is changing in real time.</p><h2 id=the-build--one-evening>The build — one evening</h2><p>I opened Claude Code and started with a single <code>index.html</code>. No framework, no build step, no backend. The whole thing is Leaflet for the map, vanilla JS for the game loop, the browser&rsquo;s Web Audio API for sound effects, and one big <code>cameras.js</code> (164 KB) with all 960 locations and their image URLs.</p><p>The camera list gets scraped once from <code>webcams.nyctmc.org/api/cameras</code> — CORS blocks that fetch in the browser, but I don&rsquo;t need to do it in the browser. I pull the list once, commit it to the repo as a <code>window.CAMERAS = [...]</code> blob, and the game just iterates it. Individual camera images come via <code>webcams.nyctmc.org/api/cameras/{uuid}/image</code> — CORS doesn&rsquo;t apply to plain <code>&lt;img></code> loads, so the browser can fetch them directly.</p><p>The gameplay loop:</p><ul><li>Pick 5 random cameras (filtered by borough if the player wants).</li><li>Show the live camera feed (refreshed every 2 seconds via <code>&lt;img src></code> cache-busting).</li><li>Let the player drop a pin on the map.</li><li>Score with <code>5000 × exp(-distance_m / 1200)</code> — so 100m off gets you ~4800 points, 1km gets ~2100, 5km gets basically nothing.</li><li>Show the truth location with a line connecting it to the guess. Do it five times. Sum.</li></ul><img src=/images/nycguessr/gameplay.png width=700 alt="NYCGuessr mid-round — live traffic camera feed on the left shows a night-time Manhattan street with headlights and a 'Facing North' overlay; the right half is a dark map with a blue guess-pin dropped in Manhattan"><p><em>A round in progress. The left half is the live camera feed (NYC DOT&rsquo;s own timestamp overlay visible); the right half is the guessing map with my pin dropped mid-Manhattan.</em></p><p>For sound I used Web Audio API oscillators — no audio files bundled. Tones for pin drop, guess submit, &ldquo;nice guess&rdquo; chime, &ldquo;bad guess&rdquo; thunk, countdown ticks, end-game fanfare. The whole SFX layer is ~30 lines of code.</p><p>One detail I&rsquo;m proud of: a 1200×630 PNG <strong>share card</strong> generated on the fly in <code>&lt;canvas></code> at game-end. Yellow accent bar, player name, huge score, colored dot-circles for the 5 rounds, &ldquo;close guesses&rdquo; MTA-style bullet badges, URL footer. <code>canvas.toBlob()</code> produces a <code>Blob</code> that gets fed to <code>navigator.share({files:[file]})</code> on mobile (the native share sheet attaches the image to whatever app the user picks) or <code>ClipboardItem</code> with <code>image/png</code> on desktop. No backend, no image server, entirely runtime.</p><p>A surprise during development: ~148 of the 960 cameras have NYC DOT internal route codes as names instead of human intersections — things like <code>C1-MDE-12-SB_at_Heath_Ave-Ex9</code>. I wrote a small lookup table covering ~35 highway/bridge codes (BQE, LIE, MDE, FDR, HHP, etc.) and a prettifier that turns that into <strong>&ldquo;Major Deegan Expwy · SB @ Heath Ave · Exit 9&rdquo;</strong>. Cameras with plain names (<code>"Hillside Ave @ Little Neck Pkwy"</code>) pass through untouched.</p><p>The whole app came out to roughly 1,100 lines of HTML + CSS + JS, one CDN dependency (Leaflet), one JSON file. No build step. Deployed it with a single <code>vercel --prod --yes</code>, then wired GitHub auto-deploy so every <code>git push origin main</code> ships to <code>nycguessr.vercel.app</code> in about 15 seconds.</p><h2 id=the-launch--a-mod-takedown-with-hundreds-of-visitors-trailing-behind>The launch — a mod takedown with hundreds of visitors trailing behind</h2><p>I posted to r/nyc. Honest title: <em>&ldquo;I made a game where you guess the NYC intersection from a live traffic camera.&rdquo;</em></p><p>It landed. 77 upvotes, 17 comments in a few hours. People were genuinely into it — one person wondered if &ldquo;it&rsquo;ll be easier tomorrow when it&rsquo;s not raining&rdquo; (confirming the live-feed thesis was working). Others asked for a thicker reveal line à la GeoGuessr. Someone wanted the timer to be more visible. Someone else hit a &ldquo;This Camera Is Being Serviced&rdquo; placeholder screen. Another asked for miles/blocks instead of meters — and suggested <em>&ldquo;even better: measure it in city blocks.&rdquo;</em></p><p>Then the post got removed. &ldquo;Sorry, this post has been removed by the moderators of r/nyc.&rdquo; Classic r/nyc anti-self-promo policy — it doesn&rsquo;t matter how much the community is enjoying your thing, if you made it and linked to it, it&rsquo;s out.</p><p>But — and this is the funny part — the post did its job in the window it had. The first ~20 hours after launch brought <strong>713 unique visitors, 1,113 page views, and 421 of those referrals came from various Reddit domains</strong> (reddit.com, out.reddit.com, old.reddit.com, com.reddit.frontpage) before and after the takedown. Mobile was 87% of traffic, iOS 64%, Android 23% — matching NYC demographics almost exactly.</p><p>A surprise in the referrer list: <strong>11 visitors from news.ycombinator.com.</strong> I hadn&rsquo;t posted to HN yet, so someone else had surfaced it there. A small number, but a real signal that the kind of audience I&rsquo;d been drafting for had found it organically before I got around to the formal Show HN.</p><p>Reddit&rsquo;s own &ldquo;suggested alternative communities&rdquo; helpfully pointed me at r/WebGames and r/IndieGaming (subs explicitly built for this) which I hadn&rsquo;t considered. In retrospect, the takedown was a gift — it redirected me toward the audiences that actually wanted this kind of post.</p><h2 id=the-bug-i-couldnt-have-found-myself>The bug I couldn&rsquo;t have found myself</h2><p>Within 24 hours, some friends in India messaged me saying the game didn&rsquo;t work — the cameras weren&rsquo;t loading.</p><p>I tested on my laptop. Worked fine. I tested on cellular. Worked fine. Everything worked from New York.</p><p>Then I opened Firefox dev tools on a friend&rsquo;s VPN routed to Beijing and watched the network panel fill up with <code>NS_BINDING_ABORTED</code> entries for every <code>webcams.nyctmc.org</code> request. The Vercel-hosted HTML loaded. The Carto basemap tiles loaded. But every camera image request died silently — 0 bytes transferred, TLS connection reset.</p><p><strong>NYC DOT geo-blocks the camera endpoint.</strong> Not a CDN policy. Not rate limiting. A hard US-only policy, enforced by the TLS layer, with no error message. My site was quietly broken for every international player.</p><p>I fixed it with a 15-line Vercel serverless function at <code>/api/cam/[uuid].js</code> that fetches the image server-side (Vercel egresses from a US IP, so the geo-block doesn&rsquo;t apply) and streams the JPEG back. The client-side URL got rewritten from <code>webcams.nyctmc.org/api/cameras/{uuid}/image</code> to <code>/api/cam/{uuid}</code> at runtime — <code>cameras.js</code> stayed untouched.</p><p>One detail matters here: the original code appended <code>?t=' + Date.now()</code> to bust the browser&rsquo;s image cache. If I&rsquo;d left that through the proxy naively, every user&rsquo;s every refresh would invoke the function and hammer NYC DOT — wasting bandwidth and making a much bigger footprint than the old direct-hit pattern. The fix is to <strong>quantize the timestamp</strong> to the refresh window: <code>?t=' + Math.floor(Date.now() / REFRESH_MS)</code>. Now all viewers of the same camera within the same 2-second window request an identical URL, Vercel&rsquo;s edge CDN serves a cached response, and only <em>one</em> NYC DOT fetch happens per camera per 2s regardless of concurrent player count.</p><p>I don&rsquo;t think I would have found this bug on my own. The only thing that surfaced it was a real player saying &ldquo;this doesn&rsquo;t work.&rdquo; A reminder that launches benefit from people outside your testing context even when — especially when — they break things.</p><h2 id=patching-up-the-game-from-reddit-feedback>Patching up the game from Reddit feedback</h2><p>The Reddit thread was a goldmine. After the takedown I went through every comment and sorted them by upvotes. A weekend&rsquo;s worth of polish fell out:</p><p><strong>The reveal screen was hidden.</strong> Three independent complaints: &ldquo;should show the line between guess & actual&rdquo; / &ldquo;kinda does but it&rsquo;s in the background and blurred, near useless&rdquo; / &ldquo;can&rsquo;t see where my guess is in relation.&rdquo; GeoGuessr&rsquo;s line-to-truth reveal is the iconic dopamine moment. I&rsquo;d built it and hidden it. Fix: full split-screen reveal with the map on top (GeoGuessr-style), thicker yellow dashed line, pins bumped from 18px to 22px with floating &ldquo;YOU&rdquo; and &ldquo;ACTUAL&rdquo; labels above each one.</p><img src=/images/nycguessr/reveal.png width=700 alt="Reveal screen — top half is a dark map showing a yellow dashed line connecting a blue 'YOU' pin in midtown Manhattan to a yellow 'ACTUAL' pin further uptown near the river; bottom panel shows '1.48 mi away', '2 Ave @ 58 St', '+685 points', and a 'Next round' button"><p><em>Reveal after a round — the dashed yellow line shows the distance between where I dropped my pin and where the camera actually was.</em></p><p><strong>The timer was invisible until too late.</strong> One commenter lost points from not realizing time was running out. I rewrote the timer to pulse from second one, with three tiers: yellow default (>15s), amber faster-pulse warn (≤15s), flashing red with a lower-tone sound at the critical tier (≤5s). Also bumped round length from 30s → 40s so mobile players who need to zoom/pan have more breathing room.</p><p><strong>Meters and kilometers were wrong for the audience.</strong> The right fallback here is feet and miles, not meters. I almost got clever and tried to add NYC-blocks as a unit, but that rabbit hole turned out deeper than expected. Manhattan&rsquo;s grid is tilted ~29° from true north. Short blocks (N-S) are ~80m but avenue blocks (E-W) range from 600 to 900 feet depending on where you are. Heuristic decomposition can&rsquo;t match the navigational count a local does in their head (&ldquo;2 streets south + 1 avenue west = 3 blocks&rdquo;) without genuine grid-walking logic, which is out of scope. Settled on miles + feet — clear, correct, universally understood.</p><p><strong>Dead cameras were ruining rounds.</strong> One commenter hit the NYC DOT &ldquo;This Camera Is Being Serviced&rdquo; placeholder and lost points on it. No flag in the API response says &ldquo;this is a placeholder.&rdquo; I had to detect it client-side. The approach I landed on: sample the first loaded frame into a tiny 30×30 offscreen canvas, measure RGB variance across the pixels. Real feeds have lots of color variation from cars, buildings, sky, people — they routinely score between 3,000 and 30,000. Flat service screens are near-monochrome and score under 700. If a camera trips the threshold, I blacklist its UUID in <code>localStorage</code> and swap in a fresh camera mid-round. The blacklist persists across sessions, so a player never sees the same dead feed twice.</p><p><strong>Tap-to-zoom on the camera feed.</strong> Someone wanted higher resolution for distant bus numbers and street signs. I can&rsquo;t upscale what NYC DOT gives me, but I can let you zoom into it — click anywhere on the camera pane, it scales 2.2× centered on the click point. Click again to reset.</p><p>The polish pass was ~316 lines of diff — about 4 hours of work.</p><h2 id=what-i-learned-about-distribution>What I learned about distribution</h2><p>After the r/nyc takedown I drafted reposts to the subs Reddit actually pointed me at — r/WebGames, r/IndieGaming, r/newyorkcity, r/InternetIsBeautiful, r/webdev, Show HN, Twitter.</p><p>A surprisingly large number of them have automatic filters that catch what appear to be self-promo patterns. r/newyorkcity&rsquo;s AI pre-check caught even a carefully-worded text post where the URL was deferred to the first comment. r/InternetIsBeautiful — which I thought was an obvious fit — turns out to have an explicit <strong>Rule 3: No Webgames.</strong> They removed that category from the sub after the Wordle-clone flood years ago.</p><p>Both of those turned into useful data. The lesson I took away: a sub&rsquo;s <strong>stated</strong> rules are a small fraction of its <strong>enforced</strong> rules, and automated filters now do most of the enforcement. Fighting through them is low-ROI when there are other subs whose charter explicitly matches your thing.</p><p>Where you post matters more than how you frame it.</p><h2 id=where-things-stand>Where things stand</h2><img src=/images/nycguessr/gameover.png width=600 alt="Game-over screen showing 1,180 out of 25,000 points, a per-round breakdown with distances and points, and an auto-generated share card with circles indicating round quality plus Share / Download PNG / Twitter / Reddit / Copy buttons"><p><em>Final screen — round breakdown, auto-generated PNG share card, and share buttons. The card below the score is what gets posted when you tap Share.</em></p><p>The game is live. Live feeds work in every country now. The reveal screen is actually legible. The timer is hard to miss. Dead cameras auto-swap. Tap-to-zoom works.</p><p>Twitter post shipped. r/webdev shipped. Show HN drafted (someone else got there first organically, but a formal Show HN is still worth posting during a weekday-morning slot). r/WebGames still on the to-do.</p><p>Honestly, even if the game doesn&rsquo;t get another burst of traffic, the experience has already been worth it. Started from Morry&rsquo;s blog post, ended with working infrastructure I understand top to bottom: a live-image pipeline through a Vercel proxy, a variance-based placeholder detector, a canvas-generated share card, and 900-ish lines of browser code that doesn&rsquo;t need npm to run. Plus concrete lessons about launch mechanics that I wouldn&rsquo;t have gotten from reading about them.</p><p>If you play it and your score feels bad, borough-filter to your home turf and try again. Cabbies and lifers should clean up. The rest of us get to learn just how similar a random BQE stretch looks to a random Queens boulevard.</p><p>Code&rsquo;s open at <a href=https://github.com/aldrinjenson/nycguessr>github.com/aldrinjenson/nycguessr</a>. PRs welcome, especially for the dead-camera variance threshold and the route-code prettifier.</p><p>Huge thanks to <a href=https://wttdotm.com>Morry Kolman</a> for both the original Traffic Cam Photobooth and the write-up that showed me how it worked. Without that blog post this wouldn&rsquo;t exist.</p></div><div class=post-info><div class="post-date dt-published">19-04-2026</div><a class="post-hidden-url u-url" href=/projects/nycguessr/>/projects/nycguessr/</a>
-<a href=/ class="p-name p-author post-hidden-author h-card" rel=me>Aldrin Jenson</a><div class=post-taxonomies><ul class=post-categories><li><a href=/categories/>Projects</a></li></ul><ul class=post-tags><li><a href=/tags/tech>#tech</a></li><li><a href=/tags/javascript>#javascript</a></li><li><a href=/tags/web-dev>#web-dev</a></li><li><a href=/tags/nyc>#nyc</a></li><li><a href=/tags/launch>#launch</a></li><li><a href=/tags/side-project>#side-project</a></li><li><a href=/tags/vercel>#vercel</a></li><li><a href=/tags/vanilla-js>#vanilla-js</a></li></ul></div></div></article><div class="pagination post-pagination"><div class="left pagination-item disabled"></div><div class="right pagination-item"><a href=/projects/moodle-automation/>Moodle Automation</a></div></div><script src=https://utteranc.es/client.js repo=aldrinjenson/aldrinjenson.github.io issue-term=pathname label=comment theme=github-dark crossorigin=anonymous async></script></main><footer class=common-footer><div class=common-footer-bottom><div class=copyright><p>© <a href=https://github.com/aldrinjenson/aldrinjenson.github.io target=_blank>Aldrin Jenson </a>, 2026<br>Powered by <a target=_blank rel="noopener noreferrer" href=https://gohugo.io/>Hugo</a><br></p><br></div><button class=theme-switcher>Dark theme</button>
-<script>const STORAGE_KEY="user-color-scheme",defaultTheme="auto";let currentTheme,switchButton,autoDefinedScheme=window.matchMedia("(prefers-color-scheme: dark)");const autoChangeScheme=e=>{currentTheme=e.matches?"dark":"light",document.documentElement.setAttribute("data-theme",currentTheme),changeButtonText()};document.addEventListener("DOMContentLoaded",function(){switchButton=document.querySelector(".theme-switcher"),currentTheme=detectCurrentScheme(),currentTheme=="dark"&&document.documentElement.setAttribute("data-theme","dark"),currentTheme=="auto"&&(autoChangeScheme(autoDefinedScheme),autoDefinedScheme.addListener(autoChangeScheme)),changeButtonText(),switchButton.addEventListener("click",switchTheme,!1)});function detectCurrentScheme(){return localStorage.getItem(STORAGE_KEY)?localStorage.getItem(STORAGE_KEY):defaultTheme?defaultTheme:window.matchMedia?window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":"light"}function changeButtonText(){switchButton.textContent=currentTheme=="dark"?"Light theme":"Dark theme"}function switchTheme(){currentTheme=="dark"?(localStorage.setItem(STORAGE_KEY,"light"),document.documentElement.setAttribute("data-theme","light"),currentTheme="light"):(localStorage.setItem(STORAGE_KEY,"dark"),document.documentElement.setAttribute("data-theme","dark"),currentTheme="dark"),changeButtonText()}</script></div><p class="h-card vcard"><a href=/ class="p-name u-url url fn" rel=me>Aldrin Jenson</a>
-/
-<a class="p-email u-email email" rel=me href=mailto:aldrinjenson@gmail.com>aldrinjenson@gmail.com</a>
-<img class=u-photo src=/images/me.webp></p></footer></div></body></html>
+<!DOCTYPE html>
+
+
+<html lang="en-us" data-theme="">
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>NYCGuessr — GeoGuessr with 960 live NYC traffic cameras - Aldrin Jenson</title>
+<meta name="description" content="CS undergrad from Kerala, India">
+
+<link rel="icon" type="image/x-icon" href="/%20favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="/%20favicon.png">
+
+
+
+    
+
+
+
+
+
+    
+    
+        
+    
+    
+
+    
+        <link rel="stylesheet" href="/css/style.min.a6f5b3d50adf9432413f07022323f9c27629f1f4b3f8aec4cbedae27f35927c1.css" integrity="sha256-pvWz1QrflDJBPwcCIyP5wnYp8fSz&#43;K7Ey&#43;2uJ/NZJ8E=">
+    
+
+
+
+
+
+
+<meta property="og:url" content="/projects/nycguessr/">
+	<meta property="og:site_name" content="Aldrin Jenson">
+	<meta property="og:title" content="NYCGuessr — GeoGuessr with 960 live NYC traffic cameras">
+	<meta property="og:description" content="Built a GeoGuessr-style game using NYC DOT&#39;s 960 live traffic camera feeds. Shipped in an evening, got removed from r/nyc despite 77 upvotes, found a silent geo-block bug thanks to a friend in India, and learned a lot about distribution along the way.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="projects">
+		<meta property="article:published_time" content="2026-04-19T21:00:00-04:00">
+		<meta property="article:modified_time" content="2026-04-19T21:00:00-04:00">
+		<meta property="article:tag" content="Tech">
+		<meta property="article:tag" content="Javascript">
+		<meta property="article:tag" content="Web-Dev">
+		<meta property="article:tag" content="Nyc">
+		<meta property="article:tag" content="Launch">
+		<meta property="article:tag" content="Side-Project">
+
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="NYCGuessr — GeoGuessr with 960 live NYC traffic cameras">
+	<meta name="twitter:description" content="Built a GeoGuessr-style game using NYC DOT&#39;s 960 live traffic camera feeds. Shipped in an evening, got removed from r/nyc despite 77 upvotes, found a silent geo-block bug thanks to a friend in India, and learned a lot about distribution along the way.">
+
+
+
+
+
+
+
+
+
+
+<script async defer src="https://www.googletagmanager.com/gtag/js?id=G-75EZN9Q628"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-75EZN9Q628');
+</script>
+
+
+
+    
+</head>
+<body>
+    <a class="skip-main" href="#main">Skip to main content</a>
+    <div class="container">
+        <header class="common-header"> 
+            
+                <div class="header-top">
+    <h1 class="site-title">
+        <a href="/">Aldrin Jenson</a>
+    </h1>
+    <ul class="social-icons">
+
+
+    
+        
+        
+        <li>
+            <a href="https://github.com/aldrinjenson" title="Github" rel="me">
+            <span class="inline-svg" >
+
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+</span>
+
+            </a>
+        </li>
+    
+
+    
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/in/aldrinjenson" title="Linkedin" rel="me">
+            <span class="inline-svg" >
+
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+</span>
+
+            </a>
+        </li>
+    
+
+    
+        
+        
+        <li>
+            <a href="https://twitter.com/aldrinjenson" title="Twitter" rel="me">
+            <span class="inline-svg" >
+
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+
+</span>
+
+            </a>
+        </li>
+    
+
+    
+        
+        
+        <li>
+            <a href="https://medium.com/@aldrinjenson" title="Medium" rel="me">
+            <span class="inline-svg" >
+
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="svg-inline--fa fa-medium" data-icon="medium" data-prefix="fab" focusable="false" role="img" viewBox="0 0 640 512"><path fill="currentColor" fill="currentColor" d="M180.5 74.26C80.81 74.26 0 155.6 0 256S80.82 437.7 180.5 437.7 361 356.4 361 256 280.2 74.26 180.5 74.26zm288.3 10.65c-49.85 0-90.25 76.62-90.25 171.1s40.41 171.1 90.25 171.1 90.25-76.62 90.25-171.1H559C559 161.5 518.6 84.91 468.8 84.91zm139.5 17.82c-17.53 0-31.74 68.63-31.74 153.3s14.2 153.3 31.74 153.3S640 340.6 640 256C640 171.4 625.8 102.7 608.3 102.7z"/></svg>
+
+</span>
+
+            </a>
+        </li>
+    
+
+    
+        
+        
+        <li>
+            <a href="https://www.youtube.com/aldrinjenson" title="Youtube" rel="me">
+            <span class="inline-svg" >
+
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+
+</span>
+
+            </a>
+        </li>
+    
+
+    
+        
+        
+        <li>
+            <a href="https://aldrinjenson.github.io/index.xml" title="Rss" rel="me">
+            <span class="inline-svg" >
+
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"/></svg>
+
+</span>
+
+            </a>
+        </li>
+    
+
+</ul>
+
+</div>
+
+    <nav>
+        
+        
+        <a class="" href="/" title="Home">Home</a>
+        
+        <a class="" href="/posts/" title="Posts">Posts</a>
+        
+        <a class="" href="/projects/" title="Projects">Projects</a>
+        
+        <a class="" href="/travel/" title="Travel">Travel</a>
+        
+        <a class="" href="https://til.aldrinjenson.com/" title="Today I Learned">TIL</a>
+        
+    </nav>
+
+
+
+
+
+            
+        </header>
+        <main id="main" tabindex="-1"> 
+            
+    
+
+    <article class="post h-entry">
+        <header class="post-header">
+            <h1 class="p-name post-title">NYCGuessr — GeoGuessr with 960 live NYC traffic cameras</h1>
+            
+        </header>
+        <div class="content e-content">
+            <blockquote>
+<p><strong>Live:</strong> <a href="https://nycguessr.vercel.app">nycguessr.vercel.app</a> · <strong>Code:</strong> <a href="https://github.com/aldrinjenson/nycguessr">github.com/aldrinjenson/nycguessr</a></p>
+</blockquote>
+<img src="/images/nycguessr/og.png" width=700 alt="NYCGuessr social preview card — yellow on black, taxi-cab aesthetic">
+<p>A GeoGuessr-style game using 960 live NYC DOT traffic cameras. You see a real-time feed, drop a pin on the map where you think it is, closer guesses score more. 5 rounds, 40 seconds each.</p>
+<p>The magic is that the feeds are genuinely live — every round has different cars, different weather, different pedestrians. A round at 3 AM looks nothing like rush hour. The halal cart you see on-screen might still be parked there when you look out the window.</p>
+<p>This is the full story of how it got built, how it launched, how it broke, and how it got patched up.</p>
+<h2 id="the-spark">The spark</h2>
+<p>A few days before I built this, I was looking for something else entirely. I vaguely remembered a site that let you &ldquo;take a photo from any NYC traffic light&rdquo; and went searching for it. What I found was <a href="https://trafficcamphotobooth.com">Traffic Cam Photobooth</a> by <a href="https://wttdotm.com">Morry Kolman</a> — a static site that turns NYC DOT&rsquo;s public traffic camera feeds into a personal photo booth. 900+ cameras, a map, one-tap snapshots.</p>
+<p>Playing with it, the obvious question was <em>how on earth does this work?</em> Poking at the page with Chrome dev tools turned up the answer: <strong>there&rsquo;s no special API</strong>. The page hits an unauthenticated endpoint on <code>webcams.nyctmc.org</code> that returns a JSON list of cameras and then loads individual JPEGs by UUID. The feeds themselves are served by NYC DOT as part of their civic-information mandate — the same feeds that run on NYC cable Channel 72.</p>
+<p>That realization reframed 960 traffic cameras from &ldquo;infrastructure you can&rsquo;t access&rdquo; to &ldquo;JSON file + plain <code>&lt;img&gt;</code> tags.&rdquo; A free substrate to build on.</p>
+<p>(I only learned later that Morry had <a href="https://wttdotm.com/blog/tcpb_part_2.html">written up the same discovery in detail</a> — which is a much better explanation than this blog post. If you&rsquo;re interested in the mechanics, read his post.)</p>
+<p>I brainstormed what else could live on top of it. An Obsidian plugin that auto-captures the nearest-intersection camera view into today&rsquo;s note. A 900-camera video wall as a screensaver. A commute predictor that reads multiple cameras on a route to detect congestion 2-3 minutes before Google Maps reacts. A YOLO-powered pedestrian counter for &ldquo;which intersection is busiest at 3 AM?&rdquo;</p>
+<p>But the cleanest idea was <strong>GeoGuessr for NYC</strong>. Camera gives you the image. Map is the input surface. Distance is the score. And the live feed is the magic — every round is unreproducible because the world is changing in real time.</p>
+<h2 id="the-build--one-evening">The build — one evening</h2>
+<p>I opened Claude Code and started with a single <code>index.html</code>. No framework, no build step, no backend. The whole thing is Leaflet for the map, vanilla JS for the game loop, the browser&rsquo;s Web Audio API for sound effects, and one big <code>cameras.js</code> (164 KB) with all 960 locations and their image URLs.</p>
+<p>The camera list gets scraped once from <code>webcams.nyctmc.org/api/cameras</code> — CORS blocks that fetch in the browser, but I don&rsquo;t need to do it in the browser. I pull the list once, commit it to the repo as a <code>window.CAMERAS = [...]</code> blob, and the game just iterates it. Individual camera images come via <code>webcams.nyctmc.org/api/cameras/{uuid}/image</code> — CORS doesn&rsquo;t apply to plain <code>&lt;img&gt;</code> loads, so the browser can fetch them directly.</p>
+<p>The gameplay loop:</p>
+<ul>
+<li>Pick 5 random cameras (filtered by borough if the player wants).</li>
+<li>Show the live camera feed (refreshed every 2 seconds via <code>&lt;img src&gt;</code> cache-busting).</li>
+<li>Let the player drop a pin on the map.</li>
+<li>Score with <code>5000 × exp(-distance_m / 1200)</code> — so 100m off gets you ~4800 points, 1km gets ~2100, 5km gets basically nothing.</li>
+<li>Show the truth location with a line connecting it to the guess. Do it five times. Sum.</li>
+</ul>
+<img src="/images/nycguessr/gameplay.png" width=700 alt="NYCGuessr mid-round — live traffic camera feed on the left shows a night-time Manhattan street with headlights and a 'Facing North' overlay; the right half is a dark map with a blue guess-pin dropped in Manhattan">
+<p><em>A round in progress. The left half is the live camera feed (NYC DOT&rsquo;s own timestamp overlay visible); the right half is the guessing map with my pin dropped mid-Manhattan.</em></p>
+<p>For sound I used Web Audio API oscillators — no audio files bundled. Tones for pin drop, guess submit, &ldquo;nice guess&rdquo; chime, &ldquo;bad guess&rdquo; thunk, countdown ticks, end-game fanfare. The whole SFX layer is ~30 lines of code.</p>
+<p>One detail I&rsquo;m proud of: a 1200×630 PNG <strong>share card</strong> generated on the fly in <code>&lt;canvas&gt;</code> at game-end. Yellow accent bar, player name, huge score, colored dot-circles for the 5 rounds, &ldquo;close guesses&rdquo; MTA-style bullet badges, URL footer. <code>canvas.toBlob()</code> produces a <code>Blob</code> that gets fed to <code>navigator.share({files:[file]})</code> on mobile (the native share sheet attaches the image to whatever app the user picks) or <code>ClipboardItem</code> with <code>image/png</code> on desktop. No backend, no image server, entirely runtime.</p>
+<p>A surprise during development: ~148 of the 960 cameras have NYC DOT internal route codes as names instead of human intersections — things like <code>C1-MDE-12-SB_at_Heath_Ave-Ex9</code>. I wrote a small lookup table covering ~35 highway/bridge codes (BQE, LIE, MDE, FDR, HHP, etc.) and a prettifier that turns that into <strong>&ldquo;Major Deegan Expwy · SB @ Heath Ave · Exit 9&rdquo;</strong>. Cameras with plain names (<code>&quot;Hillside Ave @ Little Neck Pkwy&quot;</code>) pass through untouched.</p>
+<p>The whole app came out to roughly 1,100 lines of HTML + CSS + JS, one CDN dependency (Leaflet), one JSON file. No build step. Deployed it with a single <code>vercel --prod --yes</code>, then wired GitHub auto-deploy so every <code>git push origin main</code> ships to <code>nycguessr.vercel.app</code> in about 15 seconds.</p>
+<h2 id="the-launch--a-mod-takedown-with-hundreds-of-visitors-trailing-behind">The launch — a mod takedown with hundreds of visitors trailing behind</h2>
+<p>I posted to r/nyc. Honest title: <em>&ldquo;I made a game where you guess the NYC intersection from a live traffic camera.&rdquo;</em></p>
+<p>It landed. 77 upvotes, 17 comments in a few hours. People were genuinely into it — one person wondered if &ldquo;it&rsquo;ll be easier tomorrow when it&rsquo;s not raining&rdquo; (confirming the live-feed thesis was working). Others asked for a thicker reveal line à la GeoGuessr. Someone wanted the timer to be more visible. Someone else hit a &ldquo;This Camera Is Being Serviced&rdquo; placeholder screen. Another asked for miles/blocks instead of meters — and suggested <em>&ldquo;even better: measure it in city blocks.&rdquo;</em></p>
+<p>Then the post got removed. &ldquo;Sorry, this post has been removed by the moderators of r/nyc.&rdquo; Classic r/nyc anti-self-promo policy — it doesn&rsquo;t matter how much the community is enjoying your thing, if you made it and linked to it, it&rsquo;s out.</p>
+<p>But — and this is the funny part — the post did its job in the window it had. The first ~20 hours after launch brought <strong>713 unique visitors, 1,113 page views, and 421 of those referrals came from various Reddit domains</strong> (reddit.com, out.reddit.com, old.reddit.com, com.reddit.frontpage) before and after the takedown. Mobile was 87% of traffic, iOS 64%, Android 23% — matching NYC demographics almost exactly.</p>
+<p>A surprise in the referrer list: <strong>11 visitors from news.ycombinator.com.</strong> I hadn&rsquo;t posted to HN yet, so someone else had surfaced it there. A small number, but a real signal that the kind of audience I&rsquo;d been drafting for had found it organically before I got around to the formal Show HN.</p>
+<p>Reddit&rsquo;s own &ldquo;suggested alternative communities&rdquo; helpfully pointed me at r/WebGames and r/IndieGaming (subs explicitly built for this) which I hadn&rsquo;t considered. In retrospect, the takedown was a gift — it redirected me toward the audiences that actually wanted this kind of post.</p>
+<h2 id="the-bug-i-couldnt-have-found-myself">The bug I couldn&rsquo;t have found myself</h2>
+<p>Within 24 hours, some friends in India messaged me saying the game didn&rsquo;t work — the cameras weren&rsquo;t loading.</p>
+<p>I tested on my laptop. Worked fine. I tested on cellular. Worked fine. Everything worked from New York.</p>
+<p>Then I opened Firefox dev tools on a friend&rsquo;s VPN routed to Beijing and watched the network panel fill up with <code>NS_BINDING_ABORTED</code> entries for every <code>webcams.nyctmc.org</code> request. The Vercel-hosted HTML loaded. The Carto basemap tiles loaded. But every camera image request died silently — 0 bytes transferred, TLS connection reset.</p>
+<p><strong>NYC DOT geo-blocks the camera endpoint.</strong> Not a CDN policy. Not rate limiting. A hard US-only policy, enforced by the TLS layer, with no error message. My site was quietly broken for every international player.</p>
+<p>I fixed it with a 15-line Vercel serverless function at <code>/api/cam/[uuid].js</code> that fetches the image server-side (Vercel egresses from a US IP, so the geo-block doesn&rsquo;t apply) and streams the JPEG back. The client-side URL got rewritten from <code>webcams.nyctmc.org/api/cameras/{uuid}/image</code> to <code>/api/cam/{uuid}</code> at runtime — <code>cameras.js</code> stayed untouched.</p>
+<p>One detail matters here: the original code appended <code>?t=' + Date.now()</code> to bust the browser&rsquo;s image cache. If I&rsquo;d left that through the proxy naively, every user&rsquo;s every refresh would invoke the function and hammer NYC DOT — wasting bandwidth and making a much bigger footprint than the old direct-hit pattern. The fix is to <strong>quantize the timestamp</strong> to the refresh window: <code>?t=' + Math.floor(Date.now() / REFRESH_MS)</code>. Now all viewers of the same camera within the same 2-second window request an identical URL, Vercel&rsquo;s edge CDN serves a cached response, and only <em>one</em> NYC DOT fetch happens per camera per 2s regardless of concurrent player count.</p>
+<p>I don&rsquo;t think I would have found this bug on my own. The only thing that surfaced it was a real player saying &ldquo;this doesn&rsquo;t work.&rdquo; A reminder that launches benefit from people outside your testing context even when — especially when — they break things.</p>
+<h2 id="patching-up-the-game-from-reddit-feedback">Patching up the game from Reddit feedback</h2>
+<p>The Reddit thread was a goldmine. After the takedown I went through every comment and sorted them by upvotes. A weekend&rsquo;s worth of polish fell out:</p>
+<p><strong>The reveal screen was hidden.</strong> Three independent complaints: &ldquo;should show the line between guess &amp; actual&rdquo; / &ldquo;kinda does but it&rsquo;s in the background and blurred, near useless&rdquo; / &ldquo;can&rsquo;t see where my guess is in relation.&rdquo; GeoGuessr&rsquo;s line-to-truth reveal is the iconic dopamine moment. I&rsquo;d built it and hidden it. Fix: full split-screen reveal with the map on top (GeoGuessr-style), thicker yellow dashed line, pins bumped from 18px to 22px with floating &ldquo;YOU&rdquo; and &ldquo;ACTUAL&rdquo; labels above each one.</p>
+<img src="/images/nycguessr/reveal.png" width=700 alt="Reveal screen — top half is a dark map showing a yellow dashed line connecting a blue 'YOU' pin in midtown Manhattan to a yellow 'ACTUAL' pin further uptown near the river; bottom panel shows '1.48 mi away', '2 Ave @ 58 St', '+685 points', and a 'Next round' button">
+<p><em>Reveal after a round — the dashed yellow line shows the distance between where I dropped my pin and where the camera actually was.</em></p>
+<p><strong>The timer was invisible until too late.</strong> One commenter lost points from not realizing time was running out. I rewrote the timer to pulse from second one, with three tiers: yellow default (&gt;15s), amber faster-pulse warn (≤15s), flashing red with a lower-tone sound at the critical tier (≤5s). Also bumped round length from 30s → 40s so mobile players who need to zoom/pan have more breathing room.</p>
+<p><strong>Meters and kilometers were wrong for the audience.</strong> The right fallback here is feet and miles, not meters. I almost got clever and tried to add NYC-blocks as a unit, but that rabbit hole turned out deeper than expected. Manhattan&rsquo;s grid is tilted ~29° from true north. Short blocks (N-S) are ~80m but avenue blocks (E-W) range from 600 to 900 feet depending on where you are. Heuristic decomposition can&rsquo;t match the navigational count a local does in their head (&ldquo;2 streets south + 1 avenue west = 3 blocks&rdquo;) without genuine grid-walking logic, which is out of scope. Settled on miles + feet — clear, correct, universally understood.</p>
+<p><strong>Dead cameras were ruining rounds.</strong> One commenter hit the NYC DOT &ldquo;This Camera Is Being Serviced&rdquo; placeholder and lost points on it. No flag in the API response says &ldquo;this is a placeholder.&rdquo; I had to detect it client-side. The approach I landed on: sample the first loaded frame into a tiny 30×30 offscreen canvas, measure RGB variance across the pixels. Real feeds have lots of color variation from cars, buildings, sky, people — they routinely score between 3,000 and 30,000. Flat service screens are near-monochrome and score under 700. If a camera trips the threshold, I blacklist its UUID in <code>localStorage</code> and swap in a fresh camera mid-round. The blacklist persists across sessions, so a player never sees the same dead feed twice.</p>
+<p><strong>Tap-to-zoom on the camera feed.</strong> Someone wanted higher resolution for distant bus numbers and street signs. I can&rsquo;t upscale what NYC DOT gives me, but I can let you zoom into it — click anywhere on the camera pane, it scales 2.2× centered on the click point. Click again to reset.</p>
+<p>The polish pass was ~316 lines of diff — about 4 hours of work.</p>
+<h2 id="what-i-learned-about-distribution">What I learned about distribution</h2>
+<p>After the r/nyc takedown I drafted reposts to the subs Reddit actually pointed me at — r/WebGames, r/IndieGaming, r/newyorkcity, r/InternetIsBeautiful, r/webdev, Show HN, Twitter.</p>
+<p>A surprisingly large number of them have automatic filters that catch what appear to be self-promo patterns. r/newyorkcity&rsquo;s AI pre-check caught even a carefully-worded text post where the URL was deferred to the first comment. r/InternetIsBeautiful — which I thought was an obvious fit — turns out to have an explicit <strong>Rule 3: No Webgames.</strong> They removed that category from the sub after the Wordle-clone flood years ago.</p>
+<p>Both of those turned into useful data. The lesson I took away: a sub&rsquo;s <strong>stated</strong> rules are a small fraction of its <strong>enforced</strong> rules, and automated filters now do most of the enforcement. Fighting through them is low-ROI when there are other subs whose charter explicitly matches your thing.</p>
+<p>Where you post matters more than how you frame it.</p>
+<h2 id="where-things-stand">Where things stand</h2>
+<img src="/images/nycguessr/gameover.png" width=600 alt="Game-over screen showing 1,180 out of 25,000 points, a per-round breakdown with distances and points, and an auto-generated share card with circles indicating round quality plus Share / Download PNG / Twitter / Reddit / Copy buttons">
+<p><em>Final screen — round breakdown, auto-generated PNG share card, and share buttons. The card below the score is what gets posted when you tap Share.</em></p>
+<p>The game is live. Live feeds work in every country now. The reveal screen is actually legible. The timer is hard to miss. Dead cameras auto-swap. Tap-to-zoom works.</p>
+<p>Twitter post shipped. r/webdev shipped. Show HN drafted (someone else got there first organically, but a formal Show HN is still worth posting during a weekday-morning slot). r/WebGames still on the to-do.</p>
+<p>Honestly, even if the game doesn&rsquo;t get another burst of traffic, the experience has already been worth it. Started from Morry&rsquo;s blog post, ended with working infrastructure I understand top to bottom: a live-image pipeline through a Vercel proxy, a variance-based placeholder detector, a canvas-generated share card, and 900-ish lines of browser code that doesn&rsquo;t need npm to run. Plus concrete lessons about launch mechanics that I wouldn&rsquo;t have gotten from reading about them.</p>
+<p>If you play it and your score feels bad, borough-filter to your home turf and try again. Cabbies and lifers should clean up. The rest of us get to learn just how similar a random BQE stretch looks to a random Queens boulevard.</p>
+<p>Code&rsquo;s open at <a href="https://github.com/aldrinjenson/nycguessr">github.com/aldrinjenson/nycguessr</a>. PRs welcome, especially for the dead-camera variance threshold and the route-code prettifier.</p>
+<p>Huge thanks to <a href="https://wttdotm.com">Morry Kolman</a> for both the original Traffic Cam Photobooth and the write-up that showed me how it worked. Without that blog post this wouldn&rsquo;t exist.</p>
+
+        </div>
+        
+
+    
+
+
+<div class="post-info">
+    
+        <div class="post-date dt-published">19-04-2026</div>
+    
+    
+    <a class="post-hidden-url u-url" href="/projects/nycguessr/">/projects/nycguessr/</a>
+    <a href="/" class="p-name p-author post-hidden-author h-card" rel="me">Aldrin Jenson</a>
+
+
+    <div class="post-taxonomies">
+        
+            <ul class="post-categories">
+                
+                    <li><a href="/categories/">Projects</a></li>
+                
+            </ul>
+            
+            
+                <ul class="post-tags">
+                    
+                        <li><a href="/tags/tech">#tech</a></li>
+                    
+                        <li><a href="/tags/javascript">#javascript</a></li>
+                    
+                        <li><a href="/tags/web-dev">#web-dev</a></li>
+                    
+                        <li><a href="/tags/nyc">#nyc</a></li>
+                    
+                        <li><a href="/tags/launch">#launch</a></li>
+                    
+                        <li><a href="/tags/side-project">#side-project</a></li>
+                    
+                        <li><a href="/tags/vercel">#vercel</a></li>
+                    
+                        <li><a href="/tags/vanilla-js">#vanilla-js</a></li>
+                    
+                </ul>
+        
+    </div>
+</div>
+
+    </article>
+
+    
+        
+    <div class="pagination post-pagination">
+        <div class="left pagination-item ">
+            
+                <a href="/projects/midi-piano-playground/">MIDI Piano Playground — teaching myself chords with a $64 keyboard and Claude Code</a>
+            
+        </div>
+        <div class="right pagination-item ">
+            
+                <a href="/projects/moodle-automation/">Moodle Automation</a>
+            
+        </div>
+    </div>
+
+
+
+
+    
+
+    
+        
+
+
+
+        
+        
+        
+        
+        
+        
+
+<script src="https://utteranc.es/client.js"
+        repo="aldrinjenson/aldrinjenson.github.io"
+        issue-term="pathname"
+        label="comment"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+
+    
+
+        </main>
+        
+            <footer class="common-footer">
+    
+    
+
+    <div class="common-footer-bottom">
+        
+        <div class="copyright">
+            <p>©  <a href="https://github.com/aldrinjenson/aldrinjenson.github.io"
+                    target="_blank">Aldrin Jenson </a>, 2026<br>
+                Powered by <a target="_blank" rel="noopener noreferrer"
+                    href="https://gohugo.io/">Hugo</a><br>
+                
+            </p>
+            <br>
+        </div>
+
+           
+
+<button class="theme-switcher">Dark theme</button>
+
+<script>
+  const STORAGE_KEY = 'user-color-scheme'
+  const defaultTheme = "auto"
+
+  let currentTheme
+  let switchButton
+  let autoDefinedScheme = window.matchMedia('(prefers-color-scheme: dark)')
+
+  const autoChangeScheme = e => {
+      currentTheme = e.matches ? 'dark' : 'light'
+      document.documentElement.setAttribute('data-theme', currentTheme)
+      changeButtonText()
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+      switchButton = document.querySelector('.theme-switcher')
+      currentTheme = detectCurrentScheme()
+      if (currentTheme == 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark')
+      }
+      if (currentTheme == 'auto') {
+          autoChangeScheme(autoDefinedScheme);
+          autoDefinedScheme.addListener(autoChangeScheme);
+      }
+      changeButtonText()
+      switchButton.addEventListener('click', switchTheme, false)
+  })
+
+  function detectCurrentScheme() {
+      if (localStorage.getItem(STORAGE_KEY)) {
+          return localStorage.getItem(STORAGE_KEY)
+      }
+      if (defaultTheme) {
+          return defaultTheme
+      }
+      if (!window.matchMedia) {
+          return 'light'
+      }
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark'
+      }
+      return 'light'
+  }
+
+  function changeButtonText()
+  {
+      switchButton.textContent = currentTheme == 'dark' ?  "Light theme" : "Dark theme"
+  }
+
+  function switchTheme(e) {
+      if (currentTheme == 'dark') {
+          localStorage.setItem(STORAGE_KEY, 'light')
+          document.documentElement.setAttribute('data-theme', 'light')
+          currentTheme = 'light'
+      } else {
+          localStorage.setItem(STORAGE_KEY, 'dark')
+          document.documentElement.setAttribute('data-theme', 'dark')
+          currentTheme = 'dark'
+      }
+      changeButtonText()
+  }
+</script>
+
+
+    </div>
+
+    <p class="h-card vcard">
+
+    <a href=/ class="p-name u-url url fn" rel="me">Aldrin Jenson</a> 
+
+     
+        /
+        <a class="p-email u-email email" rel="me" href="mailto:aldrinjenson@gmail.com">aldrinjenson@gmail.com</a>
+    
+
+     
+        <img class="u-photo" src="/images/me.webp" />
+    
+</p> 
+</footer>
+        
+    </div>
+</body>
+</html>

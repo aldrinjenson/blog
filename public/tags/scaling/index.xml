@@ -2,21 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Scaling on Aldrin Jenson</title>
-    <link>//localhost:1313/tags/scaling/</link>
+    <link>http://localhost:1313/tags/scaling/</link>
     <description>Aldrin Jenson (Scaling)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>aldrinjenson@gmail.com (Aldrin Jenson)</managingEditor>
+    <webMaster>aldrinjenson@gmail.com (Aldrin Jenson)</webMaster>
     <lastBuildDate>Wed, 01 Mar 2023 10:29:22 +0530</lastBuildDate>
     
-    <atom:link href="//localhost:1313/tags/scaling/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/scaling/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>My Two Cents on Scaling</title>
-      <link>//localhost:1313/posts/my-2-cents-on-scaling/</link>
+      <link>http://localhost:1313/posts/my-2-cents-on-scaling/</link>
       <pubDate>Wed, 01 Mar 2023 10:29:22 +0530</pubDate>
-      
-      <guid>//localhost:1313/posts/my-2-cents-on-scaling/</guid>
+      <author>aldrinjenson@gmail.com (Aldrin Jenson)</author>
+      <guid>http://localhost:1313/posts/my-2-cents-on-scaling/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;As a young developer, there are a few things I&amp;rsquo;ve learned about scaling over the years through talking to wise and experienced people in the industry. I want to share some of my thoughts on scaling and architecting software systems based on my experience. These thoughts are specific to certain software systems that I&amp;rsquo;ve used so far and are not generalized.&lt;/p&gt;
 &lt;p&gt;I am scared to write this to be honest. I am writing these mostly as a suggestion/ guidelines to myself to be used in the very near future. Many of these may be improved and if you know of them please don&amp;rsquo;t hesitate to point them out in the comments.&lt;/p&gt;

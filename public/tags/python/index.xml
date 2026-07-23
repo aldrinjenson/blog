@@ -1,69 +1,154 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on Aldrin Jenson</title><link>/tags/python/</link><description>Aldrin Jenson (Python)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 27 Aug 2023 07:00:55 +0000</lastBuildDate><atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>How to add meta tags to a Streamlit app</title><link>/posts/adding-metatags-to-streamlit/</link><pubDate>Sun, 27 Aug 2023 07:00:55 +0000</pubDate><guid>/posts/adding-metatags-to-streamlit/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Aldrin Jenson</title>
+    <link>/tags/python/</link>
+    <description>Aldrin Jenson (Python)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>aldrinjenson@gmail.com (Aldrin Jenson)</managingEditor>
+    <webMaster>aldrinjenson@gmail.com (Aldrin Jenson)</webMaster>
+    <lastBuildDate>Thu, 23 Jul 2026 02:00:00 -0400</lastBuildDate>
+    
+    <atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MIDI Piano Playground — teaching myself chords with a $64 keyboard and Claude Code</title>
+      <link>/projects/midi-piano-playground/</link>
+      <pubDate>Thu, 23 Jul 2026 02:00:00 -0400</pubDate>
+      <author>aldrinjenson@gmail.com (Aldrin Jenson)</author>
+      <guid>/projects/midi-piano-playground/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Code:&lt;/strong&gt; &lt;a href=&#34;https://github.com/aldrinjenson/midi-piano-playground&#34;&gt;github.com/aldrinjenson/midi-piano-playground&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I bought a used Casio CTK-2090 keyboard for $64 in early July, partly as a new hobby for the summer. I have decent relative pitch — if I can hum a melody, I can usually find it on the keys by ear. That part came almost for free from years of casual guitar. What I &lt;em&gt;can&amp;rsquo;t&lt;/em&gt; do is the left hand: which chords go under the melody, and when to switch. That gap is the whole reason this project exists.&lt;/p&gt;
+&lt;p&gt;Then a MIDI cable I&amp;rsquo;d ordered arrived, the Casio showed up on my Mac as a CoreMIDI device, and suddenly the piano problem looked like an engineering problem. Those I know how to work on.&lt;/p&gt;
+&lt;h2 id=&#34;step-1-just-see-the-notes&#34;&gt;Step 1: just see the notes&lt;/h2&gt;
+&lt;p&gt;First goal: capture what I play as data. macOS speaks CoreMIDI natively, so I went with small dependency-free Swift scripts you run directly with &lt;code&gt;swift file.swift&lt;/code&gt; — one to list MIDI devices, one to print Note ON/OFF events live, and one to record them with timestamps to a plain text file:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;12.43 ON  E5
+12.71 OFF E5
+12.72 ON  G5
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;One gotcha for anyone trying this: the modern &lt;code&gt;MIDIEventList.unsafeSequence()&lt;/code&gt; API wouldn&amp;rsquo;t compile on my machine&amp;rsquo;s Swift toolchain. The thing that works is the legacy &lt;code&gt;MIDIInputPortCreateWithBlock&lt;/code&gt; + walking the &lt;code&gt;MIDIPacketList&lt;/code&gt; manually. Old API, still solid.&lt;/p&gt;
+&lt;p&gt;(Fun hardware detail: the CTK-2090&amp;rsquo;s keys aren&amp;rsquo;t touch-sensitive — every note arrives at velocity 100. So dynamics can never come from this keyboard. Good to know before wondering why every recording sounds equally enthusiastic.)&lt;/p&gt;
+&lt;h2 id=&#34;step-2-what-key-am-i-even-playing-in&#34;&gt;Step 2: what key am I even playing in?&lt;/h2&gt;
+&lt;p&gt;For my first real recording I played a melody I&amp;rsquo;d learned by ear off the internet. The analysis showed all white keys with phrases resting on C — key of C major. And from the note pattern alone, the melody turned out to be &lt;em&gt;My Heart Will Go On&lt;/em&gt; from Titanic. I genuinely hadn&amp;rsquo;t set out to learn the Titanic song; my ear just went there.&lt;/p&gt;
+&lt;p&gt;The analyzer (&lt;code&gt;tools/analyze.py&lt;/code&gt;, plain Python, no dependencies) does two things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Key detection&lt;/strong&gt; with the classic &lt;strong&gt;Krumhansl-Schmuckler&lt;/strong&gt; algorithm: build a duration-weighted histogram of the twelve pitch classes, correlate it against the 24 Krumhansl-Kessler major/minor key profiles, highest Pearson correlation wins. It nailed C major on all my takes with r ≈ 0.82–0.88.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Chord suggestion&lt;/strong&gt;: chop the recording into fixed time windows, score each candidate chord by how well it covers the melody notes in the window (root weighted 1.5×, a bonus for the note you land on, and a small &amp;ldquo;pop prior&amp;rdquo; nudging it toward I/IV/V/vi), then run &lt;strong&gt;Viterbi smoothing&lt;/strong&gt; over the sequence with a chord-change penalty so it doesn&amp;rsquo;t flip-flop every window.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Reality check: on a recording of me actually playing chords, it recovered the C → G → F progression almost exactly. On sparse melodies it under-suggests the IV and vi chords — a C-heavy melody legitimately scores C everywhere, and even a human needs lyric and rhythm context to know where the Am belongs. So the output is a first draft of a chord chart, not gospel. That&amp;rsquo;s fine; a first draft was exactly what I needed.&lt;/p&gt;
+&lt;h2 id=&#34;step-3-the-practice-app&#34;&gt;Step 3: the practice app&lt;/h2&gt;
+&lt;p&gt;Knowing the chords and being able to &lt;em&gt;play them at the right moment&lt;/em&gt; are different skills. So the next piece was &lt;code&gt;titanic-practice.html&lt;/code&gt; — a single self-contained HTML page, no build step:&lt;/p&gt;
+&lt;img src=&#34;/images/midi-piano/practice-app.png&#34; width=700 alt=&#34;Two-track practice app — chord timeline, big current-chord display, lyrics with chords over the switch words&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;It plays back &lt;strong&gt;my own recorded melody&lt;/strong&gt; (cleaned up — two fumbles removed, timing smoothed) through WebAudio, while a big display shows &lt;em&gt;play this chord now&lt;/em&gt;, the upcoming chord, and the current lyric line.&lt;/li&gt;
+&lt;li&gt;A piano-roll canvas shows the melody notes over shaded chord regions with a moving playhead.&lt;/li&gt;
+&lt;li&gt;Speed slider (50–120%), a 4-beat count-in, and a &amp;ldquo;hear the chords&amp;rdquo; toggle as scaffolding you turn off as you improve.&lt;/li&gt;
+&lt;li&gt;The best part: &lt;strong&gt;live grading over Web MIDI&lt;/strong&gt;. Connect the keyboard in Chrome, and the chord name turns green when you&amp;rsquo;re holding the right triad (pitch-class match, so any octave counts). At the end you get a score card listing exactly which chord changes you missed, by lyric.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Later it grew a second track: my recorded &lt;em&gt;chord&lt;/em&gt; take as a play-along, so I can flip it — play melody over my own chords, or chords under my own melody.&lt;/p&gt;
+&lt;p&gt;One hosting gotcha: I first tried shipping this as a claude.ai artifact, but artifacts run in a sandboxed iframe that silently blocks Web MIDI — the permission prompt never appears. It has to be served locally (&lt;code&gt;python3 -m http.server&lt;/code&gt;) for the live feedback to work. There&amp;rsquo;s a &lt;code&gt;play.sh&lt;/code&gt; that starts the server and opens Chrome.&lt;/p&gt;
+&lt;p&gt;There&amp;rsquo;s also &lt;code&gt;studio.html&lt;/code&gt; — a browser-only record/analyze studio (the key-detection logic ported to JS) with a take-history panel in localStorage and a keyboard heat-map that shows &lt;em&gt;why&lt;/em&gt; it thinks the key is what it is:&lt;/p&gt;
+&lt;img src=&#34;/images/midi-piano/studio-analysis.png&#34; width=700 alt=&#34;MIDI Studio — key detection with keyboard heat-map and explanation&#34;&gt;
+&lt;img src=&#34;/images/midi-piano/studio-chords.png&#34; width=700 alt=&#34;Suggested chords with per-chord keyboard fingering diagrams&#34;&gt;
+&lt;h2 id=&#34;step-4-play-along-with-the-actual-song&#34;&gt;Step 4: play along with the actual song&lt;/h2&gt;
+&lt;p&gt;Practicing against my own wobbly recording only goes so far. The real song, though, is in &lt;strong&gt;E major&lt;/strong&gt;, and all my chord practice is in C. So: audio pipeline.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;yt-dlp&lt;/strong&gt; to download the official lyric video&amp;rsquo;s audio.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ffmpeg&lt;/strong&gt; to transpose E → C (down 4 semitones) while keeping tempo: &lt;code&gt;asetrate=SR*FACTOR,aresample=SR,atempo=1/FACTOR&lt;/code&gt; with FACTOR = 2^(−4/12) ≈ 0.7937. No rubberband needed. The vocals get a slightly &amp;ldquo;processed&amp;rdquo; timbre since formants shift too, but it&amp;rsquo;s completely playable-along-able.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Demucs&lt;/strong&gt; (Meta&amp;rsquo;s ML stem separation) to split the song into stems. The killer output: a mix of &lt;strong&gt;vocals + drums + bass + guitar with the harmonic bed removed&lt;/strong&gt; — a backing track where &lt;em&gt;I&lt;/em&gt; supply the chords, muxed back onto the lyric video.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The Demucs surprise: the 6-stem model&amp;rsquo;s &amp;ldquo;piano&amp;rdquo; stem came out &lt;strong&gt;silent&lt;/strong&gt; (−78 dB). This recording&amp;rsquo;s accompaniment is a synth pad + strings, which Demucs files under &amp;ldquo;other&amp;rdquo;, not &amp;ldquo;piano&amp;rdquo;. Lesson for pop ballads: don&amp;rsquo;t trust the piano stem — to remove the chordal bed, drop the whole &amp;ldquo;other&amp;rdquo; stem instead. (The other stem is also worth soloing just to study what the pro actually plays.)&lt;/p&gt;
+&lt;h2 id=&#34;what-i-actually-learned-about-music&#34;&gt;What I actually learned about music&lt;/h2&gt;
+&lt;p&gt;The tooling was the fun part, but the music learnings are the point:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The entire song needs only &lt;strong&gt;four left-hand shapes&lt;/strong&gt;: C (C·E·G), G (G·B·D), Am (A·C·E), F (F·A·C).&lt;/li&gt;
+&lt;li&gt;The verse is just a C → G → F → G loop, one chord per phrase. The Am only enters in the chorus (&amp;quot;&lt;strong&gt;I believe&lt;/strong&gt;…&amp;quot;) — my first guess put Am in the verse, and cross-checking two chord sites (both transpose to the same shapes in C) corrected that.&lt;/li&gt;
+&lt;li&gt;The rule of thumb that&amp;rsquo;s stuck with me: the chord should contain the melody note you land on, and you change chords on the first word of the phrase.&lt;/li&gt;
+&lt;li&gt;C → G → Am → F is the pop workhorse progression. Learning these four shapes in one song quietly unlocks hundreds of others.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;where-it-goes-next&#34;&gt;Where it goes next&lt;/h2&gt;
+&lt;p&gt;The workflow generalizes to any song: record the melody, let the analyzer name the key and draft a chord chart, verify against a chord site, swap the arrays in the practice app, serve locally, chase a perfect score card. The backlog has the ideas that excite me most — real-time auto-accompaniment (code plays the chords live while I play melody), timing-precision grading in milliseconds, and turning the practice app into a template where a song is just a JSON blob.&lt;/p&gt;
+&lt;p&gt;The meta-lesson: this is the first time a music habit of mine has crossed into the domain where I actually ship things. Classes and theory books haven&amp;rsquo;t stuck in the past. But a keyboard that emits data, plus Claude Code to build the scaffolding around it, turns practice into a feedback loop I want to come back to. We&amp;rsquo;ll see if that&amp;rsquo;s what finally makes it stick.&lt;/p&gt;
+&lt;p&gt;Code&amp;rsquo;s at &lt;a href=&#34;https://github.com/aldrinjenson/midi-piano-playground&#34;&gt;github.com/aldrinjenson/midi-piano-playground&lt;/a&gt;. Everything runs locally — Swift + CoreMIDI for recording, plain Python for analysis, single-file HTML for the apps. No accounts, no npm, no dependencies.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to add meta tags to a Streamlit app</title>
+      <link>/posts/adding-metatags-to-streamlit/</link>
+      <pubDate>Sun, 27 Aug 2023 07:00:55 +0000</pubDate>
+      <author>aldrinjenson@gmail.com (Aldrin Jenson)</author>
+      <guid>/posts/adding-metatags-to-streamlit/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Streamlit is a cool Python library to build GUIs for python based web-apps&lt;/li&gt;
 &lt;li&gt;It doesn&amp;rsquo;t support the feature to provide custom meta-tags for the apps you make and instead always have the default streamlit-tags instead&lt;/li&gt;
 &lt;li&gt;The following steps is based on deploying a streamlit app bundled as a docker which you can deploy in your VPS.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="workaround-tldr"&gt;Workaround tl;dr&lt;/h2&gt;
+&lt;h2 id=&#34;workaround-tldr&#34;&gt;Workaround tl;dr&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Replace the default index file used by streamlit with our custom file containing meta tags of our own&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="pre-requisites"&gt;Pre-requisites&lt;/h3&gt;
+&lt;h3 id=&#34;pre-requisites&#34;&gt;Pre-requisites&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Ensure docker/docker-compose is installed on your VPS&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="steps"&gt;Steps&lt;/h2&gt;
+&lt;h2 id=&#34;steps&#34;&gt;Steps&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Create an index.html in the src directory with similar contents:&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#f92672"&gt;html&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;lang&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;en&amp;#34;&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;&lt;span style="color:#f92672"&gt;head&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;&lt;span style="color:#f92672"&gt;meta&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;charset&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;UTF-8&amp;#34;&lt;/span&gt; /&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;&lt;span style="color:#f92672"&gt;link&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;rel&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;shortcut icon&amp;#34;&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;href&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;./favicon.png&amp;#34;&lt;/span&gt; /&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;&lt;span style="color:#f92672"&gt;title&lt;/span&gt;&amp;gt;Your Site Name&amp;lt;/&lt;span style="color:#f92672"&gt;title&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; window.&lt;span style="color:#a6e22e"&gt;prerenderReady&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#f92672"&gt;!&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;/&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;&amp;lt;!-- changes to be made here --&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;&lt;span style="color:#f92672"&gt;script&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;defer&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;defer&amp;#34;&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;src&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;./static/js/main.dccfd6b5.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;&lt;span style="color:#f92672"&gt;link&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;href&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;./static/css/main.f4a8738f.css&amp;#34;&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;rel&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; /&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;&amp;lt;!-- changes to be made above this --&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;&lt;span style="color:#f92672"&gt;meta&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;name&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;title&amp;#34;&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;content&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;Custom Title&amp;#34;&lt;/span&gt; /&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;/&lt;span style="color:#f92672"&gt;head&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;&lt;span style="color:#f92672"&gt;body&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;&lt;span style="color:#f92672"&gt;noscript&lt;/span&gt;&amp;gt;You need to enable JavaScript to run this app.&amp;lt;/&lt;span style="color:#f92672"&gt;noscript&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;&lt;span style="color:#f92672"&gt;div&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;id&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;root&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style="color:#f92672"&gt;div&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;lt;/&lt;span style="color:#f92672"&gt;body&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;/&lt;span style="color:#f92672"&gt;html&lt;/span&gt;&amp;gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;html&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lang&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;en&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;head&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;meta&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;charset&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;UTF-8&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;link&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;rel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;shortcut icon&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;./favicon.png&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;title&lt;/span&gt;&amp;gt;Your Site Name&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;title&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      window.&lt;span style=&#34;color:#a6e22e&#34;&gt;prerenderReady&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;!-- changes to be made here --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;defer&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;defer&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;./static/js/main.dccfd6b5.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;link&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;./static/css/main.f4a8738f.css&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;rel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;!-- changes to be made above this --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;meta&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;title&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;content&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Custom Title&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;head&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;body&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;noscript&lt;/span&gt;&amp;gt;You need to enable JavaScript to run this app.&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;noscript&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;root&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;body&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;html&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Feel free to add in more meta tags of your choice.&lt;/p&gt;
-&lt;ol start="2"&gt;
+&lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;Update your dockerfile to have a line like the following:&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-dockerfile" data-lang="dockerfile"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;FROM&lt;/span&gt; &lt;span style="color:#e6db74"&gt;python:3.9&lt;/span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;WORKDIR&lt;/span&gt; &lt;span style="color:#e6db74"&gt;/app&lt;/span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;COPY&lt;/span&gt; requirements.txt .&lt;span style="color:#960050;background-color:#1e0010"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;RUN&lt;/span&gt; pip install --no-cache-dir -r requirements.txt&lt;span style="color:#960050;background-color:#1e0010"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# important line for adding custom metatags&lt;/span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;COPY&lt;/span&gt; src/index.html /usr/local/lib/python3.9/site-packages/streamlit/static/index.html&lt;span style="color:#960050;background-color:#1e0010"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# ensure that the above line is present in your dockerfile&lt;/span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;COPY&lt;/span&gt; . .&lt;span style="color:#960050;background-color:#1e0010"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;CMD&lt;/span&gt; [&lt;span style="color:#e6db74"&gt;&amp;#34;streamlit&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;run&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;Home.py&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;--server.headless&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;true&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;--server.fileWatcherType&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;none&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;--browser.gatherUsageStats=False&amp;#34;&lt;/span&gt;]&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-dockerfile&#34; data-lang=&#34;dockerfile&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;python:3.9&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;WORKDIR&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;/app&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;COPY&lt;/span&gt; requirements.txt .&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;RUN&lt;/span&gt; pip install --no-cache-dir -r requirements.txt&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# important line for adding custom metatags&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;COPY&lt;/span&gt; src/index.html /usr/local/lib/python3.9/site-packages/streamlit/static/index.html&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# ensure that the above line is present in your dockerfile&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;COPY&lt;/span&gt; . .&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;CMD&lt;/span&gt; [&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;streamlit&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;run&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Home.py&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--server.headless&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--server.fileWatcherType&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;none&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--browser.gatherUsageStats=False&amp;#34;&lt;/span&gt;]&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Basically we&amp;rsquo;re copying the index file to replace the streamlit default index.html inside the docker container.&lt;/p&gt;
-&lt;ol start="2"&gt;
+&lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;Start the container. eg: &lt;code&gt;docker-compose up&lt;/code&gt;
 You&amp;rsquo;ll notice that what you get is just a white screen in the streamlit app endpoint. This is because the javascript is not loaded yet.&lt;/li&gt;
 &lt;li&gt;Find the pid of the container(&lt;code&gt;docker ps&lt;/code&gt;) and exec into it to run bash&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker exec -it &amp;lt;pid&amp;gt; bash
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker exec -it &amp;lt;pid&amp;gt; bash
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This basically lets you go inside the running container and inspect it using bash. Replace the PID with the PID of your container&lt;/p&gt;
-&lt;ol start="4"&gt;
+&lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;
 &lt;p&gt;Go to the path &lt;code&gt;/usr/local/lib/python3.9/site-packages/streamlit/static/static/js&lt;/code&gt; inside the interactive bash shell inside container.
 Note that the python3.9 may be different in your case. In that case, just let &lt;code&gt;cd&lt;/code&gt; + &lt;code&gt;tab&lt;/code&gt; autocomplete the path for you based on the python version you have installed.&lt;/p&gt;
@@ -72,22 +157,27 @@ Note that the python3.9 may be different in your case. In that case, just let &l
 &lt;p&gt;Now do an &lt;code&gt;ls&lt;/code&gt; like the following:&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ls main*.js
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="6"&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ls main*.js
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;6&#34;&gt;
 &lt;li&gt;Copy the full filename of this file and replace it in the script tag of the index.html file we created earlier.&lt;/li&gt;
 &lt;li&gt;Restart the container.(rebuild if necessary too).&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;This should let the javascript load correctly and have your project be loaded fine with custom meta tags.&lt;/p&gt;
 &lt;p&gt;If you note that somehow css seems to have broken, then just &lt;code&gt;cd&lt;/code&gt; to &lt;code&gt;/usr/local/lib/python3.9/site-packages/streamlit/static/static/css&lt;/code&gt; inside the container and do an ls like:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ls main.*.css
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ls main.*.css
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once you identify the the main css file, replace main.f4a8738f.css in the index.html file with this one.&lt;/p&gt;
 &lt;p&gt;Essentially, we&amp;rsquo;re replacing the basic html file from streamlit with our custom file and then loading the streamlit libraries(js and css) from their path inside the docker container.&lt;/p&gt;
 &lt;p&gt;Alright, with these steps, you should easily be able to create a streamlit application with custom Meta-tags.&lt;/p&gt;
-&lt;h2 id="bonus-tip"&gt;Bonus tip&lt;/h2&gt;
+&lt;h2 id=&#34;bonus-tip&#34;&gt;Bonus tip&lt;/h2&gt;
 &lt;p&gt;Maybe you are already aware of this, but to get meta images freely hosted, just paste your images to postimg.cc site. Upload the image and then paste the url to the meta image tag as the following:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#f92672"&gt;meta&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;property&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;og:image&amp;#34;&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;content&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;https://i.postimg.cc/&amp;lt;code&amp;gt;/image.png&amp;#34;&lt;/span&gt; /&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#f92672"&gt;meta&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;property&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;twitter:image&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;content&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;https://i.postimg.cc/&amp;lt;code&amp;gt;/image.png&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Tada✨&lt;/p&gt;</description></item></channel></rss>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;meta&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;property&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;og:image&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;content&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://i.postimg.cc/&amp;lt;code&amp;gt;/image.png&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;meta&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;property&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;twitter:image&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;content&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://i.postimg.cc/&amp;lt;code&amp;gt;/image.png&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Tada✨&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

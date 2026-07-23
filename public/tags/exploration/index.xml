@@ -2,21 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Exploration on Aldrin Jenson</title>
-    <link>//localhost:1313/tags/exploration/</link>
+    <link>http://localhost:1313/tags/exploration/</link>
     <description>Aldrin Jenson (Exploration)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>aldrinjenson@gmail.com (Aldrin Jenson)</managingEditor>
+    <webMaster>aldrinjenson@gmail.com (Aldrin Jenson)</webMaster>
     <lastBuildDate>Sat, 06 Aug 2022 13:47:26 +0530</lastBuildDate>
     
-    <atom:link href="//localhost:1313/tags/exploration/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/exploration/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Unknown benefit of creating a home partition - Access linux files from Windows</title>
-      <link>//localhost:1313/posts/access-linux-files-from-windows/</link>
+      <link>http://localhost:1313/posts/access-linux-files-from-windows/</link>
       <pubDate>Sat, 06 Aug 2022 13:47:26 +0530</pubDate>
-      
-      <guid>//localhost:1313/posts/access-linux-files-from-windows/</guid>
+      <author>aldrinjenson@gmail.com (Aldrin Jenson)</author>
+      <guid>http://localhost:1313/posts/access-linux-files-from-windows/</guid>
       <description></description>
     </item>
     

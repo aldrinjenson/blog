@@ -2,21 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Reflection on Aldrin Jenson</title>
-    <link>//localhost:1313/tags/reflection/</link>
+    <link>http://localhost:1313/tags/reflection/</link>
     <description>Aldrin Jenson (Reflection)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>aldrinjenson@gmail.com (Aldrin Jenson)</managingEditor>
+    <webMaster>aldrinjenson@gmail.com (Aldrin Jenson)</webMaster>
     <lastBuildDate>Thu, 22 Sep 2022 23:59:39 +0000</lastBuildDate>
     
-    <atom:link href="//localhost:1313/tags/reflection/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/reflection/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>My Principles</title>
-      <link>//localhost:1313/personal/principles/</link>
+      <link>http://localhost:1313/personal/principles/</link>
       <pubDate>Thu, 22 Sep 2022 23:59:39 +0000</pubDate>
-      
-      <guid>//localhost:1313/personal/principles/</guid>
+      <author>aldrinjenson@gmail.com (Aldrin Jenson)</author>
+      <guid>http://localhost:1313/personal/principles/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;If you are doing something, do it well, else don&amp;rsquo;t commit&lt;/li&gt;
 &lt;/ul&gt;
@@ -25,19 +27,19 @@
     
     <item>
       <title>Tech experiences</title>
-      <link>//localhost:1313/personal/tech-stuff/</link>
+      <link>http://localhost:1313/personal/tech-stuff/</link>
       <pubDate>Thu, 22 Sep 2022 23:57:30 +0000</pubDate>
-      
-      <guid>//localhost:1313/personal/tech-stuff/</guid>
+      <author>aldrinjenson@gmail.com (Aldrin Jenson)</author>
+      <guid>http://localhost:1313/personal/tech-stuff/</guid>
       <description></description>
     </item>
     
     <item>
       <title>This world is great and the people are kind</title>
-      <link>//localhost:1313/posts/world-is-nice/</link>
+      <link>http://localhost:1313/posts/world-is-nice/</link>
       <pubDate>Sat, 26 Mar 2022 19:09:07 +0530</pubDate>
-      
-      <guid>//localhost:1313/posts/world-is-nice/</guid>
+      <author>aldrinjenson@gmail.com (Aldrin Jenson)</author>
+      <guid>http://localhost:1313/posts/world-is-nice/</guid>
       <description>&lt;p&gt;I had an exam today. It was okay, but that&amp;rsquo;s not what this post is about. This post is about the world we live in. Not the physical one with houses, trees, buildings and college, but the one which is more subtle and often times a bit hard to identify, the one filled with people, friends, laughter, rainbows and dewdrops.&lt;/p&gt;
 &lt;p&gt;I want to say about some people whose actions have really had a deep impact in me, because I couldn&amp;rsquo;t fathom why these people do the stuff they do when they don&amp;rsquo;t get any benefit out of them.&lt;/p&gt;
 &lt;p&gt;I have a senior who took the time and effort to write a handwritten note for me about how he cherished the time together. I&amp;rsquo;ve had seniors text me things like how they missed me for gatherings. I&amp;rsquo;ve had a junior message me on days before exams when I was stressed, saying about how he the exams will be alright, because he has prayed for me.
@@ -53,10 +55,10 @@ But once I&amp;rsquo;ve been in the receiving side, I never felt any cringe at a
     
     <item>
       <title>My Linux Journey</title>
-      <link>//localhost:1313/posts/my-linux-journey/</link>
+      <link>http://localhost:1313/posts/my-linux-journey/</link>
       <pubDate>Sun, 30 Jan 2022 02:33:33 +0000</pubDate>
-      
-      <guid>//localhost:1313/posts/my-linux-journey/</guid>
+      <author>aldrinjenson@gmail.com (Aldrin Jenson)</author>
+      <guid>http://localhost:1313/posts/my-linux-journey/</guid>
       <description>&lt;p&gt;I use Arch Linux with i3 tiling window manager. I&amp;rsquo;ve been using the same laptop for the last 11 years. It&amp;rsquo;s been an eventful journey and was filled with a lot of learnings and grit.&lt;/p&gt;
 &lt;p&gt;If you&amp;rsquo;re someone who have used windows and then gradually switched to Linux by installing the distro yourself and fixing the issues yourself, you&amp;rsquo;ll be able to relate a lot better than someone who got everything done to them.&lt;/p&gt;
 &lt;h2 id=&#34;the-beginning&#34;&gt;The beginning&lt;/h2&gt;
@@ -69,7 +71,7 @@ But once I&amp;rsquo;ve been in the receiving side, I never felt any cringe at a
 &lt;p&gt;During this time, I tried to delete Ubuntu from my system because I felt like it was taking up valuable space and I didn&amp;rsquo;t want to have to press enter to select Windows from the dual-boot grub menu every time I wanted to use my computer. I was pretty comfortable with Windows and was familiar with system management (right-clicking on &amp;ldquo;My Computer&amp;rdquo; and selecting options). In the program, I saw that there were 70 gigs of space that were not being used by Windows. I thought this would be easy to fix, so I right-clicked on the partition and deleted it, then extended the Windows drive (C) to use the newly-created free space. Success! I thought, as I checked the properties of the C drive and saw that it had expanded.&lt;/p&gt;
 &lt;p&gt;But the next day, when I tried to turn on my computer, I was greeted with a terrible grub error message. I had no idea what to do, since I couldn&amp;rsquo;t log into Windows anymore because deleting Ubuntu had broken something. I was really confused, because I had been able to fix any issues I had with Windows in the past, but this wasn&amp;rsquo;t Windows. This black screen with white letters seemed like something only hackers or coders could fix, right&amp;hellip;? And that&amp;rsquo;s where I would have given up. I asked my dad to take my laptop to a shop to be repaired, but he didn&amp;rsquo;t think laptops were that important for kids and told me to fix it myself since I was the one who broke it in the first place.&lt;/p&gt;
 &lt;center&gt;
-  &lt;image src=&#34;//localhost:1313/images/linuxJourney/grubError.jpg&#34; alt=&#34;The grub boot error message&#34;&gt;&lt;/image&gt;
+  &lt;image src=&#34;http://localhost:1313/images/linuxJourney/grubError.jpg&#34; alt=&#34;The grub boot error message&#34;&gt;&lt;/image&gt;
 &lt;p class=&#39;caption&#39;&gt;The infamous Grub rescue error&lt;/p&gt;
 &lt;/center&gt;
 &lt;p&gt;Without my laptop, I was bored out of my mind, so I really wanted to fix it. We had an old Windows XP PC at home that was never used. I connected my dad&amp;rsquo;s phone to the PC, turned on USB tethering, and used that internet connection to search for solutions. After some searching, I found a way to fix it. Since I didn&amp;rsquo;t have a Windows 7 installation disk (since the laptop was a gift), I downloaded Hiren&amp;rsquo;s boot CD and, after 30 minutes of struggling, managed to get everything working again. Whew! I decided then and there that I would never use Ubuntu again.&lt;/p&gt;

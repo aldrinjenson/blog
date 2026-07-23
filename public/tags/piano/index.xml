@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Piano on Aldrin Jenson</title>
+    <link>/tags/piano/</link>
+    <description>Aldrin Jenson (Piano)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>aldrinjenson@gmail.com (Aldrin Jenson)</managingEditor>
+    <webMaster>aldrinjenson@gmail.com (Aldrin Jenson)</webMaster>
+    <lastBuildDate>Thu, 23 Jul 2026 02:00:00 -0400</lastBuildDate>
+    
+    <atom:link href="/tags/piano/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MIDI Piano Playground — teaching myself chords with a $64 keyboard and Claude Code</title>
+      <link>/projects/midi-piano-playground/</link>
+      <pubDate>Thu, 23 Jul 2026 02:00:00 -0400</pubDate>
+      <author>aldrinjenson@gmail.com (Aldrin Jenson)</author>
+      <guid>/projects/midi-piano-playground/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Code:&lt;/strong&gt; &lt;a href=&#34;https://github.com/aldrinjenson/midi-piano-playground&#34;&gt;github.com/aldrinjenson/midi-piano-playground&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I bought a used Casio CTK-2090 keyboard for $64 in early July, partly as a new hobby for the summer. I have decent relative pitch — if I can hum a melody, I can usually find it on the keys by ear. That part came almost for free from years of casual guitar. What I &lt;em&gt;can&amp;rsquo;t&lt;/em&gt; do is the left hand: which chords go under the melody, and when to switch. That gap is the whole reason this project exists.&lt;/p&gt;
+&lt;p&gt;Then a MIDI cable I&amp;rsquo;d ordered arrived, the Casio showed up on my Mac as a CoreMIDI device, and suddenly the piano problem looked like an engineering problem. Those I know how to work on.&lt;/p&gt;
+&lt;h2 id=&#34;step-1-just-see-the-notes&#34;&gt;Step 1: just see the notes&lt;/h2&gt;
+&lt;p&gt;First goal: capture what I play as data. macOS speaks CoreMIDI natively, so I went with small dependency-free Swift scripts you run directly with &lt;code&gt;swift file.swift&lt;/code&gt; — one to list MIDI devices, one to print Note ON/OFF events live, and one to record them with timestamps to a plain text file:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;12.43 ON  E5
+12.71 OFF E5
+12.72 ON  G5
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;One gotcha for anyone trying this: the modern &lt;code&gt;MIDIEventList.unsafeSequence()&lt;/code&gt; API wouldn&amp;rsquo;t compile on my machine&amp;rsquo;s Swift toolchain. The thing that works is the legacy &lt;code&gt;MIDIInputPortCreateWithBlock&lt;/code&gt; + walking the &lt;code&gt;MIDIPacketList&lt;/code&gt; manually. Old API, still solid.&lt;/p&gt;
+&lt;p&gt;(Fun hardware detail: the CTK-2090&amp;rsquo;s keys aren&amp;rsquo;t touch-sensitive — every note arrives at velocity 100. So dynamics can never come from this keyboard. Good to know before wondering why every recording sounds equally enthusiastic.)&lt;/p&gt;
+&lt;h2 id=&#34;step-2-what-key-am-i-even-playing-in&#34;&gt;Step 2: what key am I even playing in?&lt;/h2&gt;
+&lt;p&gt;For my first real recording I played a melody I&amp;rsquo;d learned by ear off the internet. The analysis showed all white keys with phrases resting on C — key of C major. And from the note pattern alone, the melody turned out to be &lt;em&gt;My Heart Will Go On&lt;/em&gt; from Titanic. I genuinely hadn&amp;rsquo;t set out to learn the Titanic song; my ear just went there.&lt;/p&gt;
+&lt;p&gt;The analyzer (&lt;code&gt;tools/analyze.py&lt;/code&gt;, plain Python, no dependencies) does two things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Key detection&lt;/strong&gt; with the classic &lt;strong&gt;Krumhansl-Schmuckler&lt;/strong&gt; algorithm: build a duration-weighted histogram of the twelve pitch classes, correlate it against the 24 Krumhansl-Kessler major/minor key profiles, highest Pearson correlation wins. It nailed C major on all my takes with r ≈ 0.82–0.88.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Chord suggestion&lt;/strong&gt;: chop the recording into fixed time windows, score each candidate chord by how well it covers the melody notes in the window (root weighted 1.5×, a bonus for the note you land on, and a small &amp;ldquo;pop prior&amp;rdquo; nudging it toward I/IV/V/vi), then run &lt;strong&gt;Viterbi smoothing&lt;/strong&gt; over the sequence with a chord-change penalty so it doesn&amp;rsquo;t flip-flop every window.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Reality check: on a recording of me actually playing chords, it recovered the C → G → F progression almost exactly. On sparse melodies it under-suggests the IV and vi chords — a C-heavy melody legitimately scores C everywhere, and even a human needs lyric and rhythm context to know where the Am belongs. So the output is a first draft of a chord chart, not gospel. That&amp;rsquo;s fine; a first draft was exactly what I needed.&lt;/p&gt;
+&lt;h2 id=&#34;step-3-the-practice-app&#34;&gt;Step 3: the practice app&lt;/h2&gt;
+&lt;p&gt;Knowing the chords and being able to &lt;em&gt;play them at the right moment&lt;/em&gt; are different skills. So the next piece was &lt;code&gt;titanic-practice.html&lt;/code&gt; — a single self-contained HTML page, no build step:&lt;/p&gt;
+&lt;img src=&#34;/images/midi-piano/practice-app.png&#34; width=700 alt=&#34;Two-track practice app — chord timeline, big current-chord display, lyrics with chords over the switch words&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;It plays back &lt;strong&gt;my own recorded melody&lt;/strong&gt; (cleaned up — two fumbles removed, timing smoothed) through WebAudio, while a big display shows &lt;em&gt;play this chord now&lt;/em&gt;, the upcoming chord, and the current lyric line.&lt;/li&gt;
+&lt;li&gt;A piano-roll canvas shows the melody notes over shaded chord regions with a moving playhead.&lt;/li&gt;
+&lt;li&gt;Speed slider (50–120%), a 4-beat count-in, and a &amp;ldquo;hear the chords&amp;rdquo; toggle as scaffolding you turn off as you improve.&lt;/li&gt;
+&lt;li&gt;The best part: &lt;strong&gt;live grading over Web MIDI&lt;/strong&gt;. Connect the keyboard in Chrome, and the chord name turns green when you&amp;rsquo;re holding the right triad (pitch-class match, so any octave counts). At the end you get a score card listing exactly which chord changes you missed, by lyric.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Later it grew a second track: my recorded &lt;em&gt;chord&lt;/em&gt; take as a play-along, so I can flip it — play melody over my own chords, or chords under my own melody.&lt;/p&gt;
+&lt;p&gt;One hosting gotcha: I first tried shipping this as a claude.ai artifact, but artifacts run in a sandboxed iframe that silently blocks Web MIDI — the permission prompt never appears. It has to be served locally (&lt;code&gt;python3 -m http.server&lt;/code&gt;) for the live feedback to work. There&amp;rsquo;s a &lt;code&gt;play.sh&lt;/code&gt; that starts the server and opens Chrome.&lt;/p&gt;
+&lt;p&gt;There&amp;rsquo;s also &lt;code&gt;studio.html&lt;/code&gt; — a browser-only record/analyze studio (the key-detection logic ported to JS) with a take-history panel in localStorage and a keyboard heat-map that shows &lt;em&gt;why&lt;/em&gt; it thinks the key is what it is:&lt;/p&gt;
+&lt;img src=&#34;/images/midi-piano/studio-analysis.png&#34; width=700 alt=&#34;MIDI Studio — key detection with keyboard heat-map and explanation&#34;&gt;
+&lt;img src=&#34;/images/midi-piano/studio-chords.png&#34; width=700 alt=&#34;Suggested chords with per-chord keyboard fingering diagrams&#34;&gt;
+&lt;h2 id=&#34;step-4-play-along-with-the-actual-song&#34;&gt;Step 4: play along with the actual song&lt;/h2&gt;
+&lt;p&gt;Practicing against my own wobbly recording only goes so far. The real song, though, is in &lt;strong&gt;E major&lt;/strong&gt;, and all my chord practice is in C. So: audio pipeline.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;yt-dlp&lt;/strong&gt; to download the official lyric video&amp;rsquo;s audio.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ffmpeg&lt;/strong&gt; to transpose E → C (down 4 semitones) while keeping tempo: &lt;code&gt;asetrate=SR*FACTOR,aresample=SR,atempo=1/FACTOR&lt;/code&gt; with FACTOR = 2^(−4/12) ≈ 0.7937. No rubberband needed. The vocals get a slightly &amp;ldquo;processed&amp;rdquo; timbre since formants shift too, but it&amp;rsquo;s completely playable-along-able.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Demucs&lt;/strong&gt; (Meta&amp;rsquo;s ML stem separation) to split the song into stems. The killer output: a mix of &lt;strong&gt;vocals + drums + bass + guitar with the harmonic bed removed&lt;/strong&gt; — a backing track where &lt;em&gt;I&lt;/em&gt; supply the chords, muxed back onto the lyric video.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The Demucs surprise: the 6-stem model&amp;rsquo;s &amp;ldquo;piano&amp;rdquo; stem came out &lt;strong&gt;silent&lt;/strong&gt; (−78 dB). This recording&amp;rsquo;s accompaniment is a synth pad + strings, which Demucs files under &amp;ldquo;other&amp;rdquo;, not &amp;ldquo;piano&amp;rdquo;. Lesson for pop ballads: don&amp;rsquo;t trust the piano stem — to remove the chordal bed, drop the whole &amp;ldquo;other&amp;rdquo; stem instead. (The other stem is also worth soloing just to study what the pro actually plays.)&lt;/p&gt;
+&lt;h2 id=&#34;what-i-actually-learned-about-music&#34;&gt;What I actually learned about music&lt;/h2&gt;
+&lt;p&gt;The tooling was the fun part, but the music learnings are the point:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The entire song needs only &lt;strong&gt;four left-hand shapes&lt;/strong&gt;: C (C·E·G), G (G·B·D), Am (A·C·E), F (F·A·C).&lt;/li&gt;
+&lt;li&gt;The verse is just a C → G → F → G loop, one chord per phrase. The Am only enters in the chorus (&amp;quot;&lt;strong&gt;I believe&lt;/strong&gt;…&amp;quot;) — my first guess put Am in the verse, and cross-checking two chord sites (both transpose to the same shapes in C) corrected that.&lt;/li&gt;
+&lt;li&gt;The rule of thumb that&amp;rsquo;s stuck with me: the chord should contain the melody note you land on, and you change chords on the first word of the phrase.&lt;/li&gt;
+&lt;li&gt;C → G → Am → F is the pop workhorse progression. Learning these four shapes in one song quietly unlocks hundreds of others.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;where-it-goes-next&#34;&gt;Where it goes next&lt;/h2&gt;
+&lt;p&gt;The workflow generalizes to any song: record the melody, let the analyzer name the key and draft a chord chart, verify against a chord site, swap the arrays in the practice app, serve locally, chase a perfect score card. The backlog has the ideas that excite me most — real-time auto-accompaniment (code plays the chords live while I play melody), timing-precision grading in milliseconds, and turning the practice app into a template where a song is just a JSON blob.&lt;/p&gt;
+&lt;p&gt;The meta-lesson: this is the first time a music habit of mine has crossed into the domain where I actually ship things. Classes and theory books haven&amp;rsquo;t stuck in the past. But a keyboard that emits data, plus Claude Code to build the scaffolding around it, turns practice into a feedback loop I want to come back to. We&amp;rsquo;ll see if that&amp;rsquo;s what finally makes it stick.&lt;/p&gt;
+&lt;p&gt;Code&amp;rsquo;s at &lt;a href=&#34;https://github.com/aldrinjenson/midi-piano-playground&#34;&gt;github.com/aldrinjenson/midi-piano-playground&lt;/a&gt;. Everything runs locally — Swift + CoreMIDI for recording, plain Python for analysis, single-file HTML for the apps. No accounts, no npm, no dependencies.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

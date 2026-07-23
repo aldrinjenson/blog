@@ -2,21 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Image-Generation on Aldrin Jenson</title>
-    <link>//localhost:1313/tags/image-generation/</link>
+    <link>http://localhost:1313/tags/image-generation/</link>
     <description>Aldrin Jenson (Image-Generation)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>aldrinjenson@gmail.com (Aldrin Jenson)</managingEditor>
+    <webMaster>aldrinjenson@gmail.com (Aldrin Jenson)</webMaster>
     <lastBuildDate>Sun, 23 Jul 2023 19:25:18 +0530</lastBuildDate>
     
-    <atom:link href="//localhost:1313/tags/image-generation/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/image-generation/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Custom Stable Diffusion; uncensored, but without NSFW 🙂 </title>
-      <link>//localhost:1313/projects/simple-stable-diffusion/</link>
+      <link>http://localhost:1313/projects/simple-stable-diffusion/</link>
       <pubDate>Sun, 23 Jul 2023 19:25:18 +0530</pubDate>
-      
-      <guid>//localhost:1313/projects/simple-stable-diffusion/</guid>
+      <author>aldrinjenson@gmail.com (Aldrin Jenson)</author>
+      <guid>http://localhost:1313/projects/simple-stable-diffusion/</guid>
       <description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://diffusion.mec.ac.in/&#34;&gt;http://diffusion.mec.ac.in/&lt;/a&gt;&lt;/li&gt;
