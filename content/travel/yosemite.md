@@ -16,7 +16,10 @@ There was one complication: **neither of us drives.**
 
 Almost every guide to Yosemite assumes you land at Fresno, pick up a rental car, and drive in. We couldn't do any of that. So the entire trip had to be built around a seasonal public bus, and that constraint shaped everything — which days we could do what, where we slept, and how much slack we had when something went wrong. It worked. But I had to figure it out from scratch, so most of the practical notes at the bottom of this post are the ones I wish I'd found before booking.
 
-<!-- TODO: hero image — El Capitan from the tunnel, or Glacier Point panorama -->
+<img src="/images/yosemite/el-capitan-sunset.jpg" width=700 alt="Yosemite Valley at sunset from El Capitan Meadow — El Capitan's sheer grey face rising on the left, Cathedral Rocks on the right, a band of orange-lit cloud between them over dry golden meadow grass">
+
+<!-- TODO: if you want the tunnel view or the Glacier Point panorama here instead, those
+     photos are in Takeout parts -3-023..-3-053, which have not been downloaded yet. -->
 
 ## Getting in without a car
 
@@ -42,7 +45,9 @@ In the afternoon we did the **2 PM tour of the Ahwahnee Hotel**, the grand old l
 
 Then we walked out to **El Capitan Meadow** in the late afternoon light, which is where the trip properly started for me. El Capitan itself we'd already seen on the way in — you come through a tunnel and it's suddenly just *there*, this sheer grey wall, and "looming" is the only word for it. From the meadow you get the whole face.
 
-<!-- TODO: image — El Capitan Meadow, late afternoon -->
+<img src="/images/yosemite/el-capitan-meadow-road.jpg" width=700 alt="A hiker with a backpack and cap standing at the roadside guardrail in El Capitan Meadow, the pale granite face of El Capitan towering directly above through the pines">
+
+<img src="/images/yosemite/valley-sunset-trees.jpg" width=700 alt="Cathedral Rocks silhouetted against a pale sunset sky at the western end of Yosemite Valley, dark pines in the foreground">
 
 **A note I didn't expect to be writing: there is no phone signal in the valley. None.** No data, nothing. I'd braced for this to be annoying and it turned out to be the best part of the week. Four days of not being reachable, in a job where I'm always reachable. Download your maps and your tickets before you go, tell people you'll be dark, and then enjoy it.
 
