@@ -2,7 +2,7 @@
 title: "Europe, part 3: Christmas in Italy — Rome, Florence, Venice"
 weight: 50
 date: 2026-07-23T02:20:00-04:00
-draft: true
+draft: false
 description: "A week in Italy over Christmas — Mass at St. Peter's with the Pope on Christmas morning, the Colosseum at night with ChatGPT as a tour guide, Michelangelo's David and the Vasari Corridor in Florence, and Venice's canals, Doge's Palace, and a Vivaldi concert. The best leg of the whole European trip."
 tags: ["travel", "italy", "rome", "florence", "venice", "europe", "history", "christmas"]
 categories: ["Travel"]
@@ -31,7 +31,7 @@ What impressed me most about Rome wasn't any single sight — it was the **age o
 <!-- No clean Colosseum frame in the archive (only selfies); the Pantheon used instead -->
 <img src="/images/italy/pantheon.jpg" width=700 alt="The Pantheon's portico from the piazza, M·AGRIPPA·L·F·COS·TERTIVM·FECIT across the pediment, a winter crowd filling the square">
 
-*The Colosseum, standing since ~80 AD. The marble skin was stripped over the centuries — what's left is the stone skeleton.*
+*The Pantheon — over 2,000 years old and still in use. (The Colosseum only made it into selfies.)*
 
 One evening at the Colosseum I did something that became my favourite travel hack of the trip: I stood in front of it and used **ChatGPT as a live tour guide**, going back and forth for a couple of hours — Roman history, gladiator psychology, why civilisations collapse, why the marble skin was stripped off the stone skeleton. A knowledgeable guide in your pocket, for free, at night, at your own pace. I can't recommend this enough at historical sites.
 
@@ -42,8 +42,7 @@ The rest of Rome: the **Spanish Steps**, the **Trevi Fountain** (we made our wis
 Florence got barely a day and a half and deserved a week. It felt more alive than Rome somehow — more families, more children, more of a lived-in city wrapped around Renaissance bones.
 
 - **David.** The real one, at the Accademia. Photos do not prepare you — it's the smoothness that gets you, marble that reads as skin. The same gallery has Michelangelo's *Prisoners*: unfinished figures half-emerged from their marble blocks, which show you exactly how a statue is "freed" from the stone. Seeing the unfinished ones next to the finished David is the best art lesson I've ever gotten in ten minutes.
-<!-- Only crowd/selfie frames of David in the archive; the Duomo at night used instead -->
-<img src="/images/italy/florence-duomo-night.jpg" width=700 alt="The marble façade of Florence Cathedral at night, green, white and pink stripes floodlit, with Giotto's campanile rising beside it">
+<img src="/images/italy/david.jpg" width=700 alt="Michelangelo's David under the skylit dome of the Tribune at the Galleria dell'Accademia, seen from below">
 
 *David at the Accademia. It's the smoothness that gets you — marble that reads as skin.*
 

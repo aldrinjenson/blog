@@ -2,7 +2,7 @@
 title: "Five days in Orlando: Disney, Universal, and EPCOT"
 weight: 60
 date: 2026-07-23T02:30:00-04:00
-draft: true
+draft: false
 description: "A five-day theme-park marathon in Orlando — Magic Kingdom by boat, fireworks over the castle, Hagrid's motorbike and Butterbeer at Universal, walking nine countries in an afternoon at EPCOT, and a solo hour watching dolphins at SeaWorld. Verdict: worth it, and get the express passes."
 tags: ["travel", "orlando", "florida", "disney", "universal", "theme-parks", "usa"]
 categories: ["Travel"]
@@ -28,8 +28,12 @@ Here's the best free tip I have: from the transportation hub, **take the boat to
 
 We did a full-day sweep: Space Mountain, Pirates of the Caribbean, the Haunted Mansion, Seven Dwarfs Mine Train (via Lightning Lane — buy it, the standby line is brutal), the Mad Tea Party, the Tiki Room, and It's a Small World, which is so gentle it nearly put me to sleep in the boat. The daytime parade is worth catching — though know that ride lines *drop* during the parade, so a savvy move is to split: one person holds the parade spot, everyone else rides.
 
-<!-- No fireworks frame in the archive; the castle lit at night used instead -->
-<img src="/images/orlando/castle-night.jpg" width=700 alt="Cinderella Castle at Magic Kingdom floodlit in blue and violet against the night sky, its turrets and clock tower glowing">
+<img src="/images/orlando/castle-fireworks.jpg" width=700 alt="A burst of gold and pink fireworks filling the night sky over Magic Kingdom, treetops and rooftops silhouetted below">
+
+<video controls preload="metadata" width=700 style="max-width:100%;height:auto;" aria-label="Fireworks over Cinderella Castle at Magic Kingdom, filmed from the crowd">
+  <source src="/images/orlando/castle-fireworks.mp4" type="video/mp4">
+  Your browser doesn't support embedded video. <a href="/images/orlando/castle-fireworks.mp4">Download the clip</a>.
+</video>
 
 *The 10 PM fireworks over the castle. Everyone tells you to stay for this, and everyone is right.*
 
@@ -41,10 +45,9 @@ Universal was the high point of the trip. The rides are simply better if you're 
 
 Express passes were sold out that morning, which led to the discovery that there are… creative ways to get them anyway (the on-site credit-card signup perk — and even those ran out one person after us). However you get them: **get them**. Lines are the real enemy at these parks, and $100 to erase them is the best money you'll spend.
 
-<!-- No clean Hogwarts Castle frame in the archive; the Hogwarts Express at Hogsmeade used instead -->
-<img src="/images/orlando/hogwarts-express.jpg" width=700 alt="The red Hogwarts Express steam engine at Hogsmeade station in the Wizarding World of Harry Potter, snow-capped village rooftops behind it under a bright Florida sky">
+<img src="/images/orlando/hagrids-ride.jpg" width=700 alt="A coaster train on Hagrid's Magical Creatures Motorbike Adventure threading past the ruined castle arches at Islands of Adventure, under a blue sky with big clouds">
 
-*Hogwarts at Islands of Adventure — the detail in the Wizarding World is absurd.*
+*Hagrid's Magical Creatures Motorbike Adventure — the best ride in Orlando, threading the castle ruins.*
 
 And then there's the **Butterbeer** at the Wizarding World. I don't even have a Harry Potter attachment and it was the single thing I liked best all day. Harry Potter world in general is Universal's crown jewel — the detail is absurd.
 

@@ -2,7 +2,7 @@
 title: "Europe, part 2: Barcelona"
 weight: 40
 date: 2026-07-23T02:10:00-04:00
-draft: true
+draft: false
 description: "Three days in Barcelona — Gaudí's architectural theology at the Sagrada Família, Park Güell and the Gothic Quarter, discovering Catalan identity, getting scammed over a croissant at 1:30 AM, and an honest verdict on a city I expected to love more than I did."
 tags: ["travel", "barcelona", "spain", "europe", "architecture", "gaudi"]
 categories: ["Travel"]
@@ -34,8 +34,12 @@ I also took the hop-on-hop-off bus tour about three times, which I maintain is a
 
 Toward the end, Dan flew in from New York — landing at 5 AM, and I went to the airport to meet her at arrivals holding a sign, which I recommend as a practice regardless of who you're picking up. With one shared day in the city, we did the greatest-hits loop: the Montjuïc cable car, the bus tour, the beach, and a proper paella.
 
-<!-- No Montjuïc frame in the archive; the cathedral at Christmas used instead -->
-<img src="/images/barcelona/cathedral-christmas.jpg" width=700 alt="Barcelona Cathedral at dusk in December, its Gothic spires catching the last light above a lit Christmas tree and a crowd in the square">
+<img src="/images/barcelona/montjuic-cable-car.jpg" width=700 alt="Looking out of a Montjuïc cable-car cabin at the cabins ahead climbing over the wooded hillside toward the castle">
+
+<video controls preload="metadata" width=700 style="max-width:100%;height:auto;" aria-label="Video from inside the Montjuïc cable car, the port and city sliding past below">
+  <source src="/images/barcelona/montjuic-cable-car.mp4" type="video/mp4">
+  Your browser doesn't support embedded video. <a href="/images/barcelona/montjuic-cable-car.mp4">Download the clip</a>.
+</video>
 
 *The view from the Montjuïc cable car — the best cheap thrill in Barcelona.*
 

@@ -2,7 +2,7 @@
 title: "Europe, part 1: Berlin in December"
 weight: 30
 date: 2026-07-23T02:00:00-04:00
-draft: true
+draft: false
 description: "Eight days in Berlin in December — half work trip, half slow discovery of a city that refuses to erase its own memory. Co-working until 9 PM, Christmas markets, the DDR Museum and the Holocaust Memorial, the East Side Gallery, and what German work culture taught me about actually logging off."
 tags: ["travel", "berlin", "germany", "europe", "history", "work-culture"]
 categories: ["Travel"]
