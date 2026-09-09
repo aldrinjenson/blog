@@ -12,8 +12,8 @@ categories: ["Travel"]
 
 Last December I finally made it to Europe. The trip ended up spanning three countries — Germany, Spain, and Italy — and I'm writing it up in three parts. This is part one: Berlin, which was the strangest leg of the three, because it wasn't really a vacation at all.
 
-<!-- TODO photo: add to blog/static/images/berlin/ -->
-<img src="/images/berlin/east-side-gallery.jpg" width=700 alt="The 'Fraternal Kiss' mural of two presidents kissing on the East Side Gallery stretch of the Berlin Wall">
+<!-- No East Side Gallery frame in the photo archive (Sep 2026 Takeout); Brandenburg Gate used instead -->
+<img src="/images/berlin/brandenburg-gate.jpg" width=700 alt="The Brandenburg Gate on a clear December afternoon, its six Doric columns and the Quadriga against a blue sky, a few people crossing the cobbled Pariser Platz">
 
 *The East Side Gallery — the longest surviving stretch of the Berlin Wall, now an open-air art gallery.*
 
@@ -40,15 +40,14 @@ Once the work thinned out, I got to the part of Berlin that actually moved me. B
 
 We stayed in **Friedrichshain**, which felt like "the Lower East Side of East Berlin" — the RAW-Gelände complex nearby is a reused industrial site full of clubs and street art, very much post-wall youth-rebellion energy.
 
-<!-- TODO photo -->
-<img src="/images/berlin/holocaust-memorial.jpg" width=700 alt="The field of grey concrete stelae at the Memorial to the Murdered Jews of Europe in central Berlin">
+<!-- No stelae frame in the archive; the surviving Wall segment at the Topography of Terror used instead -->
+<img src="/images/berlin/berlin-wall-topography.jpg" width=700 alt="A surviving stretch of the Berlin Wall along Niederkirchnerstraße at the Topography of Terror, weathered concrete behind a low fence with the outdoor exhibition panels beside it">
 
-*The Holocaust Memorial — 2,711 concrete slabs in the middle of the capital. Berlin confronts its history on purpose.*
+*The Wall at the Topography of Terror — the Gestapo and SS headquarters site, kept as an open exhibition. Berlin confronts its history on purpose.*
 
 December also means **Christmas markets**. Gendarmenmarkt and the one by the Kaiser Wilhelm Memorial Church were the highlights — Glühwein stands, wooden stalls, that whole atmosphere. And I made it to Mass at Sankt Hedwig's Cathedral, which ran in German and English — there's something grounding about finding the same liturgy in a foreign language.
 
-<!-- TODO photo -->
-<img src="/images/berlin/christmas-market.jpg" width=700 alt="Wooden stalls and lights at a Berlin Christmas market at Gendarmenmarkt in December">
+<img src="/images/berlin/christmas-market.jpg" width=700 alt="Wooden stalls strung with lights at the Christmas market on Breitscheidplatz, next to the Kaiser Wilhelm Memorial Church, in the December afternoon">
 
 *Gendarmenmarkt Christmas market — December in Berlin is dark by 4 PM, but the markets make up for it.*
 

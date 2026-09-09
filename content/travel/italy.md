@@ -14,8 +14,7 @@ After [Berlin]({{< ref "berlin.md" >}}) and [Barcelona]({{< ref "barcelona.md" >
 
 ## Rome (Dec 24–27)
 
-<!-- TODO photo: add to blog/static/images/italy/ -->
-<img src="/images/italy/st-peters-christmas.jpg" width=700 alt="St. Peter's Square in Vatican City on Christmas morning, crowds gathered for the papal Mass">
+<img src="/images/italy/st-peters-christmas.jpg" width=700 alt="The façade of St. Peter's Basilica on Christmas morning, the papal balcony hung with red, a crowd under umbrellas in the square and the big screens showing the Mass">
 
 *Christmas morning at St. Peter's Square — the Pope celebrated the Mass.*
 
@@ -29,8 +28,8 @@ We also did **St. Peter's Basilica properly** — including climbing the dome, w
 
 What impressed me most about Rome wasn't any single sight — it was the **age of things that are still just… there**. The Colosseum has stood since around 80 AD. The Pantheon is over 2,000 years old, with marble brought from Egypt, and you can walk in for free and see Raphael's tomb (which delighted the Dan Brown reader in me — *Angels and Demons* fans will understand). Every carving is done to a level of detail that made me reflect on focus itself: the people who made these had an intensity of attention that we, with our phones, mostly don't.
 
-<!-- TODO photo -->
-<img src="/images/italy/colosseum.jpg" width=700 alt="The Colosseum in Rome lit up at night">
+<!-- No clean Colosseum frame in the archive (only selfies); the Pantheon used instead -->
+<img src="/images/italy/pantheon.jpg" width=700 alt="The Pantheon's portico from the piazza, M·AGRIPPA·L·F·COS·TERTIVM·FECIT across the pediment, a winter crowd filling the square">
 
 *The Colosseum, standing since ~80 AD. The marble skin was stripped over the centuries — what's left is the stone skeleton.*
 
@@ -43,8 +42,8 @@ The rest of Rome: the **Spanish Steps**, the **Trevi Fountain** (we made our wis
 Florence got barely a day and a half and deserved a week. It felt more alive than Rome somehow — more families, more children, more of a lived-in city wrapped around Renaissance bones.
 
 - **David.** The real one, at the Accademia. Photos do not prepare you — it's the smoothness that gets you, marble that reads as skin. The same gallery has Michelangelo's *Prisoners*: unfinished figures half-emerged from their marble blocks, which show you exactly how a statue is "freed" from the stone. Seeing the unfinished ones next to the finished David is the best art lesson I've ever gotten in ten minutes.
-<!-- TODO photo -->
-<img src="/images/italy/david.jpg" width=700 alt="Michelangelo's David at the Galleria dell'Accademia in Florence">
+<!-- Only crowd/selfie frames of David in the archive; the Duomo at night used instead -->
+<img src="/images/italy/florence-duomo-night.jpg" width=700 alt="The marble façade of Florence Cathedral at night, green, white and pink stripes floodlit, with Giotto's campanile rising beside it">
 
 *David at the Accademia. It's the smoothness that gets you — marble that reads as skin.*
 
@@ -58,8 +57,7 @@ Left for next time: the interactive Leonardo da Vinci museum. Florence is firmly
 
 The arrival alone is worth it: the train crosses the lagoon and you step out of the station directly onto a canal. No cars, no roads — your bus is a boat. We took the **Vaporetto** (the public water bus) four stops to the hotel and I never stopped finding it charming, even after we missed our stop once because the thing moves faster than you expect.
 
-<!-- TODO photo -->
-<img src="/images/italy/venice-canal.jpg" width=700 alt="A Venetian canal with gondolas and a vaporetto, seen from a bridge">
+<img src="/images/italy/venice-canal.jpg" width=700 alt="A narrow Venetian canal at night, moored gondolas under a lit bridge and the glow of a canal-side restaurant on the water">
 
 *Venice — no cars, no roads. Your bus is a boat.*
 

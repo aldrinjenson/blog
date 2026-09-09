@@ -18,8 +18,7 @@ Orlando is strange as a *city*. The whole place feels engineered as an amusement
 
 Arrival day was the warm-up: a walk around **Disney Springs** (free, and a good way to get Disney atmosphere without a $150 ticket), then **iFLY indoor skydiving** — you float on a column of air in an orange jumpsuit, and it's shorter than you expect but genuinely fun — and the **ICON Park Ferris wheel** at sunset, which does two full loops. By then the 2.5 hours of sleep caught up with me and I nearly dozed off mid-loop.
 
-<!-- TODO photo: add to blog/static/images/orlando/ -->
-<img src="/images/orlando/icon-park-wheel.jpg" width=700 alt="The ICON Park observation wheel in Orlando lit up at sunset">
+<img src="/images/orlando/icon-park-wheel.jpg" width=700 alt="The ICON Park observation wheel in Orlando against a blue sky with scattered clouds, the entrance plaza below">
 
 *The ICON Park wheel at sunset on arrival day — two full loops, one very sleepy passenger.*
 
@@ -29,8 +28,8 @@ Here's the best free tip I have: from the transportation hub, **take the boat to
 
 We did a full-day sweep: Space Mountain, Pirates of the Caribbean, the Haunted Mansion, Seven Dwarfs Mine Train (via Lightning Lane — buy it, the standby line is brutal), the Mad Tea Party, the Tiki Room, and It's a Small World, which is so gentle it nearly put me to sleep in the boat. The daytime parade is worth catching — though know that ride lines *drop* during the parade, so a savvy move is to split: one person holds the parade spot, everyone else rides.
 
-<!-- TODO photo -->
-<img src="/images/orlando/castle-fireworks.jpg" width=700 alt="Fireworks exploding over Cinderella Castle at Magic Kingdom at night">
+<!-- No fireworks frame in the archive; the castle lit at night used instead -->
+<img src="/images/orlando/castle-night.jpg" width=700 alt="Cinderella Castle at Magic Kingdom floodlit in blue and violet against the night sky, its turrets and clock tower glowing">
 
 *The 10 PM fireworks over the castle. Everyone tells you to stay for this, and everyone is right.*
 
@@ -42,8 +41,8 @@ Universal was the high point of the trip. The rides are simply better if you're 
 
 Express passes were sold out that morning, which led to the discovery that there are… creative ways to get them anyway (the on-site credit-card signup perk — and even those ran out one person after us). However you get them: **get them**. Lines are the real enemy at these parks, and $100 to erase them is the best money you'll spend.
 
-<!-- TODO photo -->
-<img src="/images/orlando/hogwarts.jpg" width=700 alt="Hogwarts Castle at Universal's Islands of Adventure, with the Wizarding World of Harry Potter below">
+<!-- No clean Hogwarts Castle frame in the archive; the Hogwarts Express at Hogsmeade used instead -->
+<img src="/images/orlando/hogwarts-express.jpg" width=700 alt="The red Hogwarts Express steam engine at Hogsmeade station in the Wizarding World of Harry Potter, snow-capped village rooftops behind it under a bright Florida sky">
 
 *Hogwarts at Islands of Adventure — the detail in the Wizarding World is absurd.*
 
@@ -55,8 +54,7 @@ One regret: I sat out the **VelociCoaster** (it was closed for weather, then reo
 
 EPCOT — *Experimental Prototype Community of Tomorrow* — was the chill closer, and it's the most "adult" of the parks. The **World Showcase** is a ring of country pavilions around a lagoon, and in one afternoon we walked France, Norway, Germany, the UK, Morocco, China, Japan, Mexico, and Canada — each with its own architecture and (crucially) its own food. It's the best eating in Disney.
 
-<!-- TODO photo -->
-<img src="/images/orlando/epcot-showcase.jpg" width=700 alt="Spaceship Earth and the World Showcase lagoon at EPCOT">
+<img src="/images/orlando/epcot-spaceship-earth.jpg" width=700 alt="Spaceship Earth, EPCOT's geodesic sphere, seen from below with flags on tall poles against a blue sky">
 
 *EPCOT's World Showcase — nine countries in an afternoon, and the best food in Disney.*
 

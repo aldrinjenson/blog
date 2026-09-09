@@ -16,7 +16,6 @@ After the [work-heavy Berlin leg]({{< ref "berlin.md" >}}), I flew to Barcelona 
 
 I had a couple of days on my own and spent them doing the full architecture circuit, and Barcelona's architecture really is the show:
 
-<!-- TODO photo: add to blog/static/images/barcelona/ -->
 <img src="/images/barcelona/sagrada-familia.jpg" width=700 alt="The interior of the Sagrada Família in Barcelona, tree-like columns and stained glass flooding the nave with coloured light">
 
 *Inside the Sagrada Família — Gaudí designed the light itself. The one thing in Barcelona that exceeded the hype.*
@@ -26,17 +25,17 @@ I had a couple of days on my own and spent them doing the full architecture circ
 - **The Gothic Quarter and El Born** — medieval lanes that suddenly open into cathedral squares. This is the best aimless-walking territory in the city.
 - **The Picasso Museum** and **Montjuïc** — the museum for the early work (you watch him learn to paint like an old master before he unlearns it), and Montjuïc for the views. I saved the cable car for later and it was a good call — it's the best cheap thrill in Barcelona.
 
-<!-- TODO photo -->
-<img src="/images/barcelona/park-guell.jpg" width=700 alt="The mosaic terraces of Park Güell overlooking Barcelona, with the city and sea in the background">
+<!-- No Park Güell frame in the archive; the Casa Milà rooftop used instead -->
+<img src="/images/barcelona/casa-mila-rooftop.jpg" width=700 alt="The undulating rooftop of Casa Milà, Gaudí's stone chimneys framing a view over the terracotta rooftops of the Eixample toward the Sagrada Família">
 
-*Park Güell — Gaudí's mosaic terraces above the city.*
+*The roof of Casa Milà — Gaudí's chimneys above the Eixample.*
 
 I also took the hop-on-hop-off bus tour about three times, which I maintain is an underrated way to learn a city's geography fast.
 
 Toward the end, Dan flew in from New York — landing at 5 AM, and I went to the airport to meet her at arrivals holding a sign, which I recommend as a practice regardless of who you're picking up. With one shared day in the city, we did the greatest-hits loop: the Montjuïc cable car, the bus tour, the beach, and a proper paella.
 
-<!-- TODO photo -->
-<img src="/images/barcelona/montjuic-view.jpg" width=700 alt="View over Barcelona and the harbour from the Montjuïc cable car">
+<!-- No Montjuïc frame in the archive; the cathedral at Christmas used instead -->
+<img src="/images/barcelona/cathedral-christmas.jpg" width=700 alt="Barcelona Cathedral at dusk in December, its Gothic spires catching the last light above a lit Christmas tree and a crowd in the square">
 
 *The view from the Montjuïc cable car — the best cheap thrill in Barcelona.*
 
