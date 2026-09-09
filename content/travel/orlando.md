@@ -20,7 +20,7 @@ Arrival day was the warm-up: a walk around **Disney Springs** (free, and a good 
 
 <img src="/images/orlando/icon-park-wheel.jpg" width=700 alt="The ICON Park observation wheel in Orlando against a blue sky with scattered clouds, the entrance plaza below">
 
-*The ICON Park wheel at sunset on arrival day — two full loops, one very sleepy passenger.*
+*The ICON Park wheel on arrival day — two full loops, one very sleepy passenger.*
 
 ## Magic Kingdom: take the boat
 
@@ -57,7 +57,7 @@ One regret: I sat out the **VelociCoaster** (it was closed for weather, then reo
 
 EPCOT — *Experimental Prototype Community of Tomorrow* — was the chill closer, and it's the most "adult" of the parks. The **World Showcase** is a ring of country pavilions around a lagoon, and in one afternoon we walked France, Norway, Germany, the UK, Morocco, China, Japan, Mexico, and Canada — each with its own architecture and (crucially) its own food. It's the best eating in Disney.
 
-<img src="/images/orlando/epcot-spaceship-earth.jpg" width=700 alt="Spaceship Earth, EPCOT's geodesic sphere, seen from below with flags on tall poles against a blue sky">
+<img src="/images/orlando/epcot-world-showcase.jpg" width=700 alt="The Japan pavilion's red torii gate at the edge of the World Showcase lagoon at EPCOT, at dusk, with people along the waterfront">
 
 *EPCOT's World Showcase — nine countries in an afternoon, and the best food in Disney.*
 

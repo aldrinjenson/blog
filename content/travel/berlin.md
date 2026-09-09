@@ -15,7 +15,7 @@ Last December I finally made it to Europe. The trip ended up spanning three coun
 <!-- No East Side Gallery frame in the photo archive (Sep 2026 Takeout); Brandenburg Gate used instead -->
 <img src="/images/berlin/brandenburg-gate.jpg" width=700 alt="The Brandenburg Gate on a clear December afternoon, its six Doric columns and the Quadriga against a blue sky, a few people crossing the cobbled Pariser Platz">
 
-*The East Side Gallery — the longest surviving stretch of the Berlin Wall, now an open-air art gallery.*
+*The Brandenburg Gate on a clear December afternoon. (The East Side Gallery didn't make it into my camera roll.)*
 
 ## The work-trip reality
 
@@ -49,7 +49,7 @@ December also means **Christmas markets**. Gendarmenmarkt and the one by the Kai
 
 <img src="/images/berlin/christmas-market.jpg" width=700 alt="Wooden stalls strung with lights at the Christmas market on Breitscheidplatz, next to the Kaiser Wilhelm Memorial Church, in the December afternoon">
 
-*Gendarmenmarkt Christmas market — December in Berlin is dark by 4 PM, but the markets make up for it.*
+*The Christmas market at Breitscheidplatz, beside the Kaiser Wilhelm Memorial Church — December in Berlin is dark by 4 PM, but the markets make up for it.*
 
 One of the best evenings had nothing to do with sights: I stayed a night with an old friend who now lives in Berlin, at his girlfriend's cozy apartment, and we talked for hours. Old friends in new cities are one of travel's best features.
 
