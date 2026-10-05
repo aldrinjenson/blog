@@ -117,14 +117,14 @@ I wanted somewhere to glance at what was captured, so there's a tiny local web a
 
 ## Build your own
 
-You need a Mac (Apple Silicon is ideal for Whisper), a Limitless Pendant, and about 30 minutes.
+**All the code is on GitHub: [aldrinjenson/pendant-sync](https://github.com/aldrinjenson/pendant-sync).** You need a Mac (Apple Silicon is ideal for Whisper), a Limitless Pendant, and about 30 minutes.
 
 ```bash
 # 1. Tools
 brew install whisper-cpp ffmpeg opus
 
-# 2. Folder + pendant-cli
-mkdir -p ~/pendant-sync && cd ~/pendant-sync
+# 2. This repo + pendant-cli inside it
+git clone https://github.com/aldrinjenson/pendant-sync.git ~/pendant-sync && cd ~/pendant-sync
 git clone https://github.com/MAkcanca/pendant-cli.git
 python3 -m venv .venv
 ./.venv/bin/pip install -e "./pendant-cli[dev,opus]"
@@ -138,7 +138,7 @@ mkdir -p models && curl -L -o models/ggml-large-v3-turbo.bin \
 ./.venv/bin/pendant scan                 # prints the address
 ./.venv/bin/pendant info <address>       # first secure request = macOS pairs it
 
-# 5. Save the three files below into ~/pendant-sync, set ADDRESS in pendant_sync.py, then:
+# 5. Set ADDRESS at the top of pendant_sync.py, then:
 ./.venv/bin/python pendant_sync.py       # sync + transcribe
 ./.venv/bin/python ui.py                 # open http://localhost:8766
 ```
